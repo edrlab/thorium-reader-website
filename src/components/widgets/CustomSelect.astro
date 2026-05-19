@@ -106,11 +106,32 @@ const listId = `cs-list-${uid}`;
       if (returnFocus) btn.focus();
     }
 
-    function onScrollResize() {
-      if (!list.hidden) place();
+    let rafId = 0;
+
+    function onScroll() {
+      if (list.hidden) return;
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(place);
     }
-    window.addEventListener("scroll", onScrollResize, { passive: true, capture: true });
-    window.addEventListener("resize", onScrollResize, { passive: true });
+
+    function onResize() {
+      if (list.hidden) return;
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        const btn_r = btn.getBoundingClientRect();
+        list.style.visibility = "hidden";
+        list.style.width = "max-content";
+        const naturalW = list.offsetWidth;
+        listW = Math.max(btn_r.width, Math.min(naturalW, Math.max(btn_r.width, 400)));
+        list.style.width = `${listW}px`;
+        listH = list.offsetHeight;
+        list.style.visibility = "";
+        place();
+      });
+    }
+
+    window.addEventListener("scroll", onScroll,  { passive: true, capture: true });
+    window.addEventListener("resize", onResize,  { passive: true });
 
     function focusOpt(opt: HTMLElement) {
       opts.forEach(o => o.setAttribute("tabindex", "-1"));
