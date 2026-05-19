@@ -222,26 +222,29 @@ const copiedText      = t(lang, "badge.output.copied");
   }
 
   function update() {
-    const selectedLang = form.querySelector("[name=lang]").value;
-    const title     = form.querySelector("[name=title]").value.trim();
-    const icon      = form.querySelector("[name=icon]").value.trim();
-    const color     = form.querySelector("[name=color]").value.trim();
-    const browse    = form.querySelector("[name=browse]").value.trim();
-    const bookshelf = form.querySelector("[name=bookshelf]").value.trim();
-    const openIn    = form.querySelector("[name=openIn]").value;
+    const selectedLang    = form.querySelector("[name=lang]").value;
+    const title           = form.querySelector("[name=title]").value.trim();
+    const browseInput     = form.querySelector("[name=browse]");
+    const bookshelfInput  = form.querySelector("[name=bookshelf]");
+    const iconInput       = form.querySelector("[name=icon]");
+    const color           = form.querySelector("[name=color]").value.trim();
+    const openIn          = form.querySelector("[name=openIn]").value;
+
+    const browseValid    = browseInput.value.trim()    && browseInput.validity.valid;
+    const bookshelfValid = bookshelfInput.value.trim() && bookshelfInput.validity.valid;
+    const icon           = iconInput.value.trim() && iconInput.validity.valid ? iconInput.value.trim() : "";
+    const hasUrl         = browseValid || bookshelfValid;
 
     const { line1, line2, alt } = badgeTexts[selectedLang] ?? Object.values(badgeTexts)[0];
     const svgTitle = title ? alt.replace("{{name}}", title) : `${line1} ${line2}`;
 
-    // Build the deep link — at least one URL required
     const params = new URLSearchParams();
-    if (title)     params.set("title",     title);
-    if (icon)      params.set("icon",      icon);
-    if (color)     params.set("color",     color);
-    if (browse)    params.set("browse",    browse);
-    if (bookshelf) params.set("bookshelf", bookshelf);
-    if (openIn)    params.set("openIn",    openIn);
-    const hasUrl   = browse || bookshelf;
+    if (title)          params.set("title",     title);
+    if (icon)           params.set("icon",      icon);
+    if (color)          params.set("color",     color);
+    if (browseValid)    params.set("browse",    browseInput.value.trim());
+    if (bookshelfValid) params.set("bookshelf", bookshelfInput.value.trim());
+    if (openIn)         params.set("openIn",    openIn);
     const deepLink = (title && hasUrl) ? addCatalogScheme + params.toString() : null;
 
     const svg = makeSVG({ line1, line2, icon, title: svgTitle });
