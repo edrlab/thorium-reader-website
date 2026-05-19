@@ -20,7 +20,7 @@ const lang = Astro.currentLocale;
     title={ t(lang, "install.intro.title") }
     body={ t(lang, "install.intro.subtitle") }
   >
-    <DownloadButton slot="actions" href={`/${ lang }/download`} />
+    <DownloadButton slot="actions" href={`${ import.meta.env.BASE_URL }${ lang }/download`} />
   </IntroSection>
 
   <StepsSection

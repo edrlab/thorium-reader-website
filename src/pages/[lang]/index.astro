@@ -28,7 +28,7 @@ const lang = Astro.currentLocale;
     clipImage
   >
     <div slot="actions" class="hero-actions">
-      <DownloadButton icon href={`/${ lang }/download`} />
+      <DownloadButton icon href={`${ import.meta.env.BASE_URL }${ lang }/download`} />
       <DiscordButton href={ discordHref } />
     </div>
   </Hero>
@@ -38,7 +38,7 @@ const lang = Astro.currentLocale;
     body={ t(lang, "home.features.customize.body") }
     illustration={{ src: getImage(lang, "thorium-illustration-01.webp"), alt: t(lang, "home.alts.thorium-illustration-01") }}
   >
-    <DownloadButton slot="actions" variant="accent" href={`/${ lang }/download`} label={ t(lang, "button.downloadApp") } />
+    <DownloadButton slot="actions" variant="accent" href={`${ import.meta.env.BASE_URL }${ lang }/download`} label={ t(lang, "button.downloadApp") } />
     <figure>
       <Image src={ getImage(lang, "thorium-reader-screens.webp") } alt={ t(lang, "home.alts.thorium-reader-screens") } />
     </figure>
@@ -53,7 +53,7 @@ const lang = Astro.currentLocale;
     <div slot="blob" class="feature-blob" aria-hidden="true">
       <Fragment set:html={ rawShape2 } />
     </div>
-    <DownloadButton slot="actions" variant="accent" href={`/${ lang }/download`} label={ t(lang, "button.downloadApp") } />
+    <DownloadButton slot="actions" variant="accent" href={`${ import.meta.env.BASE_URL }${ lang }/download`} label={ t(lang, "button.downloadApp") } />
     <figure role="none">
       <Image src={ getImage(lang, "thorium-desktop.webp") } alt={ t(lang, "home.alts.thorium-desktop") } />
     </figure>
@@ -64,7 +64,7 @@ const lang = Astro.currentLocale;
     body={ t(lang, "home.cta.section.subtitle") }
     illustration={{ src: getImage(lang, "thorium-illustration-03.webp"), alt: "" }}
   >
-    <DownloadButton slot="actions" icon href={`/${ lang }/download`} label={ t(lang, "button.downloadApp") } />
+    <DownloadButton slot="actions" icon href={`${ import.meta.env.BASE_URL }${ lang }/download`} label={ t(lang, "button.downloadApp") } />
     <Image slot="media" src={ getImage(lang, "thorium-reader-desktop-mobile.webp") } alt={ t(lang, "home.alts.thorium-reader-desktop-mobile") } />
   </CTASection>
 
