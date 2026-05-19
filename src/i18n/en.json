@@ -147,5 +147,75 @@
         "steps": []
       }
     }
+  },
+  "badge": {
+    "hero": {
+      "title": "Badge Generator",
+      "subtitle": "Create an \"Add to Thorium Reader\" badge for your catalog page."
+    },
+    "form": {
+      "legend": "Catalog information",
+      "title": {
+        "label": "Catalog title",
+        "placeholder": "My Ebook Catalog",
+        "hint": "The name of your catalog as it appears in Thorium Reader."
+      },
+      "icon": {
+        "label": "Icon URL",
+        "placeholder": "https://example.com/icon.png",
+        "hint": "Optional. A square image (PNG or SVG) representing your catalog."
+      },
+      "color": {
+        "label": "Accent color",
+        "hint": "Optional. An accent color for your catalog.",
+        "default": "Default",
+        "gray": "Gray",
+        "red": "Red",
+        "yellow": "Yellow",
+        "blue": "Blue",
+        "green": "Green",
+        "purple": "Purple",
+        "orange": "Orange"
+      },
+      "urls": {
+        "legend": "Catalog URLs"
+      },
+      "browse": {
+        "label": "Browse URL",
+        "placeholder": "https://example.com/opds",
+        "hint": "An OPDS or web URL to browse the catalog. At least one catalog URL is required."
+      },
+      "bookshelf": {
+        "label": "Bookshelf URL",
+        "placeholder": "https://example.com/shelf",
+        "hint": "An OPDS or web URL to access the user's bookshelf. At least one catalog URL is required."
+      },
+      "openIn": {
+        "label": "Open in",
+        "default": "Default",
+        "webview": "In-app browser",
+        "browser": "External browser",
+        "hint": "Optional. Preferred way to open catalog URLs."
+      },
+      "lang": {
+        "label": "Badge language",
+        "en": "English",
+        "fr": "French"
+      },
+      "button": "Add to Thorium Reader",
+      "buttonLine1": "Add to",
+      "buttonLine2": "Thorium Reader",
+      "alt": "Add {{name}} to Thorium Reader"
+    },
+    "preview": {
+      "title": "Preview",
+      "hint": "This is how your badge will appear."
+    },
+    "output": {
+      "title": "Embed code",
+      "hint": "Copy and paste this snippet into your catalog page.",
+      "copy": "Copy to clipboard",
+      "copied": "Copied!"
+    }
   }
 }
