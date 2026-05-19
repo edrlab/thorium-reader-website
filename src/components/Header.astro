@@ -2,7 +2,7 @@
 import LanguagePicker from "./widgets/LanguagePicker.astro";
 import ThoriumReaderLogo from "./logos/ThoriumReaderLogo.astro";
 import { t } from "../i18n/utils.js";
-import { blogHref, supportBaseHref } from "../config.js";
+import { blogHref, supportHref } from "../config.js";
 
 const lang = Astro.currentLocale;
 ---
@@ -13,7 +13,7 @@ const lang = Astro.currentLocale;
   </a>
 
   <nav class="site-nav" aria-label="Main">
-    <a href={`${supportBaseHref}/${lang}`}>{ t(lang, "nav.support") }</a>
+    <a href={ supportHref(lang) }>{ t(lang, "nav.support") }</a>
     <a href={ blogHref }>{ t(lang, "nav.blog") }</a>
     <LanguagePicker />
   </nav>
@@ -36,7 +36,7 @@ const lang = Astro.currentLocale;
 </header>
 
 <nav class="mobile-nav" id="mobile-nav" aria-label={ t(lang, "nav.mobile.label") } hidden>
-  <a href={`${supportBaseHref}/${lang}`}>{ t(lang, "nav.support") }</a>
+  <a href={ supportHref(lang) }>{ t(lang, "nav.support") }</a>
   <a href={ blogHref }>{ t(lang, "nav.blog") }</a>
   <LanguagePicker />
 </nav>

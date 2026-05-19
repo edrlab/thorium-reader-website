@@ -1,5 +1,8 @@
 export const blogHref = "https://blog.thoriumreader.com/";
-export const supportBaseHref = "https://support.thoriumreader.com/hc";
+export const supportHref = (lang: string) =>
+  lang === "en"
+    ? "https://support.thoriumreader.com"
+    : `https://support.thoriumreader.com/hc/${ lang }`;
 export const discordHref = "https://discord.gg/xjvfrXcq";
 
 // https://toolbox.marketingtools.apple.com/en-us/app-store/us
