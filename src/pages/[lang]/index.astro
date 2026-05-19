@@ -1,0 +1,77 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/sections/HeroSection.astro";
+import FeatureSection from "../../components/sections/FeatureSection.astro";
+import CTASection from "../../components/sections/CTASection.astro";
+import FAQ from "../../components/sections/FAQ.astro";
+import Footer from "../../components/Footer.astro";
+import DownloadButton from "../../components/buttons/DownloadButton.astro";
+import DiscordButton from "../../components/buttons/DiscordButton.astro";
+import { t, getImage } from "../../i18n/utils.js";
+import { locales } from "../../i18n/locales.js";
+import { discordHref } from "../../config.js";
+import rawShape2 from "../../assets/shapes/thorium-shape-2.svg?raw";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.currentLocale;
+---
+
+<Layout>
+  <Hero
+    title={ t(lang, "home.hero.title") }
+    body={ t(lang, "home.hero.subtitle") }
+    image={{ src: getImage(lang, "thorium-reader-mobile-option.webp"), alt: t(lang, "home.alts.thorium-reader-mobile-option") }}
+    clipImage
+  >
+    <div slot="actions" class="hero-actions">
+      <DownloadButton icon href={`/${ lang }/download`} />
+      <DiscordButton href={ discordHref } />
+    </div>
+  </Hero>
+
+  <FeatureSection
+    title={ t(lang, "home.features.customize.title") }
+    body={ t(lang, "home.features.customize.body") }
+    illustration={{ src: getImage(lang, "thorium-illustration-01.webp"), alt: t(lang, "home.alts.thorium-illustration-01") }}
+  >
+    <DownloadButton slot="actions" variant="accent" href={`/${ lang }/download`} label={ t(lang, "button.downloadApp") } />
+    <figure>
+      <Image src={ getImage(lang, "thorium-reader-screens.webp") } alt={ t(lang, "home.alts.thorium-reader-screens") } />
+    </figure>
+  </FeatureSection>
+
+  <FeatureSection
+    title={ t(lang, "home.features.library.title") }
+    body={ t(lang, "home.features.library.body") }
+    illustration={{ src: getImage(lang, "thorium-illustration-02.webp"), alt: t(lang, "home.alts.thorium-illustration-02") }}
+    reverse
+  >
+    <div slot="blob" class="feature-blob" aria-hidden="true">
+      <Fragment set:html={ rawShape2 } />
+    </div>
+    <DownloadButton slot="actions" variant="accent" href={`/${ lang }/download`} label={ t(lang, "button.downloadApp") } />
+    <figure role="none">
+      <Image src={ getImage(lang, "thorium-desktop.webp") } alt={ t(lang, "home.alts.thorium-desktop") } />
+    </figure>
+  </FeatureSection>
+
+  <CTASection
+    title={ t(lang, "home.cta.section.title") }
+    body={ t(lang, "home.cta.section.subtitle") }
+    illustration={{ src: getImage(lang, "thorium-illustration-03.webp"), alt: "" }}
+  >
+    <DownloadButton slot="actions" icon href={`/${ lang }/download`} label={ t(lang, "button.downloadApp") } />
+    <Image slot="media" src={ getImage(lang, "thorium-reader-desktop-mobile.webp") } alt={ t(lang, "home.alts.thorium-reader-desktop-mobile") } />
+  </CTASection>
+
+  <FAQ
+    title={ t(lang, "home.faq.title") }
+    items={ t(lang, "home.faq.items", { returnObjects: true }) as { question: string; answer: string; items?: string[] }[] }
+  />
+
+  <Footer image={{ src: getImage(lang, "thorium-illustration-04.webp"), alt: t(lang, "home.alts.thorium-illustration-04") }} clip />
+</Layout>

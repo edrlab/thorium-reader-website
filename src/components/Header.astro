@@ -1,0 +1,110 @@
+---
+import LanguagePicker from "./widgets/LanguagePicker.astro";
+import ThoriumReaderLogo from "./logos/ThoriumReaderLogo.astro";
+import { t } from "../i18n/utils.js";
+import { blogHref, supportBaseHref } from "../config.js";
+
+const lang = Astro.currentLocale;
+---
+
+<header class="site-header">
+  <a class="site-logo" href={`/${ lang }/`} aria-label={ t(lang, "site.name") }>
+    <ThoriumReaderLogo />
+  </a>
+
+  <nav class="site-nav" aria-label="Main">
+    <a href={`${supportBaseHref}/${lang}`}>{ t(lang, "nav.support") }</a>
+    <a href={ blogHref }>{ t(lang, "nav.blog") }</a>
+    <LanguagePicker />
+  </nav>
+
+  <button
+    class="hamburger-btn"
+    id="hamburger-btn"
+    aria-controls="mobile-nav"
+    aria-expanded="false"
+    aria-label={ t(lang, "nav.menu.open") }
+    data-label-open={ t(lang, "nav.menu.open") }
+    data-label-close={ t(lang, "nav.menu.close") }
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+      <line x1="3" y1="6"  x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav" aria-label={ t(lang, "nav.mobile.label") } hidden>
+  <a href={`${supportBaseHref}/${lang}`}>{ t(lang, "nav.support") }</a>
+  <a href={ blogHref }>{ t(lang, "nav.blog") }</a>
+  <LanguagePicker />
+</nav>
+
+<script>
+  const btn = document.getElementById("hamburger-btn") as HTMLButtonElement | null;
+  const nav = document.getElementById("mobile-nav") as HTMLElement | null;
+
+  if (btn && nav) {
+    const labelOpen  = btn.dataset.labelOpen  ?? "";
+    const labelClose = btn.dataset.labelClose ?? "";
+
+    function openMenu() {
+      nav!.hidden = false;
+      btn!.setAttribute("aria-expanded", "true");
+      btn!.setAttribute("aria-label", labelClose);
+      const first = nav!.querySelector<HTMLElement>("a, button");
+      first?.focus();
+    }
+
+    function closeMenu(returnFocus = true) {
+      nav!.hidden = true;
+      btn!.setAttribute("aria-expanded", "false");
+      btn!.setAttribute("aria-label", labelOpen);
+      if (returnFocus) btn!.focus();
+    }
+
+    btn.addEventListener("click", () => {
+      nav.hidden ? openMenu() : closeMenu(false);
+    });
+
+    nav.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeMenu(true);
+        return;
+      }
+
+      if (e.key === "Tab") {
+        // e.target holds the element focused when Tab was pressed.
+        // If that was a listbox option, the picker already called close() and
+        // focus has moved to body — map the origin back to the picker button.
+        const fromListbox = (e.target as HTMLElement).closest<HTMLElement>("[role='listbox']");
+        const effectiveFocus: HTMLElement | null = fromListbox
+          ? fromListbox.closest<HTMLElement>("[data-lang-picker]")?.querySelector("button") ?? null
+          : document.activeElement as HTMLElement;
+
+        const focusable = Array.from(nav.querySelectorAll<HTMLElement>("a, button"))
+          .filter(el => !el.closest("[hidden]"));
+
+        if (focusable.length === 0 || !effectiveFocus) return;
+
+        const first = focusable[0];
+        const last  = focusable[focusable.length - 1];
+
+        if (e.shiftKey && effectiveFocus === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && effectiveFocus === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!nav.hidden && !nav.contains(e.target as Node) && !btn.contains(e.target as Node)) {
+        closeMenu(false);
+      }
+    });
+  }
+</script>

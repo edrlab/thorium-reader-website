@@ -1,0 +1,78 @@
+---
+interface Tab {
+  id: string;
+  label: string;
+}
+
+interface Props {
+  tabs: Tab[];
+  label?: string;
+}
+
+const { tabs, label } = Astro.props;
+---
+
+<div class="tabs-widget">
+  <div class="tabs-tablist" role="tablist" aria-label={label}>
+    { tabs.map((tab, i) => (
+      <button
+        id={`tab-${tab.id}`}
+        role="tab"
+        aria-selected={i === 0 ? "true" : "false"}
+        aria-controls={`panel-${tab.id}`}
+        tabindex={i === 0 ? 0 : -1}
+        class:list={["tabs-tab", { active: i === 0 }]}
+      >
+        { tab.label }
+      </button>
+    )) }
+  </div>
+
+  <hr class="tabs-divider" aria-hidden="true" />
+
+  <slot />
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".tabs-widget").forEach(widget => {
+    const tabs = Array.from(widget.querySelectorAll<HTMLButtonElement>("[role='tab']"));
+    const panels = Array.from(widget.querySelectorAll<HTMLElement>("[role='tabpanel']"));
+
+    function activate(tab: HTMLButtonElement) {
+      tabs.forEach(t => {
+        t.setAttribute("aria-selected", "false");
+        t.classList.remove("active");
+        t.tabIndex = -1;
+      });
+
+      panels.forEach(p => { p.hidden = true; });
+
+      tab.setAttribute("aria-selected", "true");
+      tab.classList.add("active");
+      tab.tabIndex = 0;
+
+      const panelId = tab.getAttribute("aria-controls")!;
+      const panel = widget.querySelector<HTMLElement>(`#${panelId}`);
+      if (panel) panel.hidden = false;
+    }
+
+    tabs.forEach((tab, i) => {
+      tab.addEventListener("click", () => activate(tab));
+
+      tab.addEventListener("keydown", (e) => {
+        let next: HTMLButtonElement | null = null;
+
+        if      (e.key === "ArrowRight") next = tabs[(i + 1) % tabs.length];
+        else if (e.key === "ArrowLeft")  next = tabs[(i - 1 + tabs.length) % tabs.length];
+        else if (e.key === "Home")       next = tabs[0];
+        else if (e.key === "End")        next = tabs[tabs.length - 1];
+
+        if (next) {
+          e.preventDefault();
+          activate(next);
+          next.focus();
+        }
+      });
+    });
+  });
+</script>

@@ -1,0 +1,15 @@
+---
+interface Props {
+  label: string;
+  href: string;
+  icon?: string;
+  class?: string;
+}
+
+const { label, href, icon, class: className } = Astro.props;
+---
+
+<a href={ href } class:list={ ["btn", className] }>
+  { icon && <Fragment set:html={icon} /> }
+  { label }
+</a>

@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import rawWaveTop from "../../assets/shapes/thorium-shape-3-wave-top.svg?raw";
+import rawWaveBottom from "../../assets/shapes/thorium-shape-3-wave-bottom.svg?raw";
+
+interface Props {
+  title: string;
+  body: string;
+  illustration?: { src: ImageMetadata; alt?: string };
+}
+
+const { title, body, illustration } = Astro.props;
+---
+
+<section class="cta-section">
+  <div class="cta-wave cta-wave-top" aria-hidden="true">
+    <Fragment set:html={ rawWaveTop } />
+  </div>
+
+  { illustration && (
+    <Image
+      class="cta-illustration"
+      src={illustration.src}
+      alt={illustration.alt ?? ""}
+    />
+  ) }
+
+  <div class="cta-inner">
+    <div class="container cta-text">
+      <h2>{ title }</h2>
+      <p>{ body }</p>
+      <slot name="actions" />
+    </div>
+  </div>
+
+  <div class="cta-wave cta-wave-bottom" aria-hidden="true">
+    <Fragment set:html={ rawWaveBottom } />
+  </div>
+
+  <div class="cta-devices">
+    <slot name="media" />
+  </div>
+</section>

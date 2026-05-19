@@ -1,0 +1,10 @@
+---
+const locales = ["en", "fr"];
+const defaultLocale = "en";
+---
+<script define:vars={{ locales, defaultLocale }}>
+  const preferred = navigator.languages
+    .map(tag => tag.split("-")[0].toLowerCase())
+    .find(lang => locales.includes(lang));
+  location.replace(`/${ preferred ?? defaultLocale }/`);
+</script>

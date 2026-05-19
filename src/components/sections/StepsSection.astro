@@ -1,0 +1,25 @@
+---
+type StepItem = { title: string; body?: string };
+
+interface Props {
+  title?: string;
+  items: StepItem[];
+}
+
+const { title, items } = Astro.props;
+---
+
+<section class="steps-section" id="steps">
+  <div class="container">
+    { title && <h2>{ title }</h2> }
+    <div class="steps-grid">
+      { items.map((step, i) => (
+        <div class="step-card">
+          <span class="step-card-number">{ i + 1 }.</span>
+          <h3>{ step.title }</h3>
+          { step.body && <p>{ step.body }</p> }
+        </div>
+      )) }
+    </div>
+  </div>
+</section>

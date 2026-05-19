@@ -1,0 +1,104 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/sections/HeroSection.astro";
+import FeatureSection from "../../components/sections/FeatureSection.astro";
+import Tabs from "../../components/widgets/Tabs.astro";
+import FAQ from "../../components/sections/FAQ.astro";
+import Footer from "../../components/Footer.astro";
+import AppStoreBadge from "../../components/buttons/AppStoreBadge.astro";
+import MsStoreBadge from "../../components/buttons/MsStoreBadge.astro";
+import { t, getImage } from "../../i18n/utils.js";
+import { locales } from "../../i18n/locales.js";
+import rawShape6WaveTop from "../../assets/shapes/thorium-shape-6-wave-top.svg?raw";
+import rawShape6WaveBottom from "../../assets/shapes/thorium-shape-6-wave-bottom.svg?raw";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.currentLocale;
+
+function osSteps(os: string): string[] {
+  const steps = t(lang, `download.modal.${os}.steps`, { returnObjects: true });
+  return Array.isArray(steps) ? steps : [];
+}
+
+const osTabs = [
+  { id: "windows", label: t(lang, "download.modal.tab.windows") },
+  { id: "macos",   label: t(lang, "download.modal.tab.macos") },
+  { id: "linux",   label: t(lang, "download.modal.tab.linux") },
+];
+---
+
+<Layout>
+  <Hero
+    title={ t(lang, "download.hero.title") }
+    body={ t(lang, "download.hero.subtitle") }
+    image={{ src: getImage(lang, "thorium-illustration-05.webp"), alt: t(lang, "home.alts.thorium-illustration-05") }}
+  />
+
+  <FeatureSection
+    title={ t(lang, "download.ios.title") }
+    body={ t(lang, "download.ios.body") }
+  >
+    <AppStoreBadge slot="actions" />
+    <figure>
+      <Image src={ getImage(lang, "thorium-mobile-download-screen.webp") } alt={ t(lang, "home.alts.thorium-mobile-download-screen") } />
+    </figure>
+  </FeatureSection>
+
+  <FeatureSection
+    title={ t(lang, "download.desktop.title") }
+    body={ t(lang, "download.desktop.body") }
+    reverse
+  >
+    <MsStoreBadge slot="actions" />
+  </FeatureSection>
+
+  <div class="tabs-wave tabs-wave-top" aria-hidden="true">
+    <Fragment set:html={rawShape6WaveTop} />
+  </div>
+
+  <section class="download-tabs-section" id="download-tabs">
+    <Image
+      class="tabs-illustration"
+      src={getImage(lang, "thorium-illustration-06.webp")}
+      alt=""
+    />
+    <div class="container">
+      <Tabs tabs={osTabs} label={ t(lang, "download.tabs.label") }>
+        { osTabs.map((tab, i) => {
+          const steps = osSteps(tab.id);
+          return (
+            <div
+              id={`panel-${tab.id}`}
+              role="tabpanel"
+              aria-labelledby={`tab-${tab.id}`}
+              tabindex={0}
+              hidden={i !== 0}
+            >
+              { steps.length > 0
+                ? <ul class="download-steps">
+                    { steps.map(s => <li set:html={s} />) }
+                  </ul>
+                : <p class="download-steps-todo">{ t(lang, "download.coming_soon") }</p>
+              }
+            </div>
+          );
+        }) }
+      </Tabs>
+    </div>
+  </section>
+
+  <div class="tabs-wave tabs-wave-bottom" aria-hidden="true">
+    <Fragment set:html={rawShape6WaveBottom} />
+  </div>
+
+  <FAQ
+    title={ t(lang, "download.faq.title") }
+    items={ t(lang, "download.faq.items", { returnObjects: true }) as { question: string; answer: string; items?: string[] }[] }
+  />
+
+  <Footer />
+</Layout>

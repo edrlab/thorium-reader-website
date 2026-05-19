@@ -1,0 +1,136 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { locales } from "../../i18n/locales.js";
+
+const currentLocale = Astro.currentLocale ?? "en";
+const segments = Astro.url.pathname.split("/").filter(Boolean);
+const currentPath = "/" + segments.slice(1).join("/");
+
+const labels: Record<string, string> = {
+  en: "English",
+  fr: "Français",
+};
+
+const options = locales.map(code => ({
+  code,
+  label: labels[code] ?? code.toUpperCase(),
+  url: getRelativeLocaleUrl(code, currentPath),
+}));
+
+const uid = Math.random().toString(36).slice(2, 8);
+const btnId = `lang-btn-${uid}`;
+const listId = `lang-list-${uid}`;
+---
+
+<div class="lang-picker" data-lang-picker>
+  <button
+    type="button"
+    id={btnId}
+    aria-haspopup="listbox"
+    aria-expanded="false"
+    aria-controls={listId}
+    aria-label={`Language: ${labels[currentLocale]}`}
+  >
+    <span aria-hidden="true">{labels[currentLocale] ?? currentLocale.toUpperCase()}</span>
+    <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true">
+      <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <ul
+    role="listbox"
+    id={listId}
+    aria-label="Language"
+    hidden
+  >
+    {options.map(opt => (
+      <li
+        role="option"
+        aria-selected={opt.code === currentLocale ? "true" : "false"}
+        data-url={opt.url}
+        tabindex="-1"
+      >
+        {opt.label}
+      </li>
+    ))}
+  </ul>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-lang-picker]").forEach(picker => {
+    const btn = picker.querySelector<HTMLButtonElement>("button")!;
+    const list = picker.querySelector<HTMLElement>("[role='listbox']")!;
+    const opts = Array.from(list.querySelectorAll<HTMLElement>("[role='option']"));
+
+    function open() {
+      list.hidden = false;
+      btn.setAttribute("aria-expanded", "true");
+      const selected = opts.find(o => o.getAttribute("aria-selected") === "true") ?? opts[0];
+      focusOpt(selected);
+    }
+
+    function close(returnFocus = true) {
+      list.hidden = true;
+      btn.setAttribute("aria-expanded", "false");
+      opts.forEach(o => o.setAttribute("tabindex", "-1"));
+      if (returnFocus) btn.focus();
+    }
+
+    function focusOpt(opt: HTMLElement) {
+      opts.forEach(o => o.setAttribute("tabindex", "-1"));
+      opt.setAttribute("tabindex", "0");
+      opt.focus();
+    }
+
+    btn.addEventListener("click", () => {
+      list.hidden ? open() : close(false);
+    });
+
+    btn.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        open();
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        list.hidden = false;
+        btn.setAttribute("aria-expanded", "true");
+        focusOpt(opts[opts.length - 1]);
+      }
+    });
+
+    list.addEventListener("keydown", (e) => {
+      const focused = document.activeElement as HTMLElement;
+      const idx = opts.indexOf(focused);
+
+      switch (e.key) {
+        case "ArrowDown":
+          e.preventDefault();
+          focusOpt(opts[(idx + 1) % opts.length]);
+          break;
+        case "ArrowUp":
+          e.preventDefault();
+          focusOpt(opts[(idx - 1 + opts.length) % opts.length]);
+          break;
+        case "Enter":
+        case " ":
+          e.preventDefault();
+          window.location.href = focused.dataset.url!;
+          break;
+        case "Escape":
+          close(true);
+          break;
+        case "Tab":
+          close(false);
+          break;
+      }
+    });
+
+    list.addEventListener("click", (e) => {
+      const opt = (e.target as HTMLElement).closest<HTMLElement>("[role='option']");
+      if (opt?.dataset.url) window.location.href = opt.dataset.url;
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!list.hidden && !picker.contains(e.target as Node)) close(false);
+    });
+  });
+</script>

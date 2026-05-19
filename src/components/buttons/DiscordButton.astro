@@ -1,0 +1,14 @@
+---
+import Button from "./Button.astro";
+import { t } from "../../i18n/utils.js";
+import discordIcon from "./assets/Discord-Symbol.svg?raw";
+
+interface Props {
+  href?: string;
+}
+
+const { href = "#" } = Astro.props;
+const lang = Astro.currentLocale;
+---
+
+<Button label={ t(lang, "button.discord") } href={ href } icon={ discordIcon } class="discord-button" />

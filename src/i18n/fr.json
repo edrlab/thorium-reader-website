@@ -1,0 +1,174 @@
+{
+  "site": {
+    "title": "Thorium Reader",
+    "name": "Thorium Reader"
+  },
+  "nav": {
+    "support": "Aide en ligne",
+    "blog": "Blog",
+    "menu": {
+      "open": "Ouvrir le menu de navigation",
+      "close": "Fermer le menu de navigation"
+    },
+    "mobile": {
+      "label": "Navigation mobile"
+    }
+  },
+  "a11y": {
+    "skipToMain": "Aller au contenu principal"
+  },
+  "lang": {
+    "label": "Langue"
+  },
+  "home": {
+    "hero": {
+      "title": "Lisez à votre façon.",
+      "subtitle": "Plus qu'une application de lecture, une bibliothèque numérique pour vos ebooks, BD et mangas."
+    },
+    "features": {
+      "customize": {
+        "title": "Vos livres, vos règles",
+        "body": "Chacun lit différemment, alors lisez à votre façon ! Ajustez les polices, les couleurs, l'espacement… et créez l'expérience de lecture qui vous convient."
+      },
+      "library": {
+        "title": "Apportez vos propres livres",
+        "body": "Que vous ayez acheté un ebook en ligne, emprunté un livre audio à votre bibliothèque ou téléchargé un chapitre de votre manga préféré, lisez-les tous dans Thorium."
+      }
+    },
+    "cta": {
+      "section": {
+        "title": "Rejoignez l'aventure !",
+        "subtitle": "Téléchargez l'application gratuitement et commencez votre aventure avec Thorium Reader dès aujourd'hui."
+      }
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "items": [
+        {
+          "question": "Thorium Reader est-il gratuit ?",
+          "answer": "Oui. Thorium Desktop est entièrement gratuit et repose sur un logiciel open source. Il est développé par EDRLab (European Digital Reading Lab), une association à but non lucratif dédiée aux standards ouverts, à la littératie et à l'accessibilité."
+        },
+        {
+          "question": "Sur quels appareils puis-je télécharger Thorium Reader ?",
+          "answer": "L'application est disponible sur iOS (iPhone et iPad) ainsi que sur ordinateur via macOS, Windows et Linux. Vous pouvez consulter la configuration requise pour chaque appareil sur notre aide en ligne."
+        },
+        {
+          "question": "Quels formats puis-je lire sur Thorium Reader ?",
+          "answer": "Vous pouvez actuellement ouvrir et lire les formats suivants dans Thorium Reader :",
+          "items": [
+            "Ebooks EPUB, EPUB en mise en page fixe ou PDF",
+            "Comics et mangas CBZ ou EPUB en mise en page fixe"
+          ]
+        },
+        {
+          "question": "Puis-je utiliser Thorium Reader hors ligne ?",
+          "answer": "Oui, Thorium Desktop fonctionne entièrement hors ligne. Le téléchargement de publications supplémentaires protégées par Readium LCP nécessite une connexion ponctuelle, mais vous pouvez rester hors ligne en dehors de cela."
+        },
+        {
+          "question": "Puis-je lire des ebooks empruntés en bibliothèque sur Thorium Reader ?",
+          "answer": "Oui, vous pouvez lire des livres empruntés avec Thorium Reader. L'application prend en charge les ebooks empruntés en bibliothèque, y compris ceux protégés par DRM, et propose des options pour retourner ou renouveler les prêts."
+        }
+      ]
+    },
+    "alts": {
+      "thorium-reader-mobile-option": "Deux téléphones affichant Thorium Reader : l'un montrant la couverture du livre audio Dracula, l'autre l'interface de lecture avec un extrait du Journal de Jonathan Harker.",
+      "thorium-illustration-01": "Illustration d'une personne se prélassant dans un livre ouvert.",
+      "thorium-illustration-02": "Illustration d'une personne portant une pile de livres sur un passage piéton.",
+      "thorium-illustration-05": "Illustration d’une pile de livres reposant sur une tablette, avec des écouteurs et une liseuse.",
+      "thorium-reader-screens": "Trois téléphones illustrant les thèmes de Thorium Reader : une vue sépia, une vue claire avec le panneau de réglages d'affichage ouvert, et une vue sombre.",
+      "thorium-reader-desktop-mobile": "Un ordinateur portable affichant Thorium Reader avec un ebook et une BD ouverts, accompagné d'un téléphone affichant le livre audio Dracula.",
+      "thorium-illustration-04": "Illustration d'une personne portant des écouteurs qui regarde vers le haut des piles de livres imposantes.",
+      "thorium-mobile-download-screen": "Quatre téléphones sont disposés l’un à côté de l’autre. Le premier affiche la bibliothèque de l’application mobile. Le second un roman avec un thème sombre, le troisième l’audiobook Dracula avec les contrôles audio, et le quatrième un manga en plein-écran."
+    }
+  },
+  "button": {
+    "download": "Télécharger",
+    "downloadApp": "Télécharger l'application",
+    "discord": "Rejoindre notre Discord"
+  },
+  "footer": {
+    "legal": "Mentions légales",
+    "discord": "Rejoindre notre Discord"
+  },
+  "download": {
+    "hero": {
+      "title": "Télécharger l'application",
+      "subtitle": "Commencez avec Thorium Reader dès aujourd'hui sur l'appareil de lecture de votre choix !"
+    },
+    "ios": {
+      "title": "Télécharger sur iOS et iPadOS",
+      "body": "Téléchargez Thorium Reader sur votre appareil mobile Apple pour emporter vos ebooks, comics et mangas partout avec vous."
+    },
+    "desktop": {
+      "title": "Télécharger sur Windows, macOS, Linux",
+      "body": "Choisissez le lien de téléchargement adapté à votre appareil et suivez les instructions pour commencer avec Thorium Reader dès aujourd'hui."
+    },
+    "coming_soon": "Bientôt disponible.",
+    "faq": {
+      "title": "Questions fréquentes",
+      "items": [
+        {
+          "question": "Sur quels appareils puis-je télécharger Thorium Reader ?",
+          "answer": "L'application est disponible sur iOS (iPhone et iPad) ainsi que sur ordinateur via macOS, Windows et Linux."
+        },
+        {
+          "question": "Quelle est la configuration requise pour télécharger l'application ?",
+          "answer": "Oui, vous pouvez lire sur Thorium Reader même hors ligne. Une fois vos ebooks et livres audio téléchargés dans l'application, vous n'avez besoin d'aucune connexion Internet pour les lire."
+        },
+        {
+          "question": "Comment installer l'application via un téléchargement direct ?",
+          "answer": "Pour installer l'application via un téléchargement direct, cliquez sur les liens de téléchargement. Dans la fenêtre contextuelle, sélectionnez votre système d'exploitation (macOS, Windows ou Linux) dans le menu, puis le lien approprié selon votre appareil. L'application commencera automatiquement à se télécharger. Suivez les instructions sous le lien de téléchargement pour terminer l'installation."
+        }
+      ]
+    },
+    "tabs": {
+      "label": "Système d'exploitation"
+    },
+    "modal": {
+      "tab": {
+        "macos": "macOS",
+        "windows": "Windows",
+        "linux": "Linux"
+      },
+      "macos": {
+        "steps": [
+          "Cliquez sur <a href=\"#\">Télécharger pour Apple Silicon</a> ou <a href=\"#\">Télécharger pour Intel</a>, selon votre appareil. Le programme d'installation commencera automatiquement à télécharger l'application de bureau.",
+          "Téléchargez le fichier Thorium.Setup.3.x.x.dmg sur votre appareil macOS.",
+          "Ouvrez le Finder et accédez au dossier Téléchargements.",
+          "Double-cliquez sur le fichier *.dmg téléchargé.",
+          "Faites glisser l'icône de l'application vers le dossier Applications pour l'installer.",
+          "Fermez la fenêtre et appuyez sur le bouton d'éjection dans le Finder pour démonter l'image."
+        ]
+      },
+      "windows": {
+        "steps": []
+      },
+      "linux": {
+        "steps": []
+      }
+    }
+  },
+  "install": {
+    "intro": {
+      "title": "Démarrer avec Thorium Reader",
+      "subtitle": "L'installation de Thorium Reader ne prend que quelques minutes. Suivez les étapes ci-dessous pour créer votre bibliothèque numérique personnelle."
+    },
+    "steps": {
+      "title": "Comment installer Thorium Reader",
+      "items": [
+        {
+          "title": "Télécharger l'application",
+          "body": "Rendez-vous sur la page de téléchargement et choisissez la version adaptée à votre appareil — macOS, Windows, Linux ou iOS."
+        },
+        {
+          "title": "Importer votre premier livre",
+          "body": "Ouvrez Thorium Reader et faites glisser un fichier EPUB, PDF ou CBZ dans la bibliothèque, ou utilisez le bouton Ajouter un livre."
+        },
+        {
+          "title": "Commencer à lire",
+          "body": "Appuyez ou cliquez sur votre livre pour l'ouvrir. Ajustez les polices, les couleurs et l'espacement pour personnaliser votre expérience."
+        }
+      ]
+    }
+  }
+}

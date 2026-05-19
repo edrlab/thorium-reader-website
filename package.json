@@ -1,0 +1,22 @@
+{
+  "name": "thorium-site",
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.1.0",
+      "onFail": "warn"
+    }
+  },
+  "dependencies": {
+    "astro": "^6.3.1",
+    "i18next": "^26.1.0",
+    "sharp": "^0.34.5"
+  }
+}
