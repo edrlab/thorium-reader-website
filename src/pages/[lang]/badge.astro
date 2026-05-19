@@ -113,14 +113,12 @@ const copiedText      = t(lang, "badge.output.copied");
 
             <div class="field">
               <label for="catalog-color">{ t(lang, "badge.form.color.label") }</label>
-              <input
-                type="text"
-                id="catalog-color"
-                name="color"
-                placeholder={ t(lang, "badge.form.color.placeholder") }
-                aria-describedby="hint-color"
-                autocomplete="off"
-              />
+              <select id="catalog-color" name="color" aria-describedby="hint-color">
+                <option value="">{ t(lang, "badge.form.color.default") }</option>
+                { ["gray", "red", "yellow", "blue", "green", "purple", "orange"].map((c) => (
+                  <option value={c}>{ t(lang, `badge.form.color.${c}`) }</option>
+                )) }
+              </select>
               <p class="field-hint" id="hint-color">{ t(lang, "badge.form.color.hint") }</p>
             </div>
 

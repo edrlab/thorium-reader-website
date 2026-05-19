@@ -167,8 +167,15 @@
       },
       "color": {
         "label": "Couleur d'accentuation",
-        "placeholder": "#A4485F",
-        "hint": "Facultatif. Une couleur hexadécimale pour l'accentuation du catalogue."
+        "hint": "Facultatif. Une couleur d'accentuation pour votre catalogue.",
+        "default": "Par défaut",
+        "gray": "Gris",
+        "red": "Rouge",
+        "yellow": "Jaune",
+        "blue": "Bleu",
+        "green": "Vert",
+        "purple": "Violet",
+        "orange": "Orange"
       },
       "urls": {
         "legend": "URL du catalogue"

@@ -167,8 +167,15 @@
       },
       "color": {
         "label": "Accent color",
-        "placeholder": "#A4485F",
-        "hint": "Optional. A hex color for your catalog's accent."
+        "hint": "Optional. An accent color for your catalog.",
+        "default": "Default",
+        "gray": "Gray",
+        "red": "Red",
+        "yellow": "Yellow",
+        "blue": "Blue",
+        "green": "Green",
+        "purple": "Purple",
+        "orange": "Orange"
       },
       "urls": {
         "legend": "Catalog URLs"
