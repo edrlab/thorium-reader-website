@@ -80,7 +80,7 @@ const lang = Astro.currentLocale;
         // focus has moved to body — map the origin back to the picker button.
         const fromListbox = (e.target as HTMLElement).closest<HTMLElement>("[role='listbox']");
         const effectiveFocus: HTMLElement | null = fromListbox
-          ? fromListbox.closest<HTMLElement>("[data-lang-picker]")?.querySelector("button") ?? null
+          ? fromListbox.closest<HTMLElement>("[data-custom-select]")?.querySelector("button") ?? null
           : document.activeElement as HTMLElement;
 
         const focusable = Array.from(nav.querySelectorAll<HTMLElement>("a, button"))

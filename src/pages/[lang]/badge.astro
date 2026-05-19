@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Footer from "../../components/Footer.astro";
 import Tabs from "../../components/widgets/Tabs.astro";
+import CustomSelect from "../../components/widgets/CustomSelect.astro";
 import { t } from "../../i18n/utils.js";
 import { locales } from "../../i18n/locales.js";
 import { addCatalogScheme } from "../../config.js";
@@ -113,12 +114,20 @@ const copiedText      = t(lang, "badge.output.copied");
 
             <div class="field">
               <label for="catalog-color">{ t(lang, "badge.form.color.label") }</label>
-              <select id="catalog-color" name="color" aria-describedby="hint-color">
-                <option value="">{ t(lang, "badge.form.color.default") }</option>
-                { ["gray", "red", "yellow", "blue", "green", "purple", "orange"].map((c) => (
-                  <option value={c}>{ t(lang, `badge.form.color.${c}`) }</option>
-                )) }
-              </select>
+              <CustomSelect
+                id="catalog-color"
+                name="color"
+                describedby="hint-color"
+                label={ t(lang, "badge.form.color.label") }
+                options={[
+                  { value: "", label: t(lang, "badge.form.color.default") },
+                  ...["gray", "red", "yellow", "blue", "green", "purple", "orange"].map(c => ({
+                    value: c,
+                    label: t(lang, `badge.form.color.${c}`),
+                  }))
+                ]}
+                selectedValue=""
+              />
               <p class="field-hint" id="hint-color">{ t(lang, "badge.form.color.hint") }</p>
             </div>
 

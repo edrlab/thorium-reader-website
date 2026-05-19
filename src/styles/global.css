@@ -234,6 +234,83 @@ img {
   border-radius: 2px;
 }
 
+/* ── Custom select widget ── */
+.custom-select {
+  position: relative;
+}
+
+.custom-select ul {
+  list-style: none;
+  padding: 0.3rem;
+  border-radius: var(--radius-panel);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+}
+
+.custom-select li {
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-ui);
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Form-field variant — used inside .field, matches .field input/select appearance */
+.field .custom-select button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: 400;
+  padding: 0.6rem 0.75rem;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-ui);
+  background: #fff;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: border-color 0.15s;
+  text-align: left;
+}
+
+.field .custom-select button:hover {
+  border-color: rgba(0, 0, 0, 0.4);
+  opacity: 1;
+}
+
+.field .custom-select button:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.field .custom-select button[aria-expanded="true"] {
+  border-color: var(--color-mauve);
+}
+
+.field .custom-select ul {
+  background: #fff;
+  border: 2px solid var(--color-mauve);
+}
+
+.field .custom-select li {
+  color: var(--color-text);
+  font-size: var(--text-base);
+  font-weight: 400;
+}
+
+.field .custom-select li:hover,
+.field .custom-select li:focus {
+  background: rgba(164, 72, 95, 0.1);
+}
+
+.field .custom-select li[aria-selected="true"] {
+  background: var(--color-mauve);
+  color: #fff;
+  font-weight: 600;
+}
+
 /* ── Language picker ── */
 .lang-picker {
   position: relative;
@@ -268,26 +345,13 @@ img {
 }
 
 .lang-picker ul {
-  position: absolute;
-  top: calc(100% + 0.4rem);
-  right: 0;
-  list-style: none;
-  padding: 0.3rem;
   background: var(--color-cream);
-  border-radius: var(--radius-panel);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  min-width: 100%;
-  z-index: 100;
 }
 
 .lang-picker li {
-  padding: 0.35rem 0.75rem;
-  border-radius: var(--radius-ui);
   color: var(--color-mauve);
   font-size: 0.8rem;
   font-weight: 600;
-  cursor: pointer;
-  white-space: nowrap;
 }
 
 .lang-picker li:hover,
@@ -932,7 +996,7 @@ img {
   padding-top: calc(4rem + var(--space-lg));
   padding-bottom: var(--section-pad);
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .badge-intro {

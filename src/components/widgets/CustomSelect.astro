@@ -1,0 +1,183 @@
+---
+export interface SelectOption {
+  value: string;
+  label: string;
+  url?: string;
+}
+
+interface Props {
+  options: SelectOption[];
+  label: string;
+  id?: string;
+  name?: string;
+  describedby?: string;
+  selectedValue?: string;
+  class?: string;
+}
+
+const { options, label, id, name, describedby, selectedValue, class: className } = Astro.props;
+const selected = options.find(o => o.value === selectedValue) ?? options[0];
+const uid = Math.random().toString(36).slice(2, 8);
+const btnId = id ?? `cs-btn-${uid}`;
+const listId = `cs-list-${uid}`;
+---
+
+<div class:list={["custom-select", className]} data-custom-select>
+  {name && <input type="hidden" name={name} value={selected?.value ?? ""} />}
+  <button
+    type="button"
+    id={btnId}
+    aria-haspopup="listbox"
+    aria-expanded="false"
+    aria-controls={listId}
+    aria-label={label}
+    aria-describedby={describedby}
+  >
+    <span data-cs-label>{selected?.label ?? ""}</span>
+    <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true">
+      <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <ul role="listbox" id={listId} aria-label={label} hidden>
+    {options.map(opt => (
+      <li
+        role="option"
+        aria-selected={opt.value === selected?.value ? "true" : "false"}
+        data-value={opt.value}
+        data-url={opt.url}
+        tabindex="-1"
+      >
+        {opt.label}
+      </li>
+    ))}
+  </ul>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-custom-select]").forEach(picker => {
+    const btn       = picker.querySelector<HTMLButtonElement>("button")!;
+    const list      = picker.querySelector<HTMLElement>("[role='listbox']")!;
+    const labelEl   = btn.querySelector<HTMLElement>("[data-cs-label]")!;
+    const hidden    = picker.querySelector<HTMLInputElement>("input[type='hidden']");
+    const opts      = Array.from(list.querySelectorAll<HTMLElement>("[role='option']"));
+
+    function position() {
+      const btn_r = btn.getBoundingClientRect();
+
+      const gap    = 4;
+      const margin = 8;
+
+      // Grow to natural content width; never shrink below button width;
+      // cap at a design-sensible maximum so pathological strings get ellipsis
+      const maxW = Math.max(btn_r.width, 400);
+      Object.assign(list.style, { position: "fixed", visibility: "hidden", top: "0", left: "0", width: "max-content", bottom: "auto" });
+      list.hidden = false;
+      const naturalW = list.offsetWidth;
+      const listW    = Math.max(btn_r.width, Math.min(naturalW, maxW));
+      list.style.width = `${listW}px`;
+      const listH = list.offsetHeight;
+
+      const spaceBelow = window.innerHeight - btn_r.bottom - gap;
+      const spaceAbove = btn_r.top - gap;
+      const openUp = spaceBelow < listH && spaceAbove > spaceBelow;
+
+      let left = btn_r.left;
+      if (left + listW > window.innerWidth - margin) left = btn_r.right - listW;
+
+      Object.assign(list.style, {
+        top:        openUp ? "auto" : `${btn_r.bottom + gap}px`,
+        bottom:     openUp ? `${window.innerHeight - btn_r.top + gap}px` : "auto",
+        left:       `${Math.max(margin, left)}px`,
+        visibility: "",
+      });
+    }
+
+    function open() {
+      position();
+      btn.setAttribute("aria-expanded", "true");
+      const cur = opts.find(o => o.getAttribute("aria-selected") === "true") ?? opts[0];
+      focusOpt(cur);
+    }
+
+    function close(returnFocus = true) {
+      list.hidden = true;
+      list.style.cssText = "";
+      btn.setAttribute("aria-expanded", "false");
+      opts.forEach(o => o.setAttribute("tabindex", "-1"));
+      if (returnFocus) btn.focus();
+    }
+
+    function focusOpt(opt: HTMLElement) {
+      opts.forEach(o => o.setAttribute("tabindex", "-1"));
+      opt.setAttribute("tabindex", "0");
+      opt.focus();
+    }
+
+    function select(opt: HTMLElement) {
+      const url = opt.dataset.url;
+      if (url) {
+        window.location.href = url;
+        return;
+      }
+      opts.forEach(o => o.setAttribute("aria-selected", "false"));
+      opt.setAttribute("aria-selected", "true");
+      labelEl.textContent = opt.textContent?.trim() ?? "";
+      if (hidden) {
+        hidden.value = opt.dataset.value ?? "";
+        hidden.dispatchEvent(new Event("input", { bubbles: true }));
+      }
+      close(true);
+    }
+
+    btn.addEventListener("click", () => {
+      list.hidden ? open() : close(false);
+    });
+
+    btn.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        open();
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        position();
+        btn.setAttribute("aria-expanded", "true");
+        focusOpt(opts[opts.length - 1]);
+      }
+    });
+
+    list.addEventListener("keydown", (e) => {
+      const focused = document.activeElement as HTMLElement;
+      const idx     = opts.indexOf(focused);
+      switch (e.key) {
+        case "ArrowDown":
+          e.preventDefault();
+          focusOpt(opts[(idx + 1) % opts.length]);
+          break;
+        case "ArrowUp":
+          e.preventDefault();
+          focusOpt(opts[(idx - 1 + opts.length) % opts.length]);
+          break;
+        case "Enter":
+        case " ":
+          e.preventDefault();
+          select(focused);
+          break;
+        case "Escape":
+          close(true);
+          break;
+        case "Tab":
+          close(false);
+          break;
+      }
+    });
+
+    list.addEventListener("click", (e) => {
+      const opt = (e.target as HTMLElement).closest<HTMLElement>("[role='option']");
+      if (opt) select(opt);
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!list.hidden && !picker.contains(e.target as Node)) close(false);
+    });
+  });
+</script>
