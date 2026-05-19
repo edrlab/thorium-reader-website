@@ -147,28 +147,5 @@
         "steps": []
       }
     }
-  },
-  "install": {
-    "intro": {
-      "title": "Get started with Thorium Reader",
-      "subtitle": "Installing Thorium Reader takes just a few minutes. Follow the steps below to get your personal digital library up and running."
-    },
-    "steps": {
-      "title": "How to install Thorium Reader",
-      "items": [
-        {
-          "title": "Download the app",
-          "body": "Visit the download page and choose the version that matches your device — macOS, Windows, Linux, or iOS."
-        },
-        {
-          "title": "Import your first book",
-          "body": "Open Thorium Reader and drag an EPUB, PDF, or CBZ file into the library, or use the Add Book button."
-        },
-        {
-          "title": "Start reading",
-          "body": "Tap or click your book to open it. Adjust fonts, colors, and spacing to make the experience yours."
-        }
-      ]
-    }
   }
 }
