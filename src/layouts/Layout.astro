@@ -4,7 +4,7 @@ import Header from "../components/Header.astro";
 import HeroBlob from "../components/blobs/HeroBlob.astro";
 import { t } from "../i18n/utils.js";
 
-const { title } = Astro.props;
+const { title, noBlob = false } = Astro.props;
 const lang = Astro.currentLocale;
 ---
 
@@ -23,9 +23,11 @@ const lang = Astro.currentLocale;
   <body>
     <a class="skip-link" href="#main-content">{ t(lang, "a11y.skipToMain") }</a>
 
-    <div class="hero-blob" aria-hidden="true">
-      <HeroBlob />
-    </div>
+    { !noBlob && (
+      <div class="hero-blob" aria-hidden="true">
+        <HeroBlob />
+      </div>
+    ) }
 
     <Header />
 

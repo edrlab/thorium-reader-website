@@ -8,3 +8,6 @@ export const appleReleaseDate = "1777507200";
 
 // https://apps.microsoft.com/badge?hl=en-us&gl=US
 export const msProductId = "9NFZP1G7M2SC";
+
+// Deep link scheme for adding a catalog to Thorium Reader (placeholder)
+export const addCatalogScheme = "thorium-reader://add-catalog?";

@@ -148,6 +148,69 @@
       }
     }
   },
+  "badge": {
+    "hero": {
+      "title": "Badge Generator",
+      "subtitle": "Create an \"Add to Thorium Reader\" badge for your catalog page."
+    },
+    "form": {
+      "legend": "Catalog information",
+      "title": {
+        "label": "Catalog title",
+        "placeholder": "My Ebook Catalog",
+        "hint": "Used as the accessible label on the badge link."
+      },
+      "icon": {
+        "label": "Icon URL",
+        "placeholder": "https://example.com/icon.png",
+        "hint": "Optional. A square image (PNG or SVG) representing your catalog."
+      },
+      "color": {
+        "label": "Accent color",
+        "placeholder": "#A4485F",
+        "hint": "Optional. A hex color for your catalog's accent."
+      },
+      "urls": {
+        "legend": "Catalog URLs"
+      },
+      "browse": {
+        "label": "Browse URL",
+        "placeholder": "https://example.com/opds",
+        "hint": "Optional. An OPDS or web URL to browse the catalog."
+      },
+      "bookshelf": {
+        "label": "Bookshelf URL",
+        "placeholder": "https://example.com/shelf",
+        "hint": "An OPDS or web URL to access the user's bookshelf."
+      },
+      "openIn": {
+        "label": "Open in",
+        "default": "Default",
+        "webview": "In-app browser",
+        "browser": "External browser",
+        "hint": "Optional. Preferred way to open catalog URLs."
+      },
+      "lang": {
+        "label": "Badge language",
+        "en": "English",
+        "fr": "French"
+      },
+      "button": "Add to Thorium Reader",
+      "buttonLine1": "Add to",
+      "buttonLine2": "Thorium Reader",
+      "alt": "Add {{name}} to Thorium Reader"
+    },
+    "preview": {
+      "title": "Preview",
+      "hint": "This is how your badge will appear."
+    },
+    "output": {
+      "title": "Embed code",
+      "hint": "Copy and paste this snippet into your catalog page.",
+      "copy": "Copy to clipboard",
+      "copied": "Copied!"
+    }
+  },
   "install": {
     "intro": {
       "title": "Get started with Thorium Reader",

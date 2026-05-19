@@ -926,6 +926,205 @@ img {
   border-radius: 4px;
 }
 
+/* ── Badge generator page ── */
+.badge-section {
+  /* 4rem accounts for the fixed header height */
+  padding-top: calc(4rem + var(--space-lg));
+  padding-bottom: var(--section-pad);
+  position: relative;
+  z-index: 2;
+}
+
+.badge-intro {
+  max-width: 52ch;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: 3rem;
+}
+
+.badge-intro h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  font-weight: 800;
+  line-height: var(--leading-display);
+  letter-spacing: -0.02em;
+  color: var(--color-mauve);
+}
+
+.badge-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--col-gap);
+  align-items: start;
+}
+
+/* Form */
+.badge-layout form fieldset {
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.badge-layout .field-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.badge-layout .field-group-label {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  opacity: 0.55;
+  margin: 0;
+}
+
+.badge-layout form legend {
+  font-family: var(--font-heading);
+  font-size: var(--text-heading);
+  font-weight: 800;
+  line-height: var(--leading-heading);
+  letter-spacing: -0.02em;
+  color: var(--color-mauve);
+  margin-bottom: var(--space-lg);
+  float: left;
+  width: 100%;
+}
+
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.field label {
+  font-size: var(--text-base);
+  font-weight: 600;
+}
+
+.required {
+  color: var(--color-mauve);
+  margin-inline-start: 0.2em;
+}
+
+.field input,
+.field select {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  padding: 0.6rem 0.75rem;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-ui);
+  background: #fff;
+  color: var(--color-text);
+  width: 100%;
+  transition: border-color 0.15s;
+}
+
+.field input:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--color-mauve);
+}
+
+.field input:focus-visible,
+.field select:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.field-hint {
+  font-size: var(--text-xs);
+  color: #555;
+  line-height: var(--leading-body);
+}
+
+/* Output panel */
+.badge-output {
+  position: sticky;
+  top: 5rem;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-card);
+  padding: var(--space-lg);
+}
+
+/* Tab styling on light background */
+.badge-output .tabs-tab {
+  color: var(--color-text);
+  opacity: 0.5;
+}
+
+.badge-output .tabs-tab.active,
+.badge-output .tabs-tab[aria-selected="true"] {
+  background: var(--color-mauve);
+  color: var(--color-cream);
+  opacity: 1;
+}
+
+.badge-output .tabs-tab:not(.active):hover {
+  opacity: 1;
+}
+
+.badge-output [role="tabpanel"] {
+  padding-top: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.preview-display {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  padding-block: var(--space-sm);
+}
+
+.preview-display a:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: 4px;
+}
+
+/* Embed code */
+.embed-code-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.embed-code-wrap pre {
+  background: #f4f4f4;
+  border-radius: var(--radius-ui);
+  padding: var(--space-md);
+  font-size: var(--text-xs);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  color: var(--color-text);
+}
+
+.badge-copy-btn {
+  align-self: flex-start;
+  background: var(--color-mauve);
+  color: var(--color-cream);
+  border: none;
+  font-family: var(--font-sans);
+}
+
+@media (max-width: 768px) {
+  .badge-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .badge-output {
+    position: static;
+  }
+}
+
 /* ── IntroSection ── */
 .intro-section {
   padding-top: calc(var(--section-pad) + 4rem);
@@ -1065,8 +1264,6 @@ img {
   left: 0;
   right: 0;
 }
-
-
 
 /* ── Button icon sizing ── */
 .btn svg {

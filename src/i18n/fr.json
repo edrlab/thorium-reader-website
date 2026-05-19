@@ -148,6 +148,69 @@
       }
     }
   },
+  "badge": {
+    "hero": {
+      "title": "Générateur de badge",
+      "subtitle": "Créez un badge « Ajouter à Thorium Reader » pour la page de votre catalogue."
+    },
+    "form": {
+      "legend": "Informations sur le catalogue",
+      "title": {
+        "label": "Titre du catalogue",
+        "placeholder": "Mon catalogue d'ebooks",
+        "hint": "Utilisé comme libellé accessible sur le lien du badge."
+      },
+      "icon": {
+        "label": "URL de l'icône",
+        "placeholder": "https://exemple.com/icone.png",
+        "hint": "Facultatif. Une image carrée (PNG ou SVG) représentant votre catalogue."
+      },
+      "color": {
+        "label": "Couleur d'accentuation",
+        "placeholder": "#A4485F",
+        "hint": "Facultatif. Une couleur hexadécimale pour l'accentuation du catalogue."
+      },
+      "urls": {
+        "legend": "URL du catalogue"
+      },
+      "browse": {
+        "label": "URL de navigation",
+        "placeholder": "https://exemple.com/opds",
+        "hint": "Facultatif. URL OPDS ou web pour parcourir le catalogue."
+      },
+      "bookshelf": {
+        "label": "URL de la bibliothèque",
+        "placeholder": "https://exemple.com/etagere",
+        "hint": "URL OPDS ou web pour accéder à la bibliothèque de l'utilisateur."
+      },
+      "openIn": {
+        "label": "Ouvrir dans",
+        "default": "Par défaut",
+        "webview": "Navigateur intégré",
+        "browser": "Navigateur externe",
+        "hint": "Facultatif. Mode d'ouverture préféré pour les URL du catalogue."
+      },
+      "lang": {
+        "label": "Langue du badge",
+        "en": "Anglais",
+        "fr": "Français"
+      },
+      "button": "Ajouter à Thorium Reader",
+      "buttonLine1": "Ajouter à",
+      "buttonLine2": "Thorium Reader",
+      "alt": "Ajouter {{name}} à Thorium Reader"
+    },
+    "preview": {
+      "title": "Aperçu",
+      "hint": "Voici comment apparaîtra votre badge."
+    },
+    "output": {
+      "title": "Code d'intégration",
+      "hint": "Copiez et collez ce code dans la page de votre catalogue.",
+      "copy": "Copier dans le presse-papiers",
+      "copied": "Copié !"
+    }
+  },
   "install": {
     "intro": {
       "title": "Démarrer avec Thorium Reader",
