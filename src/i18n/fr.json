@@ -158,7 +158,7 @@
       "title": {
         "label": "Titre du catalogue",
         "placeholder": "Mon catalogue d'ebooks",
-        "hint": "Utilisé comme libellé accessible sur le lien du badge."
+        "hint": "Le nom de votre catalogue tel qu'il apparaît dans Thorium Reader."
       },
       "icon": {
         "label": "URL de l'icône",
@@ -183,12 +183,12 @@
       "browse": {
         "label": "URL de navigation",
         "placeholder": "https://exemple.com/opds",
-        "hint": "Facultatif. URL OPDS ou web pour parcourir le catalogue."
+        "hint": "URL OPDS ou web pour parcourir le catalogue. Au moins une URL de catalogue est requise."
       },
       "bookshelf": {
         "label": "URL de la bibliothèque",
         "placeholder": "https://exemple.com/etagere",
-        "hint": "URL OPDS ou web pour accéder à la bibliothèque de l'utilisateur."
+        "hint": "URL OPDS ou web pour accéder à la bibliothèque de l'utilisateur. Au moins une URL de catalogue est requise."
       },
       "openIn": {
         "label": "Ouvrir dans",
