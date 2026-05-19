@@ -3,11 +3,12 @@ import type { Locale } from "../../i18n/locales.js";
 import { bcp47Locale } from "../../i18n/locales.js";
 import { appleAppId, appleReleaseDate } from "../../config.js";
 
-const HREF = `https://apps.apple.com/us/app/thorium-reader/id${ appleAppId }?itscg=30200&itsct=apps_box_badge&mttnsubad=${ appleAppId }`;
-
 const lang = Astro.currentLocale as Locale;
 const badgeLocale = bcp47Locale[lang] ?? bcp47Locale.en;
+const storeCountry = badgeLocale.split("-")[1] ?? "us";
+
 const src = `https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/${ badgeLocale }?releaseDate=${ appleReleaseDate }`;
+const HREF = `https://apps.apple.com/${ storeCountry }/app/thorium-reader/id${ appleAppId }?itscg=30200&itsct=apps_box_badge&mttnsubad=${ appleAppId }`;
 ---
 
 <a href={ HREF } style="display: inline-block;">

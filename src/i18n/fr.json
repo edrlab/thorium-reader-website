@@ -217,28 +217,5 @@
       "copy": "Copier dans le presse-papiers",
       "copied": "Copié !"
     }
-  },
-  "install": {
-    "intro": {
-      "title": "Démarrer avec Thorium Reader",
-      "subtitle": "L'installation de Thorium Reader ne prend que quelques minutes. Suivez les étapes ci-dessous pour créer votre bibliothèque numérique personnelle."
-    },
-    "steps": {
-      "title": "Comment installer Thorium Reader",
-      "items": [
-        {
-          "title": "Télécharger l'application",
-          "body": "Rendez-vous sur la page de téléchargement et choisissez la version adaptée à votre appareil — macOS, Windows, Linux ou iOS."
-        },
-        {
-          "title": "Importer votre premier livre",
-          "body": "Ouvrez Thorium Reader et faites glisser un fichier EPUB, PDF ou CBZ dans la bibliothèque, ou utilisez le bouton Ajouter un livre."
-        },
-        {
-          "title": "Commencer à lire",
-          "body": "Appuyez ou cliquez sur votre livre pour l'ouvrir. Ajustez les polices, les couleurs et l'espacement pour personnaliser votre expérience."
-        }
-      ]
-    }
   }
 }
