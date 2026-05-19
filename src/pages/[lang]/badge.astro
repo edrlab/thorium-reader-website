@@ -92,11 +92,18 @@ const copiedText      = t(lang, "badge.output.copied");
 
             <div class="field">
               <label for="catalog-open-in">{ t(lang, "badge.form.openIn.label") }</label>
-              <select id="catalog-open-in" name="openIn">
-                <option value="">{ t(lang, "badge.form.openIn.default") }</option>
-                <option value="webview">{ t(lang, "badge.form.openIn.webview") }</option>
-                <option value="browser">{ t(lang, "badge.form.openIn.browser") }</option>
-              </select>
+              <CustomSelect
+                id="catalog-open-in"
+                name="openIn"
+                describedby="hint-open-in"
+                label={ t(lang, "badge.form.openIn.label") }
+                options={[
+                  { value: "",        label: t(lang, "badge.form.openIn.default") },
+                  { value: "webview", label: t(lang, "badge.form.openIn.webview") },
+                  { value: "browser", label: t(lang, "badge.form.openIn.browser") },
+                ]}
+                selectedValue=""
+              />
               <p class="field-hint" id="hint-open-in">{ t(lang, "badge.form.openIn.hint") }</p>
             </div>
 
@@ -133,13 +140,16 @@ const copiedText      = t(lang, "badge.output.copied");
 
             <div class="field">
               <label for="badge-lang">{ t(lang, "badge.form.lang.label") }</label>
-              <select id="badge-lang" name="lang">
-                { locales.map((l) => (
-                  <option value={l} selected={l === lang}>
-                    { t(lang, `badge.form.lang.${l}`) }
-                  </option>
-                )) }
-              </select>
+              <CustomSelect
+                id="badge-lang"
+                name="lang"
+                label={ t(lang, "badge.form.lang.label") }
+                options={ locales.map((l) => ({
+                  value: l,
+                  label: t(lang, `badge.form.lang.${l}`),
+                })) }
+                selectedValue={lang}
+              />
             </div>
           </fieldset>
         </form>
