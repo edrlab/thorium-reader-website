@@ -1,0 +1,16 @@
+---
+import TabsDecoration from "./TabsDecoration.astro";
+import { getImage } from "../../i18n/utils.js";
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+---
+
+<TabsDecoration
+  class="comic-book-decoration"
+  illustrationClass="comic-book-illustration"
+  illustration={{ src: getImage(lang, "thorium-illustration-06.webp") }}
+/>

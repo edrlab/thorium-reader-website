@@ -21,8 +21,8 @@ const options = locales.map(code => ({
 ---
 
 <CustomSelect
-  options={options}
-  selectedValue={currentLocale}
-  label={`Language: ${labels[currentLocale] ?? currentLocale.toUpperCase()}`}
+  options={ options }
+  selectedValue={ currentLocale }
+  label={`Language: ${ labels[currentLocale] ?? currentLocale.toUpperCase()}`}
   class="lang-picker"
 />

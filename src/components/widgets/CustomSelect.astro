@@ -18,36 +18,36 @@ interface Props {
 const { options, label, id, name, describedby, selectedValue, class: className } = Astro.props;
 const selected = options.find(o => o.value === selectedValue) ?? options[0];
 const uid = Math.random().toString(36).slice(2, 8);
-const btnId = id ?? `cs-btn-${uid}`;
-const listId = `cs-list-${uid}`;
+const btnId = id ?? `cs-btn-${ uid }`;
+const listId = `cs-list-${ uid }`;
 ---
 
 <div class:list={["custom-select", className]} data-custom-select>
-  {name && <input type="hidden" name={name} value={selected?.value ?? ""} />}
+  { name && <input type="hidden" name={ name } value={ selected?.value ?? "" } />}
   <button
     type="button"
-    id={btnId}
+    id={ btnId }
     aria-haspopup="listbox"
     aria-expanded="false"
-    aria-controls={listId}
-    aria-label={label}
-    aria-describedby={describedby}
+    aria-controls={ listId }
+    aria-label={ label }
+    aria-describedby={ describedby }
   >
-    <span data-cs-label>{selected?.label ?? ""}</span>
+    <span data-cs-label>{ selected?.label ?? ""}</span>
     <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true">
       <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
   </button>
-  <ul role="listbox" id={listId} aria-label={label} hidden>
-    {options.map(opt => (
+  <ul role="listbox" id={ listId } aria-label={ label } hidden>
+    { options.map(opt => (
       <li
         role="option"
-        aria-selected={opt.value === selected?.value ? "true" : "false"}
-        data-value={opt.value}
-        data-url={opt.url}
+        aria-selected={ opt.value === selected?.value ? "true" : "false"}
+        data-value={ opt.value }
+        data-url={ opt.url }
         tabindex="-1"
       >
-        {opt.label}
+        { opt.label }
       </li>
     ))}
   </ul>
@@ -74,9 +74,9 @@ const listId = `cs-list-${uid}`;
       let left = btn_r.left;
       if (left + listW > window.innerWidth - MARGIN) left = btn_r.right - listW;
       Object.assign(list.style, {
-        top:    openUp ? "auto" : `${btn_r.bottom + GAP}px`,
-        bottom: openUp ? `${window.innerHeight - btn_r.top + GAP}px` : "auto",
-        left:   `${Math.max(MARGIN, left)}px`,
+        top:    openUp ? "auto" : `${ btn_r.bottom + GAP }px`,
+        bottom: openUp ? `${ window.innerHeight - btn_r.top + GAP }px` : "auto",
+        left:   `${ Math.max(MARGIN, left) }px`,
       });
     }
 
@@ -87,7 +87,7 @@ const listId = `cs-list-${uid}`;
       list.hidden = false;
       const naturalW = list.offsetWidth;
       listW = Math.max(btn_r.width, Math.min(naturalW, Math.max(btn_r.width, 400)));
-      list.style.width = `${listW}px`;
+      list.style.width = `${ listW }px`;
       listH = list.offsetHeight;
       place();
       list.style.visibility = "";
@@ -123,7 +123,7 @@ const listId = `cs-list-${uid}`;
         list.style.width = "max-content";
         const naturalW = list.offsetWidth;
         listW = Math.max(btn_r.width, Math.min(naturalW, Math.max(btn_r.width, 400)));
-        list.style.width = `${listW}px`;
+        list.style.width = `${ listW }px`;
         listH = list.offsetHeight;
         list.style.visibility = "";
         place();

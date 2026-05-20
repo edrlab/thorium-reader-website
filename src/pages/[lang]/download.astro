@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import Hero from "../../components/sections/HeroSection.astro";
 import FeatureSection from "../../components/sections/FeatureSection.astro";
+import ComicBookDecoration from "../../components/decorations/ComicBookDecoration.astro";
 import Tabs from "../../components/widgets/Tabs.astro";
 import FAQ from "../../components/sections/FAQ.astro";
 import Footer from "../../components/Footer.astro";
@@ -10,7 +11,6 @@ import AppStoreBadge from "../../components/buttons/AppStoreBadge.astro";
 import MsStoreBadge from "../../components/buttons/MsStoreBadge.astro";
 import { t, getImage } from "../../i18n/utils.js";
 import { locales } from "../../i18n/locales.js";
-import rawShape6WaveTop from "../../assets/shapes/thorium-shape-6-wave-top.svg?raw";
 import rawShape6WaveBottom from "../../assets/shapes/thorium-shape-6-wave-bottom.svg?raw";
 
 export function getStaticPaths() {
@@ -20,7 +20,7 @@ export function getStaticPaths() {
 const lang = Astro.currentLocale;
 
 function osSteps(os: string): string[] {
-  const steps = t(lang, `download.modal.${os}.steps`, { returnObjects: true });
+  const steps = t(lang, `download.modal.${ os }.steps`, { returnObjects: true });
   return Array.isArray(steps) ? steps : [];
 }
 
@@ -56,31 +56,24 @@ const osTabs = [
     <MsStoreBadge slot="actions" />
   </FeatureSection>
 
-  <div class="tabs-wave tabs-wave-top" aria-hidden="true">
-    <Fragment set:html={rawShape6WaveTop} />
-  </div>
+  <ComicBookDecoration lang={ lang } />
 
   <section class="download-tabs-section" id="download-tabs">
-    <Image
-      class="tabs-illustration"
-      src={getImage(lang, "thorium-illustration-06.webp")}
-      alt=""
-    />
     <div class="container">
-      <Tabs tabs={osTabs} label={ t(lang, "download.tabs.label") }>
+      <Tabs tabs={ osTabs } label={ t(lang, "download.tabs.label") }>
         { osTabs.map((tab, i) => {
           const steps = osSteps(tab.id);
           return (
             <div
-              id={`panel-${tab.id}`}
+              id={`panel-${ tab.id }`}
               role="tabpanel"
-              aria-labelledby={`tab-${tab.id}`}
-              tabindex={0}
-              hidden={i !== 0}
+              aria-labelledby={`tab-${ tab.id }`}
+              tabindex={ 0 }
+              hidden={ i !== 0 }
             >
               { steps.length > 0
                 ? <ul class="download-steps">
-                    { steps.map(s => <li set:html={s} />) }
+                    { steps.map(s => <li set:html={ s } />) }
                   </ul>
                 : <p class="download-steps-todo">{ t(lang, "download.coming_soon") }</p>
               }
@@ -92,7 +85,7 @@ const osTabs = [
   </section>
 
   <div class="tabs-wave tabs-wave-bottom" aria-hidden="true">
-    <Fragment set:html={rawShape6WaveBottom} />
+    <Fragment set:html={ rawShape6WaveBottom } />
   </div>
 
   <FAQ

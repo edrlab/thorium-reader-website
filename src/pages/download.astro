@@ -1,10 +1,4 @@
 ---
-import { locales, defaultLocale } from "../i18n/locales.js";
-const base = import.meta.env.BASE_URL;
+import LocaleRedirect from "../components/LocaleRedirect.astro";
 ---
-<script define:vars={{ locales, defaultLocale, base }}>
-  const preferred = navigator.languages
-    .map(tag => tag.split("-")[0].toLowerCase())
-    .find(lang => locales.includes(lang));
-  location.replace(`${ base }${ preferred ?? defaultLocale }/download/`);
-</script>
+<LocaleRedirect path="download/" />

@@ -30,3 +30,65 @@ const { title, items } = Astro.props;
     </div>
   </div>
 </section>
+
+<script>
+  document.querySelectorAll<HTMLDetailsElement>(".faq-item").forEach((details) => {
+    const summary = details.querySelector<HTMLElement>("summary")!;
+    const content = details.querySelector<HTMLElement>(".faq-answer")!;
+    let animation: Animation | null = null;
+    let isClosing = false;
+    let isExpanding = false;
+
+    function shrink() {
+      isClosing = true;
+      const startHeight = `${ details.offsetHeight }px`;
+      const endHeight = `${ summary.offsetHeight }px`;
+      if (animation) animation.cancel();
+      animation = details.animate(
+        { height: [startHeight, endHeight] },
+        { duration: 300, easing: "ease-out" }
+      );
+      animation.onfinish = () => onFinish(false);
+      animation.oncancel = () => { isClosing = false; };
+    }
+
+    function expand() {
+      isExpanding = true;
+      const startHeight = `${ details.offsetHeight }px`;
+      const endHeight = `${ summary.offsetHeight + content.offsetHeight }px`;
+      if (animation) animation.cancel();
+      animation = details.animate(
+        { height: [startHeight, endHeight] },
+        { duration: 300, easing: "ease-out" }
+      );
+      animation.onfinish = () => onFinish(true);
+      animation.oncancel = () => { isExpanding = false; };
+    }
+
+    function open() {
+      details.style.height = `${ details.offsetHeight }px`;
+      details.open = true;
+      requestAnimationFrame(expand);
+    }
+
+    function onFinish(open: boolean) {
+      details.open = open;
+      animation = null;
+      isClosing = false;
+      isExpanding = false;
+      details.style.height = "";
+    }
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    summary.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (prefersReducedMotion) {
+        details.open = !details.open;
+        return;
+      }
+      if (isClosing || !details.open) open();
+      else if (isExpanding || details.open) shrink();
+    });
+  });
+</script>

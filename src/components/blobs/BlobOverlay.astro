@@ -1,24 +1,62 @@
 ---
-import rawSvg from "../../assets/shapes/thorium-shape-1.svg?raw";
+import { getImage } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import shapeLarge from "../../assets/shapes/thorium-shape-1-large.svg?raw";
 
-const viewBox = "0 0 2178 2000";
-const pathMatch = rawSvg.match(/d="([^"]+)"/);
-const pathD = pathMatch ? pathMatch[1] : "";
-const maskId = `blob-mask-${Math.random().toString(36).slice(2, 10)}`;
+interface Props {
+  blob?: string | ImageMetadata;
+}
+
+const { blob = shapeLarge } = Astro.props;
+const blobIsPath = typeof blob === "string";
+
+const uid = Math.random().toString(36).slice(2, 8);
+const maskId = `blob-mask-${ uid }`;
+const filterId = `blob-cutout-${ uid }`;
+
+let w: number, h: number, pathD: string, processedSrc: string;
+
+if (blobIsPath) {
+  const viewBoxMatch = (blob as string).match(/viewBox="[^"]*?(\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)"[^>]*>/);
+  w = viewBoxMatch ? parseFloat(viewBoxMatch[1]) : 0;
+  h = viewBoxMatch ? parseFloat(viewBoxMatch[2]) : 0;
+  const gMatch = (blob as string).match(/<g[\s\S]*<\/g>/);
+  pathD = gMatch ? gMatch[0] : "";
+} else {
+  const processed = await getImage({ src: blob as ImageMetadata });
+  processedSrc = processed.src;
+  w = (blob as ImageMetadata).width;
+  h = (blob as ImageMetadata).height;
+}
 ---
 
 <svg
   class="blob-overlay"
-  viewBox={ viewBox }
+  viewBox={ `0 0 ${w} ${h}` }
   xmlns="http://www.w3.org/2000/svg"
   aria-hidden="true"
   focusable="false"
 >
   <defs>
-    <mask id={ maskId }>
-      <rect width="2178" height="2000" fill="white" />
-      <path d={ pathD } fill="black" />
-    </mask>
+    { blobIsPath
+      ? (
+        <mask id={ maskId }>
+          <rect width={ w } height={ h } fill="white" />
+          <g color="black">
+            <Fragment set:html={ pathD } />
+          </g>
+        </mask>
+      )
+      : (
+        <filter id={ filterId } x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+          <feImage href={ processedSrc } x="0" y="0" width={ w } height={ h } result="blob" preserveAspectRatio="none" />
+          <feComposite in="SourceGraphic" in2="blob" operator="out" />
+        </filter>
+      )
+    }
   </defs>
-  <rect width="2178" height="2000" fill="var(--color-cream)" mask={`url(#${maskId})`} />
+  { blobIsPath
+    ? <rect width={ w } height={ h } fill="var(--color-cream)" mask={ `url(#${ maskId })` } />
+    : <rect width={ w } height={ h } fill="var(--color-cream)" filter={ `url(#${ filterId })` } />
+  }
 </svg>

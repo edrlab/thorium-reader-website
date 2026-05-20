@@ -13,14 +13,14 @@ const { tabs, label } = Astro.props;
 ---
 
 <div class="tabs-widget">
-  <div class="tabs-tablist" role="tablist" aria-label={label}>
+  <div class="tabs-tablist" role="tablist" aria-label={ label }>
     { tabs.map((tab, i) => (
       <button
-        id={`tab-${tab.id}`}
+        id={`tab-${ tab.id }`}
         role="tab"
-        aria-selected={i === 0 ? "true" : "false"}
-        aria-controls={`panel-${tab.id}`}
-        tabindex={i === 0 ? 0 : -1}
+        aria-selected={ i === 0 ? "true" : "false"}
+        aria-controls={`panel-${ tab.id }`}
+        tabindex={ i === 0 ? 0 : -1 }
         class:list={["tabs-tab", { active: i === 0 }]}
       >
         { tab.label }
@@ -52,7 +52,7 @@ const { tabs, label } = Astro.props;
       tab.tabIndex = 0;
 
       const panelId = tab.getAttribute("aria-controls")!;
-      const panel = widget.querySelector<HTMLElement>(`#${panelId}`);
+      const panel = widget.querySelector<HTMLElement>(`#${ panelId }`);
       if (panel) panel.hidden = false;
     }
 

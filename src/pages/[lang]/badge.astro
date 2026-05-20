@@ -6,6 +6,9 @@ import CustomSelect from "../../components/widgets/CustomSelect.astro";
 import { t } from "../../i18n/utils.js";
 import { locales } from "../../i18n/locales.js";
 import { addCatalogScheme } from "../../config.js";
+import rawThoriumLogo from "../../components/logos/assets/thorium-logo.svg?raw";
+
+const thoriumLogoDataUri = `data:image/svg+xml;base64,${ Buffer.from(rawThoriumLogo).toString("base64") }`;
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
@@ -19,12 +22,13 @@ const badgeTexts = Object.fromEntries(
     line1: t(l, "badge.form.buttonLine1"),
     line2: t(l, "badge.form.buttonLine2"),
     alt:   t(l, "badge.form.alt"),
-    label: t(lang, `badge.form.lang.${l}`),
+    label: t(lang, `badge.form.lang.${ l }`),
   }])
 );
 
 const copyText        = t(lang, "badge.output.copy");
 const copiedText      = t(lang, "badge.output.copied");
+const defaultIcon     = thoriumLogoDataUri;
 ---
 
 <Layout title={ t(lang, "badge.hero.title") + " — " + t(lang, "site.title") } noBlob>
@@ -130,7 +134,7 @@ const copiedText      = t(lang, "badge.output.copied");
                   { value: "", label: t(lang, "badge.form.color.default") },
                   ...["gray", "red", "yellow", "blue", "green", "purple", "orange"].map(c => ({
                     value: c,
-                    label: t(lang, `badge.form.color.${c}`),
+                    label: t(lang, `badge.form.color.${ c }`),
                   }))
                 ]}
                 selectedValue=""
@@ -146,9 +150,9 @@ const copiedText      = t(lang, "badge.output.copied");
                 label={ t(lang, "badge.form.lang.label") }
                 options={ locales.map((l) => ({
                   value: l,
-                  label: t(lang, `badge.form.lang.${l}`),
+                  label: t(lang, `badge.form.lang.${ l }`),
                 })) }
-                selectedValue={lang}
+                selectedValue={ lang }
               />
             </div>
           </fieldset>
@@ -189,7 +193,7 @@ const copiedText      = t(lang, "badge.output.copied");
   <Footer />
 </Layout>
 
-<script define:vars={{ badgeTexts, addCatalogScheme, copyText, copiedText }}>
+<script define:vars={{ badgeTexts, addCatalogScheme, copyText, copiedText, defaultIcon }}>
   const form        = document.getElementById("badge-form");
   const previewEl   = document.getElementById("preview-badge");
   const embedCode   = document.getElementById("embed-code");
@@ -205,18 +209,16 @@ const copiedText      = t(lang, "badge.output.copied");
 
   const F = 'font-family="system-ui,-apple-system,Arial,sans-serif"';
 
-  function makeSVG({ line1, line2, icon, title }) {
-    const iconPart = icon
-      ? `<clipPath id="ic"><rect x="12" y="12" width="32" height="32" rx="5"/></clipPath>\n  <image href="${esc(icon)}" x="12" y="12" width="32" height="32" clip-path="url(#ic)" preserveAspectRatio="xMidYMid slice"/>`
-      : `<rect x="12" y="12" width="32" height="32" rx="5" fill="#EB8445"/>\n  <text x="28" y="28" ${F} font-size="20" font-weight="800" fill="#F9F4E3" text-anchor="middle" dominant-baseline="central">T</text>`;
+  function makeSVG({ line1, line2, title }) {
+    const iconPart = `<clipPath id="ic"><rect x="12" y="12" width="32" height="32" rx="5"/></clipPath>\n  <image href="${ defaultIcon }" x="12" y="12" width="32" height="32" clip-path="url(#ic)" preserveAspectRatio="xMidYMid meet"/>`;
 
     return [
-      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196 56" width="196" height="56" role="img" aria-label="${esc(title)}">`,
-      `  <title>${esc(title)}</title>`,
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196 56" width="196" height="56" role="img" aria-label="${ esc(title) }">`,
+      `  <title>${ esc(title) }</title>`,
       `  <rect width="196" height="56" rx="8" fill="#A4485F"/>`,
-      `  ${iconPart}`,
-      `  <text x="57" y="22" ${F} font-size="10" fill="#F9F4E3" opacity="0.85">${esc(line1)}</text>`,
-      `  <text x="57" y="40" ${F} font-size="15" font-weight="700" fill="#F9F4E3">${esc(line2)}</text>`,
+      `  ${ iconPart }`,
+      `  <text x="57" y="22" ${ F } font-size="10" fill="#F9F4E3" opacity="0.85">${ esc(line1) }</text>`,
+      `  <text x="57" y="40" ${ F } font-size="15" font-weight="700" fill="#F9F4E3">${ esc(line2) }</text>`,
       `</svg>`,
     ].join("\n");
   }
@@ -236,7 +238,7 @@ const copiedText      = t(lang, "badge.output.copied");
     const hasUrl         = browseValid || bookshelfValid;
 
     const { line1, line2, alt } = badgeTexts[selectedLang] ?? Object.values(badgeTexts)[0];
-    const svgTitle = title ? alt.replace("{{name}}", title) : `${line1} ${line2}`;
+    const svgTitle = title ? alt.replace("{{ name }}", title) : `${ line1 } ${ line2 }`;
 
     const params = new URLSearchParams();
     if (title)          params.set("title",     title);
@@ -247,14 +249,14 @@ const copiedText      = t(lang, "badge.output.copied");
     if (openIn)         params.set("openIn",    openIn);
     const deepLink = (title && hasUrl) ? addCatalogScheme + params.toString() : null;
 
-    const svg = makeSVG({ line1, line2, icon, title: svgTitle });
+    const svg = makeSVG({ line1, line2, title: svgTitle });
 
     previewEl.innerHTML = deepLink
-      ? `<a href="${esc(deepLink)}">${svg}</a>`
+      ? `<a href="${ esc(deepLink) }">${ svg }</a>`
       : svg;
 
     embedCode.textContent = deepLink
-      ? `<a href="${esc(deepLink)}">\n  ${svg}\n</a>`
+      ? `<a href="${ esc(deepLink) }">\n  ${ svg }\n</a>`
       : "";
   }
 

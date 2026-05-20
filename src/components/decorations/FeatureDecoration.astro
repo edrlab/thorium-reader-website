@@ -1,0 +1,28 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  blob: string | ImageMetadata;
+  illustration: { src: ImageMetadata; alt?: string };
+  class?: string;
+  illustrationClass?: string;
+}
+
+const { blob, illustration, class: className, illustrationClass } = Astro.props;
+const blobIsImage = typeof blob !== "string";
+---
+
+<div class:list={ ["feature-decoration", className] } aria-hidden="true">
+  <div class="feature-blob">
+    { blobIsImage
+      ? <Image src={ blob as ImageMetadata } alt="" />
+      : <Fragment set:html={ blob } />
+    }
+  </div>
+  <Image
+    class:list={ ["feature-decoration-illustration", illustrationClass] }
+    src={ illustration.src }
+    alt={ illustration.alt ?? "" }
+  />
+</div>
