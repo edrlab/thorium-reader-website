@@ -1011,9 +1011,12 @@ img {
 }
 
 .faq-item summary:focus-visible {
-  outline: var(--focus-ring);
-  outline-offset: -2px;
-  border-radius: inherit;
+  outline: none;
+}
+
+.faq-item:has(summary:focus-visible) {
+  outline: 2px solid var(--color-mauve);
+  outline-offset: 4px;
 }
 
 .faq-item summary::-webkit-details-marker {
