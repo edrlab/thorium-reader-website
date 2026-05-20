@@ -186,6 +186,7 @@ display: none;
   left: 0;
   width: 100vw;
   z-index: -1;
+  color: var(--color-mauve);
   pointer-events: none;
 }
 
@@ -514,7 +515,7 @@ display: none;
   line-height: 0;
 }
 
-.thorium-reader-logo svg {
+.thorium-reader-logo img {
   height: 1.75rem;
   width: auto;
   display: block;
@@ -1448,6 +1449,11 @@ display: none;
   .thorium-reader-logo {
     overflow: hidden;
     width: 1.75rem;
+  }
+
+  .thorium-reader-logo img {
+    width: auto;
+    max-width: none;
   }
 
   .hamburger-btn {

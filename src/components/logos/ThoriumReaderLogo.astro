@@ -1,7 +1,8 @@
 ---
-import rawSvg from "./assets/logo-thorium-reader.svg?raw";
+import { Image } from "astro:assets";
+import logoSrc from "./assets/logo-thorium-reader.webp";
 ---
 <span class="thorium-reader-logo" aria-hidden="true">
-  <Fragment set:html={ rawSvg } />
+  <Image src={ logoSrc } alt="" loading="eager" fetchpriority="high" style="height: 1.75rem; width: auto; display: block;" />
 </span>
 
