@@ -755,6 +755,13 @@ display: none;
   z-index: 2;
 }
 
+.hero-text p,
+.feature-text p,
+.cta-text p,
+.intro-text p {
+  text-wrap: pretty;
+}
+
 /* ── Hero ── */
 .hero {
   color: var(--color-cream);
