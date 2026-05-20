@@ -1368,6 +1368,10 @@ display: none;
     color: var(--color-text);
   }
 
+  .hero-inner:has(.hero-image-wrap--clipped) .hero-text {
+    margin-top: -2rem;
+  }
+
   .hero-text h1 {
     color: var(--color-mauve);
   }
