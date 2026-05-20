@@ -3,8 +3,8 @@ import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import Hero from "../../components/sections/HeroSection.astro";
 import FeatureSection from "../../components/sections/FeatureSection.astro";
-import FeatureDecoration from "../../components/sections/FeatureDecoration.astro";
-import CTADecoration from "../../components/sections/CTADecoration.astro";
+import BookWalkerDecoration from "../../components/decorations/BookWalkerDecoration.astro";
+import TippedBoxDecoration from "../../components/decorations/TippedBoxDecoration.astro";
 import CTASection from "../../components/sections/CTASection.astro";
 import FAQ from "../../components/sections/FAQ.astro";
 import Footer from "../../components/Footer.astro";
@@ -13,8 +13,6 @@ import DiscordButton from "../../components/buttons/DiscordButton.astro";
 import { t, getImage } from "../../i18n/utils.js";
 import { locales } from "../../i18n/locales.js";
 import { discordHref } from "../../config.js";
-import rawShape2 from "../../assets/shapes/thorium-shape-2.svg?raw";
-
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
 }
@@ -64,15 +62,10 @@ const lang = Astro.currentLocale;
       </figure>
     </FeatureSection>
 
-    <FeatureDecoration
-      blob={ rawShape2 }
-      illustration={{ src: getImage(lang, "thorium-illustration-02.webp"), alt: t(lang, "home.alts.thorium-illustration-02") }}
-    />
+    <BookWalkerDecoration lang={ lang } />
   </div>
 
-  <CTADecoration
-    illustration={{ src: getImage(lang, "thorium-illustration-03.webp") }}
-  />
+  <TippedBoxDecoration lang={ lang } />
 
   <CTASection
     title={ t(lang, "home.cta.section.title") }

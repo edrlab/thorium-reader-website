@@ -5,17 +5,19 @@ import rawWaveTop from "../../assets/shapes/thorium-shape-6-wave-top.svg?raw";
 
 interface Props {
   illustration: { src: ImageMetadata; alt?: string };
+  class?: string;
+  illustrationClass?: string;
 }
 
-const { illustration } = Astro.props;
+const { illustration, class: className, illustrationClass } = Astro.props;
 ---
 
-<div class="tabs-decoration">
+<div class:list={ ["tabs-decoration", className] }>
   <div class="tabs-wave tabs-wave-top" aria-hidden="true">
     <Fragment set:html={ rawWaveTop } />
   </div>
   <Image
-    class="tabs-decoration-illustration"
+    class:list={ ["tabs-decoration-illustration", illustrationClass] }
     src={ illustration.src }
     alt={ illustration.alt ?? "" }
   />

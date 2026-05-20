@@ -821,7 +821,7 @@ img {
   line-height: 0;
 }
 
-.feature-decoration-illustration {
+.book-walker-illustration {
   position: absolute;
   top: 20%;
   left: 0%;
@@ -940,7 +940,7 @@ img {
   color: var(--color-mauve);
 }
 
-.cta-decoration-illustration {
+.tipped-box-illustration {
   position: absolute;
   bottom: 20%;
   right: 20%;
@@ -1107,7 +1107,7 @@ img {
   background: var(--color-cream);
 }
 
-.tabs-decoration-illustration {
+.comic-book-illustration {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -1353,11 +1353,12 @@ img {
     display: none;
   }
 
-  .tabs-decoration-illustration {
+  .comic-book-illustration {
     right: auto;
     left: 0;
     transform: translateY(17.5%) scaleX(-1);
   }
+
 
   .hero-inner,
   .feature-inner,
