@@ -12,11 +12,11 @@ const { illustration } = Astro.props;
 
 <div class="cta-decoration">
   <div class="cta-wave cta-wave-top" aria-hidden="true">
-    <Fragment set:html={rawWaveTop} />
+    <Fragment set:html={ rawWaveTop } />
   </div>
   <Image
     class="cta-decoration-illustration"
-    src={illustration.src}
-    alt={illustration.alt ?? ""}
+    src={ illustration.src }
+    alt={ illustration.alt ?? "" }
   />
 </div>

@@ -20,7 +20,7 @@ export function getStaticPaths() {
 const lang = Astro.currentLocale;
 
 function osSteps(os: string): string[] {
-  const steps = t(lang, `download.modal.${os}.steps`, { returnObjects: true });
+  const steps = t(lang, `download.modal.${ os }.steps`, { returnObjects: true });
   return Array.isArray(steps) ? steps : [];
 }
 
@@ -62,20 +62,20 @@ const osTabs = [
 
   <section class="download-tabs-section" id="download-tabs">
     <div class="container">
-      <Tabs tabs={osTabs} label={ t(lang, "download.tabs.label") }>
+      <Tabs tabs={ osTabs } label={ t(lang, "download.tabs.label") }>
         { osTabs.map((tab, i) => {
           const steps = osSteps(tab.id);
           return (
             <div
-              id={`panel-${tab.id}`}
+              id={`panel-${ tab.id }`}
               role="tabpanel"
-              aria-labelledby={`tab-${tab.id}`}
-              tabindex={0}
-              hidden={i !== 0}
+              aria-labelledby={`tab-${ tab.id }`}
+              tabindex={ 0 }
+              hidden={ i !== 0 }
             >
               { steps.length > 0
                 ? <ul class="download-steps">
-                    { steps.map(s => <li set:html={s} />) }
+                    { steps.map(s => <li set:html={ s } />) }
                   </ul>
                 : <p class="download-steps-todo">{ t(lang, "download.coming_soon") }</p>
               }
@@ -87,7 +87,7 @@ const osTabs = [
   </section>
 
   <div class="tabs-wave tabs-wave-bottom" aria-hidden="true">
-    <Fragment set:html={rawShape6WaveBottom} />
+    <Fragment set:html={ rawShape6WaveBottom } />
   </div>
 
   <FAQ

@@ -11,10 +11,10 @@ const { blob, illustration } = Astro.props;
 ---
 
 <div class="feature-decoration" aria-hidden="true">
-  <div class="feature-blob"><Fragment set:html={blob} /></div>
+  <div class="feature-blob"><Fragment set:html={ blob } /></div>
   <Image
     class="feature-decoration-illustration"
-    src={illustration.src}
-    alt={illustration.alt ?? ""}
+    src={ illustration.src }
+    alt={ illustration.alt ?? "" }
   />
 </div>

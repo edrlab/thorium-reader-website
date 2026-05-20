@@ -41,8 +41,8 @@ const { title, items } = Astro.props;
 
     function shrink() {
       isClosing = true;
-      const startHeight = `${details.offsetHeight}px`;
-      const endHeight = `${summary.offsetHeight}px`;
+      const startHeight = `${ details.offsetHeight }px`;
+      const endHeight = `${ summary.offsetHeight }px`;
       if (animation) animation.cancel();
       animation = details.animate(
         { height: [startHeight, endHeight] },
@@ -54,8 +54,8 @@ const { title, items } = Astro.props;
 
     function expand() {
       isExpanding = true;
-      const startHeight = `${details.offsetHeight}px`;
-      const endHeight = `${summary.offsetHeight + content.offsetHeight}px`;
+      const startHeight = `${ details.offsetHeight }px`;
+      const endHeight = `${ summary.offsetHeight + content.offsetHeight }px`;
       if (animation) animation.cancel();
       animation = details.animate(
         { height: [startHeight, endHeight] },
@@ -66,7 +66,7 @@ const { title, items } = Astro.props;
     }
 
     function open() {
-      details.style.height = `${details.offsetHeight}px`;
+      details.style.height = `${ details.offsetHeight }px`;
       details.open = true;
       requestAnimationFrame(expand);
     }

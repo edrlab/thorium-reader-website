@@ -4,7 +4,7 @@ import rawSvg from "../../assets/shapes/thorium-shape-1.svg?raw";
 const viewBox = "0 0 2178 2000";
 const pathMatch = rawSvg.match(/d="([^"]+)"/);
 const pathD = pathMatch ? pathMatch[1] : "";
-const maskId = `blob-mask-${Math.random().toString(36).slice(2, 10)}`;
+const maskId = `blob-mask-${ Math.random().toString(36).slice(2, 10) }`;
 ---
 
 <svg
@@ -20,5 +20,5 @@ const maskId = `blob-mask-${Math.random().toString(36).slice(2, 10)}`;
       <path d={ pathD } fill="black" />
     </mask>
   </defs>
-  <rect width="2178" height="2000" fill="var(--color-cream)" mask={`url(#${maskId})`} />
+  <rect width="2178" height="2000" fill="var(--color-cream)" mask={`url(#${ maskId })`} />
 </svg>

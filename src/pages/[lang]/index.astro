@@ -26,7 +26,7 @@ const lang = Astro.currentLocale;
   <Image
     slot="hero-decoration"
     class="hero-illustration"
-    src={getImage(lang, "thorium-illustration-01.webp")}
+    src={ getImage(lang, "thorium-illustration-01.webp")}
     alt=""
   />
 
@@ -65,7 +65,7 @@ const lang = Astro.currentLocale;
     </FeatureSection>
 
     <FeatureDecoration
-      blob={rawShape2}
+      blob={ rawShape2 }
       illustration={{ src: getImage(lang, "thorium-illustration-02.webp"), alt: t(lang, "home.alts.thorium-illustration-02") }}
     />
   </div>
