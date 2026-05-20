@@ -1343,13 +1343,29 @@ img {
     background: var(--color-mauve);
   }
 
+  .feature-decoration {
+    display: none;
+  }
+
+  .tabs-decoration-illustration {
+    right: auto;
+    left: 0;
+    transform: translateY(17.5%) scaleX(-1);
+  }
+
   .hero-inner,
-  .feature-inner {
+  .feature-inner,
+  .feature-top {
     grid-template-columns: 1fr;
   }
 
   .feature-inner.reverse {
     direction: ltr;
+  }
+
+  .feature-top .feature-text,
+  .feature-top.reverse .feature-text {
+    grid-area: auto;
   }
 
   .hero-image-wrap,
