@@ -1,7 +1,8 @@
 ---
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import BlobOverlay from "../blobs/BlobOverlay.astro";
+import shapeCompact from "../../assets/shapes/thorium-shape-1-compact.webp";
 
 interface Props {
   title: string;
@@ -11,6 +12,7 @@ interface Props {
 }
 
 const { title, body, image, clipImage = false } = Astro.props;
+const compactProcessed = await getImage({ src: shapeCompact });
 ---
 
 <section class="hero">
@@ -21,7 +23,11 @@ const { title, body, image, clipImage = false } = Astro.props;
       <slot name="actions" />
     </div>
 
-    <div class="hero-image-wrap">
+    <div
+      class={ `hero-image-wrap${ clipImage ? " hero-image-wrap--clipped" : "" }` }
+      style={ `--compact-mask: url('${compactProcessed.src}')` }
+    >
+      <div class="hero-wave-bg" aria-hidden="true"></div>
       <Image
         src={ image.src }
         alt={ image.alt }

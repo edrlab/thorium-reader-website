@@ -1,24 +1,24 @@
 ---
-import rawSvg from "../../assets/shapes/thorium-shape-1.svg?raw";
+import { getImage } from "astro:assets";
+import shapeLarge from "../../assets/shapes/thorium-shape-1-large.webp";
 
-const viewBox = "0 0 2178 2000";
-const pathMatch = rawSvg.match(/d="([^"]+)"/);
-const pathD = pathMatch ? pathMatch[1] : "";
-const maskId = `blob-mask-${ Math.random().toString(36).slice(2, 10) }`;
+const processed = await getImage({ src: shapeLarge });
+const { width: w, height: h } = shapeLarge;
+const filterId = `blob-cutout-${ Math.random().toString(36).slice(2, 8) }`;
 ---
 
 <svg
   class="blob-overlay"
-  viewBox={ viewBox }
+  viewBox={ `0 0 ${w} ${h}` }
   xmlns="http://www.w3.org/2000/svg"
   aria-hidden="true"
   focusable="false"
 >
   <defs>
-    <mask id={ maskId }>
-      <rect width="2178" height="2000" fill="white" />
-      <path d={ pathD } fill="black" />
-    </mask>
+    <filter id={ filterId } x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feImage href={ processed.src } x="0" y="0" width={ w } height={ h } result="blob" preserveAspectRatio="none" />
+      <feComposite in="SourceGraphic" in2="blob" operator="out" />
+    </filter>
   </defs>
-  <rect width="2178" height="2000" fill="var(--color-cream)" mask={`url(#${ maskId })`} />
+  <rect width={ w } height={ h } fill="var(--color-cream)" filter={ `url(#${filterId})` } />
 </svg>
