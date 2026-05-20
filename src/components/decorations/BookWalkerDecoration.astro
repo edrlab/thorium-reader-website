@@ -1,6 +1,6 @@
 ---
 import FeatureDecoration from "./FeatureDecoration.astro";
-import rawShape2 from "../../assets/shapes/thorium-shape-2.svg?raw";
+import shape2 from "../../assets/shapes/thorium-shape-2.webp";
 import { getImage, t } from "../../i18n/utils.js";
 
 interface Props {
@@ -13,6 +13,6 @@ const { lang } = Astro.props;
 <FeatureDecoration
   class="book-walker-decoration"
   illustrationClass="book-walker-illustration"
-  blob={ rawShape2 }
+  blob={ shape2 }
   illustration={{ src: getImage(lang, "thorium-illustration-02.webp"), alt: t(lang, "home.alts.thorium-illustration-02") }}
 />
