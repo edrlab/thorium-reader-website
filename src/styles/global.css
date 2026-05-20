@@ -989,6 +989,8 @@ img {
   background: var(--color-mauve);
   color: var(--color-cream);
   border-radius: 6rem 8rem 7rem 5rem / 3rem 3.5rem 2.5rem 3rem;
+  overflow: hidden;
+  transition: border-radius 0.3s ease;
 }
 
 .faq-item[open] {
