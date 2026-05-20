@@ -3,6 +3,8 @@ import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import Hero from "../../components/sections/HeroSection.astro";
 import FeatureSection from "../../components/sections/FeatureSection.astro";
+import FeatureDecoration from "../../components/sections/FeatureDecoration.astro";
+import CTADecoration from "../../components/sections/CTADecoration.astro";
 import CTASection from "../../components/sections/CTASection.astro";
 import FAQ from "../../components/sections/FAQ.astro";
 import Footer from "../../components/Footer.astro";
@@ -21,6 +23,13 @@ const lang = Astro.currentLocale;
 ---
 
 <Layout>
+  <Image
+    slot="hero-decoration"
+    class="hero-illustration"
+    src={getImage(lang, "thorium-illustration-01.webp")}
+    alt=""
+  />
+
   <Hero
     title={ t(lang, "home.hero.title") }
     body={ t(lang, "home.hero.subtitle") }
@@ -36,7 +45,6 @@ const lang = Astro.currentLocale;
   <FeatureSection
     title={ t(lang, "home.features.customize.title") }
     body={ t(lang, "home.features.customize.body") }
-    illustration={{ src: getImage(lang, "thorium-illustration-01.webp"), alt: t(lang, "home.alts.thorium-illustration-01") }}
   >
     <DownloadButton slot="actions" variant="accent" href={`${ import.meta.env.BASE_URL }${ lang }/download`} label={ t(lang, "button.downloadApp") } />
     <figure>
@@ -44,25 +52,31 @@ const lang = Astro.currentLocale;
     </figure>
   </FeatureSection>
 
-  <FeatureSection
-    title={ t(lang, "home.features.library.title") }
-    body={ t(lang, "home.features.library.body") }
-    illustration={{ src: getImage(lang, "thorium-illustration-02.webp"), alt: t(lang, "home.alts.thorium-illustration-02") }}
-    reverse
-  >
-    <div slot="blob" class="feature-blob" aria-hidden="true">
-      <Fragment set:html={ rawShape2 } />
-    </div>
-    <DownloadButton slot="actions" variant="accent" href={`${ import.meta.env.BASE_URL }${ lang }/download`} label={ t(lang, "button.downloadApp") } />
-    <figure role="none">
-      <Image src={ getImage(lang, "thorium-desktop.webp") } alt={ t(lang, "home.alts.thorium-desktop") } />
-    </figure>
-  </FeatureSection>
+  <div class="feature-unit">
+    <FeatureSection
+      title={ t(lang, "home.features.library.title") }
+      body={ t(lang, "home.features.library.body") }
+      reverse
+    >
+      <DownloadButton slot="actions" variant="accent" href={`${ import.meta.env.BASE_URL }${ lang }/download`} label={ t(lang, "button.downloadApp") } />
+      <figure role="none">
+        <Image src={ getImage(lang, "thorium-desktop.webp") } alt={ t(lang, "home.alts.thorium-desktop") } />
+      </figure>
+    </FeatureSection>
+
+    <FeatureDecoration
+      blob={rawShape2}
+      illustration={{ src: getImage(lang, "thorium-illustration-02.webp"), alt: t(lang, "home.alts.thorium-illustration-02") }}
+    />
+  </div>
+
+  <CTADecoration
+    illustration={{ src: getImage(lang, "thorium-illustration-03.webp") }}
+  />
 
   <CTASection
     title={ t(lang, "home.cta.section.title") }
     body={ t(lang, "home.cta.section.subtitle") }
-    illustration={{ src: getImage(lang, "thorium-illustration-03.webp"), alt: "" }}
   >
     <DownloadButton slot="actions" icon href={`${ import.meta.env.BASE_URL }${ lang }/download`} label={ t(lang, "button.downloadApp") } />
     <Image slot="media" src={ getImage(lang, "thorium-reader-desktop-mobile.webp") } alt={ t(lang, "home.alts.thorium-reader-desktop-mobile") } />

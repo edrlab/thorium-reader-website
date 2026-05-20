@@ -178,6 +178,25 @@ img {
   height: auto;
 }
 
+/* Illustration sitting on the left blob wave */
+.hero-illustration {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .hero-illustration {
+    display: block;
+    position: absolute;
+    top: var(--blob-wave-y);
+    left: 25%;
+    transform: translate(-50%, 0%);
+    width: clamp(180px, 25vw, 320px);
+    height: auto;
+    pointer-events: none;
+    z-index: 2;
+  }
+}
+
 
 /* ─────────────────────────────────────────────
    4. Components
@@ -722,7 +741,7 @@ img {
    7. Sections
    ───────────────────────────────────────────── */
 
-/* Ensure sections render above the blob overlay */
+.feature-unit,
 .feature-section,
 .cta-section,
 .faq-section,
@@ -754,7 +773,6 @@ img {
   flex-direction: column;
   gap: var(--space-md);
   position: relative;
-  z-index: 2;
 }
 
 .hero-text h1 {
@@ -791,18 +809,29 @@ img {
 }
 
 /* ── Feature sections ── */
-.feature-section {
-  padding-block: var(--section-pad);
-}
 
-.feature-blob {
+.feature-decoration {
   position: absolute;
   top: 0;
   right: 0;
   width: 40%;
   color: var(--color-mauve);
   pointer-events: none;
-  z-index: 0;
+  z-index: -1;
+  line-height: 0;
+}
+
+.feature-decoration-illustration {
+  position: absolute;
+  top: 20%;
+  left: 0%;
+  transform: translateY(-50%);
+  width: clamp(180px, 25vw, 320px);
+  height: auto;
+  pointer-events: none;
+}
+
+.feature-blob {
   line-height: 0;
 }
 
@@ -812,25 +841,20 @@ img {
   height: auto;
 }
 
+.feature-section {
+  padding-block: var(--section-pad);
+}
+
 .feature-top {
   position: relative;
-  z-index: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: var(--col-gap);
 }
 
-.feature-top .feature-illustration         { grid-area: 1 / 1; justify-self: center; }
-.feature-top .feature-text                 { grid-area: 1 / 2; }
-.feature-top.reverse .feature-illustration { grid-area: 1 / 2; justify-self: center; }
-.feature-top.reverse .feature-text         { grid-area: 1 / 1; }
-
-.feature-illustration {
-  width: 100%;
-  max-width: clamp(180px, 25vw, 320px);
-  height: auto;
-}
+.feature-top .feature-text         { grid-area: 1 / 2; }
+.feature-top.reverse .feature-text { grid-area: 1 / 1; }
 
 .feature-text {
   display: flex;
@@ -867,7 +891,6 @@ img {
 
 .feature-section > figure {
   position: relative;
-  z-index: 1;
   padding-block: var(--section-pad);
   padding-inline: var(--gutter);
   margin: 0 auto;
@@ -910,21 +933,25 @@ img {
   margin-top: -2px;
 }
 
-.cta-illustration {
+.cta-decoration {
+  position: relative;
+  z-index: -1;
+  line-height: 0;
+  color: var(--color-mauve);
+}
+
+.cta-decoration-illustration {
   position: absolute;
-  top: 0;
-  right: 27vw;
-  transform: translateY(-40%);
-  width: auto;
-  max-width: 100px;
+  bottom: 20%;
+  right: 20%;
+  transform: none;
+  width: clamp(100px, 10vw, 160px);
   height: auto;
   pointer-events: none;
-  z-index: 2;
 }
 
 .cta-section .container {
   position: relative;
-  z-index: 1;
 }
 
 .cta-text {
@@ -1067,12 +1094,19 @@ img {
   padding-block: var(--section-pad);
 }
 
-.tabs-illustration {
+.tabs-decoration {
+  position: relative;
+  line-height: 0;
+  color: var(--color-mauve);
+  background: var(--color-cream);
+}
+
+.tabs-decoration-illustration {
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 0;
-  transform: translateY(-85%);
-  width: clamp(240px, 35vw, 480px);
+  transform: translateY(17.5%);
+  width: clamp(200px, 28vw, 400px);
   height: auto;
   pointer-events: none;
   z-index: 3;
@@ -1166,7 +1200,6 @@ img {
   padding-top: calc(4rem + var(--space-lg));
   padding-bottom: var(--section-pad);
   position: relative;
-  z-index: 3;
 }
 
 .badge-intro {

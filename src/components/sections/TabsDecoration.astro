@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import rawWaveTop from "../../assets/shapes/thorium-shape-6-wave-top.svg?raw";
+
+interface Props {
+  illustration: { src: ImageMetadata; alt?: string };
+}
+
+const { illustration } = Astro.props;
+---
+
+<div class="tabs-decoration">
+  <div class="tabs-wave tabs-wave-top" aria-hidden="true">
+    <Fragment set:html={rawWaveTop} />
+  </div>
+  <Image
+    class="tabs-decoration-illustration"
+    src={illustration.src}
+    alt={illustration.alt ?? ""}
+  />
+</div>

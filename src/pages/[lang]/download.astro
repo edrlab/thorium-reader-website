@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import Hero from "../../components/sections/HeroSection.astro";
 import FeatureSection from "../../components/sections/FeatureSection.astro";
+import TabsDecoration from "../../components/sections/TabsDecoration.astro";
 import Tabs from "../../components/widgets/Tabs.astro";
 import FAQ from "../../components/sections/FAQ.astro";
 import Footer from "../../components/Footer.astro";
@@ -10,7 +11,6 @@ import AppStoreBadge from "../../components/buttons/AppStoreBadge.astro";
 import MsStoreBadge from "../../components/buttons/MsStoreBadge.astro";
 import { t, getImage } from "../../i18n/utils.js";
 import { locales } from "../../i18n/locales.js";
-import rawShape6WaveTop from "../../assets/shapes/thorium-shape-6-wave-top.svg?raw";
 import rawShape6WaveBottom from "../../assets/shapes/thorium-shape-6-wave-bottom.svg?raw";
 
 export function getStaticPaths() {
@@ -56,16 +56,11 @@ const osTabs = [
     <MsStoreBadge slot="actions" />
   </FeatureSection>
 
-  <div class="tabs-wave tabs-wave-top" aria-hidden="true">
-    <Fragment set:html={rawShape6WaveTop} />
-  </div>
+  <TabsDecoration
+    illustration={{ src: getImage(lang, "thorium-illustration-06.webp") }}
+  />
 
   <section class="download-tabs-section" id="download-tabs">
-    <Image
-      class="tabs-illustration"
-      src={getImage(lang, "thorium-illustration-06.webp")}
-      alt=""
-    />
     <div class="container">
       <Tabs tabs={osTabs} label={ t(lang, "download.tabs.label") }>
         { osTabs.map((tab, i) => {
