@@ -22,7 +22,6 @@
   --color-text-on-dark: var(--color-cream);
 
   /* Typography */
-  --font-display: "Caprasimo", Georgia, serif;
   --font-heading: "Fraunces", Georgia, serif;
   --font-sans:    "Libre Franklin", system-ui, -apple-system, sans-serif;
 
@@ -759,7 +758,7 @@ img {
 }
 
 .hero-text h1 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: var(--text-hero);
   font-weight: 800;
   line-height: var(--leading-display);
@@ -1127,7 +1126,7 @@ img {
 }
 
 .intro-text h1 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: var(--text-hero);
   font-weight: 800;
   line-height: var(--leading-display);
@@ -1174,7 +1173,7 @@ img {
 }
 
 .badge-intro h1 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: var(--text-hero);
   font-weight: 800;
   line-height: var(--leading-display);
