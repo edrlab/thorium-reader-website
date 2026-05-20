@@ -1020,6 +1020,12 @@ img {
   transition: border-radius 0.3s ease;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .faq-item {
+    transition: none;
+  }
+}
+
 .faq-item[open] {
   border-radius: 2rem 3rem 2.5rem 2rem / 2rem 2rem 2.5rem 2rem;
 }

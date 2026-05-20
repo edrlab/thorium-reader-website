@@ -79,8 +79,14 @@ const { title, items } = Astro.props;
       details.style.height = "";
     }
 
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     summary.addEventListener("click", (e) => {
       e.preventDefault();
+      if (prefersReducedMotion) {
+        details.open = !details.open;
+        return;
+      }
       if (isClosing || !details.open) open();
       else if (isExpanding || details.open) shrink();
     });
