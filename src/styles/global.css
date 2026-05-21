@@ -1358,6 +1358,10 @@ display: none;
 }
 
 
+.mobile-hero-illustration {
+  display: none;
+}
+
 /* ─────────────────────────────────────────────
    9. Responsive
    ───────────────────────────────────────────── */
@@ -1398,11 +1402,34 @@ display: none;
     display: none;
   }
 
-  .comic-book-illustration {
-    right: auto;
-    left: 0;
-    transform: translateY(17.5%) scaleX(-1);
+  .mobile-hero-illustration {
+    display: flex;
+    justify-content: center;
+    padding-block: var(--space-md);
   }
+
+  .mobile-hero-illustration img {
+    width: clamp(120px, 35vw, 200px);
+    height: auto;
+  }
+
+  .feature-unit {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .book-walker-decoration {
+    display: block;
+    position: relative;
+    order: -1;
+    width: clamp(200px, 60vw, 300px);
+    margin-inline-start: auto;
+  }
+
+  .book-walker-illustration {
+    width: clamp(120px, 65%, 200px);
+  }
+
 
 
   .hero-inner,
@@ -1418,6 +1445,24 @@ display: none;
   .feature-top .feature-text,
   .feature-top.reverse .feature-text {
     grid-area: auto;
+  }
+
+  .feature-top .feature-text {
+    text-align: right;
+    align-items: flex-end;
+  }
+
+  .feature-top .feature-text .btn {
+    align-self: auto;
+  }
+
+  .feature-top.reverse .feature-text {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .feature-top.reverse .feature-text .btn {
+    align-self: flex-start;
   }
 
   .cta-devices {

@@ -40,6 +40,10 @@ const lang = Astro.currentLocale;
     </div>
   </Hero>
 
+  <div class="mobile-hero-illustration" aria-hidden="true">
+    <Image src={ getImage(lang, "thorium-illustration-01.webp") } alt="" />
+  </div>
+
   <FeatureSection
     title={ t(lang, "home.features.customize.title") }
     body={ t(lang, "home.features.customize.body") }
