@@ -803,7 +803,6 @@ img {
    7. Sections
    ───────────────────────────────────────────── */
 
-.feature-unit,
 .tabs-section,
 .feature-section,
 .cta-section,
@@ -981,7 +980,7 @@ img {
 }
 
 @media (max-width: 768px) {
-  .feature-unit {
+  .feature-section {
     display: flex;
     flex-direction: column;
   }
@@ -992,6 +991,7 @@ img {
     order: -1;
     width: clamp(200px, 60vw, 300px);
     margin-inline-start: auto;
+    margin-block-end: var(--space-lg);
   }
 
   .book-walker-illustration {
@@ -1302,14 +1302,6 @@ img {
 .tabs-wave svg {
   display: block;
   width: 100%;
-}
-
-.tabs-wave-top svg {
-  margin-bottom: -2px;
-}
-
-.tabs-wave-bottom svg {
-  margin-top: -2px;
 }
 
 .tabs-section {
