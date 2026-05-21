@@ -4,7 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import Hero from "../../components/sections/HeroSection.astro";
 import FeatureSection from "../../components/sections/FeatureSection.astro";
 import ComicBookDecoration from "../../components/decorations/ComicBookDecoration.astro";
-import Tabs from "../../components/widgets/Tabs.astro";
+import TabsSection from "../../components/sections/TabsSection.astro";
 import FAQ from "../../components/sections/FAQ.astro";
 import Footer from "../../components/Footer.astro";
 import AppStoreBadge from "../../components/buttons/AppStoreBadge.astro";
@@ -56,37 +56,38 @@ const osTabs = [
     <MsStoreBadge slot="actions" />
   </FeatureSection>
 
-  <ComicBookDecoration lang={ lang } />
+  <TabsSection
+    class="download-tabs-section"
+    id="download-tabs"
+    tabs={ osTabs }
+    label={ t(lang, "download.tabs.label") }
+  >
+    <ComicBookDecoration slot="border-top" lang={ lang } />
 
-  <section class="download-tabs-section" id="download-tabs">
-    <div class="container">
-      <Tabs tabs={ osTabs } label={ t(lang, "download.tabs.label") }>
-        { osTabs.map((tab, i) => {
-          const steps = osSteps(tab.id);
-          return (
-            <div
-              id={`panel-${ tab.id }`}
-              role="tabpanel"
-              aria-labelledby={`tab-${ tab.id }`}
-              tabindex={ 0 }
-              hidden={ i !== 0 }
-            >
-              { steps.length > 0
-                ? <ul class="download-steps">
-                    { steps.map(s => <li set:html={ s } />) }
-                  </ul>
-                : <p class="download-steps-todo">{ t(lang, "download.coming_soon") }</p>
-              }
-            </div>
-          );
-        }) }
-      </Tabs>
+    { osTabs.map((tab, i) => {
+      const steps = osSteps(tab.id);
+      return (
+        <div
+          id={`panel-${ tab.id }`}
+          role="tabpanel"
+          aria-labelledby={`tab-${ tab.id }`}
+          tabindex={ 0 }
+          hidden={ i !== 0 }
+        >
+          { steps.length > 0
+            ? <ul class="download-steps">
+                { steps.map(s => <li set:html={ s } />) }
+              </ul>
+            : <p class="download-steps-todo">{ t(lang, "download.coming_soon") }</p>
+          }
+        </div>
+      );
+    }) }
+
+    <div slot="border-bottom" class="tabs-wave tabs-wave-bottom" aria-hidden="true">
+      <Fragment set:html={ rawShape6WaveBottom } />
     </div>
-  </section>
-
-  <div class="tabs-wave tabs-wave-bottom" aria-hidden="true">
-    <Fragment set:html={ rawShape6WaveBottom } />
-  </div>
+  </TabsSection>
 
   <FAQ
     title={ t(lang, "download.faq.title") }
