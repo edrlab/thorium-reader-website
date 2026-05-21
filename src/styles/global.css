@@ -110,7 +110,6 @@ img {
   height: auto;
 }
 
-
 /* ─────────────────────────────────────────────
    2. Utilities
    ───────────────────────────────────────────── */
@@ -138,8 +137,11 @@ img {
   top: 0;
 }
 
-
 .hero-illustration {
+  display: none;
+}
+
+.mobile-hero-illustration {
   display: none;
 }
 
@@ -168,7 +170,7 @@ img {
   left: 0;
   width: 100vw;
   height: auto;
-display: none;
+  display: none;
   z-index: 1;
   pointer-events: none;
 }
@@ -195,9 +197,6 @@ display: none;
   width: 100vw;
   height: auto;
 }
-
-/* Illustration sitting on the left blob wave */
-
 
 /* ─────────────────────────────────────────────
    4. Components
@@ -477,7 +476,6 @@ display: none;
   margin-block: var(--space-md);
 }
 
-
 /* ─────────────────────────────────────────────
    5. Header
    ───────────────────────────────────────────── */
@@ -598,7 +596,6 @@ display: none;
   outline-offset: var(--focus-ring-offset);
   border-radius: 4px;
 }
-
 
 /* ─────────────────────────────────────────────
    6. Footer
@@ -737,7 +734,6 @@ display: none;
   border-radius: 2px;
 }
 
-
 /* ─────────────────────────────────────────────
    7. Sections
    ───────────────────────────────────────────── */
@@ -795,7 +791,7 @@ display: none;
 
 .hero-text p {
   color: var(--color-cream);
-  max-width: 38ch;
+  max-width: 40ch;
 }
 
 .hero-actions {
@@ -859,9 +855,13 @@ display: none;
 .feature-top {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 3fr;
   align-items: center;
   gap: var(--col-gap);
+}
+
+.feature-top.reverse {
+  grid-template-columns: 3fr 2fr;
 }
 
 .feature-top .feature-text         { grid-area: 1 / 2; }
@@ -880,10 +880,6 @@ display: none;
   line-height: var(--leading-heading);
   letter-spacing: -0.02em;
   color: var(--color-mauve);
-}
-
-.feature-text p {
-  max-width: 40ch;
 }
 
 .feature-text .btn,
@@ -1209,7 +1205,6 @@ display: none;
   object-fit: contain;
 }
 
-
 /* ─────────────────────────────────────────────
    8. Pages
    ───────────────────────────────────────────── */
@@ -1357,11 +1352,6 @@ display: none;
   font-family: var(--font-sans);
 }
 
-
-.mobile-hero-illustration {
-  display: none;
-}
-
 /* ─────────────────────────────────────────────
    9. Responsive
    ───────────────────────────────────────────── */
@@ -1429,8 +1419,6 @@ display: none;
   .book-walker-illustration {
     width: clamp(120px, 65%, 200px);
   }
-
-
 
   .hero-inner,
   .feature-inner,
