@@ -1131,7 +1131,6 @@ display: none;
 
 .download-tabs-section .tabs-tab {
   color: var(--color-cream);
-  opacity: 0.65;
 }
 
 .download-tabs-section .tabs-tab.active,
@@ -1139,6 +1138,10 @@ display: none;
   background: var(--color-cream);
   color: var(--color-mauve);
   opacity: 1;
+}
+
+.download-tabs-section .tabs-tab:is(.active, [aria-selected="true"]):focus-visible {
+  outline-color: var(--color-cream);
 }
 
 .download-tabs-section .tabs-tab:not(.active):hover {
@@ -1289,8 +1292,7 @@ display: none;
 
 /* Tab styling on light background */
 .badge-output .tabs-tab {
-  color: var(--color-text);
-  opacity: 0.5;
+  color: var(--color-mauve);
 }
 
 .badge-output .tabs-tab.active,
@@ -1298,6 +1300,10 @@ display: none;
   background: var(--color-mauve);
   color: var(--color-cream);
   opacity: 1;
+}
+
+.badge-output .tabs-tab:is(.active, [aria-selected="true"]):focus-visible {
+  outline-color: var(--color-mauve);
 }
 
 .badge-output .tabs-tab:not(.active):hover {
