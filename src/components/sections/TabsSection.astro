@@ -1,0 +1,33 @@
+---
+import Tabs from "../widgets/Tabs.astro";
+
+interface Tab {
+  id: string;
+  label: string;
+}
+
+interface Props {
+  tabs: Tab[];
+  label?: string;
+  id?: string;
+  class?: string;
+}
+
+const { tabs, label, id, class: className } = Astro.props;
+---
+
+<section class:list={ ["tabs-section", className] } id={ id }>
+  <slot name="border-top" />
+
+  <div class="tabs-section-body">
+    <div class="container">
+      <div class="tabs-inner">
+        <Tabs tabs={ tabs } label={ label }>
+          <slot />
+        </Tabs>
+      </div>
+    </div>
+  </div>
+
+  <slot name="border-bottom" />
+</section>

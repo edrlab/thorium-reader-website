@@ -804,10 +804,10 @@ img {
    ───────────────────────────────────────────── */
 
 .feature-unit,
+.tabs-section,
 .feature-section,
 .cta-section,
 .faq-section,
-.download-tabs-section,
 .steps-section,
 .intro-section,
 .footer-top,
@@ -1147,12 +1147,19 @@ img {
 
 .tipped-box-illustration {
   position: absolute;
-  bottom: 20%;
+  bottom: 8%;
   right: 20%;
   transform: none;
   width: clamp(100px, 10vw, 160px);
   height: auto;
   pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .tipped-box-illustration {
+    bottom: 0;
+    right: 10%;
+  }
 }
 
 .cta-section .container {
@@ -1305,9 +1312,16 @@ img {
   margin-top: -2px;
 }
 
+.tabs-section {
+  margin-top: var(--section-pad);
+}
+
 .download-tabs-section {
-  background: var(--color-mauve);
   color: var(--color-cream);
+}
+
+.download-tabs-section .tabs-section-body {
+  background: var(--color-mauve);
   padding-block: var(--section-pad);
 }
 
@@ -1322,8 +1336,8 @@ img {
   position: absolute;
   bottom: 0;
   right: 0;
-  transform: translateY(17.5%);
-  width: clamp(200px, 28vw, 400px);
+  transform: translateY(22%);
+  width: clamp(200px, 34vw, 500px);
   height: auto;
   pointer-events: none;
   z-index: 3;

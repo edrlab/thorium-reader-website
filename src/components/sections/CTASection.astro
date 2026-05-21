@@ -1,6 +1,4 @@
 ---
-import rawWaveBottom from "../../assets/shapes/thorium-shape-3-wave-bottom.svg?raw";
-
 interface Props {
   title: string;
   body: string;
@@ -10,6 +8,8 @@ const { title, body } = Astro.props;
 ---
 
 <section class="cta-section">
+  <slot name="border-top" />
+
   <div class="cta-inner">
     <div class="container cta-text">
       <h2>{ title }</h2>
@@ -18,9 +18,7 @@ const { title, body } = Astro.props;
     </div>
   </div>
 
-  <div class="cta-wave cta-wave-bottom" aria-hidden="true">
-    <Fragment set:html={ rawWaveBottom } />
-  </div>
+  <slot name="border-bottom" />
 
   <div class="cta-devices">
     <slot name="media" />
