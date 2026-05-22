@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Layout from "../../../layouts/Layout.astro";
+import Footer from "../../../components/Footer.astro";
+import { locales } from "../../../i18n/locales.js";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.currentLocale ?? "en";
+const allNotes = await getCollection("release-notes");
+const notes = allNotes.sort((a, b) => b.data.date.localeCompare(a.data.date));
+---
+
+<Layout title="Release Notes" noBlob={ true }>
+  <section class="release-notes-index container">
+    <h1>Release Notes</h1>
+    <ul>
+      { notes.map((note) => (
+        <li>
+          <a href={ getRelativeLocaleUrl(lang, `release-notes/${ note.id }`) }>
+            { note.data.title }
+          </a>
+          <time datetime={ note.data.date }>{ note.data.date }</time>
+        </li>
+      )) }
+    </ul>
+  </section>
+  <Footer />
+</Layout>
