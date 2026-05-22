@@ -37,6 +37,9 @@ const lang = Astro.currentLocale;
     <main id="main-content">
       <slot />
     </main>
+
+    <slot name="footer" />
+
     <script>
       const hero = document.querySelector(".hero");
       if (hero) {
