@@ -21,14 +21,7 @@ export function getStaticPaths() {
 const lang = Astro.currentLocale;
 ---
 
-<Layout>
-  <Image
-    slot="hero-decoration"
-    class="hero-illustration"
-    src={ getImage(lang, "thorium-illustration-01.webp")}
-    alt=""
-  />
-
+<Layout illustration={{ src: getImage(lang, "thorium-illustration-01.webp") }}>
   <Hero
     title={ t(lang, "home.hero.title") }
     body={ t(lang, "home.hero.subtitle") }
