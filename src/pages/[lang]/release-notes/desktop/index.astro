@@ -1,16 +1,16 @@
 ---
 import { getCollection } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
-import Layout from "../../../layouts/Layout.astro";
-import Footer from "../../../components/Footer.astro";
-import { locales } from "../../../i18n/locales.js";
+import Layout from "../../../../layouts/Layout.astro";
+import Footer from "../../../../components/Footer.astro";
+import { locales } from "../../../../i18n/locales.js";
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
 }
 
 const lang = Astro.currentLocale ?? "en";
-const allNotes = await getCollection("release-notes");
+const allNotes = await getCollection("desktop-release-notes");
 const notes = allNotes.sort((a, b) => b.data.date.localeCompare(a.data.date));
 ---
 
@@ -20,7 +20,7 @@ const notes = allNotes.sort((a, b) => b.data.date.localeCompare(a.data.date));
     <ul>
       { notes.map((note) => (
         <li>
-          <a href={ getRelativeLocaleUrl(lang, `release-notes/${ note.id }`) }>
+          <a href={ getRelativeLocaleUrl(lang, `release-notes/desktop/${ note.id }`) }>
             { note.data.title }
           </a>
           <time datetime={ note.data.date }>{ note.data.date }</time>

@@ -1,9 +1,9 @@
 ---
 import { getCollection } from "astro:content";
-import LocaleRedirect from "../../components/LocaleRedirect.astro";
+import LocaleRedirect from "../../../components/LocaleRedirect.astro";
 
 export async function getStaticPaths() {
-  const notes = await getCollection("release-notes");
+  const notes = await getCollection("desktop-release-notes");
   return notes.map((note) => ({
     params: { slug: note.id },
   }));
@@ -11,4 +11,4 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 ---
-<LocaleRedirect path={ `release-notes/${ slug }/` } />
+<LocaleRedirect path={ `release-notes/desktop/${ slug }/` } />

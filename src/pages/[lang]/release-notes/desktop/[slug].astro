@@ -1,11 +1,11 @@
 ---
 import { getCollection, render } from "astro:content";
-import Layout from "../../../layouts/Layout.astro";
-import Footer from "../../../components/Footer.astro";
-import { locales } from "../../../i18n/locales.js";
+import Layout from "../../../../layouts/Layout.astro";
+import Footer from "../../../../components/Footer.astro";
+import { locales } from "../../../../i18n/locales.js";
 
 export async function getStaticPaths() {
-  const notes = await getCollection("release-notes");
+  const notes = await getCollection("desktop-release-notes");
   return locales.flatMap((lang) =>
     notes.map((note) => ({
       params: { lang, slug: note.id },
