@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import Layout from "../../../../layouts/Layout.astro";
 import Footer from "../../../../components/Footer.astro";
 import { locales } from "../../../../i18n/locales.js";
+import { formatDate } from "../../../../i18n/utils.js";
 
 export async function getStaticPaths() {
   const notes = await getCollection("desktop-release-notes");
@@ -14,6 +15,7 @@ export async function getStaticPaths() {
   );
 }
 
+const lang = Astro.currentLocale ?? "en";
 const { note } = Astro.props;
 const { Content } = await render(note);
 ---
@@ -21,7 +23,7 @@ const { Content } = await render(note);
 <Layout title={ note.data.title } noBlob={ true }>
   <article class="release-notes container">
     <h1>{ note.data.title }</h1>
-    <time datetime={ note.data.date }>{ note.data.date }</time>
+    <time datetime={ note.data.date }>{ formatDate(lang, note.data.date) }</time>
     <Content />
   </article>
   <Footer slot="footer" />

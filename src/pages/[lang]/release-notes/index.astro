@@ -4,7 +4,7 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "../../../layouts/Layout.astro";
 import Footer from "../../../components/Footer.astro";
 import { locales } from "../../../i18n/locales.js";
-import { t } from "../../../i18n/utils.js";
+import { t, formatDate } from "../../../i18n/utils.js";
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
@@ -34,7 +34,7 @@ const platforms = [
           { notes.map(({ version, date, path }) => (
             <li>
               <a href={ getRelativeLocaleUrl(lang, path) }>v{ version }</a>
-              <time datetime={ date }>{ date }</time>
+              <time datetime={ date }>{ formatDate(lang, date) }</time>
             </li>
           )) }
         </ul>

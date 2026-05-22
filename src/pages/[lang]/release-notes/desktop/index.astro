@@ -4,7 +4,7 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "../../../../layouts/Layout.astro";
 import Footer from "../../../../components/Footer.astro";
 import { locales } from "../../../../i18n/locales.js";
-import { t } from "../../../../i18n/utils.js";
+import { t, formatDate } from "../../../../i18n/utils.js";
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
@@ -24,7 +24,7 @@ const notes = allNotes.sort((a, b) => b.data.date.localeCompare(a.data.date));
           <a href={ getRelativeLocaleUrl(lang, `release-notes/desktop/${ note.id }`) }>
             { note.data.title }
           </a>
-          <time datetime={ note.data.date }>{ note.data.date }</time>
+          <time datetime={ note.data.date }>{ formatDate(lang, note.data.date) }</time>
         </li>
       )) }
     </ul>
