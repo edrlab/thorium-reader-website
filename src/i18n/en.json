@@ -148,6 +148,13 @@
       }
     }
   },
+  "release-notes": {
+    "title": "Release Notes",
+    "see-all": "See all",
+    "platforms": {
+      "desktop": "Desktop"
+    }
+  },
   "badge": {
     "hero": {
       "title": "Badge Generator",

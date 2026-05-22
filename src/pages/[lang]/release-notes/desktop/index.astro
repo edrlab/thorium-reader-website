@@ -4,6 +4,7 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "../../../../layouts/Layout.astro";
 import Footer from "../../../../components/Footer.astro";
 import { locales } from "../../../../i18n/locales.js";
+import { t } from "../../../../i18n/utils.js";
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
@@ -14,9 +15,9 @@ const allNotes = await getCollection("desktop-release-notes");
 const notes = allNotes.sort((a, b) => b.data.date.localeCompare(a.data.date));
 ---
 
-<Layout title="Release Notes" noBlob={ true }>
+<Layout title={ t(lang, "release-notes.title") } noBlob={ true }>
   <section class="release-notes-index container">
-    <h1>Release Notes</h1>
+    <h1>{ t(lang, "release-notes.title") }</h1>
     <ul>
       { notes.map((note) => (
         <li>
