@@ -4,12 +4,13 @@ type FAQItem = { question: string; answer: string; items?: string[] };
 interface Props {
   title: string;
   items: FAQItem[];
+  class?: string;
 }
 
-const { title, items } = Astro.props;
+const { title, items, class: className } = Astro.props;
 ---
 
-<section class="faq-section">
+<section class:list={["faq-section", className]}>
   <div class="container">
     <h2>{ title }</h2>
 

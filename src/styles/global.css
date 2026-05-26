@@ -57,6 +57,7 @@
   --gutter:      3rem;
   --col-gap:     4rem;
   --section-pad: 2rem;
+  --section-gap: 4rem;
 
   /* Hero blob: --blob-wave-y is refined at runtime from the actual hero height (see Layout.astro).
      --blob-wave-offset is the wave's Y position in the SVG expressed as a fraction of the SVG width. */
@@ -71,6 +72,7 @@
     --text-hero:    2rem;
     --gutter:       1.25rem;
     --col-gap:      1rem;
+    --section-gap:  2rem;
     --space-lg:     1.5rem;
   }
 }
@@ -1106,7 +1108,7 @@ img {
 }
 
 .feature-section > figure.top-gap {
-  margin-top: calc(var(--section-pad) * 2);
+  margin-top: var(--section-gap);
 }
 
 .feature-section > figure img {
@@ -1216,6 +1218,10 @@ img {
 /* ── FAQ ── */
 .faq-section {
   padding-block: var(--section-pad);
+}
+
+.faq-section.padded {
+  padding-block: var(--section-gap);
 }
 
 .faq-section h2 {

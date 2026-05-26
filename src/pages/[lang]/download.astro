@@ -97,6 +97,7 @@ const osTabs = [
   <FAQ
     title={ t(lang, "download.faq.title") }
     items={ t(lang, "download.faq.items", { returnObjects: true }) as { question: string; answer: string; items?: string[] }[] }
+    class="padded"
   />
 
   <Footer slot="footer" />
