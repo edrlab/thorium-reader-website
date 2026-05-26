@@ -43,7 +43,7 @@ const lang = Astro.currentLocale;
     body={ t(lang, "home.features.customize.body") }
   >
     <DownloadButton slot="actions" variant="accent" href={`${ import.meta.env.BASE_URL }${ lang }/download`} label={ t(lang, "button.downloadApp") } />
-    <figure>
+    <figure class="top-gap">
       <Image src={ getImage(lang, "thorium-reader-screens.webp") } alt={ t(lang, "home.alts.thorium-reader-screens") } />
     </figure>
   </FeatureSection>

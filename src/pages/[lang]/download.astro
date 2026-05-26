@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import BreakpointImage from "../../components/images/BreakpointImage.astro";
 import Layout from "../../layouts/Layout.astro";
 import Hero from "../../components/sections/HeroSection.astro";
 import FeatureSection from "../../components/sections/FeatureSection.astro";
@@ -44,7 +44,12 @@ const osTabs = [
   >
     <AppStoreBadge slot="actions" />
     <figure>
-      <Image src={ getImage(lang, "thorium-mobile-download-screen.webp") } alt={ t(lang, "home.alts.thorium-mobile-download-screen") } />
+      <BreakpointImage
+        sources={[
+          { src: getImage(lang, "thorium-mobile-download-screens-compact.webp"), alt: t(lang, "home.alts.thorium-mobile-download-screens-compact"), media: "(max-width: 768px)" },
+          { src: getImage(lang, "thorium-mobile-download-screens-large.webp"),   alt: t(lang, "home.alts.thorium-mobile-download-screens-large") },
+        ]}
+      />
     </figure>
   </FeatureSection>
 
