@@ -78,7 +78,8 @@
       "thorium-reader-screens": "Three phones showing Thorium Reader's themes: a sepia view, a light view with the display settings panel open, and a dark view.",
       "thorium-reader-desktop-mobile": "A laptop showing Thorium Reader with an open ebook and a comic, alongside a phone showing the Dracula audiobook.",
       "thorium-illustration-04": "Illustration of a person wearing earphones looking up at towering stacks of books.",
-      "thorium-mobile-download-screen": "Four phones laid out next to one another. The first one displayes the bookshelf of the mobile app, the second one a novel with a dark theme, the third one Dracula’s audiobook with controls, and the fourth one a manga in full-screen."
+      "thorium-mobile-download-screens-compact": "Three phones laid out next to one another. The first one displays the bookshelf of the mobile app, the second one a novel with a dark theme, the third one a manga in full-screen.",
+      "thorium-mobile-download-screens-large": "Four phones laid out next to one another. The first one displays the bookshelf of the mobile app, the second one a novel with a dark theme, the third one an audiobook with its playback UI, the fourth one a manga in full-screen."
     }
   },
   "button": {
