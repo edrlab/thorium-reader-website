@@ -1111,6 +1111,10 @@ img {
   margin-top: var(--section-gap);
 }
 
+.feature-section > figure.bottom-gap {
+  margin-bottom: var(--section-gap);
+}
+
 .feature-section > figure img {
   width: 100%;
   height: auto;
