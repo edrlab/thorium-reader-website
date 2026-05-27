@@ -1,6 +1,6 @@
 import i18next from "i18next";
 import type { ImageMetadata } from "astro";
-import { defaultLocale, locales } from "./locales.js";
+import { defaultLocale, locales, bcp47Locale, type Locale } from "./locales.js";
 
 type Lang = string | undefined;
 type TOptions = Record<string, unknown>;
@@ -19,6 +19,14 @@ i18next.init({
     ])
   ),
 });
+
+export function formatDate(lang: Lang, isoDate: string): string {
+  const resolved = (lang ?? defaultLocale) as Locale;
+  const bcp47 = bcp47Locale[resolved] ?? bcp47Locale[defaultLocale];
+  // Parse as noon UTC to avoid date shifting across timezones
+  const date = new Date(`${ isoDate }T12:00:00Z`);
+  return new Intl.DateTimeFormat(bcp47, { year: "numeric", month: "long", day: "numeric" }).format(date);
+}
 
 export function t(lang: Lang, key: string, options: TOptions = {}): string {
   return i18next.getFixedT(lang ?? defaultLocale)(key, options) as string;

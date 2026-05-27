@@ -149,6 +149,13 @@
       }
     }
   },
+  "release-notes": {
+    "title": "Notes de version",
+    "see-all": "Voir tout",
+    "platforms": {
+      "desktop": "Bureau"
+    }
+  },
   "badge": {
     "hero": {
       "title": "Générateur de badge",
