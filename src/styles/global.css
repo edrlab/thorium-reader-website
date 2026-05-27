@@ -1323,7 +1323,7 @@ img {
 .tabs-wave {
   line-height: 0;
   color: var(--color-mauve);
-  background: var(--color-cream);
+  transform: translateZ(0);
 }
 
 .tabs-wave svg {
@@ -1348,7 +1348,10 @@ img {
   position: relative;
   line-height: 0;
   color: var(--color-mauve);
-  background: var(--color-cream);
+}
+
+.comic-book-decoration {
+  margin-bottom: -2px;
 }
 
 .comic-book-illustration {
