@@ -579,6 +579,11 @@ img {
   opacity: 0.65;
 }
 
+.site-nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .site-nav a:focus-visible {
   outline: var(--focus-ring);
   outline-offset: var(--focus-ring-offset);
@@ -640,6 +645,11 @@ img {
 
 .mobile-nav a:hover {
   opacity: 0.65;
+}
+
+.mobile-nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .mobile-nav a:focus-visible {

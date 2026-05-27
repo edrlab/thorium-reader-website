@@ -6,6 +6,7 @@ import { t } from "../i18n/utils.js";
 import { blogHref, supportHref } from "../config.js";
 
 const lang = Astro.currentLocale;
+const currentPath = Astro.url.pathname;
 
 const navLinks = [
   { href: `${ import.meta.env.BASE_URL }${ lang }/download`, label: t(lang, "nav.download") },
@@ -20,7 +21,7 @@ const navLinks = [
   </a>
 
   <nav class="site-nav" aria-label="Main">
-    { navLinks.map(({ href, label }) => <a href={ href }>{ label }</a>) }
+    { navLinks.map(({ href, label }) => <a href={ href } aria-current={ currentPath === href ? "page" : undefined }>{ label }</a>) }
     <LanguagePicker />
   </nav>
 
@@ -38,7 +39,7 @@ const navLinks = [
 </header>
 
 <nav class="mobile-nav" id="mobile-nav" aria-label={ t(lang, "nav.mobile.label") } hidden>
-  { navLinks.map(({ href, label }) => <a href={ href }>{ label }</a>) }
+  { navLinks.map(({ href, label }) => <a href={ href } aria-current={ currentPath === href ? "page" : undefined }>{ label }</a>) }
   <LanguagePicker />
 </nav>
 
