@@ -20,5 +20,7 @@ const { illustration, class: className, illustrationClass } = Astro.props;
     class:list={ ["tabs-decoration-illustration", illustrationClass] }
     src={ illustration.src }
     alt={ illustration.alt ?? "" }
+    loading="eager"
+    fetchpriority="high"
   />
 </div>
