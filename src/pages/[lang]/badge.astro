@@ -247,7 +247,7 @@ const defaultIcon     = thoriumLogoDataUri;
     if (browseValid)    params.set("browse",    browseInput.value.trim());
     if (bookshelfValid) params.set("bookshelf", bookshelfInput.value.trim());
     if (openIn)         params.set("openIn",    openIn);
-    const deepLink = (title && hasUrl) ? addCatalogScheme + params.toString() : null;
+    const deepLink = (title && hasUrl) ? `${ addCatalogScheme }?${ params.toString() }` : null;
 
     const svg = makeSVG({ line1, line2, title: svgTitle });
 
