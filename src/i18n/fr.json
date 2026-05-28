@@ -199,6 +199,17 @@
         "placeholder": "https://exemple.com/etagere",
         "hint": "URL OPDS ou web pour accéder à la bibliothèque de l'utilisateur. Au moins une URL de catalogue est requise."
       },
+      "passphrase": {
+        "legend": "Authentification",
+        "label": "Phrase secrète",
+        "placeholder": "ma phrase secrète",
+        "hint": "Facultatif. Une phrase secrète en clair requise pour accéder au catalogue."
+      },
+      "passphraseHash": {
+        "label": "Phrase secrète hachée",
+        "placeholder": "e3b0c44298fc1c149afb…",
+        "hint": "Facultatif. Une phrase secrète pré-hachée. Utilisez-la à la place de la phrase secrète en clair si vous ne souhaitez pas l'exposer."
+      },
       "openIn": {
         "label": "Ouvrir dans",
         "default": "Par défaut",
