@@ -135,7 +135,7 @@
       },
       "macos": {
         "steps": [
-          "Click <a href=\"#\">Download for Apple Silicon</a> or <a href=\"#\">Download for Intel</a>, depending on your device. The installer will automatically begin downloading the desktop application.",
+          "Click <a href=\"https://github.com/edrlab/thorium-reader/releases/download/v3.4.0/Thorium-3.4.0-arm64.dmg\">Download for Apple Silicon</a> or <a href=\"https://github.com/edrlab/thorium-reader/releases/download/v3.4.0/Thorium-3.4.0.dmg\">Download for Intel</a>, depending on your device. The installer will automatically begin downloading the desktop application.",
           "Download the Thorium.Setup.3.x.x.dmg file to your macOS device.",
           "Open the Finder and navigate to Downloads.",
           "Double-click the downloaded *.dmg file.",
@@ -144,7 +144,12 @@
         ]
       },
       "windows": {
-        "steps": []
+        "steps": [
+          "Download the <a href=\"https://github.com/edrlab/thorium-reader/releases/download/v3.4.0/Thorium.Setup.3.4.0.exe\">Thorium.Setup.3.x.x.exe</a> file to your Windows device",
+          "Open the Explorer and navigate to folder where you downloaded the file.",
+          "Double-click the downloaded *.exe file. Double-click the downloaded installer file and complete the installation process. Managed devices may require admin authorization to install.",
+          "If you’re using a Windows device running on ARM, make sure that you use the <a href=\"https://www.thoriumreader.com/#download-windows-arm\">alternate download link.</a>"
+        ]
       },
       "linux": {
         "steps": []
