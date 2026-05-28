@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Footer from "../../components/Footer.astro";
+import PageHeader from "../../components/sections/PageHeader.astro";
 import Tabs from "../../components/widgets/Tabs.astro";
 import CustomSelect from "../../components/widgets/CustomSelect.astro";
 import { t } from "../../i18n/utils.js";
@@ -31,15 +32,14 @@ const copiedText      = t(lang, "badge.output.copied");
 const defaultIcon     = thoriumLogoDataUri;
 ---
 
-<Layout title={ t(lang, "badge.hero.title") + " — " + t(lang, "site.title") } noBlob>
+<Layout title={ t(lang, "badge.hero.title") + " — " + t(lang, "site.title") }>
+  <PageHeader
+    title={ t(lang, "badge.hero.title") }
+    body={ t(lang, "badge.hero.subtitle") }
+  />
+
   <section class="badge-section">
     <div class="container">
-
-      <header class="badge-intro">
-        <h1>{ t(lang, "badge.hero.title") }</h1>
-        <p>{ t(lang, "badge.hero.subtitle") }</p>
-      </header>
-
       <div class="badge-layout">
 
         <!-- Form -->
@@ -91,6 +91,38 @@ const defaultIcon     = thoriumLogoDataUri;
                   aria-describedby="hint-bookshelf"
                 />
                 <p class="field-hint" id="hint-bookshelf">{ t(lang, "badge.form.bookshelf.hint") }</p>
+              </div>
+            </div>
+
+            <div role="group" aria-labelledby="passphrase-label" class="field-group">
+              <p id="passphrase-label" class="field-group-label">
+                { t(lang, "badge.form.passphrase.legend") }
+              </p>
+
+              <div class="field">
+                <label for="catalog-passphrase">{ t(lang, "badge.form.passphrase.label") }</label>
+                <input
+                  type="text"
+                  id="catalog-passphrase"
+                  name="passphrase"
+                  placeholder={ t(lang, "badge.form.passphrase.placeholder") }
+                  aria-describedby="hint-passphrase"
+                  autocomplete="off"
+                />
+                <p class="field-hint" id="hint-passphrase">{ t(lang, "badge.form.passphrase.hint") }</p>
+              </div>
+
+              <div class="field">
+                <label for="catalog-passphrase-hash">{ t(lang, "badge.form.passphraseHash.label") }</label>
+                <input
+                  type="text"
+                  id="catalog-passphrase-hash"
+                  name="passphrase_hash"
+                  placeholder={ t(lang, "badge.form.passphraseHash.placeholder") }
+                  aria-describedby="hint-passphrase-hash"
+                  autocomplete="off"
+                />
+                <p class="field-hint" id="hint-passphrase-hash">{ t(lang, "badge.form.passphraseHash.hint") }</p>
               </div>
             </div>
 
@@ -167,7 +199,7 @@ const defaultIcon     = thoriumLogoDataUri;
             ]}
             label={ t(lang, "badge.form.legend") }
           >
-            <div id="panel-preview" role="tabpanel" aria-labelledby="tab-preview" tabindex="0">
+            <div id="panel-preview" role="tabpanel" aria-labelledby="preview" tabindex="0">
               <p class="field-hint">{ t(lang, "badge.preview.hint") }</p>
               <div class="preview-display">
                 <div id="preview-badge" aria-hidden="true"></div>
@@ -226,14 +258,18 @@ const defaultIcon     = thoriumLogoDataUri;
   function update() {
     const selectedLang    = form.querySelector("[name=lang]").value;
     const title           = form.querySelector("[name=title]").value.trim();
-    const browseInput     = form.querySelector("[name=browse]");
-    const bookshelfInput  = form.querySelector("[name=bookshelf]");
-    const iconInput       = form.querySelector("[name=icon]");
-    const color           = form.querySelector("[name=color]").value.trim();
-    const openIn          = form.querySelector("[name=openIn]").value;
+    const browseInput          = form.querySelector("[name=browse]");
+    const bookshelfInput       = form.querySelector("[name=bookshelf]");
+    const passphraseInput      = form.querySelector("[name=passphrase]");
+    const passphraseHashInput  = form.querySelector("[name=passphrase_hash]");
+    const iconInput            = form.querySelector("[name=icon]");
+    const color                = form.querySelector("[name=color]").value.trim();
+    const openIn               = form.querySelector("[name=openIn]").value;
 
     const browseValid    = browseInput.value.trim()    && browseInput.validity.valid;
     const bookshelfValid = bookshelfInput.value.trim() && bookshelfInput.validity.valid;
+    const passphrase     = passphraseInput.value.trim();
+    const passphraseHash = passphraseHashInput.value.trim();
     const icon           = iconInput.value.trim() && iconInput.validity.valid ? iconInput.value.trim() : "";
     const hasUrl         = browseValid || bookshelfValid;
 
@@ -241,13 +277,15 @@ const defaultIcon     = thoriumLogoDataUri;
     const svgTitle = title ? alt.replace("{{ name }}", title) : `${ line1 } ${ line2 }`;
 
     const params = new URLSearchParams();
-    if (title)          params.set("title",     title);
-    if (icon)           params.set("icon",      icon);
-    if (color)          params.set("color",     color);
-    if (browseValid)    params.set("browse",    browseInput.value.trim());
-    if (bookshelfValid) params.set("bookshelf", bookshelfInput.value.trim());
-    if (openIn)         params.set("openIn",    openIn);
-    const deepLink = (title && hasUrl) ? addCatalogScheme + params.toString() : null;
+    if (title)          params.set("title",           title);
+    if (icon)           params.set("icon",            icon);
+    if (color)          params.set("color",           color);
+    if (browseValid)    params.set("browse",          browseInput.value.trim());
+    if (bookshelfValid) params.set("bookshelf",       bookshelfInput.value.trim());
+    if (passphrase)     params.set("passphrase",      passphrase);
+    if (passphraseHash) params.set("passphrase_hash", passphraseHash);
+    if (openIn)         params.set("openIn",          openIn);
+    const deepLink = (title && hasUrl) ? `${ addCatalogScheme }?${ params.toString() }` : null;
 
     const svg = makeSVG({ line1, line2, title: svgTitle });
 

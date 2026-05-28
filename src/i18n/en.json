@@ -86,6 +86,7 @@
   "button": {
     "download": "Download",
     "downloadApp": "Download the app",
+    "releaseNotes": "Release notes",
     "discord": "Join us on Discord"
   },
   "footer": {
@@ -94,7 +95,7 @@
   },
   "download": {
     "hero": {
-      "title": "Download the app",
+      "title": "Download Thorium Reader",
       "subtitle": "Get started with Thorium Reader today on your reading device of choice!"
     },
     "ios": {
@@ -128,8 +129,8 @@
     },
     "modal": {
       "tab": {
-        "macos": "macOS",
         "windows": "Windows",
+        "macos": "macOS",
         "linux": "Linux"
       },
       "macos": {
@@ -198,6 +199,17 @@
         "label": "Bookshelf URL",
         "placeholder": "https://example.com/shelf",
         "hint": "An OPDS or web URL to access the user's bookshelf. At least one catalog URL is required."
+      },
+      "passphrase": {
+        "legend": "Authentication",
+        "label": "Passphrase",
+        "placeholder": "my secret passphrase",
+        "hint": "Optional. A plain-text passphrase required to access the catalog."
+      },
+      "passphraseHash": {
+        "label": "Hashed passphrase",
+        "placeholder": "e3b0c44298fc1c149afb…",
+        "hint": "Optional. A pre-hashed passphrase. Use this instead of the plain-text passphrase if you do not want to expose it."
       },
       "openIn": {
         "label": "Open in",

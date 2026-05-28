@@ -1,21 +1,35 @@
 ---
 interface Props {
+  id?: string;
+  class?: string;
   title: string;
   body: string;
   reverse?: boolean;
+  textAlign?: "left" | "right";
+  fullWidth?: boolean;
 }
 
-const { title, body, reverse = false } = Astro.props;
+const { id, class: className, title, body, reverse = false, textAlign, fullWidth = false } = Astro.props;
 ---
 
-<section class="feature-section">
-  <div class:list={["container feature-top", { reverse }]}>
-    <div class="feature-text">
-      <h2>{ title }</h2>
-      <p>{ body }</p>
-      <slot name="actions" />
-    </div>
-  </div>
+<section class:list={["feature-section", className]} id={ id }>
+  { fullWidth
+    ? <div class="container feature-text">
+        <h2>{ title }</h2>
+        <p>{ body }</p>
+        <slot name="actions" />
+      </div>
+    : <div
+        class:list={["container feature-top", { reverse }]}
+        data-text-align={ textAlign }
+      >
+        <div class="feature-text">
+          <h2>{ title }</h2>
+          <p>{ body }</p>
+          <slot name="actions" />
+        </div>
+      </div>
+  }
 
   <slot />
 

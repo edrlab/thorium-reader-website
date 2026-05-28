@@ -15,7 +15,7 @@ const allNotes = await getCollection("desktop-release-notes");
 const notes = allNotes.sort((a, b) => b.data.date.localeCompare(a.data.date));
 ---
 
-<Layout title={ t(lang, "release-notes.title") } noBlob={ true }>
+<Layout title={ t(lang, "release-notes.title") }>
   <section class="release-notes-index container">
     <h1>{ t(lang, "release-notes.title") }</h1>
     <ul>

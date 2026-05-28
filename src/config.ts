@@ -13,4 +13,4 @@ export const appleReleaseDate = "1777507200";
 export const msProductId = "9NFZP1G7M2SC";
 
 // Deep link scheme for adding a catalog to Thorium Reader (placeholder)
-export const addCatalogScheme = "thorium-reader://add-catalog?";
+export const addCatalogScheme = "https://www.thoriumreader.com";

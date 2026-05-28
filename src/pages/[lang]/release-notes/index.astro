@@ -24,7 +24,7 @@ const platforms = [
 ];
 ---
 
-<Layout title={ t(lang, "release-notes.title") } noBlob={ true }>
+<Layout title={ t(lang, "release-notes.title") }>
   <section class="release-notes-hub container">
     <h1>{ t(lang, "release-notes.title") }</h1>
     { platforms.map(({ label, indexPath, notes }) => (

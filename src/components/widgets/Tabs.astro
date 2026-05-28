@@ -16,7 +16,7 @@ const { tabs, label } = Astro.props;
   <div class="tabs-tablist" role="tablist" aria-label={ label }>
     { tabs.map((tab, i) => (
       <button
-        id={`tab-${ tab.id }`}
+        id={ tab.id }
         role="tab"
         aria-selected={ i === 0 ? "true" : "false"}
         aria-controls={`panel-${ tab.id }`}

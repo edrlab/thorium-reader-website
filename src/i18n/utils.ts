@@ -20,6 +20,15 @@ i18next.init({
   ),
 });
 
+export function slugify(str: string): string {
+  return str
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export function formatDate(lang: Lang, isoDate: string): string {
   const resolved = (lang ?? defaultLocale) as Locale;
   const bcp47 = bcp47Locale[resolved] ?? bcp47Locale[defaultLocale];
