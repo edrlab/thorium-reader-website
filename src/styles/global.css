@@ -25,10 +25,6 @@ html {
   --color-text:         #000000;
   --color-text-on-dark: var(--color-cream);
 
-  /* Typography */
-  --font-heading: "Fraunces", Georgia, serif;
-  --font-sans:    "Libre Franklin", system-ui, -apple-system, sans-serif;
-
   /* Type scale */
   --text-xs:      0.833rem;
   --text-base:    1rem;
