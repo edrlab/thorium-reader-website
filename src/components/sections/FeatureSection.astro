@@ -1,6 +1,7 @@
 ---
 interface Props {
   id?: string;
+  class?: string;
   title: string;
   body: string;
   reverse?: boolean;
@@ -8,10 +9,10 @@ interface Props {
   fullWidth?: boolean;
 }
 
-const { id, title, body, reverse = false, textAlign, fullWidth = false } = Astro.props;
+const { id, class: className, title, body, reverse = false, textAlign, fullWidth = false } = Astro.props;
 ---
 
-<section class="feature-section" id={ id }>
+<section class:list={["feature-section", className]} id={ id }>
   { fullWidth
     ? <div class="container feature-text">
         <h2>{ title }</h2>
