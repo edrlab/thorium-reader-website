@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Footer from "../../components/Footer.astro";
+import PageHeader from "../../components/sections/PageHeader.astro";
 import Tabs from "../../components/widgets/Tabs.astro";
 import CustomSelect from "../../components/widgets/CustomSelect.astro";
 import { t } from "../../i18n/utils.js";
@@ -32,14 +33,13 @@ const defaultIcon     = thoriumLogoDataUri;
 ---
 
 <Layout title={ t(lang, "badge.hero.title") + " — " + t(lang, "site.title") } noBlob>
+  <PageHeader
+    title={ t(lang, "badge.hero.title") }
+    body={ t(lang, "badge.hero.subtitle") }
+  />
+
   <section class="badge-section">
     <div class="container">
-
-      <header class="badge-intro">
-        <h1>{ t(lang, "badge.hero.title") }</h1>
-        <p>{ t(lang, "badge.hero.subtitle") }</p>
-      </header>
-
       <div class="badge-layout">
 
         <!-- Form -->
@@ -199,7 +199,7 @@ const defaultIcon     = thoriumLogoDataUri;
             ]}
             label={ t(lang, "badge.form.legend") }
           >
-            <div id="panel-preview" role="tabpanel" aria-labelledby="tab-preview" tabindex="0">
+            <div id="panel-preview" role="tabpanel" aria-labelledby="preview" tabindex="0">
               <p class="field-hint">{ t(lang, "badge.preview.hint") }</p>
               <div class="preview-display">
                 <div id="preview-badge" aria-hidden="true"></div>

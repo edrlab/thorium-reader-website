@@ -86,6 +86,7 @@
   "button": {
     "download": "Télécharger",
     "downloadApp": "Télécharger l'application",
+    "releaseNotes": "Notes de version",
     "discord": "Rejoindre notre Discord"
   },
   "footer": {
@@ -94,7 +95,7 @@
   },
   "download": {
     "hero": {
-      "title": "Télécharger l'application",
+      "title": "Téléchargez Thorium Reader",
       "subtitle": "Commencez avec Thorium Reader dès aujourd'hui sur l'appareil de lecture de votre choix !"
     },
     "ios": {
@@ -128,8 +129,8 @@
     },
     "modal": {
       "tab": {
-        "macos": "macOS",
         "windows": "Windows",
+        "macos": "macOS",
         "linux": "Linux"
       },
       "macos": {

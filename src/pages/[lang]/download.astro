@@ -1,7 +1,7 @@
 ---
 import BreakpointImage from "../../components/images/BreakpointImage.astro";
 import Layout from "../../layouts/Layout.astro";
-import Hero from "../../components/sections/HeroSection.astro";
+import PageHeader from "../../components/sections/PageHeader.astro";
 import FeatureSection from "../../components/sections/FeatureSection.astro";
 import ComicBookDecoration from "../../components/decorations/ComicBookDecoration.astro";
 import TabsSection from "../../components/sections/TabsSection.astro";
@@ -9,7 +9,8 @@ import FAQ from "../../components/sections/FAQ.astro";
 import Footer from "../../components/Footer.astro";
 import AppStoreBadge from "../../components/buttons/AppStoreBadge.astro";
 import MsStoreBadge from "../../components/buttons/MsStoreBadge.astro";
-import { t, getImage } from "../../i18n/utils.js";
+import ActionButton from "../../components/buttons/ActionButton.astro";
+import { t, getImage, slugify } from "../../i18n/utils.js";
 import { locales } from "../../i18n/locales.js";
 import rawShape6WaveBottom from "../../assets/shapes/thorium-shape-6-wave-bottom.svg?raw";
 
@@ -19,46 +20,29 @@ export function getStaticPaths() {
 
 const lang = Astro.currentLocale;
 
-function osSteps(os: string): string[] {
-  const steps = t(lang, `download.modal.${ os }.steps`, { returnObjects: true });
+function osSteps(key: string): string[] {
+  const steps = t(lang, `download.modal.${ key }.steps`, { returnObjects: true });
   return Array.isArray(steps) ? steps : [];
 }
 
-const osTabs = [
-  { id: "windows", label: t(lang, "download.modal.tab.windows") },
-  { id: "macos",   label: t(lang, "download.modal.tab.macos") },
-  { id: "linux",   label: t(lang, "download.modal.tab.linux") },
-];
+const tabLabels = t(lang, "download.modal.tab", { returnObjects: true }) as Record<string, string>;
+const osTabs = Object.entries(tabLabels).map(([key, label]) => ({ id: slugify(key), key, label }));
 ---
 
-<Layout>
-  <Hero
-    title={ t(lang, "download.hero.title") }
-    body={ t(lang, "download.hero.subtitle") }
-    image={{ src: getImage(lang, "thorium-illustration-05.webp"), alt: t(lang, "home.alts.thorium-illustration-05") }}
-  />
+<Layout noBlob>
+  <PageHeader class="download-page-header" title={ t(lang, "download.hero.title") } />
 
   <FeatureSection
-    title={ t(lang, "download.ios.title") }
-    body={ t(lang, "download.ios.body") }
-  >
-    <AppStoreBadge slot="actions" />
-    <figure>
-      <BreakpointImage
-        sources={[
-          { src: getImage(lang, "thorium-mobile-download-screens-compact.webp"), alt: t(lang, "home.alts.thorium-mobile-download-screens-compact"), media: "(max-width: 768px)" },
-          { src: getImage(lang, "thorium-mobile-download-screens-large.webp"),   alt: t(lang, "home.alts.thorium-mobile-download-screens-large") },
-        ]}
-      />
-    </figure>
-  </FeatureSection>
-
-  <FeatureSection
+    id="desktop"
     title={ t(lang, "download.desktop.title") }
     body={ t(lang, "download.desktop.body") }
     reverse
+    textAlign="left"
   >
-    <MsStoreBadge slot="actions" />
+    <div slot="actions" class="desktop-actions">
+      <MsStoreBadge />
+      <ActionButton variant="accent" label={ t(lang, "button.releaseNotes") } href={`${ import.meta.env.BASE_URL }${ lang }/release-notes/desktop`} />
+    </div>
   </FeatureSection>
 
   <TabsSection
@@ -70,12 +54,12 @@ const osTabs = [
     <ComicBookDecoration slot="border-top" lang={ lang } />
 
     { osTabs.map((tab, i) => {
-      const steps = osSteps(tab.id);
+      const steps = osSteps(tab.key);
       return (
         <div
           id={`panel-${ tab.id }`}
           role="tabpanel"
-          aria-labelledby={`tab-${ tab.id }`}
+          aria-labelledby={ tab.id }
           tabindex={ 0 }
           hidden={ i !== 0 }
         >
@@ -94,11 +78,48 @@ const osTabs = [
     </div>
   </TabsSection>
 
+  <FeatureSection
+    id="ios"
+    title={ t(lang, "download.ios.title") }
+    body={ t(lang, "download.ios.body") }
+    fullWidth
+  >
+    <AppStoreBadge slot="actions" />
+    <figure>
+      <BreakpointImage
+        sources={[
+          { src: getImage(lang, "thorium-mobile-download-screens-compact.webp"), alt: t(lang, "home.alts.thorium-mobile-download-screens-compact"), media: "(max-width: 768px)" },
+          { src: getImage(lang, "thorium-mobile-download-screens-large.webp"),   alt: t(lang, "home.alts.thorium-mobile-download-screens-large") },
+        ]}
+      />
+    </figure>
+  </FeatureSection>
+
   <FAQ
     title={ t(lang, "download.faq.title") }
     items={ t(lang, "download.faq.items", { returnObjects: true }) as { question: string; answer: string; items?: string[] }[] }
-    class="padded"
+    class="bottom-gap"
   />
 
   <Footer slot="footer" />
 </Layout>
+
+<script define:vars={{ tabIds: osTabs.map(t => t.id) }}>
+  function slugify(str) {
+    return str
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[̀-ͯ]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
+  function activateFromHash() {
+    const id = slugify(location.hash.slice(1));
+    if (!tabIds.includes(id)) return;
+    document.getElementById(id)?.click();
+  }
+
+  activateFromHash();
+  window.addEventListener("hashchange", activateFromHash);
+</script>

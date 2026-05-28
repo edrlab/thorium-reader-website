@@ -8,7 +8,7 @@ import TippedBoxDecoration from "../../components/decorations/TippedBoxDecoratio
 import CTASection from "../../components/sections/CTASection.astro";
 import FAQ from "../../components/sections/FAQ.astro";
 import Footer from "../../components/Footer.astro";
-import DownloadButton from "../../components/buttons/DownloadButton.astro";
+import ActionButton from "../../components/buttons/ActionButton.astro";
 import DiscordButton from "../../components/buttons/DiscordButton.astro";
 import { t, getImage } from "../../i18n/utils.js";
 import { locales } from "../../i18n/locales.js";
@@ -29,7 +29,7 @@ const lang = Astro.currentLocale;
     clipImage
   >
     <div slot="actions" class="hero-actions">
-      <DownloadButton icon href={`${ import.meta.env.BASE_URL }${ lang }/download`} />
+      <ActionButton icon href={`${ import.meta.env.BASE_URL }${ lang }/download`} />
       <DiscordButton href={ discordHref } />
     </div>
   </Hero>
@@ -63,7 +63,7 @@ const lang = Astro.currentLocale;
     body={ t(lang, "home.cta.section.subtitle") }
   >
     <TippedBoxDecoration slot="border-top" lang={ lang } />
-    <DownloadButton slot="actions" icon href={`${ import.meta.env.BASE_URL }${ lang }/download`} label={ t(lang, "button.downloadApp") } />
+    <ActionButton slot="actions" icon href={`${ import.meta.env.BASE_URL }${ lang }/download`} label={ t(lang, "button.downloadApp") } />
     <Image slot="media" src={ getImage(lang, "thorium-reader-desktop-mobile.webp") } alt={ t(lang, "home.alts.thorium-reader-desktop-mobile") } />
     <div slot="border-bottom" class="cta-wave cta-wave-bottom" aria-hidden="true">
       <Fragment set:html={ rawCtaWaveBottom } />
