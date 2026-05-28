@@ -29,7 +29,7 @@ const tabLabels = t(lang, "download.modal.tab", { returnObjects: true }) as Reco
 const osTabs = Object.entries(tabLabels).map(([key, label]) => ({ id: slugify(key), key, label }));
 ---
 
-<Layout noBlob>
+<Layout>
   <PageHeader class="download-page-header" title={ t(lang, "download.hero.title") } />
 
   <FeatureSection
