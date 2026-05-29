@@ -12,6 +12,7 @@ import MsStoreBadge from "../../components/buttons/MsStoreBadge.astro";
 import ActionButton from "../../components/buttons/ActionButton.astro";
 import { t, getImage, slugify } from "../../i18n/utils.js";
 import { locales } from "../../i18n/locales.js";
+import { downloadUrls } from "../../config";
 import rawShape6WaveBottom from "../../assets/shapes/thorium-shape-6-wave-bottom.svg?raw";
 
 export function getStaticPaths() {
@@ -20,8 +21,17 @@ export function getStaticPaths() {
 
 const lang = Astro.currentLocale;
 
+const downloadLinks = t(lang, "download.links", { returnObjects: true }) as Record<string, string>;
+
+const linkAnchors = Object.fromEntries(
+  Object.entries(downloadUrls).map(([ key, url ]) => [
+    key,
+    `<a href="${ url }">${ downloadLinks[key] ?? key }</a>`,
+  ])
+);
+
 function osSteps(key: string): string[] {
-  const steps = t(lang, `download.modal.${ key }.steps`, { returnObjects: true });
+  const steps = t(lang, `download.modal.${ key }.steps`, { returnObjects: true, ...linkAnchors });
   return Array.isArray(steps) ? steps : [];
 }
 
