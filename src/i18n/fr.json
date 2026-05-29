@@ -133,27 +133,33 @@
         "macos": "macOS",
         "linux": "Linux"
       },
+      "windows": {
+        "steps": [
+          "Téléchargez le fichier {{ windowsExe }} sur votre appareil Windows.",
+          "Ouvrez l’Explorateur de fichiers et accédez au dossier dans lequel vous avez téléchargé le fichier.",
+          "Double-cliquez sur le fichier *.exe téléchargé. Double-cliquez sur le fichier d’installation téléchargé et suivez les étapes du processus d’installation. Les appareils gérés peuvent nécessiter une autorisation administrateur pour l’installation.",
+          "Si vous utilisez un appareil Windows fonctionnant sur ARM, assurez-vous d’utiliser le {{ windowsArm }}."
+        ]
+      },
       "macos": {
         "steps": [
-          "Cliquez sur <a href=\"https://github.com/edrlab/thorium-reader/releases/download/v3.4.0/Thorium-3.4.0-arm64.dmg\">Télécharger pour Apple Silicon</a> ou <a href=\"https://github.com/edrlab/thorium-reader/releases/download/v3.4.0/Thorium-3.4.0.dmg\">Télécharger pour Intel</a>, selon votre appareil. Le programme d'installation commencera automatiquement à télécharger l'application de bureau.",
+          "Cliquez sur {{ macosArm }} ou {{ macosX64 }}, selon votre appareil. Le programme d’installation commencera automatiquement à télécharger l’application de bureau.",
           "Téléchargez le fichier Thorium.Setup.3.x.x.dmg sur votre appareil macOS.",
           "Ouvrez le Finder et accédez au dossier Téléchargements.",
           "Double-cliquez sur le fichier *.dmg téléchargé.",
-          "Faites glisser l'icône de l'application vers le dossier Applications pour l'installer.",
-          "Fermez la fenêtre et appuyez sur le bouton d'éjection dans le Finder pour démonter l'image."
-        ]
-      },
-      "windows": {
-        "steps": [
-          "Téléchargez le fichier <a href=\"https://github.com/edrlab/thorium-reader/releases/download/v3.4.0/Thorium.Setup.3.4.0.exe\">Thorium.Setup.3.x.x.exe</a> sur votre appareil Windows.",
-          "Ouvrez l’Explorateur de fichiers et accédez au dossier dans lequel vous avez téléchargé le fichier.",
-          "Double-cliquez sur le fichier *.exe téléchargé. Double-cliquez sur le fichier d’installation téléchargé et suivez les étapes du processus d’installation. Les appareils gérés peuvent nécessiter une autorisation administrateur pour l’installation.",
-          "Si vous utilisez un appareil Windows fonctionnant sur ARM, assurez-vous d’utiliser le <a href=\"https://www.thoriumreader.com/#download-windows-arm\">lien de téléchargement alternatif</a>."
+          "Faites glisser l’icône de l’application vers le dossier Applications pour l’installer.",
+          "Fermez la fenêtre et appuyez sur le bouton d’éjection dans le Finder pour démonter l’image."
         ]
       },
       "linux": {
         "steps": []
       }
+    },
+    "links": {
+      "macosArm": "Télécharger pour Apple Silicon",
+      "macosX64": "Télécharger pour Intel",
+      "windowsExe": "Thorium.Setup.3.x.x.exe",
+      "windowsArm": "lien de téléchargement alternatif"
     }
   },
   "release-notes": {

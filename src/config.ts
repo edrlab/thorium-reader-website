@@ -14,3 +14,12 @@ export const msProductId = "9NFZP1G7M2SC";
 
 // Deep link scheme for adding a catalog to Thorium Reader (placeholder)
 export const addCatalogScheme = "https://www.thoriumreader.com";
+
+export const desktopVersion = "3.4.0";
+
+export const downloadUrls = {
+  macosArm: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }-arm64.dmg`,
+  macosX64: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }.dmg`,
+  windowsExe: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium.Setup.${ desktopVersion }.exe`,
+  windowsArm: "https://www.thoriumreader.com/#download-windows-arm",
+};
