@@ -125,11 +125,14 @@ const osTabs = Object.entries(tabLabels).map(([key, label]) => ({ id: slugify(ke
   }
 
   function activateFromHash() {
-    const id = slugify(location.hash.slice(1));
+    const id = slugify(location.hash.slice(1).toLowerCase());
     if (!tabIds.includes(id)) return;
-    document.getElementById(id)?.click();
+    const tab = document.getElementById(id);
+    if (!tab) return;
+    tab.click();
+    tab.scrollIntoView();
   }
 
-  activateFromHash();
+  document.addEventListener("DOMContentLoaded", activateFromHash);
   window.addEventListener("hashchange", activateFromHash);
 </script>

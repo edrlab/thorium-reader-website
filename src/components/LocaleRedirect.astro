@@ -9,5 +9,5 @@ const fallback = `${ base }${ defaultLocale }/${ path }`;
   const preferred = navigator.languages
     .map(tag => tag.split("-")[0].toLowerCase())
     .find(lang => locales.includes(lang));
-  location.replace(`${ base }${ preferred ?? defaultLocale }/${ path }`);
+  location.replace(`${ base }${ preferred ?? defaultLocale }/${ path }${ location.hash }`);
 </script>
