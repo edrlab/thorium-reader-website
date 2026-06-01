@@ -72,8 +72,8 @@ const lang = Astro.currentLocale;
   </CTASection>
 
   <FAQ
-    title={ t(lang, "home.faq.title") }
-    items={ t(lang, "home.faq.items", { returnObjects: true }) as { question: string; answer: unknown[] }[] }
+    title={ t(lang, "faq.title") }
+    items={ t(lang, "faq.items", { returnObjects: true }) as { question: string; answer: unknown[] }[] }
   />
 
   <Footer slot="footer" image={{ src: getImage(lang, "thorium-illustration-04.webp") }} clip />
