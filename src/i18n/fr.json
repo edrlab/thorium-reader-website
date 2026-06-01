@@ -249,12 +249,7 @@
     }
   },
   "alts": {
-    "thorium-illustration-01": "Illustration d'une personne se prélassant dans un livre ouvert.",
-    "thorium-illustration-02": "Illustration d'une personne portant une pile de livres sur un passage piéton.",
-    "thorium-illustration-03": "",
-    "thorium-illustration-04": "Illustration d'une personne portant des écouteurs qui regarde vers le haut des piles de livres imposantes.",
-    "thorium-illustrtion-06": "",
-    "thorium-desktop": "",
+    "thorium-desktop": "Un ordinateur portable affichant Thorium Reader Desktop. La bibliothèque présente toutes les publications sous forme de grille ; vous pouvez y effectuer une recherche et importer une nouvelle publication. Chaque livre affiche sa couverture avec le titre et le nom de l'auteur en dessous, suivis du format et des options.",
     "thorium-mobile-download-screens-compact": "Trois téléphones sont disposés l'un à côté de l'autre. Le premier affiche la bibliothèque de l'application mobile. Le second un roman avec un thème sombre, et le dernier un manga en plein-écran.",
     "thorium-mobile-download-screens-large": "Quatre téléphones sont disposés l'un à côté de l'autre. Le premier affiche la bibliothèque de l'application mobile, le second un roman avec un thème sombre, le troisième un livre audio avec son interface de lecture, et le dernier un manga en plein-écran.",
     "thorium-reader-desktop-mobile": "Un ordinateur portable affichant Thorium Reader avec un ebook et une BD ouverts, accompagné d'un téléphone affichant le livre audio Dracula.",
