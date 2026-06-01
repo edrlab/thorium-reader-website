@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { locales } from "../../../../i18n/locales.js";
+
+export async function getStaticPaths() {
+  const notes = await getCollection("desktop-release-notes");
+  const latest = notes.sort((a, b) => b.data.date.localeCompare(a.data.date))[0];
+  return locales.map((lang) => ({
+    params: { lang },
+    props: { latestId: latest.id },
+  }));
+}
+
+const lang = Astro.currentLocale ?? "en";
+const { latestId } = Astro.props;
+
+return Astro.redirect(getRelativeLocaleUrl(lang, `release-notes/desktop/${ latestId }`));
+---
