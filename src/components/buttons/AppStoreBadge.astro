@@ -1,7 +1,7 @@
 ---
 import type { Locale } from "../../i18n/locales.js";
 import { bcp47Locale } from "../../i18n/locales.js";
-import { appleAppId, appleReleaseDate } from "../../config.js";
+import { appleAppId, appleReleaseDate } from "../../links.js";
 
 const lang = Astro.currentLocale as Locale;
 const badgeLocale = bcp47Locale[lang] ?? bcp47Locale.en;
