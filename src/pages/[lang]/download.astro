@@ -75,12 +75,9 @@ const osTabs = Object.entries(tabsData)
           tabindex={ 0 }
           hidden={ i !== 0 }
         >
-          { steps.length > 0
-            ? <ul class="download-steps">
-                { steps.map(s => <li set:html={ s } />) }
-              </ul>
-            : <p class="download-steps-todo">{ t(lang, "download.coming_soon") }</p>
-          }
+          <ul class="download-steps">
+            { steps.map(s => <li set:html={ s } />) }
+          </ul>
         </div>
       );
     }) }
