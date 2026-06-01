@@ -28,8 +28,7 @@
     "discord": "Join us on Discord"
   },
   "footer": {
-    "legal": "Legal Notices",
-    "discord": "Join us on Discord"
+    "legal": "Legal Notices"
   },
   "home": {
     "hero": {
@@ -53,42 +52,34 @@
       }
     },
     "cta": {
-      "section": {
-        "title": "Join the Adventure!",
-        "subtitle": [
-          "Thorium Reader is completely free and maintained by a non-profit organization.",
-          "Available on iOS, iPadOS, Windows, macOS and Linux."
-        ]
-      }
+      "title": "Join the Adventure!",
+      "body": [
+        "Thorium Reader is completely free and maintained by a non-profit organization.",
+        "Available on iOS, iPadOS, Windows, macOS and Linux."
+      ]
     }
   },
   "download": {
-    "hero": {
-      "title": "Download Thorium Reader",
-      "subtitle": "Get started with Thorium Reader today on your reading device of choice!"
+    "header": {
+      "title": "Download Thorium Reader"
     },
-    "ios": {
-      "title": "iOS and iPadOS",
-      "body": "Thorium Reader is available on the App Store for iOS, iPadOS and macOS devices running on Apple Silicon."
-    },
-    "desktop": {
-      "title": "Windows, macOS, Linux",
-      "body": [
-        "If you're on Windows, we recommend getting Thorium Reader from the Microsoft Store.",
-        "Direct downloads are also available for Windows, macOS and Linux."
-      ]
-    },
-    "coming_soon": "Coming soon.",
-    "tabs": {
-      "label": "Operating system"
-    },
-    "modal": {
-      "tab": {
-        "windows": "Windows",
-        "macos": "macOS",
-        "linux": "Linux"
+    "features": {
+      "ios": {
+        "title": "iOS and iPadOS",
+        "body": "Thorium Reader is available on the App Store for iOS, iPadOS and macOS devices running on Apple Silicon."
       },
+      "desktop": {
+        "title": "Windows, macOS, Linux",
+        "body": [
+          "If you're on Windows, we recommend getting Thorium Reader from the Microsoft Store.",
+          "Direct downloads are also available for Windows, macOS and Linux."
+        ]
+      }
+    },
+    "tabs": {
+      "label": "Operating system",
       "windows": {
+        "label": "Windows",
         "steps": [
           "Download the {{ windowsExe }} file to your Windows device.",
           "Open the Explorer and navigate to folder where you downloaded the file.",
@@ -97,6 +88,7 @@
         ]
       },
       "macos": {
+        "label": "macOS",
         "steps": [
           "Download the {{ macosArm }} file to your macOS device.",
           "Open the Finder and navigate to Downloads.",
@@ -107,21 +99,22 @@
         ]
       },
       "linux": {
+        "label": "Linux",
         "steps": [
           "Download either the {{ linuxAppImage }} or {{ linuxDeb }} to your Linux device.",
           "If you're running Linux on an ARM device, make sure to use alternate download links for the {{ linuxAppImageArm }} or {{ linuxDebArm }}."
         ]
+      },
+      "links": {
+        "macosArm": "Thorium.Setup.3.x.x.dmg",
+        "macosX64": "alternate download link",
+        "windowsExe": "Thorium.Setup.3.x.x.exe",
+        "windowsArm": "alternate download link",
+        "linuxAppImage": "AppImage",
+        "linuxDeb": "Debian package",
+        "linuxAppImageArm": "AppImage",
+        "linuxDebArm": "Debian package"
       }
-    },
-    "links": {
-      "macosArm": "Thorium.Setup.3.x.x.dmg",
-      "macosX64": "alternate download link",
-      "windowsExe": "Thorium.Setup.3.x.x.exe",
-      "windowsArm": "alternate download link",
-      "linuxAppImage": "AppImage",
-      "linuxDeb": "Debian package",
-      "linuxAppImageArm": "AppImage",
-      "linuxDebArm": "Debian package"
     }
   },
   "release-notes": {
@@ -132,7 +125,7 @@
     }
   },
   "badge": {
-    "hero": {
+    "header": {
       "title": "Badge Generator",
       "subtitle": "Create an \"Add to Thorium Reader\" badge for your catalog page."
     },

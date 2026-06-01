@@ -21,7 +21,7 @@ export function getStaticPaths() {
 
 const lang = Astro.currentLocale;
 
-const downloadLinks = t(lang, "download.links", { returnObjects: true }) as Record<string, string>;
+const downloadLinks = t(lang, "download.tabs.links", { returnObjects: true }) as Record<string, string>;
 
 const linkAnchors = Object.fromEntries(
   Object.entries(downloadUrls).map(([ key, url ]) => [
@@ -31,21 +31,23 @@ const linkAnchors = Object.fromEntries(
 );
 
 function osSteps(key: string): string[] {
-  const steps = t(lang, `download.modal.${ key }.steps`, { returnObjects: true, ...linkAnchors });
+  const steps = t(lang, `download.tabs.${ key }.steps`, { returnObjects: true, ...linkAnchors });
   return Array.isArray(steps) ? steps : [];
 }
 
-const tabLabels = t(lang, "download.modal.tab", { returnObjects: true }) as Record<string, string>;
-const osTabs = Object.entries(tabLabels).map(([key, label]) => ({ id: slugify(key), key, label }));
+const tabsData = t(lang, "download.tabs", { returnObjects: true }) as Record<string, { label: string; steps: string[] }>;
+const osTabs = Object.entries(tabsData)
+  .filter(([key]) => key !== "label" && key !== "links")
+  .map(([key, tab]) => ({ id: slugify(key), key, label: tab.label }));
 ---
 
 <Layout>
-  <PageHeader class="download-page-header" title={ t(lang, "download.hero.title") } />
+  <PageHeader class="download-page-header" title={ t(lang, "download.header.title") } />
 
   <FeatureSection
     id="desktop"
-    title={ t(lang, "download.desktop.title") }
-    body={ t(lang, "download.desktop.body") }
+    title={ t(lang, "download.features.desktop.title") }
+    body={ t(lang, "download.features.desktop.body") }
     reverse
     textAlign="left"
   >
@@ -73,12 +75,9 @@ const osTabs = Object.entries(tabLabels).map(([key, label]) => ({ id: slugify(ke
           tabindex={ 0 }
           hidden={ i !== 0 }
         >
-          { steps.length > 0
-            ? <ul class="download-steps">
-                { steps.map(s => <li set:html={ s } />) }
-              </ul>
-            : <p class="download-steps-todo">{ t(lang, "download.coming_soon") }</p>
-          }
+          <ul class="download-steps">
+            { steps.map(s => <li set:html={ s } />) }
+          </ul>
         </div>
       );
     }) }
@@ -90,8 +89,8 @@ const osTabs = Object.entries(tabLabels).map(([key, label]) => ({ id: slugify(ke
 
   <FeatureSection
     id="ios"
-    title={ t(lang, "download.ios.title") }
-    body={ t(lang, "download.ios.body") }
+    title={ t(lang, "download.features.ios.title") }
+    body={ t(lang, "download.features.ios.body") }
     fullWidth
   >
     <AppStoreBadge slot="actions" />

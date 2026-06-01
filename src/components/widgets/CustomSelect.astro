@@ -2,7 +2,6 @@
 export interface SelectOption {
   value: string;
   label: string;
-  url?: string;
 }
 
 interface Props {
@@ -44,7 +43,6 @@ const listId = `cs-list-${ uid }`;
         role="option"
         aria-selected={ opt.value === selected?.value ? "true" : "false"}
         data-value={ opt.value }
-        data-url={ opt.url }
         tabindex="-1"
       >
         { opt.label }
@@ -140,11 +138,6 @@ const listId = `cs-list-${ uid }`;
     }
 
     function select(opt: HTMLElement) {
-      const url = opt.dataset.url;
-      if (url) {
-        window.location.href = url;
-        return;
-      }
       opts.forEach(o => o.setAttribute("aria-selected", "false"));
       opt.setAttribute("aria-selected", "true");
       labelEl.textContent = opt.textContent?.trim() ?? "";
@@ -152,6 +145,10 @@ const listId = `cs-list-${ uid }`;
         hidden.value = opt.dataset.value ?? "";
         hidden.dispatchEvent(new Event("input", { bubbles: true }));
       }
+      picker.dispatchEvent(new CustomEvent("cs-select", {
+        bubbles: true,
+        detail: { value: opt.dataset.value },
+      }));
       close(true);
     }
 

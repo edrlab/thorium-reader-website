@@ -28,12 +28,11 @@
     "discord": "Rejoindre notre Discord"
   },
   "footer": {
-    "legal": "Mentions légales",
-    "discord": "Rejoindre notre Discord"
+    "legal": "Mentions légales"
   },
   "home": {
     "hero": {
-      "title": "Lisez à votre façon.",
+      "title": "Lisez à votre façon",
       "subtitle": "Plus qu'une application de lecture, un nouvel espace pour vos ebooks, livres audio, BD et mangas."
     },
     "features": {
@@ -53,42 +52,34 @@
       }
     },
     "cta": {
-      "section": {
-        "title": "Rejoignez l'aventure !",
-        "subtitle": [
-          "Thorium Reader est entièrement gratuit et maintenu par une organisation à but non lucratif.",
-          "Disponible sur iOS, iPadOS, Windows, macOS et Linux."
-        ]
-      }
+      "title": "Rejoignez l'aventure !",
+      "body": [
+        "Thorium Reader est entièrement gratuit et maintenu par une organisation à but non lucratif.",
+        "Disponible sur iOS, iPadOS, Windows, macOS et Linux."
+      ]
     }
   },
   "download": {
-    "hero": {
-      "title": "Téléchargez Thorium Reader",
-      "subtitle": "Commencez avec Thorium Reader dès aujourd'hui sur l'appareil de lecture de votre choix !"
+    "header": {
+      "title": "Téléchargez Thorium Reader"
     },
-    "ios": {
-      "title": "iOS et iPadOS",
-      "body": "Thorium Reader est disponible sur l'App Store pour les appareils iOS, iPadOS et macOS équipés d'Apple Silicon."
-    },
-    "desktop": {
-      "title": "Windows, macOS, Linux",
-      "body": [
-        "Si vous êtes sur Windows, nous vous recommandons d'obtenir Thorium Reader depuis le Microsoft Store.",
-        "Des téléchargements directs sont également disponibles pour Windows, macOS et Linux."
-      ]
-    },
-    "coming_soon": "Bientôt disponible.",
-    "tabs": {
-      "label": "Système d'exploitation"
-    },
-    "modal": {
-      "tab": {
-        "windows": "Windows",
-        "macos": "macOS",
-        "linux": "Linux"
+    "features": {
+      "ios": {
+        "title": "iOS et iPadOS",
+        "body": "Thorium Reader est disponible sur l'App Store pour les appareils iOS, iPadOS et macOS équipés d'Apple Silicon."
       },
+      "desktop": {
+        "title": "Windows, macOS, Linux",
+        "body": [
+          "Si vous êtes sur Windows, nous vous recommandons d'obtenir Thorium Reader depuis le Microsoft Store.",
+          "Des téléchargements directs sont également disponibles pour Windows, macOS et Linux."
+        ]
+      }
+    },
+    "tabs": {
+      "label": "Système d’exploitation",
       "windows": {
+        "label": "Windows",
         "steps": [
           "Téléchargez le fichier {{ windowsExe }} sur votre appareil Windows.",
           "Ouvrez l’Explorateur de fichiers et accédez au dossier dans lequel vous avez téléchargé le fichier.",
@@ -97,6 +88,7 @@
         ]
       },
       "macos": {
+        "label": "macOS",
         "steps": [
           "Téléchargez le fichier {{ macosArm }} sur votre appareil macOS.",
           "Ouvrez le Finder et accédez au dossier Téléchargements.",
@@ -107,21 +99,22 @@
         ]
       },
       "linux": {
+        "label": "Linux",
         "steps": [
           "Téléchargez le {{ linuxAppImage }} ou le {{ linuxDeb }} sur votre appareil Linux.",
-          "Si vous utilisez Linux sur un appareil ARM, assurez-vous d'utiliser les liens de téléchargement alternatifs pour le {{ linuxAppImageArm }} ou le {{ linuxDebArm }}."
+          "Si vous utilisez Linux sur un appareil ARM, assurez-vous d’utiliser les liens de téléchargement alternatifs pour le {{ linuxAppImageArm }} ou le {{ linuxDebArm }}."
         ]
+      },
+      "links": {
+        "macosArm": "Thorium.Setup.3.x.x.dmg",
+        "macosX64": "lien de téléchargement alternatif",
+        "windowsExe": "Thorium.Setup.3.x.x.exe",
+        "windowsArm": "lien de téléchargement alternatif",
+        "linuxAppImage": "AppImage",
+        "linuxDeb": "paquet Debian",
+        "linuxAppImageArm": "AppImage",
+        "linuxDebArm": "paquet Debian"
       }
-    },
-    "links": {
-      "macosArm": "Thorium.Setup.3.x.x.dmg",
-      "macosX64": "lien de téléchargement alternatif",
-      "windowsExe": "Thorium.Setup.3.x.x.exe",
-      "windowsArm": "lien de téléchargement alternatif",
-      "linuxAppImage": "AppImage",
-      "linuxDeb": "paquet Debian",
-      "linuxAppImageArm": "AppImage",
-      "linuxDebArm": "paquet Debian"
     }
   },
   "release-notes": {
@@ -132,7 +125,7 @@
     }
   },
   "badge": {
-    "hero": {
+    "header": {
       "title": "Générateur de badge",
       "subtitle": "Créez un badge « Ajouter à Thorium Reader » pour la page de votre catalogue."
     },
