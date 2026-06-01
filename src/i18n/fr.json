@@ -63,9 +63,8 @@
     }
   },
   "download": {
-    "hero": {
-      "title": "Téléchargez Thorium Reader",
-      "subtitle": "Commencez avec Thorium Reader dès aujourd'hui sur l'appareil de lecture de votre choix !"
+    "header": {
+      "title": "Téléchargez Thorium Reader"
     },
     "ios": {
       "title": "iOS et iPadOS",
@@ -132,7 +131,7 @@
     }
   },
   "badge": {
-    "hero": {
+    "header": {
       "title": "Générateur de badge",
       "subtitle": "Créez un badge « Ajouter à Thorium Reader » pour la page de votre catalogue."
     },

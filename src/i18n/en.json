@@ -63,9 +63,8 @@
     }
   },
   "download": {
-    "hero": {
-      "title": "Download Thorium Reader",
-      "subtitle": "Get started with Thorium Reader today on your reading device of choice!"
+    "header": {
+      "title": "Download Thorium Reader"
     },
     "ios": {
       "title": "iOS and iPadOS",
@@ -132,7 +131,7 @@
     }
   },
   "badge": {
-    "hero": {
+    "header": {
       "title": "Badge Generator",
       "subtitle": "Create an \"Add to Thorium Reader\" badge for your catalog page."
     },
