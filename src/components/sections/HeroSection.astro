@@ -6,12 +6,13 @@ import shapeCompactRaw from "../../assets/shapes/thorium-shape-1-compact.svg?raw
 
 interface Props {
   title: string;
-  body: string;
+  body: string | string[];
   image: { src: ImageMetadata; alt: string };
   clipImage?: boolean;
 }
 
 const { title, body, image, clipImage = false } = Astro.props;
+const paragraphs = Array.isArray(body) ? body : [body];
 const compactMaskSvg = shapeCompactRaw.replace("currentColor", "black");
 const compactMaskUrl = `data:image/svg+xml,${encodeURIComponent(compactMaskSvg)}`;
 ---
@@ -20,7 +21,7 @@ const compactMaskUrl = `data:image/svg+xml,${encodeURIComponent(compactMaskSvg)}
   <div class="container hero-inner">
     <div class="hero-text">
       <h1>{ title }</h1>
-      <p>{ body }</p>
+      { paragraphs.map((p) => <p>{ p }</p>) }
       <slot name="actions" />
     </div>
 

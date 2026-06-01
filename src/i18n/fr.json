@@ -21,25 +21,44 @@
   "lang": {
     "label": "Langue"
   },
+  "button": {
+    "download": "Télécharger",
+    "downloadApp": "Télécharger l'application",
+    "releaseNotes": "Notes de version",
+    "discord": "Rejoindre notre Discord"
+  },
+  "footer": {
+    "legal": "Mentions légales",
+    "discord": "Rejoindre notre Discord"
+  },
   "home": {
     "hero": {
       "title": "Lisez à votre façon.",
-      "subtitle": "Plus qu'une application de lecture, une bibliothèque numérique pour vos ebooks, BD et mangas."
+      "subtitle": "Plus qu'une application de lecture, un nouvel espace pour vos ebooks, livres audio, BD et mangas."
     },
     "features": {
       "customize": {
         "title": "Vos livres, vos règles",
-        "body": "Chacun lit différemment, alors lisez à votre façon ! Ajustez les polices, les couleurs, l'espacement… et créez l'expérience de lecture qui vous convient."
+        "body": [
+          "Avec Thorium Reader, passez de la lecture à l'écoute quand vous le souhaitez… ou faites les deux en même temps.",
+          "Prenez le contrôle total de votre expérience de lecture grâce à des réglages simples d'utilisation, mais puissants."
+        ]
       },
       "library": {
         "title": "Apportez vos propres livres",
-        "body": "Que vous ayez acheté un ebook en ligne, emprunté un livre audio à votre bibliothèque ou téléchargé un chapitre de votre manga préféré, lisez-les tous dans Thorium."
+        "body": [
+          "Nous avons créé un endroit où tous les livres sont les bienvenus.",
+          "Téléchargez sur le Web, empruntez en bibliothèque, achetez en librairie… et lisez-les tous dans Thorium Reader."
+        ]
       }
     },
     "cta": {
       "section": {
         "title": "Rejoignez l'aventure !",
-        "subtitle": "Téléchargez l'application gratuitement et commencez votre aventure avec Thorium Reader dès aujourd'hui."
+        "subtitle": [
+          "Thorium Reader est entièrement gratuit et maintenu par une organisation à but non lucratif.",
+          "Disponible sur iOS, iPadOS, Windows, macOS et Linux."
+        ]
       }
     },
     "faq": {
@@ -70,28 +89,7 @@
           "answer": "Oui, vous pouvez lire des livres empruntés avec Thorium Reader. L'application prend en charge les ebooks empruntés en bibliothèque, y compris ceux protégés par DRM, et propose des options pour retourner ou renouveler les prêts."
         }
       ]
-    },
-    "alts": {
-      "thorium-reader-mobile-option": "Deux téléphones affichant Thorium Reader : l'un montrant la couverture du livre audio Dracula, l'autre l'interface de lecture avec un extrait du Journal de Jonathan Harker.",
-      "thorium-illustration-01": "Illustration d'une personne se prélassant dans un livre ouvert.",
-      "thorium-illustration-02": "Illustration d'une personne portant une pile de livres sur un passage piéton.",
-      "thorium-illustration-05": "Illustration d’une pile de livres reposant sur une tablette, avec des écouteurs et une liseuse.",
-      "thorium-reader-screens": "Trois téléphones illustrant les thèmes de Thorium Reader : une vue sépia, une vue claire avec le panneau de réglages d'affichage ouvert, et une vue sombre.",
-      "thorium-reader-desktop-mobile": "Un ordinateur portable affichant Thorium Reader avec un ebook et une BD ouverts, accompagné d'un téléphone affichant le livre audio Dracula.",
-      "thorium-illustration-04": "Illustration d'une personne portant des écouteurs qui regarde vers le haut des piles de livres imposantes.",
-      "thorium-mobile-download-screens-compact": "Trois téléphones sont disposés l’un à côté de l’autre. Le premier affiche la bibliothèque de l’application mobile. Le second un roman avec un thème sombre, et le dernier un manga en plein-écran.",
-      "thorium-mobile-download-screens-large": "Quatre téléphones sont disposés l’un à côté de l’autre. Le premier affiche la bibliothèque de l’application mobile, le second un roman avec un thème sombre, le troisième un livre audio avec son interface de lecture, et le dernier un manga en plein-écran."
     }
-  },
-  "button": {
-    "download": "Télécharger",
-    "downloadApp": "Télécharger l'application",
-    "releaseNotes": "Notes de version",
-    "discord": "Rejoindre notre Discord"
-  },
-  "footer": {
-    "legal": "Mentions légales",
-    "discord": "Rejoindre notre Discord"
   },
   "download": {
     "hero": {
@@ -249,5 +247,18 @@
       "copy": "Copier dans le presse-papiers",
       "copied": "Copié !"
     }
+  },
+  "alts": {
+    "thorium-illustration-01": "Illustration d'une personne se prélassant dans un livre ouvert.",
+    "thorium-illustration-02": "Illustration d'une personne portant une pile de livres sur un passage piéton.",
+    "thorium-illustration-03": "",
+    "thorium-illustration-04": "Illustration d'une personne portant des écouteurs qui regarde vers le haut des piles de livres imposantes.",
+    "thorium-illustrtion-06": "",
+    "thorium-desktop": "",
+    "thorium-mobile-download-screens-compact": "Trois téléphones sont disposés l'un à côté de l'autre. Le premier affiche la bibliothèque de l'application mobile. Le second un roman avec un thème sombre, et le dernier un manga en plein-écran.",
+    "thorium-mobile-download-screens-large": "Quatre téléphones sont disposés l'un à côté de l'autre. Le premier affiche la bibliothèque de l'application mobile, le second un roman avec un thème sombre, le troisième un livre audio avec son interface de lecture, et le dernier un manga en plein-écran.",
+    "thorium-reader-desktop-mobile": "Un ordinateur portable affichant Thorium Reader avec un ebook et une BD ouverts, accompagné d'un téléphone affichant le livre audio Dracula.",
+    "thorium-reader-mobile-option": "Deux téléphones affichant Thorium Reader : l'un montrant la couverture du livre audio Dracula, l'autre l'interface de lecture avec un extrait du Journal de Jonathan Harker.",
+    "thorium-reader-screens": "Trois téléphones illustrant les thèmes de Thorium Reader : une vue sépia, une vue claire avec le panneau de réglages d'affichage ouvert, et une vue sombre."
   }
 }

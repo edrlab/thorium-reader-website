@@ -3,20 +3,21 @@ interface Props {
   id?: string;
   class?: string;
   title: string;
-  body: string;
+  body: string | string[];
   reverse?: boolean;
   textAlign?: "left" | "right";
   fullWidth?: boolean;
 }
 
 const { id, class: className, title, body, reverse = false, textAlign, fullWidth = false } = Astro.props;
+const paragraphs = Array.isArray(body) ? body : [body];
 ---
 
 <section class:list={["feature-section", className]} id={ id }>
   { fullWidth
     ? <div class="container feature-text">
         <h2>{ title }</h2>
-        <p>{ body }</p>
+        { paragraphs.map((p) => <p>{ p }</p>) }
         <slot name="actions" />
       </div>
     : <div
@@ -25,7 +26,7 @@ const { id, class: className, title, body, reverse = false, textAlign, fullWidth
       >
         <div class="feature-text">
           <h2>{ title }</h2>
-          <p>{ body }</p>
+          { paragraphs.map((p) => <p>{ p }</p>) }
           <slot name="actions" />
         </div>
       </div>

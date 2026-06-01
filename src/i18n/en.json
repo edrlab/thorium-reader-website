@@ -21,29 +21,48 @@
   "lang": {
     "label": "Language"
   },
+  "button": {
+    "download": "Download",
+    "downloadApp": "Download the app",
+    "releaseNotes": "Release notes",
+    "discord": "Join us on Discord"
+  },
+  "footer": {
+    "legal": "Legal Notices",
+    "discord": "Join us on Discord"
+  },
   "home": {
     "hero": {
-      "title": "Read it your way.",
-      "subtitle": "More than a reading app, a digital bookshelf for your ebooks, comics and mangas."
+      "title": "Read It Your Way",
+      "subtitle": "More than a reading app, a new home for all your ebooks, audiobooks, comics and manga."
     },
     "features": {
       "customize": {
-        "title": "Your books, your rules",
-        "body": "Everyone reads differently, so read your way! Adjust fonts, colors, spacing… and design the reading experience that fits your needs."
+        "title": "Your Books, Your Rules",
+        "body": [
+          "With Thorium Reader, you can switch between reading or listening whenever you want… or even do both at the same time.",
+          "Take full control of your reading experience with easy to use, yet powerful, user settings."
+        ]
       },
       "library": {
-        "title": "Bring your own books",
-        "body": "Whether you've bought an ebook online, borrowed an audiobook at your public library or downloaded a chapter of your favorite manga, read them all in Thorium."
+        "title": "Bring Your Own Books",
+        "body": [
+          "We built a place where all books are welcome.",
+          "Download on the Web, borrow from a library, buy from a bookstore… but read them all in Thorium Reader."
+        ]
       }
     },
     "cta": {
       "section": {
-        "title": "Join the adventure!",
-        "subtitle": "Download the app for free and get started with your Thorium Reader journey today."
+        "title": "Join the Adventure!",
+        "subtitle": [
+          "Thorium Reader is completely free and maintained by a non-profit organization.",
+          "Available on iOS, iPadOS, Windows, macOS and Linux."
+        ]
       }
     },
     "faq": {
-      "title": "Frequently asked questions",
+      "title": "Frequently Asked Questions",
       "items": [
         {
           "question": "Is Thorium Reader free?",
@@ -70,28 +89,7 @@
           "answer": "Yes, you can read borrowed books with Thorium Reader. The app supports ebooks borrowed from libraries, including those protected by DRM, and offers options to return or renew loans."
         }
       ]
-    },
-    "alts": {
-      "thorium-reader-mobile-option": "Two phones side by side showing Thorium Reader: one displaying the Dracula audiobook cover, the other showing the reading interface with a passage from Jonathan Harker's Journal.",
-      "thorium-illustration-01": "Illustration of a person relaxing inside an open book.",
-      "thorium-illustration-02": "Illustration of a person carrying a stack of books across a crosswalk.",
-      "thorium-illustration-05": "Illustration of a pile of books sitting on a tablet, with headphones and an eReader.",
-      "thorium-reader-screens": "Three phones showing Thorium Reader's themes: a sepia view, a light view with the display settings panel open, and a dark view.",
-      "thorium-reader-desktop-mobile": "A laptop showing Thorium Reader with an open ebook and a comic, alongside a phone showing the Dracula audiobook.",
-      "thorium-illustration-04": "Illustration of a person wearing earphones looking up at towering stacks of books.",
-      "thorium-mobile-download-screens-compact": "Three phones laid out next to one another. The first one displays the bookshelf of the mobile app, the second one a novel with a dark theme, the third one a manga in full-screen.",
-      "thorium-mobile-download-screens-large": "Four phones laid out next to one another. The first one displays the bookshelf of the mobile app, the second one a novel with a dark theme, the third one an audiobook with its playback UI, the fourth one a manga in full-screen."
     }
-  },
-  "button": {
-    "download": "Download",
-    "downloadApp": "Download the app",
-    "releaseNotes": "Release notes",
-    "discord": "Join us on Discord"
-  },
-  "footer": {
-    "legal": "Legal Notices",
-    "discord": "Join us on Discord"
   },
   "download": {
     "hero": {
@@ -108,7 +106,7 @@
     },
     "coming_soon": "Coming soon.",
     "faq": {
-      "title": "Frequently asked questions",
+      "title": "Frequently Asked Questions",
       "items": [
         {
           "question": "What devices can I download Thorium Reader on?",
@@ -249,5 +247,18 @@
       "copy": "Copy to clipboard",
       "copied": "Copied!"
     }
+  },
+  "alts": {
+    "thorium-illustration-01": "Illustration of a person relaxing inside an open book.",
+    "thorium-illustration-02": "Illustration of a person carrying a stack of books across a crosswalk.",
+    "thorium-illustration-03": "",
+    "thorium-illustration-04": "Illustration of a person wearing earphones looking up at towering stacks of books.",
+    "thorium-illustrtion-06": "",
+    "thorium-desktop": "",
+    "thorium-mobile-download-screens-compact": "Three phones laid out next to one another. The first one displays the bookshelf of the mobile app, the second one a novel with a dark theme, the third one a manga in full-screen.",
+    "thorium-mobile-download-screens-large": "Four phones laid out next to one another. The first one displays the bookshelf of the mobile app, the second one a novel with a dark theme, the third one an audiobook with its playback UI, the fourth one a manga in full-screen.",
+    "thorium-reader-desktop-mobile": "A laptop showing Thorium Reader with an open ebook and a comic, alongside a phone showing the Dracula audiobook.",
+    "thorium-reader-mobile-option": "Two phones side by side showing Thorium Reader: one displaying the Dracula audiobook cover, the other showing the reading interface with a passage from Jonathan Harker's Journal.",
+    "thorium-reader-screens": "Three phones showing Thorium Reader's themes: a sepia view, a light view with the display settings panel open, and a dark view."
   }
 }
