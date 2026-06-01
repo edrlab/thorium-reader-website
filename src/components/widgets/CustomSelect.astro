@@ -12,16 +12,17 @@ interface Props {
   describedby?: string;
   selectedValue?: string;
   class?: string;
+  [key: string]: unknown;
 }
 
-const { options, label, id, name, describedby, selectedValue, class: className } = Astro.props;
+const { options, label, id, name, describedby, selectedValue, class: className, ...rest } = Astro.props;
 const selected = options.find(o => o.value === selectedValue) ?? options[0];
 const uid = Math.random().toString(36).slice(2, 8);
 const btnId = id ?? `cs-btn-${ uid }`;
 const listId = `cs-list-${ uid }`;
 ---
 
-<div class:list={["custom-select", className]} data-custom-select>
+<div class:list={["custom-select", className]} data-custom-select {...rest}>
   { name && <input type="hidden" name={ name } value={ selected?.value ?? "" } />}
   <button
     type="button"

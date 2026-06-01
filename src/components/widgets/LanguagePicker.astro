@@ -25,11 +25,15 @@ const urls = Object.fromEntries(locales.map(code => [code, getRelativeLocaleUrl(
   selectedValue={ currentLocale }
   label={ `${ t(currentLocale, "lang.label") }: ${ localeName(currentLocale) }` }
   class="lang-picker"
+  data-urls={ JSON.stringify(urls) }
 />
 
-<script define:vars={{ urls }}>
-  document.querySelector(".lang-picker")?.addEventListener("cs-select", (e) => {
-    const url = urls[e.detail.value];
-    if (url) window.location.href = url;
+<script>
+  document.querySelectorAll<HTMLElement>(".lang-picker[data-custom-select]").forEach(el => {
+    const urls: Record<string, string> = JSON.parse(el.dataset.urls ?? "{}");
+    el.addEventListener("cs-select", (e) => {
+      const url = urls[(e as CustomEvent).detail.value];
+      if (url) window.location.href = url;
+    });
   });
 </script>
