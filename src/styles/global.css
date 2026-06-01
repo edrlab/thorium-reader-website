@@ -1341,6 +1341,14 @@ img {
   padding-left: var(--space-md);
 }
 
+.faq-answer p + p {
+  margin-top: var(--space-sm);
+}
+
+.faq-answer ul + p {
+  margin-top: var(--space-md);
+}
+
 /* ── Download tabs ── */
 .tabs-wave {
   line-height: 0;
