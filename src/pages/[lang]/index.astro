@@ -73,7 +73,7 @@ const lang = Astro.currentLocale;
 
   <FAQ
     title={ t(lang, "home.faq.title") }
-    items={ t(lang, "home.faq.items", { returnObjects: true }) as { question: string; answer: string; items?: string[] }[] }
+    items={ t(lang, "home.faq.items", { returnObjects: true }) as { question: string; answer: unknown[] }[] }
   />
 
   <Footer slot="footer" image={{ src: getImage(lang, "thorium-illustration-04.webp") }} clip />

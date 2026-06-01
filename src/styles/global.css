@@ -1337,6 +1337,10 @@ img {
   color: var(--color-cream);
 }
 
+.faq-answer ul {
+  padding-left: var(--space-md);
+}
+
 /* ── Download tabs ── */
 .tabs-wave {
   line-height: 0;

@@ -66,27 +66,68 @@
       "items": [
         {
           "question": "Is Thorium Reader free?",
-          "answer": "Yes, it is. Thorium Desktop is completely free and based on an open-source software. It's developed by EDRLab (European Digital Reading Lab), a non-profit association dedicated to open standards, literacy and accessibility."
+          "answer": [
+            "Yes, Thorium Reader is free on all platforms.",
+            "It's developed by EDRLab (European Digital Reading Lab), a non-profit association dedicated to open standards, literacy and accessibility.",
+            "With Thorium Reader, we contribute directly to the development of Readium toolkits, used by hundreds of reading applications."
+          ]
         },
         {
-          "question": "What devices can I download Thorium Reader on?",
-          "answer": "The app is available on iOS (iPhone and iPad) and on desktop via macOS, Windows, and Linux. You can check out the system requirement for each device on our help desk."
+          "question": "What devices are compatible with Thorium Reader?",
+          "answer": [
+            [
+              "If you own an iPhone or an iPad, Thorium Reader can run on any device running at least iOS/iPadOS 26",
+              "On Windows, it requires Windows 10 and up",
+              "On macOS, it requires macOS 12 Monterey and up",
+              ["Finally on Linux:", "Ubuntu 18.04 and up", "Fedora 32 and up", "Debian 10 and up"]
+            ]
+          ]
         },
         {
-          "question": "What formats can I read on Thorium Reader?",
-          "answer": "Currently, you can open and read the following formats in Thorium Reader:",
-          "items": [
-            "EPUB, Fixed-Layout EPUB or PDF ebooks",
-            "CBZ or Fixed-Layout EPUB comics and manga"
+          "question": "Which file formats are compatible with Thorium Reader?",
+          "answer": [
+            "Ebooks",
+            ["EPUB (.epub)", "Fixed Layout EPUB (.epub)", "PDF (.pdf)"],
+            "Audiobooks",
+            ["Readium Audiobooks (.audiobook)", "MP3 (.mp3)", "MP4 (.m4a and .m4b)", "FLAC (.flac)", "WAV (.wav)", "AAC (.aac)"],
+            "Comics and Manga",
+            ["CBZ (.cbz)", "Fixed Layout EPUB (.epub)", "PDF (.pdf)"]
+          ]
+        },
+        {
+          "question": "Can I open DRM protected files with Thorium Reader?",
+          "answer": [
+            "Yes, as long as they use Readium LCP, an interoperable ISO standard for DRM.",
+            "Readium LCP protected files use a license file (with an .lcpl file extension) that's compatible with EPUB, PDF or Readium Audiobooks."
           ]
         },
         {
           "question": "Can I use Thorium Reader offline?",
-          "answer": "Yes, Thorium Desktop works entirely offline. Downloading additional publications protected by Readium LCP requires a one-time connection, but you can remain offline otherwise at all times."
+          "answer": [
+            "Yes, as long as you're reading or listening to publications that you've downloaded rather than streamed.",
+            "To read LCP protected files, Thorium Reader needs an online access at least once, but it doesn't require a connection after that."
+          ]
         },
         {
-          "question": "Can I read borrowed ebooks from the library on Thorium Reader?",
-          "answer": "Yes, you can read borrowed books with Thorium Reader. The app supports ebooks borrowed from libraries, including those protected by DRM, and offers options to return or renew loans."
+          "question": "Can I buy ebooks, audiobooks, comics or manga from a retailer?",
+          "answer": [
+            "Yes, Thorium Reader is compatible with any retailer that sells Readium LCP protected or DRM free publications.",
+            "Check our support page to explore a list of retailers that you can buy content from and read in Thorium Reader."
+          ]
+        },
+        {
+          "question": "Can I borrow ebooks, audiobooks, comics, manga, newspapers or magazines from a library?",
+          "answer": [
+            "Yes, as long as your library uses Readium LCP to protects these downloads using a format compatible with Thorium Reader.",
+            "In the future, we'll also embed a list of libraries directly in our app, making it easier to browse, search, place a hold and borrow."
+          ]
+        },
+        {
+          "question": "Can I download free content with Thorium Reader?",
+          "answer": [
+            "Yes, Thorium Reader is fully compatible with Project Gutenberg, Librivox and many other sources that you can download public domain or open licensed content from.",
+            "In the future, we'll also embed a number of them directly in our app, to make it easier to download free ebooks and audiobooks."
+          ]
         }
       ]
     }
@@ -110,15 +151,21 @@
       "items": [
         {
           "question": "What devices can I download Thorium Reader on?",
-          "answer": "The app is available on iOS (iPhone and iPad) and on desktop via macOS, Windows, and Linux."
+          "answer": [
+            "The app is available on iOS (iPhone and iPad) and on desktop via macOS, Windows, and Linux."
+          ]
         },
         {
           "question": "What are the system requirements to download the app?",
-          "answer": "Yes, you can read on Thorium Reader even when offline. Once you have downloaded your ebooks and audiobooks into the app, you actually do not need any Internet connection to read them."
+          "answer": [
+            "Yes, you can read on Thorium Reader even when offline. Once you have downloaded your ebooks and audiobooks into the app, you actually do not need any Internet connection to read them."
+          ]
         },
         {
           "question": "How do I install the app via direct download?",
-          "answer": "To install the app via direct download, click on download links. In the pop-up window, select your operating system (macOS, Windows or Linux) in the menu, then the appropriate link depending on your exact device. The app will automatically start downloading on your device. Follow the instructions below the download link to finish the installation."
+          "answer": [
+            "To install the app via direct download, click on download links. In the pop-up window, select your operating system (macOS, Windows or Linux) in the menu, then the appropriate link depending on your exact device. The app will automatically start downloading on your device. Follow the instructions below the download link to finish the installation."
+          ]
         }
       ]
     },

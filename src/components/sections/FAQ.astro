@@ -1,5 +1,7 @@
 ---
-type FAQItem = { question: string; answer: string; items?: string[] };
+type FAQListItem = string | string[];
+type FAQBlock    = string | FAQListItem[];
+type FAQItem     = { question: string; answer: FAQBlock[] };
 
 interface Props {
   title: string;
@@ -19,11 +21,14 @@ const { title, items, class: className } = Astro.props;
         <details class="faq-item">
           <summary>{ q.question }</summary>
           <div class="faq-answer">
-            <p>{ q.answer }</p>
-            { q.items && q.items.length > 0 && (
-              <ul>
-                { q.items.map(item => <li>{ item }</li>) }
-              </ul>
+            { q.answer.map(block =>
+              typeof block === "string"
+                ? <p>{ block }</p>
+                : <ul>{ block.map(item =>
+                    typeof item === "string"
+                      ? <li>{ item }</li>
+                      : <li>{ item[0] }<ul>{ item.slice(1).map(sub => <li>{ sub }</li>) }</ul></li>
+                  ) }</ul>
             ) }
           </div>
         </details>

@@ -66,27 +66,68 @@
       "items": [
         {
           "question": "Thorium Reader est-il gratuit ?",
-          "answer": "Oui. Thorium Desktop est entièrement gratuit et repose sur un logiciel open source. Il est développé par EDRLab (European Digital Reading Lab), une association à but non lucratif dédiée aux standards ouverts, à la littératie et à l'accessibilité."
+          "answer": [
+            "Oui, Thorium Reader est gratuit sur toutes les plateformes.",
+            "Il est développé par EDRLab (European Digital Reading Lab), une association à but non lucratif dédiée aux standards ouverts, à la littératie et à l'accessibilité.",
+            "Avec Thorium Reader, nous contribuons directement au développement des outils Readium, utilisés par des centaines d'applications de lecture."
+          ]
         },
         {
-          "question": "Sur quels appareils puis-je télécharger Thorium Reader ?",
-          "answer": "L'application est disponible sur iOS (iPhone et iPad) ainsi que sur ordinateur via macOS, Windows et Linux. Vous pouvez consulter la configuration requise pour chaque appareil sur notre aide en ligne."
+          "question": "Quels appareils sont compatibles avec Thorium Reader ?",
+          "answer": [
+            [
+              "Si vous possédez un iPhone ou un iPad, Thorium Reader fonctionne sur tout appareil sous iOS/iPadOS 26 ou supérieur",
+              "Sur Windows, il nécessite Windows 10 ou supérieur",
+              "Sur macOS, il nécessite macOS 12 Monterey ou supérieur",
+              ["Enfin sur Linux :", "Ubuntu 18.04 et supérieur", "Fedora 32 et supérieur", "Debian 10 et supérieur"]
+            ]
+          ]
         },
         {
           "question": "Quels formats puis-je lire sur Thorium Reader ?",
-          "answer": "Vous pouvez actuellement ouvrir et lire les formats suivants dans Thorium Reader :",
-          "items": [
-            "Ebooks EPUB, EPUB en mise en page fixe ou PDF",
-            "Comics et mangas CBZ ou EPUB en mise en page fixe"
+          "answer": [
+            "Ebooks",
+            ["EPUB (.epub)", "EPUB en mise en page fixe (.epub)", "PDF (.pdf)"],
+            "Livres audio",
+            ["Livres audio Readium (.audiobook)", "MP3 (.mp3)", "MP4 (.m4a et .m4b)", "FLAC (.flac)", "WAV (.wav)", "AAC (.aac)"],
+            "Comics et manga",
+            ["CBZ (.cbz)", "EPUB en mise en page fixe (.epub)", "PDF (.pdf)"]
+          ]
+        },
+        {
+          "question": "Puis-je ouvrir des fichiers protégés par DRM avec Thorium Reader ?",
+          "answer": [
+            "Oui, à condition qu'ils utilisent Readium LCP, une norme ISO interopérable pour les DRM.",
+            "Les fichiers protégés par Readium LCP utilisent un fichier de licence (avec l'extension .lcpl) compatible avec EPUB, PDF ou les livres audio Readium."
           ]
         },
         {
           "question": "Puis-je utiliser Thorium Reader hors ligne ?",
-          "answer": "Oui, Thorium Desktop fonctionne entièrement hors ligne. Le téléchargement de publications supplémentaires protégées par Readium LCP nécessite une connexion ponctuelle, mais vous pouvez rester hors ligne en dehors de cela."
+          "answer": [
+            "Oui, à condition de lire ou d'écouter des publications que vous avez téléchargées plutôt que diffusées en continu.",
+            "Pour lire des fichiers protégés par LCP, Thorium Reader nécessite un accès en ligne au moins une fois, mais ne requiert pas de connexion après cela."
+          ]
         },
         {
-          "question": "Puis-je lire des ebooks empruntés en bibliothèque sur Thorium Reader ?",
-          "answer": "Oui, vous pouvez lire des livres empruntés avec Thorium Reader. L'application prend en charge les ebooks empruntés en bibliothèque, y compris ceux protégés par DRM, et propose des options pour retourner ou renouveler les prêts."
+          "question": "Puis-je acheter des ebooks, livres audio, comics ou mangas chez un revendeur ?",
+          "answer": [
+            "Oui, Thorium Reader est compatible avec tout revendeur qui vend des publications protégées par Readium LCP ou libres de droits.",
+            "Consultez notre page d'aide pour découvrir une liste de revendeurs auprès desquels vous pouvez acheter du contenu et le lire dans Thorium Reader."
+          ]
+        },
+        {
+          "question": "Puis-je emprunter des ebooks, livres audio, comics, mangas, journaux ou magazines dans une bibliothèque ?",
+          "answer": [
+            "Oui, à condition que votre bibliothèque utilise Readium LCP pour protéger ces téléchargements dans un format compatible avec Thorium Reader.",
+            "À l'avenir, nous intégrerons également une liste de bibliothèques directement dans notre application, pour faciliter la navigation, la recherche, les réservations et les emprunts."
+          ]
+        },
+        {
+          "question": "Puis-je télécharger du contenu gratuit avec Thorium Reader ?",
+          "answer": [
+            "Oui, Thorium Reader est entièrement compatible avec Project Gutenberg, Librivox et de nombreuses autres sources depuis lesquelles vous pouvez télécharger du contenu dans le domaine public ou sous licence ouverte.",
+            "À l'avenir, nous en intégrerons également directement dans notre application, pour faciliter le téléchargement d'ebooks et de livres audio gratuits."
+          ]
         }
       ]
     }
@@ -110,15 +151,21 @@
       "items": [
         {
           "question": "Sur quels appareils puis-je télécharger Thorium Reader ?",
-          "answer": "L'application est disponible sur iOS (iPhone et iPad) ainsi que sur ordinateur via macOS, Windows et Linux."
+          "answer": [
+            "L'application est disponible sur iOS (iPhone et iPad) ainsi que sur ordinateur via macOS, Windows et Linux."
+          ]
         },
         {
           "question": "Quelle est la configuration requise pour télécharger l'application ?",
-          "answer": "Oui, vous pouvez lire sur Thorium Reader même hors ligne. Une fois vos ebooks et livres audio téléchargés dans l'application, vous n'avez besoin d'aucune connexion Internet pour les lire."
+          "answer": [
+            "Oui, vous pouvez lire sur Thorium Reader même hors ligne. Une fois vos ebooks et livres audio téléchargés dans l'application, vous n'avez besoin d'aucune connexion Internet pour les lire."
+          ]
         },
         {
           "question": "Comment installer l'application via un téléchargement direct ?",
-          "answer": "Pour installer l'application via un téléchargement direct, cliquez sur les liens de téléchargement. Dans la fenêtre contextuelle, sélectionnez votre système d'exploitation (macOS, Windows ou Linux) dans le menu, puis le lien approprié selon votre appareil. L'application commencera automatiquement à se télécharger. Suivez les instructions sous le lien de téléchargement pour terminer l'installation."
+          "answer": [
+            "Pour installer l'application via un téléchargement direct, cliquez sur les liens de téléchargement. Dans la fenêtre contextuelle, sélectionnez votre système d'exploitation (macOS, Windows ou Linux) dans le menu, puis le lien approprié selon votre appareil. L'application commencera automatiquement à se télécharger. Suivez les instructions sous le lien de téléchargement pour terminer l'installation."
+          ]
         }
       ]
     },

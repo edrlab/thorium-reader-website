@@ -107,7 +107,7 @@ const osTabs = Object.entries(tabLabels).map(([key, label]) => ({ id: slugify(ke
 
   <FAQ
     title={ t(lang, "download.faq.title") }
-    items={ t(lang, "download.faq.items", { returnObjects: true }) as { question: string; answer: string; items?: string[] }[] }
+    items={ t(lang, "download.faq.items", { returnObjects: true }) as { question: string; answer: unknown[] }[] }
     class="bottom-gap"
   />
 
