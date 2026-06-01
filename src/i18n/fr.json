@@ -79,15 +79,9 @@
     },
     "coming_soon": "Bientôt disponible.",
     "tabs": {
-      "label": "Système d'exploitation"
-    },
-    "modal": {
-      "tab": {
-        "windows": "Windows",
-        "macos": "macOS",
-        "linux": "Linux"
-      },
+      "label": "Système d’exploitation",
       "windows": {
+        "label": "Windows",
         "steps": [
           "Téléchargez le fichier {{ windowsExe }} sur votre appareil Windows.",
           "Ouvrez l’Explorateur de fichiers et accédez au dossier dans lequel vous avez téléchargé le fichier.",
@@ -96,6 +90,7 @@
         ]
       },
       "macos": {
+        "label": "macOS",
         "steps": [
           "Téléchargez le fichier {{ macosArm }} sur votre appareil macOS.",
           "Ouvrez le Finder et accédez au dossier Téléchargements.",
@@ -106,21 +101,22 @@
         ]
       },
       "linux": {
+        "label": "Linux",
         "steps": [
           "Téléchargez le {{ linuxAppImage }} ou le {{ linuxDeb }} sur votre appareil Linux.",
-          "Si vous utilisez Linux sur un appareil ARM, assurez-vous d'utiliser les liens de téléchargement alternatifs pour le {{ linuxAppImageArm }} ou le {{ linuxDebArm }}."
+          "Si vous utilisez Linux sur un appareil ARM, assurez-vous d’utiliser les liens de téléchargement alternatifs pour le {{ linuxAppImageArm }} ou le {{ linuxDebArm }}."
         ]
+      },
+      "links": {
+        "macosArm": "Thorium.Setup.3.x.x.dmg",
+        "macosX64": "lien de téléchargement alternatif",
+        "windowsExe": "Thorium.Setup.3.x.x.exe",
+        "windowsArm": "lien de téléchargement alternatif",
+        "linuxAppImage": "AppImage",
+        "linuxDeb": "paquet Debian",
+        "linuxAppImageArm": "AppImage",
+        "linuxDebArm": "paquet Debian"
       }
-    },
-    "links": {
-      "macosArm": "Thorium.Setup.3.x.x.dmg",
-      "macosX64": "lien de téléchargement alternatif",
-      "windowsExe": "Thorium.Setup.3.x.x.exe",
-      "windowsArm": "lien de téléchargement alternatif",
-      "linuxAppImage": "AppImage",
-      "linuxDeb": "paquet Debian",
-      "linuxAppImageArm": "AppImage",
-      "linuxDebArm": "paquet Debian"
     }
   },
   "release-notes": {

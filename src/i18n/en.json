@@ -79,15 +79,9 @@
     },
     "coming_soon": "Coming soon.",
     "tabs": {
-      "label": "Operating system"
-    },
-    "modal": {
-      "tab": {
-        "windows": "Windows",
-        "macos": "macOS",
-        "linux": "Linux"
-      },
+      "label": "Operating system",
       "windows": {
+        "label": "Windows",
         "steps": [
           "Download the {{ windowsExe }} file to your Windows device.",
           "Open the Explorer and navigate to folder where you downloaded the file.",
@@ -96,6 +90,7 @@
         ]
       },
       "macos": {
+        "label": "macOS",
         "steps": [
           "Download the {{ macosArm }} file to your macOS device.",
           "Open the Finder and navigate to Downloads.",
@@ -106,21 +101,22 @@
         ]
       },
       "linux": {
+        "label": "Linux",
         "steps": [
           "Download either the {{ linuxAppImage }} or {{ linuxDeb }} to your Linux device.",
           "If you're running Linux on an ARM device, make sure to use alternate download links for the {{ linuxAppImageArm }} or {{ linuxDebArm }}."
         ]
+      },
+      "links": {
+        "macosArm": "Thorium.Setup.3.x.x.dmg",
+        "macosX64": "alternate download link",
+        "windowsExe": "Thorium.Setup.3.x.x.exe",
+        "windowsArm": "alternate download link",
+        "linuxAppImage": "AppImage",
+        "linuxDeb": "Debian package",
+        "linuxAppImageArm": "AppImage",
+        "linuxDebArm": "Debian package"
       }
-    },
-    "links": {
-      "macosArm": "Thorium.Setup.3.x.x.dmg",
-      "macosX64": "alternate download link",
-      "windowsExe": "Thorium.Setup.3.x.x.exe",
-      "windowsArm": "alternate download link",
-      "linuxAppImage": "AppImage",
-      "linuxDeb": "Debian package",
-      "linuxAppImageArm": "AppImage",
-      "linuxDebArm": "Debian package"
     }
   },
   "release-notes": {
