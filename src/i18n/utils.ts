@@ -37,8 +37,10 @@ export function formatDate(lang: Lang, isoDate: string): string {
   return new Intl.DateTimeFormat(bcp47, { year: "numeric", month: "long", day: "numeric" }).format(date);
 }
 
-export function t(lang: Lang, key: string, options: TOptions = {}): string {
-  return i18next.getFixedT(lang ?? defaultLocale)(key, options) as string;
+export function t(lang: Lang, key: string, options: { returnObjects: true } & TOptions): unknown;
+export function t(lang: Lang, key: string, options?: TOptions): string | string[];
+export function t(lang: Lang, key: string, options: TOptions = {}): unknown {
+  return i18next.getFixedT(lang ?? defaultLocale)(key, { ...options, returnObjects: true });
 }
 
 const allImages = import.meta.glob<{ default: ImageMetadata }>("../assets/images/**/*.webp", { eager: true });

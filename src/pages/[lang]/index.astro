@@ -25,7 +25,7 @@ const lang = Astro.currentLocale;
   <Hero
     title={ t(lang, "home.hero.title") }
     body={ t(lang, "home.hero.subtitle") }
-    image={{ src: getImage(lang, "thorium-reader-mobile-option.webp"), alt: t(lang, "home.alts.thorium-reader-mobile-option") }}
+    image={{ src: getImage(lang, "thorium-reader-mobile-option.webp"), alt: t(lang, "alts.thorium-reader-mobile-option") }}
     clipImage
   >
     <div slot="actions" class="hero-actions">
@@ -43,7 +43,7 @@ const lang = Astro.currentLocale;
     body={ t(lang, "home.features.customize.body") }
   >
     <figure class="top-gap bottom-gap">
-      <Image src={ getImage(lang, "thorium-reader-screens.webp") } alt={ t(lang, "home.alts.thorium-reader-screens") } />
+      <Image src={ getImage(lang, "thorium-reader-screens.webp") } alt={ t(lang, "alts.thorium-reader-screens") } />
     </figure>
   </FeatureSection>
 
@@ -54,7 +54,7 @@ const lang = Astro.currentLocale;
     reverse
   >
     <figure role="none">
-      <Image src={ getImage(lang, "thorium-desktop.webp") } alt={ t(lang, "home.alts.thorium-desktop") } />
+      <Image src={ getImage(lang, "thorium-desktop.webp") } alt={ t(lang, "alts.thorium-desktop") } />
     </figure>
     <BookWalkerDecoration slot="decoration" lang={ lang } />
   </FeatureSection>
@@ -65,16 +65,16 @@ const lang = Astro.currentLocale;
   >
     <TippedBoxDecoration slot="border-top" lang={ lang } />
     <ActionButton slot="actions" icon href={`${ import.meta.env.BASE_URL }${ lang }/download`} label={ t(lang, "button.downloadApp") } />
-    <Image slot="media" src={ getImage(lang, "thorium-reader-desktop-mobile.webp") } alt={ t(lang, "home.alts.thorium-reader-desktop-mobile") } />
+    <Image slot="media" src={ getImage(lang, "thorium-reader-desktop-mobile.webp") } alt={ t(lang, "alts.thorium-reader-desktop-mobile") } />
     <div slot="border-bottom" class="cta-wave cta-wave-bottom" aria-hidden="true">
       <Fragment set:html={ rawCtaWaveBottom } />
     </div>
   </CTASection>
 
   <FAQ
-    title={ t(lang, "home.faq.title") }
-    items={ t(lang, "home.faq.items", { returnObjects: true }) as { question: string; answer: string; items?: string[] }[] }
+    title={ t(lang, "faq.title") }
+    items={ t(lang, "faq.items", { returnObjects: true }) as { question: string; answer: unknown[] }[] }
   />
 
-  <Footer slot="footer" image={{ src: getImage(lang, "thorium-illustration-04.webp"), alt: t(lang, "home.alts.thorium-illustration-04") }} clip />
+  <Footer slot="footer" image={{ src: getImage(lang, "thorium-illustration-04.webp") }} clip />
 </Layout>

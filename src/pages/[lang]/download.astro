@@ -98,16 +98,16 @@ const osTabs = Object.entries(tabLabels).map(([key, label]) => ({ id: slugify(ke
     <figure>
       <BreakpointImage
         sources={[
-          { src: getImage(lang, "thorium-mobile-download-screens-compact.webp"), alt: t(lang, "home.alts.thorium-mobile-download-screens-compact"), media: "(max-width: 768px)" },
-          { src: getImage(lang, "thorium-mobile-download-screens-large.webp"),   alt: t(lang, "home.alts.thorium-mobile-download-screens-large") },
+          { src: getImage(lang, "thorium-mobile-download-screens-compact.webp"), alt: t(lang, "alts.thorium-mobile-download-screens-compact"), media: "(max-width: 768px)" },
+          { src: getImage(lang, "thorium-mobile-download-screens-large.webp"),   alt: t(lang, "alts.thorium-mobile-download-screens-large") },
         ]}
       />
     </figure>
   </FeatureSection>
 
   <FAQ
-    title={ t(lang, "download.faq.title") }
-    items={ t(lang, "download.faq.items", { returnObjects: true }) as { question: string; answer: string; items?: string[] }[] }
+    title={ t(lang, "faq.title") }
+    items={ t(lang, "faq.items", { returnObjects: true }) as { question: string; answer: unknown[] }[] }
     class="bottom-gap"
   />
 
@@ -125,11 +125,14 @@ const osTabs = Object.entries(tabLabels).map(([key, label]) => ({ id: slugify(ke
   }
 
   function activateFromHash() {
-    const id = slugify(location.hash.slice(1));
+    const id = slugify(location.hash.slice(1).toLowerCase());
     if (!tabIds.includes(id)) return;
-    document.getElementById(id)?.click();
+    const tab = document.getElementById(id);
+    if (!tab) return;
+    tab.click();
+    tab.scrollIntoView();
   }
 
-  activateFromHash();
+  document.addEventListener("DOMContentLoaded", activateFromHash);
   window.addEventListener("hashchange", activateFromHash);
 </script>

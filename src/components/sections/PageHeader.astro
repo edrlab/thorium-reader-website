@@ -1,7 +1,7 @@
 ---
 interface Props {
   title: string;
-  body?: string;
+  body?: string | string[];
   class?: string;
 }
 
@@ -11,7 +11,7 @@ const { title, body, class: className } = Astro.props;
 <section class:list={["page-header", className]}>
   <div class="container">
     <h1>{ title }</h1>
-    { body && <p>{ body }</p> }
+    { body && (Array.isArray(body) ? body : [body]).map((p) => <p>{ p }</p>) }
     <slot />
   </div>
 </section>
