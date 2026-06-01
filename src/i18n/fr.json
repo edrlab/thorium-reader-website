@@ -66,16 +66,18 @@
     "header": {
       "title": "Téléchargez Thorium Reader"
     },
-    "ios": {
-      "title": "iOS et iPadOS",
-      "body": "Thorium Reader est disponible sur l'App Store pour les appareils iOS, iPadOS et macOS équipés d'Apple Silicon."
-    },
-    "desktop": {
-      "title": "Windows, macOS, Linux",
-      "body": [
-        "Si vous êtes sur Windows, nous vous recommandons d'obtenir Thorium Reader depuis le Microsoft Store.",
-        "Des téléchargements directs sont également disponibles pour Windows, macOS et Linux."
-      ]
+    "features": {
+      "ios": {
+        "title": "iOS et iPadOS",
+        "body": "Thorium Reader est disponible sur l'App Store pour les appareils iOS, iPadOS et macOS équipés d'Apple Silicon."
+      },
+      "desktop": {
+        "title": "Windows, macOS, Linux",
+        "body": [
+          "Si vous êtes sur Windows, nous vous recommandons d'obtenir Thorium Reader depuis le Microsoft Store.",
+          "Des téléchargements directs sont également disponibles pour Windows, macOS et Linux."
+        ]
+      }
     },
     "tabs": {
       "label": "Système d’exploitation",
