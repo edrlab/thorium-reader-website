@@ -28,8 +28,7 @@
     "discord": "Join us on Discord"
   },
   "footer": {
-    "legal": "Legal Notices",
-    "discord": "Join us on Discord"
+    "legal": "Legal Notices"
   },
   "home": {
     "hero": {
@@ -53,13 +52,11 @@
       }
     },
     "cta": {
-      "section": {
-        "title": "Join the Adventure!",
-        "subtitle": [
-          "Thorium Reader is completely free and maintained by a non-profit organization.",
-          "Available on iOS, iPadOS, Windows, macOS and Linux."
-        ]
-      }
+      "title": "Join the Adventure!",
+      "body": [
+        "Thorium Reader is completely free and maintained by a non-profit organization.",
+        "Available on iOS, iPadOS, Windows, macOS and Linux."
+      ]
     }
   },
   "download": {

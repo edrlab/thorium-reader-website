@@ -1,6 +1,7 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { locales } from "../../i18n/locales.js";
+import { t } from "../../i18n/utils.js";
 import CustomSelect from "./CustomSelect.astro";
 
 const currentLocale = Astro.currentLocale ?? "en";
@@ -8,14 +9,11 @@ const withoutBase = Astro.url.pathname.slice(import.meta.env.BASE_URL.length);
 const segments = withoutBase.split("/").filter(Boolean);
 const currentPath = "/" + segments.slice(1).join("/");
 
-const labels: Record<string, string> = {
-  en: "English",
-  fr: "Français",
-};
+const displayNames = new Intl.DisplayNames([currentLocale], { type: "language" });
 
 const options = locales.map(code => ({
   value: code,
-  label: labels[code] ?? code.toUpperCase(),
+  label: new Intl.DisplayNames([code], { type: "language" }).of(code) ?? code.toUpperCase(),
   url: getRelativeLocaleUrl(code, currentPath),
 }));
 ---
@@ -23,6 +21,6 @@ const options = locales.map(code => ({
 <CustomSelect
   options={ options }
   selectedValue={ currentLocale }
-  label={`Language: ${ labels[currentLocale] ?? currentLocale.toUpperCase()}`}
+  label={ `${ t(currentLocale, "lang.label") }: ${ displayNames.of(currentLocale) ?? currentLocale.toUpperCase() }` }
   class="lang-picker"
 />

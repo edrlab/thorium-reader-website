@@ -60,8 +60,8 @@ const lang = Astro.currentLocale;
   </FeatureSection>
 
   <CTASection
-    title={ t(lang, "home.cta.section.title") }
-    body={ t(lang, "home.cta.section.subtitle") }
+    title={ t(lang, "home.cta.title") }
+    body={ t(lang, "home.cta.body") }
   >
     <TippedBoxDecoration slot="border-top" lang={ lang } />
     <ActionButton slot="actions" icon href={`${ import.meta.env.BASE_URL }${ lang }/download`} label={ t(lang, "button.downloadApp") } />
