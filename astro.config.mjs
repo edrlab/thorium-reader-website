@@ -1,6 +1,7 @@
 import { defineConfig, fontProviders } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import { defaultLocale, locales, bcp47Locale } from "./src/i18n/locales.js";
+import { discordHref } from "./src/links.js";
 
 export default defineConfig({
   fonts: [
@@ -32,6 +33,10 @@ export default defineConfig({
       },
     }),
   ],
+  redirects: {
+    "/discord": discordHref,
+    ...Object.fromEntries(locales.map((l) => [`/${ l }/discord`, discordHref])),
+  },
   i18n: {
     defaultLocale,
     locales,

@@ -3,7 +3,7 @@ export const supportHref = (lang: string) =>
   lang === "en"
     ? "https://support.thoriumreader.com"
     : `https://support.thoriumreader.com/hc/${ lang }`;
-export const discordHref = "https://discord.gg/xjvfrXcq";
+export const discordHref = "https://discord.gg/sruQthXr";
 
 // https://toolbox.marketingtools.apple.com/en-us/app-store/us
 export const appleAppId = "6745025189";
