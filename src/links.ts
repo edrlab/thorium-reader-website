@@ -1,4 +1,5 @@
 export const blogHref = "https://blog.thoriumreader.com/";
+export const conformanceHref = "https://conformance.thoriumreader.com/";
 export const supportHref = (lang: string) =>
   lang === "en"
     ? "https://support.thoriumreader.com"
@@ -21,7 +22,7 @@ export const downloadUrls = {
   macosArm: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }-arm64.dmg`,
   macosX64: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }.dmg`,
   windowsExe: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium.Setup.${ desktopVersion }.exe`,
-  windowsArm: "https://www.thoriumreader.com/#download-windows-arm",
+  windowsArm: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium.Setup.${ desktopVersion }-arm64.exe`,
   linuxAppImage: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }.AppImage`,
   linuxDeb: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/EDRLab.ThoriumReader_${ desktopVersion }_amd64.deb`,
   linuxAppImageArm: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }-arm64.AppImage`,

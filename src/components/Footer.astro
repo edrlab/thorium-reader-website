@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import { t } from "../i18n/utils.js";
-import { discordHref as defaultDiscordHref } from "../links.js";
+import { discordHref as defaultDiscordHref, conformanceHref } from "../links.js";
 import DiscordButton from "./buttons/DiscordButton.astro";
 import AppStoreBadge from "./buttons/AppStoreBadge.astro";
 import MsStoreBadge from "./buttons/MsStoreBadge.astro";
@@ -51,6 +51,6 @@ const year = new Date().getFullYear();
   <div class="container footer-copy">
     <span>EDRLab &copy; { year }</span>
     <span aria-hidden="true" style="padding-inline: 0.5rem">|</span>
-    <a href="#">{ t(lang, "footer.legal") }</a>
+    <a href={ conformanceHref }>{ t(lang, "footer.legal") }</a>
   </div>
 </footer>
