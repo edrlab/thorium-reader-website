@@ -13,6 +13,7 @@ import ActionButton from "../../components/buttons/ActionButton.astro";
 import { t, getImage, slugify } from "../../i18n/utils.js";
 import { locales } from "../../i18n/locales.js";
 import { downloadUrls } from "../../links.js";
+import { BREAKPOINT_MOBILE } from "../../breakpoints.js";
 import rawShape6WaveBottom from "../../assets/shapes/thorium-shape-6-wave-bottom.svg?raw";
 
 export function getStaticPaths() {
@@ -97,7 +98,7 @@ const osTabs = Object.entries(tabsData)
     <figure>
       <BreakpointImage
         sources={[
-          { src: getImage(lang, "thorium-mobile-download-screens-compact.webp"), alt: t(lang, "alts.thorium-mobile-download-screens-compact"), media: "(max-width: 768px)" },
+          { src: getImage(lang, "thorium-mobile-download-screens-compact.webp"), alt: t(lang, "alts.thorium-mobile-download-screens-compact"), media: `(max-width: ${ BREAKPOINT_MOBILE }px)` },
           { src: getImage(lang, "thorium-mobile-download-screens-large.webp"),   alt: t(lang, "alts.thorium-mobile-download-screens-large") },
         ]}
       />

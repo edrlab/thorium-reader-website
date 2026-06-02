@@ -44,6 +44,8 @@ const navLinks = [
 </nav>
 
 <script>
+  import { BREAKPOINT_MOBILE } from "../breakpoints.js";
+
   const btn = document.getElementById("hamburger-btn") as HTMLButtonElement | null;
   const nav = document.getElementById("mobile-nav") as HTMLElement | null;
 
@@ -107,6 +109,11 @@ const navLinks = [
       if (!nav.hidden && !nav.contains(e.target as Node) && !btn.contains(e.target as Node)) {
         closeMenu(false);
       }
+    });
+
+    const mql = window.matchMedia(`(max-width: ${ BREAKPOINT_MOBILE }px)`);
+    mql.addEventListener("change", (e) => {
+      if (!e.matches && !nav.hidden) closeMenu(false);
     });
   }
 </script>
