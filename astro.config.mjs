@@ -22,8 +22,7 @@ export default defineConfig({
       subsets: ["latin"],
     },
   ],
-  site: "https://edrlab.github.io",
-  base: "/thorium-reader-website/",
+  site: "https://www.thoriumreader.com",
   output: "static",
   integrations: [
     sitemap({
