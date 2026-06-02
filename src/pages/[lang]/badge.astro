@@ -4,7 +4,7 @@ import Footer from "../../components/Footer.astro";
 import PageHeader from "../../components/sections/PageHeader.astro";
 import Tabs from "../../components/widgets/Tabs.astro";
 import CustomSelect from "../../components/widgets/CustomSelect.astro";
-import { t } from "../../i18n/utils.js";
+import { t, localeName } from "../../i18n/utils.js";
 import { locales } from "../../i18n/locales.js";
 import { addCatalogScheme } from "../../links.js";
 import rawThoriumLogo from "../../components/logos/assets/thorium-logo.svg?raw";
@@ -23,7 +23,6 @@ const badgeTexts = Object.fromEntries(
     line1: t(l, "badge.form.buttonLine1"),
     line2: t(l, "badge.form.buttonLine2"),
     alt:   t(l, "badge.form.alt"),
-    label: t(lang, `badge.form.lang.${ l }`),
   }])
 );
 
@@ -182,7 +181,7 @@ const defaultIcon     = thoriumLogoDataUri;
                 label={ t(lang, "badge.form.lang.label") }
                 options={ locales.map((l) => ({
                   value: l,
-                  label: t(lang, `badge.form.lang.${ l }`),
+                  label: localeName(lang, l),
                 })) }
                 selectedValue={ lang }
               />

@@ -185,9 +185,7 @@
         "hint": "Facultatif. Mode d'ouverture préféré pour les URL du catalogue."
       },
       "lang": {
-        "label": "Langue du badge",
-        "en": "Anglais",
-        "fr": "Français"
+        "label": "Langue du badge"
       },
       "button": "Ajouter à Thorium Reader",
       "buttonLine1": "Ajouter à",

@@ -1,7 +1,7 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { locales } from "../../i18n/locales.js";
-import { t } from "../../i18n/utils.js";
+import { t, localeName } from "../../i18n/utils.js";
 import CustomSelect from "./CustomSelect.astro";
 
 const currentLocale = Astro.currentLocale ?? "en";
@@ -9,12 +9,9 @@ const withoutBase = Astro.url.pathname.slice(import.meta.env.BASE_URL.length);
 const segments = withoutBase.split("/").filter(Boolean);
 const currentPath = "/" + segments.slice(1).join("/");
 
-const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
-const localeName = (locale: string) => capitalize(new Intl.DisplayNames([locale], { type: "language" }).of(locale) ?? locale.toUpperCase());
-
 const options = locales.map(code => ({
   value: code,
-  label: localeName(code),
+  label: localeName(code, code),
 }));
 
 const urls = Object.fromEntries(locales.map(code => [code, getRelativeLocaleUrl(code, currentPath)]));
@@ -23,7 +20,7 @@ const urls = Object.fromEntries(locales.map(code => [code, getRelativeLocaleUrl(
 <CustomSelect
   options={ options }
   selectedValue={ currentLocale }
-  label={ `${ t(currentLocale, "lang.label") }: ${ localeName(currentLocale) }` }
+  label={ `${ t(currentLocale, "lang.label") }: ${ localeName(currentLocale, currentLocale) }` }
   class="lang-picker"
   data-urls={ JSON.stringify(urls) }
 />
