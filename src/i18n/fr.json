@@ -1,284 +1,304 @@
 {
-  "site": {
-    "title": "Thorium Reader",
-    "name": "Thorium Reader"
-  },
-  "nav": {
-    "download": "Télécharger",
-    "support": "Aide en ligne",
-    "blog": "Blog",
-    "menu": {
-      "open": "Ouvrir le menu de navigation",
-      "close": "Fermer le menu de navigation"
+    "site": {
+        "title": "Thorium Reader",
+        "name": "Thorium Reader"
     },
-    "mobile": {
-      "label": "Navigation mobile"
+    "nav": {
+        "download": "Télécharger",
+        "support": "Aide en ligne",
+        "blog": "Blog",
+        "menu": {
+            "open": "Ouvrir le menu de navigation",
+            "close": "Fermer le menu de navigation"
+        },
+        "mobile": {
+            "label": "Navigation mobile"
+        }
+    },
+    "a11y": {
+        "skipToMain": "Aller au contenu principal"
+    },
+    "lang": {
+        "label": "Langue"
+    },
+    "button": {
+        "download": "Télécharger",
+        "downloadApp": "Télécharger l'application",
+        "releaseNotes": "Notes de version",
+        "discord": "Rejoindre notre Discord"
+    },
+    "footer": {
+        "legal": "Mentions légales"
+    },
+    "home": {
+        "hero": {
+            "title": "Lisez à votre façon",
+            "subtitle": "Plus qu'une application de lecture, un nouvel espace pour vos ebooks, livres audio, BD et mangas."
+        },
+        "features": {
+            "customize": {
+                "title": "Vos livres, vos règles",
+                "body": [
+                    "Avec Thorium Reader, passez de la lecture à l'écoute quand vous le souhaitez… ou faites les deux en même temps.",
+                    "Prenez le contrôle total de votre expérience de lecture grâce à des réglages simples d'utilisation, mais puissants."
+                ]
+            },
+            "library": {
+                "title": "Apportez vos propres livres",
+                "body": [
+                    "Nous avons créé un endroit où tous les livres sont les bienvenus.",
+                    "Téléchargez sur le Web, empruntez en bibliothèque, achetez en librairie… et lisez-les tous dans Thorium Reader."
+                ]
+            }
+        },
+        "cta": {
+            "title": "Rejoignez l'aventure !",
+            "body": [
+                "Thorium Reader est entièrement gratuit et maintenu par une organisation à but non lucratif.",
+                "Disponible sur iOS, iPadOS, Windows, macOS et Linux."
+            ]
+        }
+    },
+    "download": {
+        "header": {
+            "title": "Téléchargez Thorium Reader"
+        },
+        "features": {
+            "ios": {
+                "title": "iOS et iPadOS",
+                "body": "Thorium Reader est disponible sur l'App Store pour les appareils iOS, iPadOS et macOS équipés d'Apple Silicon."
+            },
+            "desktop": {
+                "title": "Windows, macOS, Linux",
+                "body": [
+                    "Si vous êtes sur Windows, nous vous recommandons d'obtenir Thorium Reader depuis le Microsoft Store.",
+                    "Des téléchargements directs sont également disponibles pour Windows, macOS et Linux."
+                ]
+            }
+        },
+        "tabs": {
+            "label": "Système d’exploitation",
+            "windows": {
+                "label": "Windows",
+                "steps": [
+                    "Téléchargez le fichier {{ windowsExe }} sur votre appareil Windows.",
+                    "Ouvrez l’Explorateur de fichiers et accédez au dossier dans lequel vous avez téléchargé le fichier.",
+                    "Double-cliquez sur le fichier *.exe téléchargé. Double-cliquez sur le fichier d’installation téléchargé et suivez les étapes du processus d’installation. Les appareils gérés peuvent nécessiter une autorisation administrateur pour l’installation.",
+                    "Si vous utilisez un appareil Windows fonctionnant sur ARM, assurez-vous d’utiliser le {{ windowsArm }}."
+                ]
+            },
+            "macos": {
+                "label": "macOS",
+                "steps": [
+                    "Téléchargez le fichier {{ macosArm }} sur votre appareil macOS.",
+                    "Ouvrez le Finder et accédez au dossier Téléchargements.",
+                    "Double-cliquez sur le fichier *.dmg téléchargé.",
+                    "Faites glisser l’icône de l’application vers le dossier Applications pour l’installer.",
+                    "Fermez la fenêtre et appuyez sur le bouton d’éjection dans le Finder pour démonter l’image.",
+                    "Si vous utilisez un appareil macOS équipé d’un processeur Intel, assurez-vous d’utiliser le {{ macosX64 }}."
+                ]
+            },
+            "linux": {
+                "label": "Linux",
+                "steps": [
+                    "Téléchargez le {{ linuxAppImage }} ou le {{ linuxDeb }} sur votre appareil Linux.",
+                    "Si vous utilisez Linux sur un appareil ARM, assurez-vous d’utiliser les liens de téléchargement alternatifs pour le {{ linuxAppImageArm }} ou le {{ linuxDebArm }}."
+                ]
+            },
+            "links": {
+                "macosArm": "Thorium.Setup.3.x.x.dmg",
+                "macosX64": "lien de téléchargement alternatif",
+                "windowsExe": "Thorium.Setup.3.x.x.exe",
+                "windowsArm": "lien de téléchargement alternatif",
+                "linuxAppImage": "AppImage",
+                "linuxDeb": "paquet Debian",
+                "linuxAppImageArm": "AppImage",
+                "linuxDebArm": "paquet Debian"
+            }
+        }
+    },
+    "release-notes": {
+        "title": "Notes de version",
+        "see-all": "Voir tout",
+        "platforms": {
+            "desktop": "Bureau"
+        }
+    },
+    "badge": {
+        "header": {
+            "title": "Générateur de badge",
+            "subtitle": "Créez un badge « Ajouter à Thorium Reader » pour la page de votre catalogue."
+        },
+        "form": {
+            "legend": "Informations sur le catalogue",
+            "title": {
+                "label": "Titre du catalogue",
+                "placeholder": "Mon catalogue d'ebooks",
+                "hint": "Le nom de votre catalogue tel qu'il apparaît dans Thorium Reader."
+            },
+            "icon": {
+                "label": "URL de l'icône",
+                "placeholder": "https://exemple.com/icone.png",
+                "hint": "Facultatif. Une image carrée (PNG ou SVG) représentant votre catalogue."
+            },
+            "color": {
+                "label": "Couleur d'accentuation",
+                "hint": "Facultatif. Une couleur d'accentuation pour votre catalogue.",
+                "default": "Par défaut",
+                "gray": "Gris",
+                "red": "Rouge",
+                "yellow": "Jaune",
+                "blue": "Bleu",
+                "green": "Vert",
+                "purple": "Violet",
+                "orange": "Orange"
+            },
+            "urls": {
+                "legend": "URL du catalogue"
+            },
+            "browse": {
+                "label": "URL de navigation",
+                "placeholder": "https://exemple.com/opds",
+                "hint": "URL OPDS ou web pour parcourir le catalogue. Au moins une URL de catalogue est requise."
+            },
+            "bookshelf": {
+                "label": "URL de la bibliothèque",
+                "placeholder": "https://exemple.com/etagere",
+                "hint": "URL OPDS ou web pour accéder à la bibliothèque de l'utilisateur. Au moins une URL de catalogue est requise."
+            },
+            "passphrase": {
+                "legend": "Authentification",
+                "label": "Phrase secrète",
+                "placeholder": "ma phrase secrète",
+                "hint": "Facultatif. Une phrase secrète en clair requise pour accéder au catalogue."
+            },
+            "passphraseHash": {
+                "label": "Phrase secrète hachée",
+                "placeholder": "e3b0c44298fc1c149afb…",
+                "hint": "Facultatif. Une phrase secrète pré-hachée. Utilisez-la à la place de la phrase secrète en clair si vous ne souhaitez pas l'exposer."
+            },
+            "openIn": {
+                "label": "Ouvrir dans",
+                "default": "Par défaut",
+                "webview": "Navigateur intégré",
+                "browser": "Navigateur externe",
+                "hint": "Facultatif. Mode d'ouverture préféré pour les URL du catalogue."
+            },
+            "lang": {
+                "label": "Langue du badge"
+            },
+            "button": "Ajouter à Thorium Reader",
+            "buttonLine1": "Ajouter à",
+            "buttonLine2": "Thorium Reader",
+            "alt": "Ajouter {{name}} à Thorium Reader"
+        },
+        "preview": {
+            "title": "Aperçu",
+            "hint": "Voici comment apparaîtra votre badge."
+        },
+        "output": {
+            "title": "Code d'intégration",
+            "hint": "Copiez et collez ce code dans la page de votre catalogue.",
+            "copy": "Copier dans le presse-papiers",
+            "copied": "Copié !"
+        }
+    },
+    "faq": {
+        "title": "Questions fréquentes",
+        "items": [
+            {
+                "question": "Thorium Reader est-il gratuit ?",
+                "answer": [
+                    "Oui, Thorium Reader est gratuit sur toutes les plateformes.",
+                    "Il est développé par EDRLab (European Digital Reading Lab), une association à but non lucratif dédiée aux standards ouverts, à la littératie et à l'accessibilité.",
+                    "Avec Thorium Reader, nous contribuons directement au développement des outils Readium, utilisés par des centaines d'applications de lecture."
+                ]
+            },
+            {
+                "question": "Quels appareils sont compatibles avec Thorium Reader ?",
+                "answer": [
+                    [
+                        "Si vous possédez un iPhone ou un iPad, Thorium Reader fonctionne sur tout appareil sous iOS/iPadOS 26 ou supérieur",
+                        "Sur Windows, il nécessite Windows 10 ou supérieur",
+                        "Sur macOS, il nécessite macOS 12 Monterey ou supérieur",
+                        [
+                            "Enfin sur Linux :",
+                            "Ubuntu 18.04 et supérieur",
+                            "Fedora 32 et supérieur",
+                            "Debian 10 et supérieur"
+                        ]
+                    ]
+                ]
+            },
+            {
+                "question": "Quels formats puis-je lire sur Thorium Reader ?",
+                "answer": [
+                    "Ebooks",
+                    [
+                        "EPUB (.epub)",
+                        "EPUB en mise en page fixe (.epub)",
+                        "PDF (.pdf)"
+                    ],
+                    "Livres audio",
+                    [
+                        "Livres audio Readium (.audiobook)",
+                        "MP3 (.mp3)",
+                        "MP4 (.m4a et .m4b)",
+                        "FLAC (.flac)",
+                        "WAV (.wav)",
+                        "AAC (.aac)"
+                    ],
+                    "Comics et manga",
+                    [
+                        "CBZ (.cbz)",
+                        "EPUB en mise en page fixe (.epub)",
+                        "PDF (.pdf)"
+                    ]
+                ]
+            },
+            {
+                "question": "Puis-je ouvrir des fichiers protégés par DRM avec Thorium Reader ?",
+                "answer": [
+                    "Oui, à condition qu'ils utilisent Readium LCP, une norme ISO interopérable pour les DRM.",
+                    "Les fichiers protégés par Readium LCP utilisent un fichier de licence (avec l'extension .lcpl) compatible avec EPUB, PDF ou les livres audio Readium."
+                ]
+            },
+            {
+                "question": "Puis-je utiliser Thorium Reader hors ligne ?",
+                "answer": [
+                    "Oui, à condition de lire ou d'écouter des publications que vous avez téléchargées plutôt que diffusées en continu.",
+                    "Pour lire des fichiers protégés par LCP, Thorium Reader nécessite un accès en ligne au moins une fois, mais ne requiert pas de connexion après cela."
+                ]
+            },
+            {
+                "question": "Puis-je acheter des ebooks, livres audio, comics ou mangas chez un revendeur ?",
+                "answer": [
+                    "Oui, Thorium Reader est compatible avec tout revendeur qui vend des publications protégées par Readium LCP ou libres de droits.",
+                    "Consultez notre page d'aide pour découvrir une liste de revendeurs auprès desquels vous pouvez acheter du contenu et le lire dans Thorium Reader."
+                ]
+            },
+            {
+                "question": "Puis-je emprunter des ebooks, livres audio, comics, mangas, journaux ou magazines dans une bibliothèque ?",
+                "answer": [
+                    "Oui, à condition que votre bibliothèque utilise Readium LCP pour protéger ces téléchargements dans un format compatible avec Thorium Reader.",
+                    "À l'avenir, nous intégrerons également une liste de bibliothèques directement dans notre application, pour faciliter la navigation, la recherche, les réservations et les emprunts."
+                ]
+            },
+            {
+                "question": "Puis-je télécharger du contenu gratuit avec Thorium Reader ?",
+                "answer": [
+                    "Oui, Thorium Reader est entièrement compatible avec Project Gutenberg, Librivox et de nombreuses autres sources depuis lesquelles vous pouvez télécharger du contenu dans le domaine public ou sous licence ouverte.",
+                    "À l'avenir, nous en intégrerons également directement dans notre application, pour faciliter le téléchargement d'ebooks et de livres audio gratuits."
+                ]
+            }
+        ]
+    },
+    "alts": {
+        "thorium-desktop": "Un ordinateur portable affichant Thorium Reader Desktop. La bibliothèque présente toutes les publications sous forme de grille ; vous pouvez y effectuer une recherche et importer une nouvelle publication. Chaque livre affiche sa couverture avec le titre et le nom de l'auteur en dessous, suivis du format et des options.",
+        "thorium-mobile-download-screens-compact": "Trois téléphones sont disposés l'un à côté de l'autre. Le premier affiche la bibliothèque de l'application mobile. Le second un roman avec un thème sombre, et le dernier un manga en plein-écran.",
+        "thorium-mobile-download-screens-large": "Quatre téléphones sont disposés l'un à côté de l'autre. Le premier affiche la bibliothèque de l'application mobile, le second un roman avec un thème sombre, le troisième un livre audio avec son interface de lecture, et le dernier un manga en plein-écran.",
+        "thorium-reader-desktop-mobile": "Un ordinateur portable affichant Thorium Reader avec un ebook et une BD ouverts, accompagné d'un téléphone affichant le livre audio Dracula.",
+        "thorium-reader-mobile-option": "Deux téléphones affichant Thorium Reader : l'un montrant la couverture du livre audio Dracula, l'autre l'interface de lecture avec un extrait du Journal de Jonathan Harker.",
+        "thorium-reader-screens": "Trois téléphones illustrant les thèmes de Thorium Reader : une vue sépia, une vue claire avec le panneau de réglages d'affichage ouvert, et une vue sombre."
     }
-  },
-  "a11y": {
-    "skipToMain": "Aller au contenu principal"
-  },
-  "lang": {
-    "label": "Langue"
-  },
-  "button": {
-    "download": "Télécharger",
-    "downloadApp": "Télécharger l'application",
-    "releaseNotes": "Notes de version",
-    "discord": "Rejoindre notre Discord"
-  },
-  "footer": {
-    "legal": "Mentions légales"
-  },
-  "home": {
-    "hero": {
-      "title": "Lisez à votre façon",
-      "subtitle": "Plus qu'une application de lecture, un nouvel espace pour vos ebooks, livres audio, BD et mangas."
-    },
-    "features": {
-      "customize": {
-        "title": "Vos livres, vos règles",
-        "body": [
-          "Avec Thorium Reader, passez de la lecture à l'écoute quand vous le souhaitez… ou faites les deux en même temps.",
-          "Prenez le contrôle total de votre expérience de lecture grâce à des réglages simples d'utilisation, mais puissants."
-        ]
-      },
-      "library": {
-        "title": "Apportez vos propres livres",
-        "body": [
-          "Nous avons créé un endroit où tous les livres sont les bienvenus.",
-          "Téléchargez sur le Web, empruntez en bibliothèque, achetez en librairie… et lisez-les tous dans Thorium Reader."
-        ]
-      }
-    },
-    "cta": {
-      "title": "Rejoignez l'aventure !",
-      "body": [
-        "Thorium Reader est entièrement gratuit et maintenu par une organisation à but non lucratif.",
-        "Disponible sur iOS, iPadOS, Windows, macOS et Linux."
-      ]
-    }
-  },
-  "download": {
-    "header": {
-      "title": "Téléchargez Thorium Reader"
-    },
-    "features": {
-      "ios": {
-        "title": "iOS et iPadOS",
-        "body": "Thorium Reader est disponible sur l'App Store pour les appareils iOS, iPadOS et macOS équipés d'Apple Silicon."
-      },
-      "desktop": {
-        "title": "Windows, macOS, Linux",
-        "body": [
-          "Si vous êtes sur Windows, nous vous recommandons d'obtenir Thorium Reader depuis le Microsoft Store.",
-          "Des téléchargements directs sont également disponibles pour Windows, macOS et Linux."
-        ]
-      }
-    },
-    "tabs": {
-      "label": "Système d’exploitation",
-      "windows": {
-        "label": "Windows",
-        "steps": [
-          "Téléchargez le fichier {{ windowsExe }} sur votre appareil Windows.",
-          "Ouvrez l’Explorateur de fichiers et accédez au dossier dans lequel vous avez téléchargé le fichier.",
-          "Double-cliquez sur le fichier *.exe téléchargé. Double-cliquez sur le fichier d’installation téléchargé et suivez les étapes du processus d’installation. Les appareils gérés peuvent nécessiter une autorisation administrateur pour l’installation.",
-          "Si vous utilisez un appareil Windows fonctionnant sur ARM, assurez-vous d’utiliser le {{ windowsArm }}."
-        ]
-      },
-      "macos": {
-        "label": "macOS",
-        "steps": [
-          "Téléchargez le fichier {{ macosArm }} sur votre appareil macOS.",
-          "Ouvrez le Finder et accédez au dossier Téléchargements.",
-          "Double-cliquez sur le fichier *.dmg téléchargé.",
-          "Faites glisser l’icône de l’application vers le dossier Applications pour l’installer.",
-          "Fermez la fenêtre et appuyez sur le bouton d’éjection dans le Finder pour démonter l’image.",
-          "Si vous utilisez un appareil macOS équipé d’un processeur Intel, assurez-vous d’utiliser le {{ macosX64 }}."
-        ]
-      },
-      "linux": {
-        "label": "Linux",
-        "steps": [
-          "Téléchargez le {{ linuxAppImage }} ou le {{ linuxDeb }} sur votre appareil Linux.",
-          "Si vous utilisez Linux sur un appareil ARM, assurez-vous d’utiliser les liens de téléchargement alternatifs pour le {{ linuxAppImageArm }} ou le {{ linuxDebArm }}."
-        ]
-      },
-      "links": {
-        "macosArm": "Thorium.Setup.3.x.x.dmg",
-        "macosX64": "lien de téléchargement alternatif",
-        "windowsExe": "Thorium.Setup.3.x.x.exe",
-        "windowsArm": "lien de téléchargement alternatif",
-        "linuxAppImage": "AppImage",
-        "linuxDeb": "paquet Debian",
-        "linuxAppImageArm": "AppImage",
-        "linuxDebArm": "paquet Debian"
-      }
-    }
-  },
-  "release-notes": {
-    "title": "Notes de version",
-    "see-all": "Voir tout",
-    "platforms": {
-      "desktop": "Bureau"
-    }
-  },
-  "badge": {
-    "header": {
-      "title": "Générateur de badge",
-      "subtitle": "Créez un badge « Ajouter à Thorium Reader » pour la page de votre catalogue."
-    },
-    "form": {
-      "legend": "Informations sur le catalogue",
-      "title": {
-        "label": "Titre du catalogue",
-        "placeholder": "Mon catalogue d'ebooks",
-        "hint": "Le nom de votre catalogue tel qu'il apparaît dans Thorium Reader."
-      },
-      "icon": {
-        "label": "URL de l'icône",
-        "placeholder": "https://exemple.com/icone.png",
-        "hint": "Facultatif. Une image carrée (PNG ou SVG) représentant votre catalogue."
-      },
-      "color": {
-        "label": "Couleur d'accentuation",
-        "hint": "Facultatif. Une couleur d'accentuation pour votre catalogue.",
-        "default": "Par défaut",
-        "gray": "Gris",
-        "red": "Rouge",
-        "yellow": "Jaune",
-        "blue": "Bleu",
-        "green": "Vert",
-        "purple": "Violet",
-        "orange": "Orange"
-      },
-      "urls": {
-        "legend": "URL du catalogue"
-      },
-      "browse": {
-        "label": "URL de navigation",
-        "placeholder": "https://exemple.com/opds",
-        "hint": "URL OPDS ou web pour parcourir le catalogue. Au moins une URL de catalogue est requise."
-      },
-      "bookshelf": {
-        "label": "URL de la bibliothèque",
-        "placeholder": "https://exemple.com/etagere",
-        "hint": "URL OPDS ou web pour accéder à la bibliothèque de l'utilisateur. Au moins une URL de catalogue est requise."
-      },
-      "passphrase": {
-        "legend": "Authentification",
-        "label": "Phrase secrète",
-        "placeholder": "ma phrase secrète",
-        "hint": "Facultatif. Une phrase secrète en clair requise pour accéder au catalogue."
-      },
-      "passphraseHash": {
-        "label": "Phrase secrète hachée",
-        "placeholder": "e3b0c44298fc1c149afb…",
-        "hint": "Facultatif. Une phrase secrète pré-hachée. Utilisez-la à la place de la phrase secrète en clair si vous ne souhaitez pas l'exposer."
-      },
-      "openIn": {
-        "label": "Ouvrir dans",
-        "default": "Par défaut",
-        "webview": "Navigateur intégré",
-        "browser": "Navigateur externe",
-        "hint": "Facultatif. Mode d'ouverture préféré pour les URL du catalogue."
-      },
-      "lang": {
-        "label": "Langue du badge"
-      },
-      "button": "Ajouter à Thorium Reader",
-      "buttonLine1": "Ajouter à",
-      "buttonLine2": "Thorium Reader",
-      "alt": "Ajouter {{name}} à Thorium Reader"
-    },
-    "preview": {
-      "title": "Aperçu",
-      "hint": "Voici comment apparaîtra votre badge."
-    },
-    "output": {
-      "title": "Code d'intégration",
-      "hint": "Copiez et collez ce code dans la page de votre catalogue.",
-      "copy": "Copier dans le presse-papiers",
-      "copied": "Copié !"
-    }
-  },
-  "faq": {
-    "title": "Questions fréquentes",
-    "items": [
-      {
-        "question": "Thorium Reader est-il gratuit ?",
-        "answer": [
-          "Oui, Thorium Reader est gratuit sur toutes les plateformes.",
-          "Il est développé par EDRLab (European Digital Reading Lab), une association à but non lucratif dédiée aux standards ouverts, à la littératie et à l'accessibilité.",
-          "Avec Thorium Reader, nous contribuons directement au développement des outils Readium, utilisés par des centaines d'applications de lecture."
-        ]
-      },
-      {
-        "question": "Quels appareils sont compatibles avec Thorium Reader ?",
-        "answer": [
-          [
-            "Si vous possédez un iPhone ou un iPad, Thorium Reader fonctionne sur tout appareil sous iOS/iPadOS 26 ou supérieur",
-            "Sur Windows, il nécessite Windows 10 ou supérieur",
-            "Sur macOS, il nécessite macOS 12 Monterey ou supérieur",
-            ["Enfin sur Linux :", "Ubuntu 18.04 et supérieur", "Fedora 32 et supérieur", "Debian 10 et supérieur"]
-          ]
-        ]
-      },
-      {
-        "question": "Quels formats puis-je lire sur Thorium Reader ?",
-        "answer": [
-          "Ebooks",
-          ["EPUB (.epub)", "EPUB en mise en page fixe (.epub)", "PDF (.pdf)"],
-          "Livres audio",
-          ["Livres audio Readium (.audiobook)", "MP3 (.mp3)", "MP4 (.m4a et .m4b)", "FLAC (.flac)", "WAV (.wav)", "AAC (.aac)"],
-          "Comics et manga",
-          ["CBZ (.cbz)", "EPUB en mise en page fixe (.epub)", "PDF (.pdf)"]
-        ]
-      },
-      {
-        "question": "Puis-je ouvrir des fichiers protégés par DRM avec Thorium Reader ?",
-        "answer": [
-          "Oui, à condition qu'ils utilisent Readium LCP, une norme ISO interopérable pour les DRM.",
-          "Les fichiers protégés par Readium LCP utilisent un fichier de licence (avec l'extension .lcpl) compatible avec EPUB, PDF ou les livres audio Readium."
-        ]
-      },
-      {
-        "question": "Puis-je utiliser Thorium Reader hors ligne ?",
-        "answer": [
-          "Oui, à condition de lire ou d'écouter des publications que vous avez téléchargées plutôt que diffusées en continu.",
-          "Pour lire des fichiers protégés par LCP, Thorium Reader nécessite un accès en ligne au moins une fois, mais ne requiert pas de connexion après cela."
-        ]
-      },
-      {
-        "question": "Puis-je acheter des ebooks, livres audio, comics ou mangas chez un revendeur ?",
-        "answer": [
-          "Oui, Thorium Reader est compatible avec tout revendeur qui vend des publications protégées par Readium LCP ou libres de droits.",
-          "Consultez notre page d'aide pour découvrir une liste de revendeurs auprès desquels vous pouvez acheter du contenu et le lire dans Thorium Reader."
-        ]
-      },
-      {
-        "question": "Puis-je emprunter des ebooks, livres audio, comics, mangas, journaux ou magazines dans une bibliothèque ?",
-        "answer": [
-          "Oui, à condition que votre bibliothèque utilise Readium LCP pour protéger ces téléchargements dans un format compatible avec Thorium Reader.",
-          "À l'avenir, nous intégrerons également une liste de bibliothèques directement dans notre application, pour faciliter la navigation, la recherche, les réservations et les emprunts."
-        ]
-      },
-      {
-        "question": "Puis-je télécharger du contenu gratuit avec Thorium Reader ?",
-        "answer": [
-          "Oui, Thorium Reader est entièrement compatible avec Project Gutenberg, Librivox et de nombreuses autres sources depuis lesquelles vous pouvez télécharger du contenu dans le domaine public ou sous licence ouverte.",
-          "À l'avenir, nous en intégrerons également directement dans notre application, pour faciliter le téléchargement d'ebooks et de livres audio gratuits."
-        ]
-      }
-    ]
-  },
-  "alts": {
-    "thorium-desktop": "Un ordinateur portable affichant Thorium Reader Desktop. La bibliothèque présente toutes les publications sous forme de grille ; vous pouvez y effectuer une recherche et importer une nouvelle publication. Chaque livre affiche sa couverture avec le titre et le nom de l'auteur en dessous, suivis du format et des options.",
-    "thorium-mobile-download-screens-compact": "Trois téléphones sont disposés l'un à côté de l'autre. Le premier affiche la bibliothèque de l'application mobile. Le second un roman avec un thème sombre, et le dernier un manga en plein-écran.",
-    "thorium-mobile-download-screens-large": "Quatre téléphones sont disposés l'un à côté de l'autre. Le premier affiche la bibliothèque de l'application mobile, le second un roman avec un thème sombre, le troisième un livre audio avec son interface de lecture, et le dernier un manga en plein-écran.",
-    "thorium-reader-desktop-mobile": "Un ordinateur portable affichant Thorium Reader avec un ebook et une BD ouverts, accompagné d'un téléphone affichant le livre audio Dracula.",
-    "thorium-reader-mobile-option": "Deux téléphones affichant Thorium Reader : l'un montrant la couverture du livre audio Dracula, l'autre l'interface de lecture avec un extrait du Journal de Jonathan Harker.",
-    "thorium-reader-screens": "Trois téléphones illustrant les thèmes de Thorium Reader : une vue sépia, une vue claire avec le panneau de réglages d'affichage ouvert, et une vue sombre."
-  }
 }
