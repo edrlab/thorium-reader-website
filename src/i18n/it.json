@@ -49,7 +49,7 @@
                     "Se utilizzi Windows consigliamo di ottenere Thorium Reader dal Microsoft Store.",
                     "Sono anche disponibili download diretti per Windows, macOS e Linux."
                 ],
-                "title": "Windows, macOS e Linux"
+                "title": "Windows, macOS, Linux"
             },
             "ios": {
                 "body": "Thorium Reader è disponibile sull'App Store per dispositivi iOS, iPadOS e macOS che utilizzano Apple Silicon.",
@@ -84,65 +84,65 @@
                 "question": "Quali dispositivi sono compatibili con Thorium Reader?"
             },
             {
-                "question": "",
+                "question": "Quali formati di file sono compatibili con Thorium Reader?",
                 "answer": [
-                    "",
+                    "Ebook",
                     [
-                        "",
-                        "",
-                        ""
+                        "EPUB (.epub)",
+                        "EPUB a layout fisso (.epub)",
+                        "PDF (.pdf)"
                     ],
-                    "",
+                    "Audiolibri",
                     [
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""
+                        "Audiolibri Readium (.audiobook)",
+                        "MP3 (.mp3)",
+                        "MP4 (.m4a et .m4b)",
+                        "FLAC (.flac)",
+                        "WAV (.wav)",
+                        "AAC (.aac)"
                     ],
-                    "",
+                    "Fumetti e manga",
                     [
-                        "",
-                        "",
-                        ""
+                        "CBZ (.cbz)",
+                        "EPUB a layout fisso (.epub)",
+                        "PDF (.pdf)"
                     ]
                 ]
             },
             {
                 "answer": [
-                    "",
-                    ""
+                    "Sì, a condizione che usino Readium LCP, uno standard ISO interoperabile per la gestione dei DRM.",
+                    "I file protetti da Readium LCP utilizzano un file di licenza (con estensione file .lcpl) compatibile con EPUB, PDF o audiolibri Readium."
                 ],
-                "question": ""
+                "question": "Posso aprire i file protetti da DRM con Thorium Reader?"
             },
             {
-                "question": "",
+                "question": "Posso utilizzare Thorium Reader offline?",
                 "answer": [
-                    "",
-                    ""
+                    "Sì, a patto che tu legga o ascolti pubblicazioni che hai scaricato piuttosto che aperte in streaming.",
+                    "Per leggere i file protetti da LCP, Thorium Reader necessita almeno una volta di un accesso online, ma non richiede una connessione in seguito."
                 ]
             },
             {
                 "answer": [
-                    "",
-                    ""
+                    "Sì, Thorium Reader è compatibile con qualsiasi piattaforma che vende pubblicazioni Readium protette da LCP o prive di DRM.",
+                    "Controlla la nostra pagina di supporto per ottenere un elenco di rivenditori da cui puoi acquistare contenuti e leggerli con Thorium Reader."
                 ],
-                "question": ""
+                "question": "Posso acquistare ebook, audiolibri, fumetti o manga su una piattaforma di vendita?"
             },
             {
-                "question": "",
+                "question": "Posso prendere in prestito ebook, audiolibri, fumetti, manga, giornali o riviste da una biblioteca?",
                 "answer": [
-                    "",
-                    ""
+                    "Sì, purché la tua biblioteca utilizzi Readium LCP per proteggere questi download utilizzando un formato compatibile con Thorium Reader.",
+                    "In futuro, aggiungeremo anche un elenco di biblioteche direttamente nella nostra app, semplificando la navigazione, la ricerca, la prenotazione e il prestito delle pubblicazioni."
                 ]
             },
             {
                 "answer": [
-                    "",
-                    ""
+                    "Sì, Thorium Reader è completamente compatibile con Project Gutenberg, Librivox e molte altre fonti da cui puoi scaricare contenuti di dominio pubblico o con licenza aperta.",
+                    "In futuro aggiungeremo alcuni siti internet direttamente nella nostra app, per facilitare il download di ebook e audiolibri gratuiti."
                 ],
-                "question": ""
+                "question": "Posso scaricare contenuti gratuiti con Thorium Reader?"
             }
         ],
         "title": "Domande frequenti"
@@ -186,7 +186,7 @@
             },
             "button": "Aggiungi a Thorium Reader",
             "openIn": {
-                "label": "Apri in",
+                "label": "Apri con",
                 "default": "Predefinito",
                 "webview": "Navigatore integrato nell'app",
                 "browser": "Navigatore esterno",
@@ -256,7 +256,7 @@
             "library": {
                 "body": [
                     "Abbiamo creato uno spazio in cui tutti i libri sono i benvenuti.",
-                    "Scaricali dal Web, prendili in prestito da una biblioteca, acquistali presso una libreria online...ma leggili tutti con Thorium Reader."
+                    "Scaricali dal Web, prendili in prestito da una biblioteca, acquistali in una libreria online...ma leggili tutti con Thorium Reader."
                 ],
                 "title": "Aggiungi i tuoi libri"
             }
@@ -294,11 +294,11 @@
         "label": "Lingua"
     },
     "alts": {
-        "thorium-reader-mobile-option": "",
-        "thorium-mobile-download-screens-compact": "",
-        "thorium-reader-desktop-mobile": "",
-        "thorium-desktop": "",
-        "thorium-reader-screens": "",
-        "thorium-mobile-download-screens-large": ""
+        "thorium-reader-mobile-option": "Due telefoni affiancati che mostrano Thorium Reader: uno mostra la copertina dell'audiolibro di Dracula, l'altro mostra l'interfaccia di lettura con un passaggio dal Jonathan Harker's Journal.",
+        "thorium-mobile-download-screens-compact": "Tre telefoni disposti uno accanto all'altro. Il primo mostra lo scaffale dell'app mobile, il secondo un romanzo con lo sfondo in modalità scura, il terzo un manga a schermo intero.",
+        "thorium-reader-desktop-mobile": "Un laptop che mostra Thorium Reader con un ebook aperto e un fumetto, accanto a un telefono che mostra l'audiolibro di Dracula.",
+        "thorium-desktop": "Un laptop che mostra Thorium Reader Desktop. La biblioteca mostra tutte le pubblicazioni come una griglia; puoi cercare e importare una nuova pubblicazione. Ogni libro mostra la copertina con il titolo e il nome dell'autore di seguito, seguiti dal formato e dalle opzioni.",
+        "thorium-reader-screens": "Tre telefoni che mostrano i temi di Thorium Reader: uno schermo in modalità seppia, uno in modalità chiara con il pannello delle impostazioni dello schermo aperto e uno in modalità scura.",
+        "thorium-mobile-download-screens-large": "Quattro telefoni sono disposti uno accanto all'altro. Il primo mostra la libreria dell'app per dispositivi mobili, il secondo un romanzo con lo sfondo in modalità scuro, il terzo un audiolibro con la relativa interfaccia di riproduzione, il quarto un manga a schermo intero."
     }
 }
