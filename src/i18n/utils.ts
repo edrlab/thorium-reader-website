@@ -20,6 +20,11 @@ i18next.init({
   ),
 });
 
+export function localeName(displayLang: Lang, targetLang: string): string {
+  const s = new Intl.DisplayNames([displayLang ?? defaultLocale], { type: "language" }).of(targetLang) ?? targetLang;
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
 export function slugify(str: string): string {
   return str
     .toLowerCase()
