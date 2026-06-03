@@ -82,6 +82,44 @@
                     ]
                 ],
                 "question": "Quali dispositivi sono compatibili con Thorium Reader?"
+            },
+            {
+                "question": ""
+            },
+            {
+                "answer": [
+                    "",
+                    ""
+                ],
+                "question": ""
+            },
+            {
+                "question": "",
+                "answer": [
+                    "",
+                    ""
+                ]
+            },
+            {
+                "answer": [
+                    "",
+                    ""
+                ],
+                "question": ""
+            },
+            {
+                "question": "",
+                "answer": [
+                    "",
+                    ""
+                ]
+            },
+            {
+                "answer": [
+                    "",
+                    ""
+                ],
+                "question": ""
             }
         ],
         "title": "Domande frequenti"
@@ -218,12 +256,26 @@
         "download": "Download"
     },
     "button": {
-        "discord": "Unisciti a noi su Discord"
+        "discord": "Unisciti a noi su Discord",
+        "download": "Download",
+        "releaseNotes": "Specificità della versione",
+        "downloadApp": "Scarica l'app"
     },
     "a11y": {
         "skipToMain": "Vai al contenuto principale"
     },
     "footer": {
         "legal": "Note legali"
+    },
+    "lang": {
+        "label": "Lingua"
+    },
+    "alts": {
+        "thorium-reader-mobile-option": "",
+        "thorium-mobile-download-screens-compact": "",
+        "thorium-reader-desktop-mobile": "",
+        "thorium-desktop": "",
+        "thorium-reader-screens": "",
+        "thorium-mobile-download-screens-large": ""
     }
 }
