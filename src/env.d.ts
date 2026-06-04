@@ -1,5 +1,7 @@
 /// <reference types="astro/client" />
 
+declare function gtag(...args: unknown[]): void;
+
 interface ImportMeta {
   glob<T = unknown>(
     pattern: string,
