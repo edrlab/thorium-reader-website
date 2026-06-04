@@ -135,3 +135,30 @@ const osTabs = Object.entries(tabsData)
   document.addEventListener("DOMContentLoaded", activateFromHash);
   window.addEventListener("hashchange", activateFromHash);
 </script>
+
+<script>
+  const FILE_EXT = /\.(dmg|exe|appimage|deb)$/i;
+
+  function downloadLabel(url) {
+    try {
+      const { pathname, hostname, hash } = new URL(url);
+      const last = pathname.split("/").filter(Boolean).pop() ?? "";
+      if (FILE_EXT.test(last)) return last;
+      if (hash) return hash.slice(1);
+      return last || hostname;
+    } catch {
+      return url;
+    }
+  }
+
+  document.addEventListener("click", (e) => {
+    const link = (e.target as Element).closest(".download-steps a") as HTMLAnchorElement | null;
+    if (!link || typeof gtag === "undefined") return;
+
+    gtag("event", "thorium_download", {
+      link_url: link.href,
+      link_text: link.textContent?.trim(),
+      file_name: downloadLabel(link.href),
+    });
+  });
+</script>
