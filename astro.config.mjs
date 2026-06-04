@@ -26,6 +26,8 @@ export default defineConfig({
   output: "static",
   integrations: [
     sitemap({
+      filter: (page) =>
+        locales.some((l) => page.startsWith(`https://www.thoriumreader.com/${ l }/`)),
       i18n: {
         defaultLocale,
         locales: Object.fromEntries(locales.map((l) => [l, bcp47Locale[l]])),
