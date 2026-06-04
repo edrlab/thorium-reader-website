@@ -69,7 +69,7 @@
                 "body": "Thorium Reader is available on the App Store for iOS, iPadOS and macOS devices running on Apple Silicon."
             },
             "desktop": {
-                "title": "Windows, macOS, Linux",
+                "title": "Windows, macOS, and Linux",
                 "body": [
                     "If you're on Windows, we recommend getting Thorium Reader from the Microsoft Store.",
                     "Direct downloads are also available for Windows, macOS and Linux."
@@ -215,7 +215,7 @@
                 ]
             },
             {
-                "question": "What devices are compatible with Thorium Reader?",
+                "question": "Which devices are compatible with Thorium Reader?",
                 "answer": [
                     [
                         "If you own an iPhone or an iPad, Thorium Reader can run on any device running at least iOS/iPadOS 26",
