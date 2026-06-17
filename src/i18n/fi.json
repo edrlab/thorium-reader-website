@@ -105,7 +105,7 @@
             "title": {
                 "label": "Luettelon nimi",
                 "placeholder": "E-kirjaluetteloni",
-                "hint": "Luettelon nimi siinä muodossa, missä se näkyy Thorium Readerissa."
+                "hint": "Luettelon nimi siinä muodossa, jossa se näkyy Thorium Readerissa."
             },
             "icon": {
                 "label": "Ikonin URL",
@@ -153,7 +153,7 @@
                 "default": "Oletus",
                 "webview": "Sovelluksen sisäinen selain",
                 "browser": "Ulkoinen selain",
-                "hint": "Valinnainen. Määritelty tapa avata luettelon verkko-osoitteet."
+                "hint": "Valinnainen. Määriteltävä tapa avata luettelon verkko-osoitteet."
             },
             "lang": {
                 "label": "Merkin kieli"
