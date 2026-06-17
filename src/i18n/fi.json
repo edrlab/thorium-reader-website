@@ -36,7 +36,12 @@
                 "body": [
                     "Jos käytät Windowsia, suosittelemme, että hankit Thorium Readerin Microsoft Storesta.",
                     "Voit ladata ohjelman myös suoraan Windows-, macOS- ja Linux-versioina."
-                ]
+                ],
+                "title": "Windows, macOS ja Linux"
+            },
+            "ios": {
+                "title": "iOS ja iPadOS",
+                "body": "Thorium Reader on saatavilla App Storesta iOS- ja iPadOS- laitteille sekä macOS-laitteille, joissa on Apple Silicon -prosessori."
             }
         },
         "tabs": {
@@ -78,6 +83,9 @@
                 "linuxAppImageArm": "AppImage",
                 "linuxDebArm": "Debian-paketti"
             }
+        },
+        "header": {
+            "title": "Lataa Thorium Reader"
         }
     },
     "release-notes": {
@@ -266,15 +274,31 @@
     },
     "home": {
         "hero": {
-            "title": "Lue omalla tavallasi"
+            "title": "Lue omalla tavallasi",
+            "subtitle": "Enemmän kuin pelkkä lukusovellus – uusi koti kaikille e-kirjoillesi, äänikirjoillesi, sarjakuvillesi ja mangallesi."
         },
         "features": {
             "customize": {
                 "title": "Sinun kirjasi, sinun sääntösi",
                 "body": [
-                    "Thorium Readerilla voit vaihtaa lukemisesta kuuntelemiseen koska haluat... tai jopa tehdä molempia samaan aikaan."
+                    "Thorium Readerilla voit vaihtaa lukemisesta kuuntelemiseen koska haluat... tai jopa tehdä molempia samaan aikaan.",
+                    "Hallitse lukukokemustasi täydellisesti yksinkertaisten mutta tehokkaiden asetusten avulla."
                 ]
+            },
+            "library": {
+                "body": [
+                    "Olemme luoneet paikan, johon kaikki kirjat ovat tervetulleita.",
+                    "Lataa verkosta, lainaa kirjastosta, osta kirjakaupasta... mutta lue ne kaikki Thorium Readerilla."
+                ],
+                "title": "Tuo omat kirjasi"
             }
+        },
+        "cta": {
+            "title": "Lähde mukaan seikkailuun!",
+            "body": [
+                "Thorium Reader on täysin ilmainen ja sitä ylläpitää voittoa tavoittelematon järjestö.",
+                "Saatavilla: iOS, iPadOS, Windows, macOS ja Linux."
+            ]
         }
     }
 }
