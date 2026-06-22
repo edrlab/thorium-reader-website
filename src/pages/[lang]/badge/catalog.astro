@@ -10,7 +10,7 @@ import BadgeLangSelector from "../../../components/badge/BadgeLangSelector.astro
 import BadgeOutput from "../../../components/badge/BadgeOutput.astro";
 import { t } from "../../../i18n/utils.js";
 import { locales } from "../../../i18n/locales.js";
-import { addCatalogScheme } from "../../../links.js";
+import { addCatalogUniversalLink, addCatalogScheme } from "../../../links.js";
 import rawThoriumLogo from "../../../components/logos/assets/thorium-logo.svg?raw";
 
 const thoriumLogoDataUri = `data:image/svg+xml;base64,${ Buffer.from(rawThoriumLogo).toString("base64") }`;
@@ -136,7 +136,7 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
   <Footer slot="footer" />
 </Layout>
 
-<script define:vars={{ badgeTexts, addCatalogScheme, defaultIcon: thoriumLogoDataUri }}>
+<script define:vars={{ badgeTexts, addCatalogUniversalLink, addCatalogScheme, defaultIcon: thoriumLogoDataUri }}>
   const form      = document.getElementById("badge-form");
   const previewEl = document.getElementById("preview-badge");
   const embedCode = document.getElementById("embed-code");
@@ -172,16 +172,18 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
     if (icon)           params.set("icon",              icon);
     if (banner)         params.set("banner",            banner);
     if (color)          params.set("color",             color);
-    const deepLink = (title && hasUrl) ? `${ addCatalogScheme }?${ params.toString() }` : null;
+    const hasParams     = title && hasUrl;
+    const previewLink   = hasParams ? `${ addCatalogCustomScheme }?${ params.toString() }` : null;
+    const embedLink     = hasParams ? `${ addCatalogUniversalLink }?${ params.toString() }` : null;
 
     const svg = makeSVG({ line1, line2, title: svgTitle, iconUri: defaultIcon });
 
-    previewEl.innerHTML = deepLink
-      ? `<a href="${ esc(deepLink) }">${ svg }</a>`
+    previewEl.innerHTML = previewLink
+      ? `<a href="${ esc(previewLink) }">${ svg }</a>`
       : svg;
 
-    embedCode.textContent = deepLink
-      ? `<a href="${ esc(deepLink) }">\n  ${ svg }\n</a>`
+    embedCode.textContent = embedLink
+      ? `<a href="${ esc(embedLink) }">\n  ${ svg }\n</a>`
       : "";
   }
 

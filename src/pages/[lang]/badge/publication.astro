@@ -8,7 +8,7 @@ import BadgeLangSelector from "../../../components/badge/BadgeLangSelector.astro
 import BadgeOutput from "../../../components/badge/BadgeOutput.astro";
 import { t } from "../../../i18n/utils.js";
 import { locales } from "../../../i18n/locales.js";
-import { addPublicationScheme } from "../../../links.js";
+import { addPublicationUniversalLink, addPublicationScheme } from "../../../links.js";
 import rawThoriumLogo from "../../../components/logos/assets/thorium-logo.svg?raw";
 
 const thoriumLogoDataUri = `data:image/svg+xml;base64,${ Buffer.from(rawThoriumLogo).toString("base64") }`;
@@ -94,7 +94,7 @@ const badgeTexts = Object.fromEntries(
   <Footer slot="footer" />
 </Layout>
 
-<script define:vars={{ badgeTexts, addPublicationScheme, defaultIcon: thoriumLogoDataUri }}>
+<script define:vars={{ badgeTexts, addPublicationUniversalLink, addPublicationScheme, defaultIcon: thoriumLogoDataUri }}>
   const form      = document.getElementById("badge-form");
   const previewEl = document.getElementById("preview-badge");
   const embedCode = document.getElementById("embed-code");
@@ -121,16 +121,17 @@ const badgeTexts = Object.fromEntries(
     if (cover)               params.set("cover",            cover);
     if (passphrase)          params.set("passphrase",       passphrase);
     if (passphraseHash)      params.set("hashed_passphrase", passphraseHash);
-    const deepLink = publicationValid ? `${ addPublicationScheme }?${ params.toString() }` : null;
+    const previewLink   = publicationValid ? `${ addPublicationCustomScheme }?${ params.toString() }` : null;
+    const embedLink     = publicationValid ? `${ addPublicationUniversalLink }?${ params.toString() }` : null;
 
     const svg = makeSVG({ line1, line2, title: svgTitle, iconUri: defaultIcon });
 
-    previewEl.innerHTML = deepLink
-      ? `<a href="${ esc(deepLink) }">${ svg }</a>`
+    previewEl.innerHTML = previewLink
+      ? `<a href="${ esc(previewLink) }">${ svg }</a>`
       : svg;
 
-    embedCode.textContent = deepLink
-      ? `<a href="${ esc(deepLink) }">\n  ${ svg }\n</a>`
+    embedCode.textContent = embedLink
+      ? `<a href="${ esc(embedLink) }">\n  ${ svg }\n</a>`
       : "";
   }
 
