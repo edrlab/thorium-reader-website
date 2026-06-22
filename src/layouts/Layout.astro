@@ -28,7 +28,7 @@ const lang = Astro.currentLocale;
         <script is:inline async src={ `https://www.googletagmanager.com/gtag/js?id=${ import.meta.env.PUBLIC_GA_MEASUREMENT_ID }` }></script>
         <script define:vars={{ gaMeasurementId: import.meta.env.PUBLIC_GA_MEASUREMENT_ID }}>
           window.dataLayer = window.dataLayer || [];
-          function gtag() { dataLayer.push(arguments); }
+          window.gtag = function() { dataLayer.push(arguments); };
           gtag("js", new Date());
           gtag("config", gaMeasurementId);
         </script>

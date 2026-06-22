@@ -12,7 +12,7 @@ import MsStoreBadge from "../../components/buttons/MsStoreBadge.astro";
 import ActionButton from "../../components/buttons/ActionButton.astro";
 import { t, getImage, slugify } from "../../i18n/utils.js";
 import { locales } from "../../i18n/locales.js";
-import { downloadUrls } from "../../links.js";
+import { downloadUrls, downloadPlatforms } from "../../links.js";
 import { BREAKPOINT_MOBILE } from "../../breakpoints.js";
 import rawShape6WaveBottom from "../../assets/shapes/thorium-shape-6-wave-bottom.svg?raw";
 
@@ -27,7 +27,7 @@ const downloadLinks = t(lang, "download.tabs.links", { returnObjects: true }) as
 const linkAnchors = Object.fromEntries(
   Object.entries(downloadUrls).map(([ key, url ]) => [
     key,
-    `<a href="${ url }">${ downloadLinks[key] ?? key }</a>`,
+    `<a href="${ url }" data-platform="${ downloadPlatforms[key] ?? "" }">${ downloadLinks[key] ?? key }</a>`,
   ])
 );
 
@@ -160,6 +160,7 @@ const osTabs = Object.entries(tabsData)
       link_url: link.href,
       link_text: link.textContent?.trim(),
       file_name: downloadLabel(link.href),
+      platform: link.dataset.platform || undefined,
     });
   });
 </script>
