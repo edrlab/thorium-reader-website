@@ -1484,7 +1484,57 @@ img {
   padding-bottom: 4rem;
 }
 
+/* ── Add landing pages ── */
+.add-landing-section {
+  padding-bottom: var(--section-pad);
+}
+
+.add-landing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
 /* ── Badge generator ── */
+/* Badge index (hub) */
+.badge-hub-section {
+  padding-bottom: var(--space-lg);
+}
+
+.badge-hub-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 52ch;
+}
+
+.badge-hub-item {
+  padding-block: var(--space-md);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.badge-hub-item:first-child {
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.badge-hub-link {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-mauve);
+  margin-bottom: var(--space-xs);
+  text-underline-offset: 3px;
+}
+
+.badge-hub-link:hover {
+  text-decoration: underline;
+}
+
+.badge-hub-item-subtitle {
+  margin: 0;
+}
+
+/* Badge generator */
 .badge-section {
   padding-bottom: var(--section-pad);
   position: relative;

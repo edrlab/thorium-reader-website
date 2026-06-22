@@ -1,0 +1,139 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Footer from "../../../components/Footer.astro";
+import PageHeader from "../../../components/sections/PageHeader.astro";
+import Field from "../../../components/badge/Field.astro";
+import PassphraseFields from "../../../components/badge/PassphraseFields.astro";
+import BadgeLangSelector from "../../../components/badge/BadgeLangSelector.astro";
+import BadgeOutput from "../../../components/badge/BadgeOutput.astro";
+import { t } from "../../../i18n/utils.js";
+import { locales } from "../../../i18n/locales.js";
+import { addPublicationScheme } from "../../../links.js";
+import rawThoriumLogo from "../../../components/logos/assets/thorium-logo.svg?raw";
+
+const thoriumLogoDataUri = `data:image/svg+xml;base64,${ Buffer.from(rawThoriumLogo).toString("base64") }`;
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.currentLocale;
+
+const badgeTexts = Object.fromEntries(
+  locales.map((l) => [l, {
+    line1: t(l, "badge.shared.buttonLine1"),
+    line2: t(l, "badge.shared.buttonLine2"),
+    alt:   t(l, "badge.shared.alt"),
+  }])
+);
+---
+
+<Layout title={ t(lang, "badge.publication.header.title") + " — " + t(lang, "site.title") }>
+  <PageHeader
+    title={ t(lang, "badge.publication.header.title") }
+    body={ t(lang, "badge.publication.header.subtitle") }
+  />
+
+  <section class="badge-section">
+    <div class="container">
+      <div class="badge-layout">
+
+        <form id="badge-form" novalidate>
+          <fieldset>
+            <legend>{ t(lang, "badge.publication.form.legend") }</legend>
+
+            <Field
+              id="pub-publication"
+              name="publication"
+              type="url"
+              label={ t(lang, "badge.publication.form.publication.label") }
+              placeholder={ t(lang, "badge.publication.form.publication.placeholder") }
+              hint={ t(lang, "badge.publication.form.publication.hint") }
+              required
+            />
+
+            <Field
+              id="pub-title"
+              name="title"
+              label={ t(lang, "badge.publication.form.title.label") }
+              placeholder={ t(lang, "badge.publication.form.title.placeholder") }
+              hint={ t(lang, "badge.publication.form.title.hint") }
+              autocomplete="off"
+            />
+
+            <Field
+              id="pub-author"
+              name="author"
+              label={ t(lang, "badge.publication.form.author.label") }
+              placeholder={ t(lang, "badge.publication.form.author.placeholder") }
+              hint={ t(lang, "badge.publication.form.author.hint") }
+              autocomplete="off"
+            />
+
+            <Field
+              id="pub-cover"
+              name="cover"
+              type="url"
+              label={ t(lang, "badge.publication.form.cover.label") }
+              placeholder={ t(lang, "badge.publication.form.cover.placeholder") }
+              hint={ t(lang, "badge.publication.form.cover.hint") }
+            />
+
+            <PassphraseFields lang={ lang } />
+
+            <BadgeLangSelector lang={ lang } locales={ locales } selectedValue={ lang } />
+          </fieldset>
+        </form>
+
+        <BadgeOutput lang={ lang } />
+
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<script define:vars={{ badgeTexts, addPublicationScheme, defaultIcon: thoriumLogoDataUri }}>
+  const form      = document.getElementById("badge-form");
+  const previewEl = document.getElementById("preview-badge");
+  const embedCode = document.getElementById("embed-code");
+
+  function update() {
+    const selectedLang    = form.querySelector("[name=lang]").value;
+    const publicationInput = form.querySelector("[name=publication]");
+    const title            = form.querySelector("[name=title]").value.trim();
+    const author           = form.querySelector("[name=author]").value.trim();
+    const coverInput       = form.querySelector("[name=cover]");
+    const passphrase       = form.querySelector("[name=passphrase]").value.trim();
+    const passphraseHash   = form.querySelector("[name=hashed_passphrase]").value.trim();
+
+    const publicationValid = publicationInput.value.trim() && publicationInput.validity.valid;
+    const cover            = coverInput.value.trim() && coverInput.validity.valid ? coverInput.value.trim() : "";
+
+    const { line1, line2, alt } = badgeTexts[selectedLang] ?? Object.values(badgeTexts)[0];
+    const svgTitle = title ? alt.replace("{{name}}", title) : `${ line1 } ${ line2 }`;
+
+    const params = new URLSearchParams();
+    if (publicationValid)    params.set("publication",      publicationInput.value.trim());
+    if (title)               params.set("title",            title);
+    if (author)              params.set("author",           author);
+    if (cover)               params.set("cover",            cover);
+    if (passphrase)          params.set("passphrase",       passphrase);
+    if (passphraseHash)      params.set("hashed_passphrase", passphraseHash);
+    const deepLink = publicationValid ? `${ addPublicationScheme }?${ params.toString() }` : null;
+
+    const svg = makeSVG({ line1, line2, title: svgTitle, iconUri: defaultIcon });
+
+    previewEl.innerHTML = deepLink
+      ? `<a href="${ esc(deepLink) }">${ svg }</a>`
+      : svg;
+
+    embedCode.textContent = deepLink
+      ? `<a href="${ esc(deepLink) }">\n  ${ svg }\n</a>`
+      : "";
+  }
+
+  form.addEventListener("input", update);
+  update();
+</script>

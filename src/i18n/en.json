@@ -125,64 +125,114 @@
         }
     },
     "badge": {
-        "header": {
+        "index": {
             "title": "Badge Generator",
-            "subtitle": "Create an \"Add to Thorium Reader\" badge for your catalog page."
+            "catalog": {
+                "title": "Catalog Badge",
+                "subtitle": "Create an \"Add to Thorium Reader\" badge for your catalog page."
+            },
+            "publication": {
+                "title": "Publication Badge",
+                "subtitle": "Create an \"Add to Thorium Reader\" badge for a publication."
+            }
         },
-        "form": {
-            "legend": "Catalog information",
-            "title": {
-                "label": "Catalog title",
-                "placeholder": "My Ebook Catalog",
-                "hint": "The name of your catalog as it appears in Thorium Reader."
+        "catalog": {
+            "header": {
+                "title": "Catalog Badge Generator",
+                "subtitle": "Create an \"Add to Thorium Reader\" badge for your catalog page."
             },
-            "icon": {
-                "label": "Icon URL",
-                "placeholder": "https://example.com/icon.png",
-                "hint": "Optional. A square image (PNG or SVG) representing your catalog."
+            "form": {
+                "legend": "Catalog information",
+                "title": {
+                    "label": "Catalog title",
+                    "placeholder": "My Ebook Catalog",
+                    "hint": "The name of your catalog as it appears in Thorium Reader."
+                },
+                "main": {
+                    "label": "Browse URL",
+                    "placeholder": "https://example.com/opds",
+                    "hint": "An OPDS or web URL to browse the catalog. At least one catalog URL is required."
+                },
+                "bookshelf": {
+                    "label": "Bookshelf URL",
+                    "placeholder": "https://example.com/shelf",
+                    "hint": "An OPDS or web URL to access the user's bookshelf. At least one catalog URL is required."
+                },
+                "banner": {
+                    "label": "Banner URL",
+                    "placeholder": "https://example.com/banner.png",
+                    "hint": "Optional. A wide banner image for your catalog."
+                },
+                "icon": {
+                    "label": "Icon URL",
+                    "placeholder": "https://example.com/icon.png",
+                    "hint": "Optional. A square image (PNG or SVG) representing your catalog."
+                },
+                "color": {
+                    "label": "Accent color",
+                    "hint": "Optional. An accent color for your catalog.",
+                    "default": "Default",
+                    "gray": "Gray",
+                    "red": "Red",
+                    "yellow": "Yellow",
+                    "blue": "Blue",
+                    "green": "Green",
+                    "purple": "Purple",
+                    "orange": "Orange",
+                    "pink": "Pink"
+                },
+                "openIn": {
+                    "label": "Open in",
+                    "default": "Default",
+                    "webview": "In-app browser",
+                    "browser": "External browser",
+                    "hint": "Optional. Preferred way to open catalog URLs."
+                },
+                "urls": {
+                    "legend": "Catalog URLs"
+                }
+            }
+        },
+        "publication": {
+            "header": {
+                "title": "Publication Badge Generator",
+                "subtitle": "Create an \"Add to Thorium Reader\" badge for a publication."
             },
-            "color": {
-                "label": "Accent color",
-                "hint": "Optional. An accent color for your catalog.",
-                "default": "Default",
-                "gray": "Gray",
-                "red": "Red",
-                "yellow": "Yellow",
-                "blue": "Blue",
-                "green": "Green",
-                "purple": "Purple",
-                "orange": "Orange"
-            },
-            "urls": {
-                "legend": "Catalog URLs"
-            },
-            "browse": {
-                "label": "Browse URL",
-                "placeholder": "https://example.com/opds",
-                "hint": "An OPDS or web URL to browse the catalog. At least one catalog URL is required."
-            },
-            "bookshelf": {
-                "label": "Bookshelf URL",
-                "placeholder": "https://example.com/shelf",
-                "hint": "An OPDS or web URL to access the user's bookshelf. At least one catalog URL is required."
-            },
+            "form": {
+                "legend": "Publication information",
+                "publication": {
+                    "label": "Publication URL",
+                    "placeholder": "https://example.com/book.epub",
+                    "hint": "Required. Direct URL to the publication file."
+                },
+                "title": {
+                    "label": "Title",
+                    "placeholder": "My Novel",
+                    "hint": "Optional. The publication's title."
+                },
+                "author": {
+                    "label": "Author",
+                    "placeholder": "Jane Doe",
+                    "hint": "Optional. The author's name."
+                },
+                "cover": {
+                    "label": "Cover URL",
+                    "placeholder": "https://example.com/cover.jpg",
+                    "hint": "Optional. A cover image URL."
+                }
+            }
+        },
+        "shared": {
             "passphrase": {
                 "legend": "Authentication",
                 "label": "Passphrase",
                 "placeholder": "my secret passphrase",
-                "hint": "Optional. A plain-text passphrase required to access the catalog."
+                "hint": "Optional. A plain-text passphrase required to access the resource."
             },
             "passphraseHash": {
                 "label": "Hashed passphrase",
                 "placeholder": "e3b0c44298fc1c149afb…",
                 "hint": "Optional. A pre-hashed passphrase. Use this instead of the plain-text passphrase if you do not want to expose it."
-            },
-            "openIn": {
-                "label": "Open in",
-                "default": "Default",
-                "webview": "In-app browser",
-                "browser": "External browser",
-                "hint": "Optional. Preferred way to open catalog URLs."
             },
             "lang": {
                 "label": "Badge language"
@@ -190,17 +240,31 @@
             "button": "Add to Thorium Reader",
             "buttonLine1": "Add to",
             "buttonLine2": "Thorium Reader",
-            "alt": "Add {{name}} to Thorium Reader"
+            "alt": "Add {{name}} to Thorium Reader",
+            "preview": {
+                "title": "Preview",
+                "hint": "This is how your badge will appear."
+            },
+            "output": {
+                "title": "Embed code",
+                "hint": "Copy and paste this snippet into your page.",
+                "copy": "Copy to clipboard",
+                "copied": "Copied!"
+            }
         },
-        "preview": {
-            "title": "Preview",
-            "hint": "This is how your badge will appear."
-        },
-        "output": {
-            "title": "Embed code",
-            "hint": "Copy and paste this snippet into your catalog page.",
-            "copy": "Copy to clipboard",
-            "copied": "Copied!"
+        "landing": {
+            "catalog": {
+                "title": "Open in Thorium Reader",
+                "subtitle": "Tap the button below to add this catalog to your library.",
+                "open": "Open in Thorium Reader",
+                "download": "Download Thorium Reader"
+            },
+            "publication": {
+                "title": "Open in Thorium Reader",
+                "subtitle": "Tap the button below to open this publication in Thorium Reader.",
+                "open": "Open in Thorium Reader",
+                "download": "Download Thorium Reader"
+            }
         }
     },
     "faq": {

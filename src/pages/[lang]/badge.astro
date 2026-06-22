@@ -1,15 +1,10 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "../../layouts/Layout.astro";
 import Footer from "../../components/Footer.astro";
 import PageHeader from "../../components/sections/PageHeader.astro";
-import Tabs from "../../components/widgets/Tabs.astro";
-import CustomSelect from "../../components/widgets/CustomSelect.astro";
-import { t, localeName } from "../../i18n/utils.js";
+import { t } from "../../i18n/utils.js";
 import { locales } from "../../i18n/locales.js";
-import { addCatalogScheme } from "../../links.js";
-import rawThoriumLogo from "../../components/logos/assets/thorium-logo.svg?raw";
-
-const thoriumLogoDataUri = `data:image/svg+xml;base64,${ Buffer.from(rawThoriumLogo).toString("base64") }`;
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
@@ -17,302 +12,35 @@ export function getStaticPaths() {
 
 const lang = Astro.currentLocale;
 
-// Per-locale badge text passed to the client script for the language selector
-const badgeTexts = Object.fromEntries(
-  locales.map((l) => [l, {
-    line1: t(l, "badge.form.buttonLine1"),
-    line2: t(l, "badge.form.buttonLine2"),
-    alt:   t(l, "badge.form.alt"),
-  }])
-);
-
-const copyText        = t(lang, "badge.output.copy");
-const copiedText      = t(lang, "badge.output.copied");
-const defaultIcon     = thoriumLogoDataUri;
+const generators = [
+  {
+    path: "badge/catalog/",
+    title: t(lang, "badge.index.catalog.title"),
+    subtitle: t(lang, "badge.index.catalog.subtitle"),
+  },
+  {
+    path: "badge/publication/",
+    title: t(lang, "badge.index.publication.title"),
+    subtitle: t(lang, "badge.index.publication.subtitle"),
+  },
+];
 ---
 
-<Layout title={ t(lang, "badge.header.title") + " — " + t(lang, "site.title") }>
-  <PageHeader
-    title={ t(lang, "badge.header.title") }
-    body={ t(lang, "badge.header.subtitle") }
-  />
+<Layout title={ t(lang, "badge.index.title") + " — " + t(lang, "site.title") }>
+  <PageHeader title={ t(lang, "badge.index.title") } />
 
-  <section class="badge-section">
+  <section class="badge-hub-section">
     <div class="container">
-      <div class="badge-layout">
-
-        <!-- Form -->
-        <form id="badge-form" novalidate>
-          <fieldset>
-            <legend>{ t(lang, "badge.form.legend") }</legend>
-
-            <div class="field">
-              <label for="catalog-title">
-                { t(lang, "badge.form.title.label") }
-                <span class="required" aria-hidden="true">*</span>
-              </label>
-              <input
-                type="text"
-                id="catalog-title"
-                name="title"
-                placeholder={ t(lang, "badge.form.title.placeholder") }
-                aria-describedby="hint-title"
-                autocomplete="off"
-              />
-              <p class="field-hint" id="hint-title">{ t(lang, "badge.form.title.hint") }</p>
-            </div>
-
-            <div role="group" aria-labelledby="urls-label" class="field-group">
-              <p id="urls-label" class="field-group-label">
-                { t(lang, "badge.form.urls.legend") }
-                <span class="required" aria-hidden="true">*</span>
-              </p>
-
-              <div class="field">
-                <label for="catalog-browse">{ t(lang, "badge.form.browse.label") }</label>
-                <input
-                  type="url"
-                  id="catalog-browse"
-                  name="browse"
-                  placeholder={ t(lang, "badge.form.browse.placeholder") }
-                  aria-describedby="hint-browse"
-                />
-                <p class="field-hint" id="hint-browse">{ t(lang, "badge.form.browse.hint") }</p>
-              </div>
-
-              <div class="field">
-                <label for="catalog-bookshelf">{ t(lang, "badge.form.bookshelf.label") }</label>
-                <input
-                  type="url"
-                  id="catalog-bookshelf"
-                  name="bookshelf"
-                  placeholder={ t(lang, "badge.form.bookshelf.placeholder") }
-                  aria-describedby="hint-bookshelf"
-                />
-                <p class="field-hint" id="hint-bookshelf">{ t(lang, "badge.form.bookshelf.hint") }</p>
-              </div>
-            </div>
-
-            <div role="group" aria-labelledby="passphrase-label" class="field-group">
-              <p id="passphrase-label" class="field-group-label">
-                { t(lang, "badge.form.passphrase.legend") }
-              </p>
-
-              <div class="field">
-                <label for="catalog-passphrase">{ t(lang, "badge.form.passphrase.label") }</label>
-                <input
-                  type="text"
-                  id="catalog-passphrase"
-                  name="passphrase"
-                  placeholder={ t(lang, "badge.form.passphrase.placeholder") }
-                  aria-describedby="hint-passphrase"
-                  autocomplete="off"
-                />
-                <p class="field-hint" id="hint-passphrase">{ t(lang, "badge.form.passphrase.hint") }</p>
-              </div>
-
-              <div class="field">
-                <label for="catalog-passphrase-hash">{ t(lang, "badge.form.passphraseHash.label") }</label>
-                <input
-                  type="text"
-                  id="catalog-passphrase-hash"
-                  name="passphrase_hash"
-                  placeholder={ t(lang, "badge.form.passphraseHash.placeholder") }
-                  aria-describedby="hint-passphrase-hash"
-                  autocomplete="off"
-                />
-                <p class="field-hint" id="hint-passphrase-hash">{ t(lang, "badge.form.passphraseHash.hint") }</p>
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="catalog-open-in">{ t(lang, "badge.form.openIn.label") }</label>
-              <CustomSelect
-                id="catalog-open-in"
-                name="openIn"
-                describedby="hint-open-in"
-                label={ t(lang, "badge.form.openIn.label") }
-                options={[
-                  { value: "",        label: t(lang, "badge.form.openIn.default") },
-                  { value: "webview", label: t(lang, "badge.form.openIn.webview") },
-                  { value: "browser", label: t(lang, "badge.form.openIn.browser") },
-                ]}
-                selectedValue=""
-              />
-              <p class="field-hint" id="hint-open-in">{ t(lang, "badge.form.openIn.hint") }</p>
-            </div>
-
-            <div class="field">
-              <label for="catalog-icon">{ t(lang, "badge.form.icon.label") }</label>
-              <input
-                type="url"
-                id="catalog-icon"
-                name="icon"
-                placeholder={ t(lang, "badge.form.icon.placeholder") }
-                aria-describedby="hint-icon"
-              />
-              <p class="field-hint" id="hint-icon">{ t(lang, "badge.form.icon.hint") }</p>
-            </div>
-
-            <div class="field">
-              <label for="catalog-color">{ t(lang, "badge.form.color.label") }</label>
-              <CustomSelect
-                id="catalog-color"
-                name="color"
-                describedby="hint-color"
-                label={ t(lang, "badge.form.color.label") }
-                options={[
-                  { value: "", label: t(lang, "badge.form.color.default") },
-                  ...["gray", "red", "yellow", "blue", "green", "purple", "orange"].map(c => ({
-                    value: c,
-                    label: t(lang, `badge.form.color.${ c }`),
-                  }))
-                ]}
-                selectedValue=""
-              />
-              <p class="field-hint" id="hint-color">{ t(lang, "badge.form.color.hint") }</p>
-            </div>
-
-            <div class="field">
-              <label for="badge-lang">{ t(lang, "badge.form.lang.label") }</label>
-              <CustomSelect
-                id="badge-lang"
-                name="lang"
-                label={ t(lang, "badge.form.lang.label") }
-                options={ locales.map((l) => ({
-                  value: l,
-                  label: localeName(lang, l),
-                })) }
-                selectedValue={ lang }
-              />
-            </div>
-          </fieldset>
-        </form>
-
-        <!-- Output: always visible, updates live -->
-        <div class="badge-output" aria-live="polite">
-          <Tabs
-            tabs={[
-              { id: "preview", label: t(lang, "badge.preview.title") },
-              { id: "code",    label: t(lang, "badge.output.title") },
-            ]}
-            label={ t(lang, "badge.form.legend") }
-          >
-            <div id="panel-preview" role="tabpanel" aria-labelledby="preview" tabindex="0">
-              <p class="field-hint">{ t(lang, "badge.preview.hint") }</p>
-              <div class="preview-display">
-                <div id="preview-badge" aria-hidden="true"></div>
-              </div>
-            </div>
-
-            <div id="panel-code" role="tabpanel" aria-labelledby="tab-code" tabindex="0" hidden>
-              <p class="field-hint">{ t(lang, "badge.output.hint") }</p>
-              <div class="embed-code-wrap">
-                <pre><code id="embed-code"></code></pre>
-                <button type="button" id="copy-btn" class="btn badge-copy-btn">
-                  { t(lang, "badge.output.copy") }
-                </button>
-              </div>
-            </div>
-          </Tabs>
-        </div>
-      </div>
-
+      <ul class="badge-hub-list">
+        { generators.map(({ path, title, subtitle }) => (
+          <li class="badge-hub-item">
+            <a href={ getRelativeLocaleUrl(lang, path) } class="badge-hub-link">{ title }</a>
+            <p class="badge-hub-item-subtitle">{ subtitle }</p>
+          </li>
+        )) }
+      </ul>
     </div>
   </section>
 
   <Footer slot="footer" />
 </Layout>
-
-<script define:vars={{ badgeTexts, addCatalogScheme, copyText, copiedText, defaultIcon }}>
-  const form        = document.getElementById("badge-form");
-  const previewEl   = document.getElementById("preview-badge");
-  const embedCode   = document.getElementById("embed-code");
-  const copyBtn     = document.getElementById("copy-btn");
-
-  function esc(s) {
-    return String(s)
-      .replace(/&/g, "&amp;")
-      .replace(/"/g, "&quot;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
-  }
-
-  const F = 'font-family="system-ui,-apple-system,Arial,sans-serif"';
-
-  function makeSVG({ line1, line2, title }) {
-    const iconPart = `<clipPath id="ic"><rect x="12" y="12" width="32" height="32" rx="5"/></clipPath>\n  <image href="${ defaultIcon }" x="12" y="12" width="32" height="32" clip-path="url(#ic)" preserveAspectRatio="xMidYMid meet"/>`;
-
-    return [
-      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196 56" width="196" height="56" role="img" aria-label="${ esc(title) }">`,
-      `  <title>${ esc(title) }</title>`,
-      `  <rect width="196" height="56" rx="8" fill="#A4485F"/>`,
-      `  ${ iconPart }`,
-      `  <text x="57" y="22" ${ F } font-size="10" fill="#F9F4E3" opacity="0.85">${ esc(line1) }</text>`,
-      `  <text x="57" y="40" ${ F } font-size="15" font-weight="700" fill="#F9F4E3">${ esc(line2) }</text>`,
-      `</svg>`,
-    ].join("\n");
-  }
-
-  function update() {
-    const selectedLang    = form.querySelector("[name=lang]").value;
-    const title           = form.querySelector("[name=title]").value.trim();
-    const browseInput          = form.querySelector("[name=browse]");
-    const bookshelfInput       = form.querySelector("[name=bookshelf]");
-    const passphraseInput      = form.querySelector("[name=passphrase]");
-    const passphraseHashInput  = form.querySelector("[name=passphrase_hash]");
-    const iconInput            = form.querySelector("[name=icon]");
-    const color                = form.querySelector("[name=color]").value.trim();
-    const openIn               = form.querySelector("[name=openIn]").value;
-
-    const browseValid    = browseInput.value.trim()    && browseInput.validity.valid;
-    const bookshelfValid = bookshelfInput.value.trim() && bookshelfInput.validity.valid;
-    const passphrase     = passphraseInput.value.trim();
-    const passphraseHash = passphraseHashInput.value.trim();
-    const icon           = iconInput.value.trim() && iconInput.validity.valid ? iconInput.value.trim() : "";
-    const hasUrl         = browseValid || bookshelfValid;
-
-    const { line1, line2, alt } = badgeTexts[selectedLang] ?? Object.values(badgeTexts)[0];
-    const svgTitle = title ? alt.replace("{{ name }}", title) : `${ line1 } ${ line2 }`;
-
-    const params = new URLSearchParams();
-    if (title)          params.set("title",           title);
-    if (icon)           params.set("icon",            icon);
-    if (color)          params.set("color",           color);
-    if (browseValid)    params.set("browse",          browseInput.value.trim());
-    if (bookshelfValid) params.set("bookshelf",       bookshelfInput.value.trim());
-    if (passphrase)     params.set("passphrase",      passphrase);
-    if (passphraseHash) params.set("passphrase_hash", passphraseHash);
-    if (openIn)         params.set("openIn",          openIn);
-    const deepLink = (title && hasUrl) ? `${ addCatalogScheme }?${ params.toString() }` : null;
-
-    const svg = makeSVG({ line1, line2, title: svgTitle });
-
-    previewEl.innerHTML = deepLink
-      ? `<a href="${ esc(deepLink) }">${ svg }</a>`
-      : svg;
-
-    embedCode.textContent = deepLink
-      ? `<a href="${ esc(deepLink) }">\n  ${ svg }\n</a>`
-      : "";
-  }
-
-  form.addEventListener("input", update);
-  update(); // render default badge on load
-
-  copyBtn.addEventListener("click", async () => {
-    const text = embedCode.textContent;
-    if (!text) return;
-    try {
-      await navigator.clipboard.writeText(text);
-    } catch {
-      const range = document.createRange();
-      range.selectNodeContents(embedCode);
-      const sel = window.getSelection();
-      sel.removeAllRanges();
-      sel.addRange(range);
-    }
-    copyBtn.textContent = copiedText;
-    setTimeout(() => { copyBtn.textContent = copyText; }, 2000);
-  });
-</script>

@@ -1,0 +1,28 @@
+---
+import CustomSelect from "../widgets/CustomSelect.astro";
+import type { SelectOption } from "../widgets/CustomSelect.astro";
+
+interface Props {
+  id: string;
+  name: string;
+  label: string;
+  options: SelectOption[];
+  selectedValue?: string;
+  hint?: string;
+}
+
+const { id, name, label, options, selectedValue, hint } = Astro.props;
+---
+
+<div class="field">
+  <label for={ id }>{ label }</label>
+  <CustomSelect
+    id={ id }
+    name={ name }
+    label={ label }
+    describedby={ hint ? `hint-${ id }` : undefined }
+    options={ options }
+    selectedValue={ selectedValue }
+  />
+  { hint && <p class="field-hint" id={ `hint-${ id }` }>{ hint }</p> }
+</div>
