@@ -1,0 +1,19 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appID": "327YA3JNGT.org.edrlab.ThoriumMobile",
+        "components": [
+          {
+            "/": "/add/catalog",
+            "comment": "Add catalog to Thorium Reader"
+          },
+          {
+            "/": "/add/publication",
+            "comment": "Add publication to Thorium Reader"
+          }
+        ]
+      }
+    ]
+  }
+}
