@@ -148,17 +148,6 @@
         "title": "Domande frequenti"
     },
     "badge": {
-        "index": {
-            "title": "Generatore di badge",
-            "catalog": {
-                "title": "Badge catalogo",
-                "subtitle": "Crea un badge \"Aggiungi su Thorium Reader\" per la pagina del tuo catalogo."
-            },
-            "publication": {
-                "title": "Badge pubblicazione",
-                "subtitle": "Crea un badge \"Aggiungi su Thorium Reader\" per una pubblicazione."
-            }
-        },
         "catalog": {
             "header": {
                 "title": "Generatore di badge — Catalogo",
@@ -181,11 +170,6 @@
                     "placeholder": "https://esempio.com/biblioteca",
                     "hint": "Un URL OPDS o Web per accedere alla biblioteca dell'utente. È necessario almeno un URL."
                 },
-                "banner": {
-                    "label": "URL del banner",
-                    "placeholder": "https://esempio.com/banner.png",
-                    "hint": "Facoltativo. Un'immagine banner orizzontale per il tuo catalogo."
-                },
                 "icon": {
                     "label": "URL dell'icona",
                     "placeholder": "https://esempio.com/icon.png",
@@ -201,8 +185,7 @@
                     "blue": "Blu",
                     "green": "Verde",
                     "purple": "Viola",
-                    "orange": "Arancione",
-                    "pink": "Rosa"
+                    "orange": "Arancione"
                 },
                 "openIn": {
                     "label": "Apri con",
@@ -213,35 +196,6 @@
                 },
                 "urls": {
                     "legend": "URL del catalogo"
-                }
-            }
-        },
-        "publication": {
-            "header": {
-                "title": "Generatore di badge — Pubblicazione",
-                "subtitle": "Crea un badge \"Aggiungi su Thorium Reader\" per una pubblicazione."
-            },
-            "form": {
-                "legend": "Informazioni sulla pubblicazione",
-                "publication": {
-                    "label": "URL della pubblicazione",
-                    "placeholder": "https://esempio.com/libro.epub",
-                    "hint": "Obbligatorio. URL diretto al file di pubblicazione."
-                },
-                "title": {
-                    "label": "Titolo",
-                    "placeholder": "Il mio romanzo",
-                    "hint": "Facoltativo. Il titolo della pubblicazione."
-                },
-                "author": {
-                    "label": "Autore",
-                    "placeholder": "Mario Rossi",
-                    "hint": "Facoltativo. Il nome dell'autore."
-                },
-                "cover": {
-                    "label": "URL della copertina",
-                    "placeholder": "https://esempio.com/copertina.jpg",
-                    "hint": "Facoltativo. URL dell'immagine di copertina."
                 }
             }
         },
@@ -273,20 +227,6 @@
                 "hint": "Copia e incolla questo codice nella tua pagina.",
                 "copy": "Copia negli appunti",
                 "copied": "Copiato!"
-            }
-        },
-        "landing": {
-            "catalog": {
-                "title": "Apri in Thorium Reader",
-                "subtitle": "Tocca il pulsante qui sotto per aggiungere questo catalogo alla tua libreria.",
-                "open": "Apri in Thorium Reader",
-                "download": "Scarica Thorium Reader"
-            },
-            "publication": {
-                "title": "Apri in Thorium Reader",
-                "subtitle": "Tocca il pulsante qui sotto per aprire questa pubblicazione in Thorium Reader.",
-                "open": "Apri in Thorium Reader",
-                "download": "Scarica Thorium Reader"
             }
         }
     },

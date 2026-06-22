@@ -125,17 +125,6 @@
         }
     },
     "badge": {
-        "index": {
-            "title": "Générateur de badge",
-            "catalog": {
-                "title": "Badge catalogue",
-                "subtitle": "Créez un badge « Ajouter à Thorium Reader » pour la page de votre catalogue."
-            },
-            "publication": {
-                "title": "Badge publication",
-                "subtitle": "Créez un badge « Ajouter à Thorium Reader » pour une publication."
-            }
-        },
         "catalog": {
             "header": {
                 "title": "Générateur de badge — Catalogue",
@@ -158,11 +147,6 @@
                     "placeholder": "https://exemple.com/etagere",
                     "hint": "URL OPDS ou web pour accéder à la bibliothèque de l'utilisateur. Au moins une URL de catalogue est requise."
                 },
-                "banner": {
-                    "label": "URL de la bannière",
-                    "placeholder": "https://exemple.com/banniere.png",
-                    "hint": "Facultatif. Une image de bannière large pour votre catalogue."
-                },
                 "icon": {
                     "label": "URL de l'icône",
                     "placeholder": "https://exemple.com/icone.png",
@@ -178,8 +162,7 @@
                     "blue": "Bleu",
                     "green": "Vert",
                     "purple": "Violet",
-                    "orange": "Orange",
-                    "pink": "Rose"
+                    "orange": "Orange"
                 },
                 "openIn": {
                     "label": "Ouvrir dans",
@@ -190,35 +173,6 @@
                 },
                 "urls": {
                     "legend": "URL du catalogue"
-                }
-            }
-        },
-        "publication": {
-            "header": {
-                "title": "Générateur de badge — Publication",
-                "subtitle": "Créez un badge « Ajouter à Thorium Reader » pour une publication."
-            },
-            "form": {
-                "legend": "Informations sur la publication",
-                "publication": {
-                    "label": "URL de la publication",
-                    "placeholder": "https://exemple.com/livre.epub",
-                    "hint": "Obligatoire. URL directe vers le fichier de la publication."
-                },
-                "title": {
-                    "label": "Titre",
-                    "placeholder": "Mon roman",
-                    "hint": "Facultatif. Le titre de la publication."
-                },
-                "author": {
-                    "label": "Auteur",
-                    "placeholder": "Jean Dupont",
-                    "hint": "Facultatif. Le nom de l'auteur."
-                },
-                "cover": {
-                    "label": "URL de la couverture",
-                    "placeholder": "https://exemple.com/couverture.jpg",
-                    "hint": "Facultatif. URL d'une image de couverture."
                 }
             }
         },
@@ -250,20 +204,6 @@
                 "hint": "Copiez et collez ce code dans la page de votre publication.",
                 "copy": "Copier dans le presse-papiers",
                 "copied": "Copié !"
-            }
-        },
-        "landing": {
-            "catalog": {
-                "title": "Ouvrir dans Thorium Reader",
-                "subtitle": "Appuyez sur le bouton ci-dessous pour ajouter ce catalogue à votre bibliothèque.",
-                "open": "Ouvrir dans Thorium Reader",
-                "download": "Télécharger Thorium Reader"
-            },
-            "publication": {
-                "title": "Ouvrir dans Thorium Reader",
-                "subtitle": "Appuyez sur le bouton ci-dessous pour ouvrir cette publication dans Thorium Reader.",
-                "open": "Ouvrir dans Thorium Reader",
-                "download": "Télécharger Thorium Reader"
             }
         }
     },
