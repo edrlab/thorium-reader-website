@@ -173,7 +173,7 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
     if (banner)         params.set("banner",            banner);
     if (color)          params.set("color",             color);
     const hasParams     = title && hasUrl;
-    const previewLink   = hasParams ? `${ addCatalogCustomScheme }?${ params.toString() }` : null;
+    const previewLink   = hasParams ? `${ addCatalogScheme }?${ params.toString() }` : null;
     const embedLink     = hasParams ? `${ addCatalogUniversalLink }?${ params.toString() }` : null;
 
     const svg = makeSVG({ line1, line2, title: svgTitle, iconUri: defaultIcon });
