@@ -9,7 +9,15 @@
             "comment": "Add catalog to Thorium Reader"
           },
           {
+            "/": "/add/catalog/",
+            "comment": "Add catalog to Thorium Reader"
+          },
+          {
             "/": "/add/publication",
+            "comment": "Add publication to Thorium Reader"
+          },
+          {
+            "/": "/add/publication/",
             "comment": "Add publication to Thorium Reader"
           }
         ]
