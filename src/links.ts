@@ -29,3 +29,14 @@ export const downloadUrls = {
   linuxAppImageArm: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }-arm64.AppImage`,
   linuxDebArm: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/EDRLab.ThoriumReader_${ desktopVersion }_arm64.deb`,
 };
+
+export const downloadPlatforms: Record<string, string> = {
+  macosArm:         "macos",
+  macosX64:         "macos_intel",
+  windowsExe:       "windows",
+  windowsArm:       "windows_arm",
+  linuxAppImage:    "linux_appimage",
+  linuxAppImageArm: "linux_appimage_arm",
+  linuxDeb:         "linux_debian",
+  linuxDebArm:      "linux_debian_arm",
+};
