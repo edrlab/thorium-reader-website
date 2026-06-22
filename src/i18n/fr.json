@@ -125,64 +125,68 @@
         }
     },
     "badge": {
-        "header": {
-            "title": "Générateur de badge",
-            "subtitle": "Créez un badge « Ajouter à Thorium Reader » pour la page de votre catalogue."
+        "catalog": {
+            "header": {
+                "title": "Générateur de badge — Catalogue",
+                "subtitle": "Créez un badge « Ajouter à Thorium Reader » pour la page de votre catalogue."
+            },
+            "form": {
+                "legend": "Informations sur le catalogue",
+                "title": {
+                    "label": "Titre du catalogue",
+                    "placeholder": "Mon catalogue d'ebooks",
+                    "hint": "Le nom de votre catalogue tel qu'il apparaît dans Thorium Reader."
+                },
+                "main": {
+                    "label": "URL principale",
+                    "placeholder": "https://exemple.com/opds",
+                    "hint": "URL OPDS ou web principale du catalogue. Au moins une URL de catalogue est requise."
+                },
+                "bookshelf": {
+                    "label": "URL de la bibliothèque",
+                    "placeholder": "https://exemple.com/etagere",
+                    "hint": "URL OPDS ou web pour accéder à la bibliothèque de l'utilisateur. Au moins une URL de catalogue est requise."
+                },
+                "icon": {
+                    "label": "URL de l'icône",
+                    "placeholder": "https://exemple.com/icone.png",
+                    "hint": "Facultatif. Une image carrée (PNG ou SVG) représentant votre catalogue."
+                },
+                "color": {
+                    "label": "Couleur d'accentuation",
+                    "hint": "Facultatif. Une couleur d'accentuation pour votre catalogue.",
+                    "default": "Par défaut",
+                    "gray": "Gris",
+                    "red": "Rouge",
+                    "yellow": "Jaune",
+                    "blue": "Bleu",
+                    "green": "Vert",
+                    "purple": "Violet",
+                    "orange": "Orange"
+                },
+                "openIn": {
+                    "label": "Ouvrir dans",
+                    "default": "Par défaut",
+                    "webview": "Navigateur intégré",
+                    "browser": "Navigateur externe",
+                    "hint": "Facultatif. Mode d'ouverture préféré pour les URL du catalogue."
+                },
+                "urls": {
+                    "legend": "URL du catalogue"
+                }
+            }
         },
-        "form": {
-            "legend": "Informations sur le catalogue",
-            "title": {
-                "label": "Titre du catalogue",
-                "placeholder": "Mon catalogue d'ebooks",
-                "hint": "Le nom de votre catalogue tel qu'il apparaît dans Thorium Reader."
-            },
-            "icon": {
-                "label": "URL de l'icône",
-                "placeholder": "https://exemple.com/icone.png",
-                "hint": "Facultatif. Une image carrée (PNG ou SVG) représentant votre catalogue."
-            },
-            "color": {
-                "label": "Couleur d'accentuation",
-                "hint": "Facultatif. Une couleur d'accentuation pour votre catalogue.",
-                "default": "Par défaut",
-                "gray": "Gris",
-                "red": "Rouge",
-                "yellow": "Jaune",
-                "blue": "Bleu",
-                "green": "Vert",
-                "purple": "Violet",
-                "orange": "Orange"
-            },
-            "urls": {
-                "legend": "URL du catalogue"
-            },
-            "browse": {
-                "label": "URL de navigation",
-                "placeholder": "https://exemple.com/opds",
-                "hint": "URL OPDS ou web pour parcourir le catalogue. Au moins une URL de catalogue est requise."
-            },
-            "bookshelf": {
-                "label": "URL de la bibliothèque",
-                "placeholder": "https://exemple.com/etagere",
-                "hint": "URL OPDS ou web pour accéder à la bibliothèque de l'utilisateur. Au moins une URL de catalogue est requise."
-            },
+        "shared": {
             "passphrase": {
                 "legend": "Authentification",
                 "label": "Phrase secrète",
                 "placeholder": "ma phrase secrète",
-                "hint": "Facultatif. Une phrase secrète en clair requise pour accéder au catalogue."
+                "hint": "Facultatif. Une phrase secrète en clair requise pour accéder à la ressource."
             },
             "passphraseHash": {
                 "label": "Phrase secrète hachée",
                 "placeholder": "e3b0c44298fc1c149afb…",
                 "hint": "Facultatif. Une phrase secrète pré-hachée. Utilisez-la à la place de la phrase secrète en clair si vous ne souhaitez pas l'exposer."
-            },
-            "openIn": {
-                "label": "Ouvrir dans",
-                "default": "Par défaut",
-                "webview": "Navigateur intégré",
-                "browser": "Navigateur externe",
-                "hint": "Facultatif. Mode d'ouverture préféré pour les URL du catalogue."
             },
             "lang": {
                 "label": "Langue du badge"
@@ -190,17 +194,17 @@
             "button": "Ajouter à Thorium Reader",
             "buttonLine1": "Ajouter à",
             "buttonLine2": "Thorium Reader",
-            "alt": "Ajouter {{name}} à Thorium Reader"
-        },
-        "preview": {
-            "title": "Aperçu",
-            "hint": "Voici comment apparaîtra votre badge."
-        },
-        "output": {
-            "title": "Code d'intégration",
-            "hint": "Copiez et collez ce code dans la page de votre catalogue.",
-            "copy": "Copier dans le presse-papiers",
-            "copied": "Copié !"
+            "alt": "Ajouter {{name}} à Thorium Reader",
+            "preview": {
+                "title": "Aperçu",
+                "hint": "Voici comment apparaîtra votre badge."
+            },
+            "output": {
+                "title": "Code d'intégration",
+                "hint": "Copiez et collez ce code dans la page de votre publication.",
+                "copy": "Copier dans le presse-papiers",
+                "copied": "Copié !"
+            }
         }
     },
     "faq": {

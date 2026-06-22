@@ -96,47 +96,58 @@
         }
     },
     "badge": {
-        "header": {
-            "title": "Merkkigeneraattori",
-            "subtitle": "Luo \"Lisää Thorium Readeriin\" -merkki luetteloosi."
+        "catalog": {
+            "header": {
+                "title": "Merkkigeneraattori",
+                "subtitle": "Luo \"Lisää Thorium Readeriin\" -merkki luetteloosi."
+            },
+            "form": {
+                "legend": "Luettelon tiedot",
+                "title": {
+                    "label": "Luettelon nimi",
+                    "placeholder": "E-kirjaluetteloni",
+                    "hint": "Luettelon nimi siinä muodossa, jossa se näkyy Thorium Readerissa."
+                },
+                "main": {
+                    "label": "Selauksen URL",
+                    "placeholder": "https://example.com/opds",
+                    "hint": "OPDS- tai verkko-osoite luettelon selaamista varten. Vähintään yksi URL vaaditaan."
+                },
+                "bookshelf": {
+                    "label": "Kirjahyllyn URL",
+                    "placeholder": "https://example.com/shelf",
+                    "hint": "OPDS- tai verkko-osoite, jonka kautta pääsee käyttäjän kirjahyllyyn. Vähintään yksi URL vaaditaan."
+                },
+                "icon": {
+                    "label": "Ikonin URL",
+                    "placeholder": "https://example.com/icon.png",
+                    "hint": "Valinnainen. Neliönmuotoinen kuva (PNG tai SVG), joka edustaa luetteloasi."
+                },
+                "color": {
+                    "label": "Korostusväri",
+                    "hint": "Valinnainen. Luettelosi korostusväri.",
+                    "default": "Oletus",
+                    "gray": "Harmaa",
+                    "red": "Punainen",
+                    "yellow": "Keltainen",
+                    "blue": "Sininen",
+                    "green": "Vihreä",
+                    "purple": "Violetti",
+                    "orange": "Oranssi"
+                },
+                "openIn": {
+                    "label": "Avaa käyttäen",
+                    "default": "Oletus",
+                    "webview": "Sovelluksen sisäinen selain",
+                    "browser": "Ulkoinen selain",
+                    "hint": "Valinnainen. Määriteltävä tapa avata luettelon verkko-osoitteet."
+                },
+                "urls": {
+                    "legend": "Luettelon URL"
+                }
+            }
         },
-        "form": {
-            "legend": "Luettelon tiedot",
-            "title": {
-                "label": "Luettelon nimi",
-                "placeholder": "E-kirjaluetteloni",
-                "hint": "Luettelon nimi siinä muodossa, jossa se näkyy Thorium Readerissa."
-            },
-            "icon": {
-                "label": "Ikonin URL",
-                "placeholder": "https://example.com/icon.png",
-                "hint": "Valinnainen. Neliönmuotoinen kuva (PNG tai SVG), joka edustaa luetteloasi."
-            },
-            "color": {
-                "label": "Korostusväri",
-                "hint": "Valinnainen. Luettelosi korostusväri.",
-                "default": "Oletus",
-                "gray": "Harmaa",
-                "red": "Punainen",
-                "yellow": "Keltainen",
-                "blue": "Sininen",
-                "green": "Vihreä",
-                "purple": "Violetti",
-                "orange": "Oranssi"
-            },
-            "urls": {
-                "legend": "Luettelon URL"
-            },
-            "browse": {
-                "label": "Selauksen URL",
-                "placeholder": "https://example.com/opds",
-                "hint": "OPDS- tai verkko-osoite luettelon selaamista varten. Vähintään yksi URL vaaditaan."
-            },
-            "bookshelf": {
-                "label": "Kirjahyllyn URL",
-                "placeholder": "https://example.com/shelf",
-                "hint": "OPDS- tai verkko-osoite, jonka kautta pääsee käyttäjän kirjahyllyyn. Vähintään yksi URL vaaditaan."
-            },
+        "shared": {
             "passphrase": {
                 "legend": "Tunnistautuminen",
                 "label": "Salasana",
@@ -148,30 +159,23 @@
                 "placeholder": "e3b0c44298fc1c149afb…",
                 "hint": "Valinnainen. Hajautetussa muodossa tallennettu salasana. Valitse tämä tekstimuotoisen salasanan sijasta, jos et halua salasanan näkyvän."
             },
-            "openIn": {
-                "label": "Avaa käyttäen",
-                "default": "Oletus",
-                "webview": "Sovelluksen sisäinen selain",
-                "browser": "Ulkoinen selain",
-                "hint": "Valinnainen. Määriteltävä tapa avata luettelon verkko-osoitteet."
-            },
             "lang": {
                 "label": "Merkin kieli"
             },
             "button": "Lisää Thorium Readeriin",
             "buttonLine1": "Lisää",
             "buttonLine2": "Thorium Readeriin",
-            "alt": "Lisää {{name}} Thorium Readeriin"
-        },
-        "preview": {
-            "title": "Esikatselu",
-            "hint": "Tältä merkkisi näyttäisi."
-        },
-        "output": {
-            "title": "Upotuskoodi",
-            "hint": "Kopioi ja liitä tämä koodi luettelosivullesi.",
-            "copy": "Kopioi leikepöydälle",
-            "copied": "Kopioitu!"
+            "alt": "Lisää {{name}} Thorium Readeriin",
+            "preview": {
+                "title": "Esikatselu",
+                "hint": "Tältä merkkisi näyttäisi."
+            },
+            "output": {
+                "title": "Upotuskoodi",
+                "hint": "Kopioi ja liitä tämä koodi luettelosivullesi.",
+                "copy": "Kopioi leikepöydälle",
+                "copied": "Kopioitu!"
+            }
         }
     },
     "faq": {

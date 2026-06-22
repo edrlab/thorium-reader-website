@@ -1,0 +1,190 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Footer from "../../../components/Footer.astro";
+import PageHeader from "../../../components/sections/PageHeader.astro";
+import Field from "../../../components/badge/Field.astro";
+import SelectField from "../../../components/badge/SelectField.astro";
+import FieldGroup from "../../../components/badge/FieldGroup.astro";
+import PassphraseFields from "../../../components/badge/PassphraseFields.astro";
+import BadgeLangSelector from "../../../components/badge/BadgeLangSelector.astro";
+import BadgeOutput from "../../../components/badge/BadgeOutput.astro";
+import { t } from "../../../i18n/utils.js";
+import { locales } from "../../../i18n/locales.js";
+import { addCatalogScheme } from "../../../links.js";
+import rawThoriumLogo from "../../../components/logos/assets/thorium-logo.svg?raw";
+
+const thoriumLogoDataUri = `data:image/svg+xml;base64,${ Buffer.from(rawThoriumLogo).toString("base64") }`;
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.currentLocale;
+
+const badgeTexts = Object.fromEntries(
+  locales.map((l) => [l, {
+    line1: t(l, "badge.shared.buttonLine1"),
+    line2: t(l, "badge.shared.buttonLine2"),
+    alt:   t(l, "badge.shared.alt"),
+  }])
+);
+
+const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "pink"];
+---
+
+<Layout title={ t(lang, "badge.catalog.header.title") + " — " + t(lang, "site.title") }>
+  <PageHeader
+    title={ t(lang, "badge.catalog.header.title") }
+    body={ t(lang, "badge.catalog.header.subtitle") }
+  />
+
+  <section class="badge-section">
+    <div class="container">
+      <div class="badge-layout">
+
+        <form id="badge-form" novalidate>
+          <fieldset>
+            <legend>{ t(lang, "badge.catalog.form.legend") }</legend>
+
+            <Field
+              id="catalog-title"
+              name="title"
+              label={ t(lang, "badge.catalog.form.title.label") }
+              placeholder={ t(lang, "badge.catalog.form.title.placeholder") }
+              hint={ t(lang, "badge.catalog.form.title.hint") }
+              required
+              autocomplete="off"
+            />
+
+            <FieldGroup labelId="urls-label" legend={ t(lang, "badge.catalog.form.urls.legend") } required>
+              <Field
+                id="catalog-main"
+                name="main"
+                type="url"
+                label={ t(lang, "badge.catalog.form.main.label") }
+                placeholder={ t(lang, "badge.catalog.form.main.placeholder") }
+                hint={ t(lang, "badge.catalog.form.main.hint") }
+              />
+              <Field
+                id="catalog-bookshelf"
+                name="bookshelf"
+                type="url"
+                label={ t(lang, "badge.catalog.form.bookshelf.label") }
+                placeholder={ t(lang, "badge.catalog.form.bookshelf.placeholder") }
+                hint={ t(lang, "badge.catalog.form.bookshelf.hint") }
+              />
+            </FieldGroup>
+
+            <PassphraseFields lang={ lang } />
+
+            <SelectField
+              id="catalog-open-in"
+              name="open_in"
+              label={ t(lang, "badge.catalog.form.openIn.label") }
+              options={[
+                { value: "",        label: t(lang, "badge.catalog.form.openIn.default") },
+                { value: "webview", label: t(lang, "badge.catalog.form.openIn.webview") },
+                { value: "browser", label: t(lang, "badge.catalog.form.openIn.browser") },
+              ]}
+              selectedValue=""
+              hint={ t(lang, "badge.catalog.form.openIn.hint") }
+            />
+
+            <Field
+              id="catalog-icon"
+              name="icon"
+              type="url"
+              label={ t(lang, "badge.catalog.form.icon.label") }
+              placeholder={ t(lang, "badge.catalog.form.icon.placeholder") }
+              hint={ t(lang, "badge.catalog.form.icon.hint") }
+            />
+
+            <Field
+              id="catalog-banner"
+              name="banner"
+              type="url"
+              label={ t(lang, "badge.catalog.form.banner.label") }
+              placeholder={ t(lang, "badge.catalog.form.banner.placeholder") }
+              hint={ t(lang, "badge.catalog.form.banner.hint") }
+            />
+
+            <SelectField
+              id="catalog-color"
+              name="color"
+              label={ t(lang, "badge.catalog.form.color.label") }
+              options={[
+                { value: "", label: t(lang, "badge.catalog.form.color.default") },
+                ...colors.map(c => ({
+                  value: c,
+                  label: t(lang, `badge.catalog.form.color.${ c }`),
+                }))
+              ]}
+              selectedValue=""
+              hint={ t(lang, "badge.catalog.form.color.hint") }
+            />
+
+            <BadgeLangSelector lang={ lang } locales={ locales } selectedValue={ lang } />
+          </fieldset>
+        </form>
+
+        <BadgeOutput lang={ lang } />
+
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
+
+<script define:vars={{ badgeTexts, addCatalogScheme, defaultIcon: thoriumLogoDataUri }}>
+  const form      = document.getElementById("badge-form");
+  const previewEl = document.getElementById("preview-badge");
+  const embedCode = document.getElementById("embed-code");
+
+  function update() {
+    const selectedLang   = form.querySelector("[name=lang]").value;
+    const title          = form.querySelector("[name=title]").value.trim();
+    const mainInput      = form.querySelector("[name=main]");
+    const bookshelfInput = form.querySelector("[name=bookshelf]");
+    const passphrase     = form.querySelector("[name=passphrase]").value.trim();
+    const passphraseHash = form.querySelector("[name=hashed_passphrase]").value.trim();
+    const iconInput      = form.querySelector("[name=icon]");
+    const bannerInput    = form.querySelector("[name=banner]");
+    const color          = form.querySelector("[name=color]").value.trim();
+    const openIn         = form.querySelector("[name=open_in]").value;
+
+    const mainValid      = mainInput.value.trim()      && mainInput.validity.valid;
+    const bookshelfValid = bookshelfInput.value.trim() && bookshelfInput.validity.valid;
+    const icon           = iconInput.value.trim()   && iconInput.validity.valid   ? iconInput.value.trim()   : "";
+    const banner         = bannerInput.value.trim() && bannerInput.validity.valid ? bannerInput.value.trim() : "";
+    const hasUrl         = mainValid || bookshelfValid;
+
+    const { line1, line2, alt } = badgeTexts[selectedLang] ?? Object.values(badgeTexts)[0];
+    const svgTitle = title ? alt.replace("{{name}}", title) : `${ line1 } ${ line2 }`;
+
+    const params = new URLSearchParams();
+    if (title)          params.set("title",             title);
+    if (mainValid)      params.set("main",              mainInput.value.trim());
+    if (bookshelfValid) params.set("bookshelf",         bookshelfInput.value.trim());
+    if (passphrase)     params.set("passphrase",        passphrase);
+    if (passphraseHash) params.set("hashed_passphrase", passphraseHash);
+    if (openIn)         params.set("open_in",           openIn);
+    if (icon)           params.set("icon",              icon);
+    if (banner)         params.set("banner",            banner);
+    if (color)          params.set("color",             color);
+    const deepLink = (title && hasUrl) ? `${ addCatalogScheme }?${ params.toString() }` : null;
+
+    const svg = makeSVG({ line1, line2, title: svgTitle, iconUri: defaultIcon });
+
+    previewEl.innerHTML = deepLink
+      ? `<a href="${ esc(deepLink) }">${ svg }</a>`
+      : svg;
+
+    embedCode.textContent = deepLink
+      ? `<a href="${ esc(deepLink) }">\n  ${ svg }\n</a>`
+      : "";
+  }
+
+  form.addEventListener("input", update);
+  update();
+</script>

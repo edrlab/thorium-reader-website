@@ -1,0 +1,30 @@
+---
+interface Props {
+  id: string;
+  name: string;
+  type?: "text" | "url";
+  label: string;
+  placeholder?: string;
+  hint?: string;
+  required?: boolean;
+  autocomplete?: string;
+}
+
+const { id, name, type = "text", label, placeholder, hint, required, autocomplete } = Astro.props;
+---
+
+<div class="field">
+  <label for={ id }>
+    { label }{ required && <span class="required" aria-hidden="true">*</span> }
+  </label>
+  <input
+    type={ type }
+    id={ id }
+    name={ name }
+    placeholder={ placeholder }
+    aria-describedby={ hint ? `hint-${ id }` : undefined }
+    autocomplete={ autocomplete }
+    required={ required || undefined }
+  />
+  { hint && <p class="field-hint" id={ `hint-${ id }` }>{ hint }</p> }
+</div>
