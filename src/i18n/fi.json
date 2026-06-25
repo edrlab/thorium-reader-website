@@ -133,7 +133,8 @@
                     "blue": "Sininen",
                     "green": "Vihreä",
                     "purple": "Violetti",
-                    "orange": "Oranssi"
+                    "orange": "Oranssi",
+                    "pink": "Vaaleanpunainen"
                 },
                 "openIn": {
                     "label": "Avaa käyttäen",
@@ -144,6 +145,11 @@
                 },
                 "urls": {
                     "legend": "Luettelon URL"
+                },
+                "banner": {
+                    "label": "Banner-kuvan URL",
+                    "placeholder": "https://example.com/banner.png",
+                    "hint": "Valinnainen. Leveä bannerikuva luetteloosi."
                 }
             }
         },
@@ -175,6 +181,60 @@
                 "hint": "Kopioi ja liitä tämä koodi luettelosivullesi.",
                 "copy": "Kopioi leikepöydälle",
                 "copied": "Kopioitu!"
+            }
+        },
+        "index": {
+            "title": "Merkkigeneraattori",
+            "catalog": {
+                "title": "Merkki luetteloa varten",
+                "subtitle": "Luo \"Lisää Thorium Readeriin\" -merkki luettelosivullesi."
+            },
+            "publication": {
+                "title": "Merkki julkaisua varten",
+                "subtitle": "Luo \"Lisää Thorium Readeriin\" -merkki julkaisulle."
+            }
+        },
+        "publication": {
+            "header": {
+                "title": "Merkkigeneraattori julkaisuja varten",
+                "subtitle": "Luo \"Lisää Thorium Readeriin\" -merkki julkaisulle."
+            },
+            "form": {
+                "legend": "Julkaisun tiedot",
+                "publication": {
+                    "label": "Julkaisun URL",
+                    "placeholder": "https://example.com/book.epub",
+                    "hint": "Pakollinen. Julkaisutiedoston suora URL-osoite."
+                },
+                "title": {
+                    "label": "Nimi",
+                    "placeholder": "Kirjani",
+                    "hint": "Valinnainen. Julkaisun nimi."
+                },
+                "author": {
+                    "label": "Tekijä",
+                    "placeholder": "Maija Meikäläinen",
+                    "hint": "Valinnainen. Tekijän nimi."
+                },
+                "cover": {
+                    "label": "Kannen URL-osoite",
+                    "placeholder": "https://example.com/cover.jpg",
+                    "hint": "Valinnainen. Kansikuvan URL-osoite."
+                }
+            }
+        },
+        "landing": {
+            "catalog": {
+                "title": "Avaa Thorium Readerissa",
+                "subtitle": "Paina allaolevaa painiketta, jotta voit lisätä tämän luettelon omaan kirjastoosi.",
+                "open": "Avaa Thorium Readerissa",
+                "download": "Lataa Thorium Reader"
+            },
+            "publication": {
+                "title": "Avaa Thorium Readerissa",
+                "subtitle": "Paina allaolevaa painiketta avataksesi tämän julkaisun Thorium Readerissa.",
+                "open": "Avaa Thorium Readerissa",
+                "download": "Lataa Thorium Reader"
             }
         }
     },
