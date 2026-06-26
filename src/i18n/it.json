@@ -156,19 +156,19 @@
             "form": {
                 "legend": "Informazioni sul catalogo",
                 "title": {
-                    "label": "Titolo del catalogo",
+                    "label": "Nome del catalogo",
                     "placeholder": "Il mio catalogo di ebook",
                     "hint": "Il nome del tuo catalogo come appare su Thorium Reader."
                 },
                 "main": {
-                    "label": "URL principale",
+                    "label": "Inserisci l'URL",
                     "placeholder": "https://esempio.com/opds",
-                    "hint": "Un URL OPDS o Web per navigare il catalogo. È necessario almeno un URL."
+                    "hint": "Inserisci un URL OPDS o Web per navigare il catalogo. È necessario almeno un URL."
                 },
                 "bookshelf": {
                     "label": "URL della biblioteca",
                     "placeholder": "https://esempio.com/biblioteca",
-                    "hint": "Un URL OPDS o Web per accedere alla biblioteca dell'utente. È necessario almeno un URL."
+                    "hint": "Inserisci un URL OPDS o Web per accedere alla biblioteca dell'utente. È necessario almeno un URL."
                 },
                 "icon": {
                     "label": "URL dell'icona",
@@ -185,7 +185,8 @@
                     "blue": "Blu",
                     "green": "Verde",
                     "purple": "Viola",
-                    "orange": "Arancione"
+                    "orange": "Arancione",
+                    "pink": "Rosa"
                 },
                 "openIn": {
                     "label": "Apri con",
@@ -196,6 +197,11 @@
                 },
                 "urls": {
                     "legend": "URL del catalogo"
+                },
+                "banner": {
+                    "label": "URL del banner",
+                    "placeholder": "https://esempio.com/banner.png",
+                    "hint": "Facoltativo. Un banner grande per il tuo catalogo."
                 }
             }
         },
@@ -227,6 +233,60 @@
                 "hint": "Copia e incolla questo codice nella tua pagina.",
                 "copy": "Copia negli appunti",
                 "copied": "Copiato!"
+            }
+        },
+        "index": {
+            "title": "Generatore di badge",
+            "catalog": {
+                "title": "Badge del catalogo",
+                "subtitle": "Crea un badge \"Aggiungi su Thorium Reader\" per la pagina del tuo catalogo."
+            },
+            "publication": {
+                "title": "Badge della pubblicazione",
+                "subtitle": "Crea un badge \"Aggiungi su Thorium Reader\" per una pubblicazione."
+            }
+        },
+        "publication": {
+            "header": {
+                "title": "Generatore di badge per una pubblicazione",
+                "subtitle": "Crea un badge \"Aggiungi su Thorium Reader\" per una pubblicazione."
+            },
+            "form": {
+                "legend": "Informazioni sulla pubblicazione",
+                "publication": {
+                    "label": "URL della pubblicazione",
+                    "placeholder": "https://esempio.com/book.epub",
+                    "hint": "Obbligatorio. URL del file della pubblicazione."
+                },
+                "title": {
+                    "label": "Titolo",
+                    "placeholder": "Il mio libro",
+                    "hint": "Facoltativo. Il titolo della pubblicazione."
+                },
+                "author": {
+                    "label": "Autore",
+                    "placeholder": "Elena Ferrante",
+                    "hint": "Facoltativo. Il nome dell'autore."
+                },
+                "cover": {
+                    "label": "URL della copertina",
+                    "placeholder": "https://esempio.com/cover.jpg",
+                    "hint": "Facoltativo. L'URL di un'immagine di copertina."
+                }
+            }
+        },
+        "landing": {
+            "catalog": {
+                "title": "Apri con Thorium Reader",
+                "subtitle": "Clicca sul tasto sottostante per aggiungere questo catalogo alla tua libreria.",
+                "open": "Apri con Thorium Reader",
+                "download": "Installa Thorium Reader"
+            },
+            "publication": {
+                "title": "Apri con Thorium Reader",
+                "subtitle": "Clicca sul tasto sottostante per aprire la pubblicazione con Thorium Reader.",
+                "open": "Apri con Thorium Reader",
+                "download": "Installa Thorium Reader"
             }
         }
     },
