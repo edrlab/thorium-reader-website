@@ -2,7 +2,10 @@
   "applinks": {
     "details": [
       {
-        "appID": "327YA3JNGT.org.edrlab.ThoriumMobile",
+        "appIDs": [
+          "327YA3JNGT.io.github.edrlab.thorium",
+          "327YA3JNGT.org.edrlab.ThoriumMobile"
+        ],
         "components": [
           {
             "/": "/add/catalog",
