@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Footer from "../../components/Footer.astro";
 import PageHeader from "../../components/sections/PageHeader.astro";
+import DownloadContent from "../../components/shared-content/DownloadContent.astro";
 import ThoriumBadge from "../../components/badge/ThoriumBadge.astro";
 import { t } from "../../i18n/utils.js";
 import { addCatalogScheme } from "../../links.js";
@@ -24,12 +25,11 @@ const lang = "en";
           line2={ t(lang, "badge.shared.buttonLine2") }
           title={ t(lang, "badge.shared.button") }
         />
-        <a href={ `${ import.meta.env.BASE_URL }${ lang }/download` } class="btn action-button">
-          { t(lang, "badge.landing.catalog.download") }
-        </a>
       </div>
     </div>
   </section>
+
+  <DownloadContent lang={ lang } />
 
   <Footer slot="footer" />
 </Layout>
