@@ -1,0 +1,309 @@
+---
+import "../../styles/conformance.css";
+
+const {
+	reportedPlatform,
+	index = {},
+	productName,
+	version,
+	platform,
+	reportDate,
+	evaluationDate,
+	changelog,
+	testingMethodology,
+	standards,
+} = Astro.props;
+
+const platformData = reportedPlatform || "desktop";
+const platformConformanceData = index?.conformance?.[platformData] ?? {};
+const changelogData = platformConformanceData.changelog ?? changelog;
+const methodologyData =
+	platformConformanceData.testingMethodology ?? testingMethodology;
+const standardsToShow =
+	Array.isArray(standards) && standards.length > 0
+		? standards
+		: ["wcag", "uaag", "epub", "daisyURS"];
+const rulesets = platformConformanceData.rulesets;
+
+const sortById = (items = []) => {
+	return [...items].sort((a, b) => {
+		const aId = Number(a?.id);
+		const bId = Number(b?.id);
+
+		if (Number.isFinite(aId) && Number.isFinite(bId)) {
+			return aId - bId;
+		}
+
+		return String(a?.id ?? "").localeCompare(String(b?.id ?? ""), undefined, {
+			numeric: true,
+			sensitivity: "base",
+		});
+	});
+};
+---
+
+<div class="conformance-report">
+	<section id="about-report">
+		<h2>About This Report</h2>
+
+		<dl>
+			<dt>Product Name:</dt>
+			<dd>{platformConformanceData.productName || productName}</dd>
+			<dt>Version:</dt>
+			<dd>{platformConformanceData.version || version}</dd>
+			<dt>Platform:</dt>
+			<dd>{platformConformanceData.platform || platform}</dd>
+			<dt>Report Date:</dt>
+			<dd>{platformConformanceData.reportDate || reportDate}</dd>
+			<dt>Evaluation Date:</dt>
+			<dd>{platformConformanceData.evaluationDate || evaluationDate}</dd>
+		</dl>
+
+		<details>
+			<summary>Changelog</summary>
+			{Array.isArray(changelogData) && changelogData.length > 0 ? (
+				<ul>
+					{changelogData.map((entry) => (
+						<li>
+							<strong>{entry.date}:</strong> {entry.description}
+						</li>
+					))}
+				</ul>
+			) : (
+				<p>No changelog available yet.</p>
+			)}
+		</details>
+
+		<details>
+			<summary>
+				<h3 class="inline">Evaluation Methodology</h3>
+			</summary>
+
+			{methodologyData ? (
+				<>
+					{methodologyData.methodology && (
+						<p>
+							<strong>{methodologyData.methodology}</strong>
+						</p>
+					)}
+
+					{Array.isArray(methodologyData.testingApproaches) &&
+						methodologyData.testingApproaches.length > 0 && (
+							<>
+								<h4>Testing Approaches</h4>
+								<ul>
+									{methodologyData.testingApproaches.map((approach) => (
+										<li>{approach}</li>
+									))}
+								</ul>
+							</>
+						)}
+
+					{Array.isArray(methodologyData.testedScenarios) &&
+						methodologyData.testedScenarios.length > 0 && (
+							<>
+								<h4>Tested Scenarios</h4>
+								<ul>
+									{methodologyData.testedScenarios.map((scenario) => (
+										<li>
+											<strong>{scenario.date}:</strong>{" "}
+											{scenario.url ? (
+												<a href={scenario.url} target="_blank" rel="noreferrer">
+													{scenario.scenario}
+												</a>
+											) : (
+												scenario.scenario
+											)}
+										</li>
+									))}
+								</ul>
+							</>
+						)}
+				</>
+			) : (
+				<p>No testing methodology information available.</p>
+			)}
+
+			<h3 class="inline">Standards &amp; References</h3>
+
+			{rulesets && (
+				<dl>
+					{Object.entries(rulesets).map(([, ruleset]) => (
+						<>
+							<dt>
+								{ruleset.title} ({ruleset.name})
+							</dt>
+							<dd>
+								Version: {ruleset.version} - Reference:{" "}
+								<a href={ruleset.referenceUrl} target="_blank" rel="noreferrer">
+									{ruleset.referenceUrl}
+								</a>
+							</dd>
+						</>
+					))}
+				</dl>
+			)}
+		</details>
+	</section>
+
+	<hr />
+
+	<section id="conformance" class="js-tabs">
+		<h2>Detailed Reports</h2>
+
+		{standardsToShow.map((standard) => {
+			const standardData = Array.isArray(platformConformanceData?.[standard])
+				? platformConformanceData[standard]
+				: [];
+			const sortedData = sortById(standardData);
+
+			if (!sortedData.length) {
+				return null;
+			}
+
+			return (
+				<div class="report-section">
+					<details>
+						<summary>
+							<h3 class="inline">{String(standard).toUpperCase()} Conformance Results</h3>
+						</summary>
+						<table class="responsive" id={`${standard}-results`}>
+							<thead>
+								<tr>
+									<th class="sortable" data-priority="1" tabindex="0" role="button" aria-sort="none">Success Criteria</th>
+									<th class="sortable" tabindex="0" role="button" aria-sort="none">Level</th>
+									<th class="sortable" data-priority="2" tabindex="0" role="button" aria-sort="none">Result</th>
+									<th class="sortable" tabindex="0" role="button" aria-sort="none">Notes</th>
+								</tr>
+							</thead>
+							<tbody>
+								{sortedData.map((item) => (
+									<tr>
+										<td data-order={item.id}>
+											<details>
+												<summary class="sc-title">
+													<a id={`sc_${standard}_${item.id}`} name={`sc_${standard}_${item.id}`}></a>
+													{item.number} {item.title}
+												</summary>
+												<p class="sc-text" set:html={item.description} />
+												<p class="issue">
+													<a href={item.url} target="_blank" rel="noreferrer">
+														{item.title}
+													</a>
+												</p>
+											</details>
+										</td>
+										<td class="lvl">{item.level}</td>
+										<td class={`result ${String(item.result ?? "").toLowerCase()}`}>
+											<p class="label">{item.result}</p>
+										</td>
+										<td>
+											{item.notes && <p class="notes" set:html={item.notes} />}
+											{item.additionalInfo && <p class="notes">{item.additionalInfo}</p>}
+											{item.issue && item.issuelabel ? (
+												<p class="issue">
+													<a href={item.issue} target="_blank" rel="noreferrer">
+														{item.issuelabel}
+													</a>
+												</p>
+											) : (
+												item.issue && (
+													<p class="issue">
+														<a href={item.issue} target="_blank" rel="noreferrer">
+															{item.issue}
+														</a>
+													</p>
+												)
+											)}
+										</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</details>
+				</div>
+			);
+		})}
+	</section>
+</div>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		const collator = new Intl.Collator(undefined, {
+			numeric: true,
+			sensitivity: "base",
+		});
+
+		const getCellValue = (row, index) => {
+			const cell = row.cells[index];
+			if (!cell) return "";
+
+			const orderValue = cell.getAttribute("data-order");
+			if (orderValue !== null) {
+				return orderValue.trim();
+			}
+
+			return (cell.textContent || "").trim();
+		};
+
+		const compareValues = (a, b) => {
+			const numA = Number(a);
+			const numB = Number(b);
+
+			if (Number.isFinite(numA) && Number.isFinite(numB)) {
+				return numA - numB;
+			}
+
+			return collator.compare(String(a), String(b));
+		};
+
+		for (const table of document.querySelectorAll("table.responsive")) {
+			const tbody = table.tBodies[0];
+			if (!tbody) continue;
+
+			const headers = Array.from(table.querySelectorAll("thead th.sortable"));
+			headers.forEach((header, index) => {
+				const sort = () => {
+					const currentDir = header.dataset.sortDir === "asc" ? "asc" : "desc";
+					const nextDir = currentDir === "asc" ? "desc" : "asc";
+
+					headers.forEach((h) => {
+						h.dataset.sortDir = "";
+						h.classList.remove("sorted-asc", "sorted-desc");
+						h.setAttribute("aria-sort", "none");
+					});
+
+					header.dataset.sortDir = nextDir;
+					header.classList.add(nextDir === "asc" ? "sorted-asc" : "sorted-desc");
+					header.setAttribute("aria-sort", nextDir === "asc" ? "ascending" : "descending");
+
+					const rows = Array.from(tbody.rows).map((row, originalIndex) => ({
+						row,
+						originalIndex,
+						value: getCellValue(row, index),
+					}));
+
+					rows.sort((left, right) => {
+						const cmp = compareValues(left.value, right.value);
+						if (cmp !== 0) {
+							return nextDir === "asc" ? cmp : -cmp;
+						}
+						return left.originalIndex - right.originalIndex;
+					});
+
+					for (const { row } of rows) {
+						tbody.appendChild(row);
+					}
+				};
+
+				header.addEventListener("click", sort);
+				header.addEventListener("keydown", (event) => {
+					if (event.key === "Enter" || event.key === " ") {
+						event.preventDefault();
+						sort();
+					}
+				});
+			});
+		}
+	});
+</script>

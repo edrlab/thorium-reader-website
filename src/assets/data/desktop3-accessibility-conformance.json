@@ -1,0 +1,3706 @@
+{
+  "productName": "Thorium Reader Desktop",
+  "version": "3",
+  "platform": "Desktop (Windows, macOS, Linux)",
+  "description": "Thorium Reader is a free and open-source EPUB reading application designed with accessibility as a core feature. This is the desktop version supporting Windows, macOS, and Linux platforms.",
+  "reportDate": "2025-02-26",
+  "evaluationDate": "2025-02-26",
+  "evaluationMethodology": "This report documents conformance evaluation of Thorium Reader Desktop version 3 against WCAG 2.2, UAAG 2.0, EPUB Accessibility 1.1, and DAISY User Requirements Standards. The evaluation methodology included: automated testing using accessibility scanning tools, manual accessibility review by accessibility professionals, user testing with assistive technologies (NVDA, JAWS on Windows; VoiceOver on macOS; Orca on Linux), functional testing with various EPUB publications, and keyboard navigation testing.",
+  "conformanceLevel": "UAAG 2.0 Level AA, WCAG 2.2 Level AA, EPUB Accessibility 1.1",
+  "conformanceSummary": "“Thorium Reader Desktop provides comprehensive access to assistive technologies and offers a variety of customisation options for content display and interface behaviour.” In many cases, it meets the Level AAA criteria. However, there are certain limitations: the lack of a zoom function for the interface can detract from the reading experience, and some specialised features have not yet been tested.",
+  "accessibilityHazards": "none",
+  "keyFindings": {
+    "strengths": [
+      "Full keyboard navigation support with no keyboard traps",
+      "Excellent screen reader compatibility (NVDA, JAWS, VoiceOver, Orca)",
+      "Comprehensive text configuration options (size, color, spacing, font)",
+      "Adjustable visual presentation and contrast settings",
+      "Support for platform accessibility services",
+      "Accessible documentation and help system",
+      "Full EPUB accessibility feature support (page lists, navigation documents, reading order)"
+    ],
+    "limitations": [
+      "WCAG 1.4.4 (Resize text): Viewport resizing without horizontal scrolling has limited implementation",
+      "Interface zoom without breaking reading experience requires refinement",
+      "Some specialized DAISY URS features not yet implemented (citation generation, tactile graphics support)"
+    ]
+  },
+  "testingEnvironments": [
+    "Windows 10+ with NVDA and JAWS",
+    "macOS 10.13+ with VoiceOver",
+    "Linux (multiple distributions) with Orca",
+    "Manual keyboard navigation testing",
+    "Testing with various EPUB publications from epubtest.org"
+  ],
+  "changelog": [
+    {
+      "date": "2025-02-26",
+      "description": "Initial conformance report for Thorium Reader Desktop 3"
+    },
+    {
+      "date": "2025-01-15",
+      "description": "Evaluation testing phase"
+    }
+  ],
+  "rulesets": {
+    "uaag": {
+      "name": "UAAG",
+      "title": "User Agent Accessibility Guidelines",
+      "version": "2.0",
+      "url": "https://www.w3.org/TR/UAAG20-Reference/",
+      "referenceUrl": "https://www.w3.org/TR/UAAG20/"
+    },
+    "wcag": {
+      "name": "WCAG",
+      "title": "Web Content Accessibility Guidelines",
+      "version": "2.2",
+      "url": "https://www.w3.org/WAI/WCAG22/quickref/",
+      "referenceUrl": "https://www.w3.org/WAI/WCAG22/"
+    },
+    "epub": {
+      "name": "EPUB Accessibility",
+      "title": "EPUB 3 Accessibility",
+      "version": "1.2",
+      "url": "https://www.w3.org/TR/epub-a11y-12/",
+      "referenceUrl": "https://www.w3.org/TR/epub-a11y-12/"
+    },
+    "daisyURS": {
+      "name": "DAISY URS",
+      "title": "DAISY Reading Apps User Requirements",
+      "version": "1.0",
+      "url": "https://daisy.org/s/readingURS/FINAL-20251031",
+      "referenceUrl": "https://daisy.org/s/readingURS/FINAL-20251031"
+    }
+  },
+  "productInfo": {
+    "name": "Thorium Reader Desktop",
+    "version": "3",
+    "platform": "Windows 10, Windows 11, macOS 10.13+, Linux",
+    "description": "Thorium Reader Desktop is a free, open-source EPUB reading application available for Windows, macOS, and Linux. The application is free, with no ads and no private data leaks. It is localized in a large set of languages.",
+    "downloadPage": "https://github.com/edrlab/thorium-reader/releases",
+    "documentation": "English, French, Spanish"
+  },
+  "conformanceOverview": {
+    "evaluatedAgainst": {
+      "uaag": {
+        "name": "UAAG",
+        "title": "User Agent Accessibility Guidelines",
+        "version": "2.0",
+        "url": "https://www.w3.org/TR/UAAG20-Reference/",
+        "referenceUrl": "https://www.w3.org/TR/UAAG20/"
+      },
+      "wcag": {
+        "name": "WCAG",
+        "title": "Web Content Accessibility Guidelines",
+        "version": "2.2",
+        "url": "https://www.w3.org/WAI/WCAG22/quickref/",
+        "referenceUrl": "https://www.w3.org/WAI/WCAG22/"
+      },
+      "epub": {
+        "name": "EPUB Accessibility",
+        "title": "EPUB 3 Accessibility",
+        "version": "1.2",
+        "url": "https://www.w3.org/TR/epub-a11y-12/",
+        "referenceUrl": "https://www.w3.org/TR/epub-a11y-12/"
+      },
+      "daisyURS": {
+        "name": "DAISY URS",
+        "title": "DAISY Unified Readability Standards",
+        "version": "1.0",
+        "url": "https://daisy.org/s/readingURS/FINAL-20251031",
+        "referenceUrl": "https://daisy.org/s/readingURS/FINAL-20251031"
+      }
+    },
+    "conformanceLevel": "Thorium Reader Desktop achieves UAAG 2.0 Level AA and WCAG 2.2 Level AA conformance. In many situations, it reaches AAA level criteria.",
+    "conformanceSummary": "Thorium Reader Desktop provides full access to assistive technologies and numerous options to adjust content. In many situations, it reaches AAA level criterions. However, it has not yet been found how to provide interface zoom without breaking the reading experience.",
+    "accessibilityHazards": "none"
+  },
+  "testingMethodology": {
+    "methodology": "The evaluation included the following testing approaches:",
+    "testingApproaches": [
+      "Assistive technology testing (NVDA, JAWS, VoiceOver, Orca)",
+      "Code audit",
+      "EPUB accessible reading features tested through epubtest.org"
+    ],
+    "testedScenarios": [
+      {
+        "date": "August 15, 2025",
+        "scenario": "Thorium Reader 3 with NVDA on Windows",
+        "url": "https://epubtest.org/results/3632"
+      },
+      {
+        "date": "August 15, 2025",
+        "scenario": "Thorium Reader 3 on Windows",
+        "url": "https://epubtest.org/results/3700"
+      },
+      {
+        "date": "August 15, 2025",
+        "scenario": "Thorium Reader 3 on macOS",
+        "url": "https://epubtest.org/results/3711"
+      }
+    ]
+  },
+  "lastUpdated": "2026-02-27",
+  "uaag": [
+    {
+      "id": "010101",
+      "number": "1.1.1",
+      "title": "Render Alternative Content",
+      "level": "A",
+      "result": "passed",
+      "notes": "<code>Abbr</code> are rendered in a tooltip when they get focus.</li><li>Users can access `alt` text through TTS. However, that support can be enhanced by providing the `alt` text in the image viewing modal. See <a href=https://github.com/edrlab/thorium-reader/issues/3139>Issue #3139: Allow users to display alt texts to extend support for UAAG Guideline 1.1: Alternative content accessibility.</a> </li> <li>The video player allows to activate subtitles if they are available. Embed players are the responsibility of the ebook content creator. </li></ul>"
+    },
+    {
+      "id": "010102",
+      "number": "1.1.2",
+      "title": "Indicate Unrendered Alternative Content",
+      "level": "A",
+      "result": "failed",
+      "notes": "<ul><li><code>Abbr</code> are indicated by a dotted underline.</li> <li><code>alt</code> text are not indicated. See <a href=https://github.com/edrlab/thorium-reader/issues/3139>Issue 3139: Allow users to display alt texts.</a> </li><li>The video player indicates the presence of subtitles if they are available. Embed players are the responsibility of the ebook content creator. </li></ul>"
+    },
+    {
+      "id": "010103",
+      "number": "1.1.3",
+      "title": "Replace Non-Text Content",
+      "level": "A",
+      "result": "passed",
+      "notes": "Caption Clean view is available for TTS reading. It should be extended to visual reading (see <a href=https://github.com/edrlab/thorium-reader/issues/3141>Issue  #3141 Extend Caption / Clean View to visual reading (UAAG1.1.3 Replace Non-Text Content)</a>)"
+    },
+    {
+      "id": "010104",
+      "number": "1.1.4",
+      "title": "Facilitate Clear Display of Alternative Content for Time-based Media",
+      "level": "A",
+      "result": "passed",
+      "notes": "The video player indicates the presence of subtitles if they are available. Embed players are the responsibility of the ebook content creator."
+    },
+    {
+      "id": "010105",
+      "number": "1.1.5",
+      "title": "Provide Configurable Alternative Content Defaults",
+      "level": "AA",
+      "result": "failed",
+      "notes": ""
+    },
+    {
+      "id": "010106",
+      "number": "1.1.6",
+      "title": "Use Configurable Text for Time-based Media Captions",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010107",
+      "number": "1.1.7",
+      "title": "Allow Resize and Reposition of Time-based Media Alternatives",
+      "level": "AAA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010201",
+      "number": "1.2.1",
+      "title": "Support Repair by Assistive Technologies",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010301",
+      "number": "1.3.1",
+      "title": "Distinguishable Highlighting",
+      "level": "A",
+      "result": "passed"
+    },
+    {
+      "id": "010302",
+      "number": "1.3.2",
+      "title": "Highlighting Options",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010303",
+      "number": "1.3.3",
+      "title": "Highlighting Active Keyboard Focus",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010304",
+      "number": "1.3.4",
+      "title": "Distinguishing Enabled Elements",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010305",
+      "number": "1.3.5",
+      "title": "Distinguishing Enabled Elements",
+      "level": "AA",
+      "result": "passed"
+    },
+    {
+      "id": "010401",
+      "number": "1.4.1",
+      "title": "Basic text formatting (Globally)",
+      "level": "A",
+      "result": "passed"
+    },
+    {
+      "id": "010402",
+      "number": "1.4.2",
+      "title": "Basic text formatting (by Element)",
+      "level": "AA",
+      "result": "passed"
+    },
+    {
+      "id": "010403",
+      "number": "1.4.3",
+      "title": "Blocks of text (Globally)",
+      "level": "AA",
+      "result": "passed"
+    },
+    {
+      "id": "010404",
+      "number": "1.4.4",
+      "title": "Configured and Reflowed Text Printing",
+      "level": "AA",
+      "result": "passed"
+    },
+    {
+      "id": "010405",
+      "number": "1.4.5",
+      "title": "Default to platform text settings",
+      "level": "AA",
+      "result": "passed"
+    },
+    {
+      "id": "010406",
+      "number": "1.4.6",
+      "title": "Advanced text formatting",
+      "level": "AAA",
+      "result": "passed"
+    },
+    {
+      "id": "010501",
+      "number": "1.5.1",
+      "title": "Global Volume",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010601",
+      "number": "1.6.1",
+      "title": "Speech Rate, Volume, and Voice",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010602",
+      "number": "1.6.2",
+      "title": "Speech Pitch and Range",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010603",
+      "number": "1.6.3",
+      "title": "Synthesized Speech Features",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010604",
+      "number": "1.6.4",
+      "title": "Synthesized Speech Language",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010605",
+      "number": "1.6.5",
+      "title": "Advanced Speech Characteristics",
+      "level": "AAA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010701",
+      "number": "1.7.1",
+      "title": "Disable Author Stylesheets",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010702",
+      "number": "1.7.2",
+      "title": "Support User Stylesheet or User Style Modification Mechanism",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010703",
+      "number": "1.7.3",
+      "title": "Apply User Stylesheets",
+      "level": "A",
+      "result": "passed"
+    },
+    {
+      "id": "010704",
+      "number": "1.7.4",
+      "title": "Save Copies of Stylesheets",
+      "level": "AA",
+      "result": "passed"
+    },
+    {
+      "id": "010801",
+      "number": "1.8.1",
+      "title": "Highlight Viewport",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010802",
+      "number": "1.8.2",
+      "title": "Move Viewport to Selection and Focus",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010803",
+      "number": "1.8.3",
+      "title": "Provide Viewport Scrollbars",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010804",
+      "number": "1.8.4",
+      "title": "Indicate Viewport Position",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010805",
+      "number": "1.8.5",
+      "title": "Allow Zoom",
+      "level": "A",
+      "result": "failed",
+      "notes": "Additional Info: Reflowable contents can be adjusted in size and fixed layout contents can be zoomed. However the text from the interface cannot be resized. This is tracked in Issue <a href=\"https://github.com/edrlab/thorium-reader/issues/329\">Make the interface scalable</a>"
+    },
+    {
+      "id": "010806",
+      "number": "1.8.6",
+      "title": "Maintain Point of Regard",
+      "level": "A",
+      "result": "passed"
+    },
+    {
+      "id": "010807",
+      "number": "1.8.7",
+      "title": "Customize Viewport Highlighting",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010808",
+      "number": "1.8.8",
+      "title": "Allow Viewport Resize",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010809",
+      "number": "1.8.9",
+      "title": "Provide Viewport History",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010810",
+      "number": "1.8.10",
+      "title": "Allow Top-Level Viewport Open on Request",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010811",
+      "number": "1.8.11",
+      "title": "Allow Top-Level Viewport Focus Control",
+      "level": "AA",
+      "result": "passed"
+    },
+    {
+      "id": "010812",
+      "number": "1.8.12",
+      "title": "Allow Same User Interface",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010813",
+      "number": "1.8.13",
+      "title": "Multi-Column Text Reflow",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010814",
+      "number": "1.8.14",
+      "title": "Ignore Fixed Unit Dimensions",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010815",
+      "number": "1.8.15",
+      "title": "Linearize Content",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010816",
+      "number": "1.8.16",
+      "title": "Provide Web Page Bookmarks",
+      "level": "AAA",
+      "result": "passed"
+    },
+    {
+      "id": "010901",
+      "number": "1.9.1",
+      "title": "Outline View",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "010902",
+      "number": "1.9.2",
+      "title": "Source View",
+      "level": "AAA",
+      "result": "failed",
+      "notes": "Source view is available only with development versions, without LCP protection support."
+    },
+    {
+      "id": "011001",
+      "number": "1.10.1",
+      "title": "Show Related Elements",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "011002",
+      "number": "1.10.2",
+      "title": "Show Element Hierarchy",
+      "level": "AAA",
+      "result": "passed"
+    },
+    {
+      "id": "020101",
+      "number": "2.1.1",
+      "title": "Provide Full Keyboard Functionality",
+      "level": "A",
+      "result": "passed"
+    },
+    {
+      "id": "020102",
+      "number": "2.1.2",
+      "title": "Has Keyboard Focus",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "020103",
+      "number": "2.1.3",
+      "title": "Avoid Keyboard Traps",
+      "level": "A",
+      "result": "passed"
+    },
+    {
+      "id": "020104",
+      "number": "2.1.4",
+      "title": "Separate Selection from Activation",
+      "level": "A",
+      "result": "passed"
+    },
+    {
+      "id": "020105",
+      "number": "2.1.5",
+      "title": "Follow Text Keyboard Conventions",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "020106",
+      "number": "2.1.6",
+      "title": "Make Keyboard Access Efficient",
+      "level": "A",
+      "result": "passed"
+    },
+    {
+      "id": "020201",
+      "number": "2.2.1",
+      "title": "Sequential Navigation Between Elements",
+      "level": "A",
+      "result": "passed"
+    },
+    {
+      "id": "020202",
+      "number": "2.2.2",
+      "title": "Sequential Navigation Between Landmarks",
+      "level": "A",
+      "result": "passed"
+    },
+    {
+      "id": "020203",
+      "number": "2.2.3",
+      "title": "Default Navigation Order",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "020204",
+      "number": "2.2.4",
+      "title": "Options for Wrapping in Navigation",
+      "level": "AA",
+      "result": "passed"
+    },
+    {
+      "id": "020301",
+      "number": "2.3.1",
+      "title": "Allow Direct Navigation to Enabled Elements",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "020302",
+      "number": "2.3.2",
+      "title": "Allow Direct Activation of Enabled Elements",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "020303",
+      "number": "2.3.3",
+      "title": "Present Direct Commands from Rendered Content",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "020304",
+      "number": "2.3.4",
+      "title": "Present Direct Commands in User Interface",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "020305",
+      "number": "2.3.5",
+      "title": "Allow Customized Keyboard Commands",
+      "level": "AA",
+      "result": "passed"
+    },
+    {
+      "id": "020401",
+      "number": "2.4.1",
+      "title": "Text Search",
+      "level": "A",
+      "result": "passed"
+    },
+    {
+      "id": "020402",
+      "number": "2.4.2",
+      "title": "Search Direction",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "020403",
+      "number": "2.4.3",
+      "title": "Match Found",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "020404",
+      "number": "2.4.4",
+      "title": "Alert on Wrap or No Match",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "020405",
+      "number": "2.4.5",
+      "title": "Alternative Content Search",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "020501",
+      "number": "2.5.1",
+      "title": "Provide Structural Navigation by Heading and within Tables",
+      "level": "AA",
+      "result": "passed"
+    },
+    {
+      "id": "020601",
+      "number": "2.6.1",
+      "title": "Allow Persistent Accessibility Settings",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "020602",
+      "number": "2.6.2",
+      "title": "Allow Restore All to Default",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "020603",
+      "number": "2.6.3",
+      "title": "Allow Multiple Sets of Preference Settings",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "020604",
+      "number": "2.6.4",
+      "title": "Allow Preference Changes from outside the User Interface",
+      "level": "AAA",
+      "result": "passed"
+    },
+    {
+      "id": "020605",
+      "number": "2.6.5",
+      "title": "Make Preference Settings Transferable",
+      "level": "AAA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "020701",
+      "number": "2.7.1",
+      "title": "Customize Display of Controls for User Interface Commands, Functions, and Add-ons",
+      "level": "AA",
+      "result": "passed"
+    },
+    {
+      "id": "020801",
+      "number": "2.8.1",
+      "title": "Adjustable Time Limits",
+      "level": "A",
+      "result": "passed"
+    },
+    {
+      "id": "020901",
+      "number": "2.9.1",
+      "title": "Three Flashes or Below Threshold",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "020902",
+      "number": "2.9.2",
+      "title": "Three Flashes",
+      "level": "AAA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "021001",
+      "number": "2.10.1",
+      "title": "Time-Based Media Load-Only",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "021002",
+      "number": "2.10.2",
+      "title": "Execution Placeholder",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "021003",
+      "number": "2.10.3",
+      "title": "Execution Toggle",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "021004",
+      "number": "2.10.4",
+      "title": "Adjustable Playback Rate for Prerecorded Content",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "021005",
+      "number": "2.10.5",
+      "title": "Stop/Pause/Resume Time-Based Media",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "021006",
+      "number": "2.10.6",
+      "title": "Navigation of Time-Based Media by Time",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "021007",
+      "number": "2.10.7",
+      "title": "Navigation of Time-Based Media by Semantics",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "021008",
+      "number": "2.10.8",
+      "title": "Video Contrast and Brightness",
+      "level": "AAA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "021101",
+      "number": "2.11.1",
+      "title": "Text Input With Any Device",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "030101",
+      "number": "3.1.1",
+      "title": "Text Entry Undo",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "030102",
+      "number": "3.1.2",
+      "title": "Settings Changes can be Reversed or Confirmed",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "030103",
+      "number": "3.1.3",
+      "title": "Retrieval Progress",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "030104",
+      "number": "3.1.4",
+      "title": "Spell Check",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "030105",
+      "number": "3.1.5",
+      "title": "Back Button",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "030106",
+      "number": "3.1.6",
+      "title": "Form Submission Confirm",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "030107",
+      "number": "3.1.7",
+      "title": "Form Auto-Fill",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "030108",
+      "number": "3.1.8",
+      "title": "Save Form Entries",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "030201",
+      "number": "3.2.1",
+      "title": "Accessible Documentation",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "030202",
+      "number": "3.2.2",
+      "title": "Describe Accessibility Features",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "030203",
+      "number": "3.2.3",
+      "title": "Document All Features",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "030204",
+      "number": "3.2.4",
+      "title": "Changes Between Versions",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "030205",
+      "number": "3.2.5",
+      "title": "Centralized View",
+      "level": "AAA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "030301",
+      "number": "3.3.1",
+      "title": "Avoid Unpredictable Focus",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "040101",
+      "number": "4.1.1",
+      "title": "Support Platform Accessibility Services",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "040102",
+      "number": "4.1.2",
+      "title": "Expose Accessible Properties",
+      "level": "A",
+      "result": "passed"
+    },
+    {
+      "id": "040103",
+      "number": "4.1.3",
+      "title": "Provide Equivalent Accessible Alternatives",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "040104",
+      "number": "4.1.4",
+      "title": "DOMs Programmatically Available as fallback",
+      "level": "A",
+      "result": "passed"
+    },
+    {
+      "id": "040105",
+      "number": "4.1.5",
+      "title": "Make Content Interaction Programmatically Available",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "050101",
+      "number": "5.1.1",
+      "title": "Comply with WCAG",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "050102",
+      "number": "5.1.2",
+      "title": "Implement Accessibility Features of Web Content Technology Specifications",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "050103",
+      "number": "5.1.3",
+      "title": "Implement Accessibility Features of the Platform",
+      "level": "A",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "050104",
+      "number": "5.1.4",
+      "title": "Allow Content Elements to be Rendered in Alternative Viewers",
+      "level": "AA",
+      "result": "passed",
+      "notes": ""
+    },
+    {
+      "id": "050105",
+      "number": "5.1.5",
+      "title": "Enable Reporting of User Agent Accessibility Faults",
+      "level": "AAA",
+      "result": "passed",
+      "notes": ""
+    }
+  ],
+  "wcag": [
+    {
+      "id": "010101",
+      "number": "1.1.1",
+      "title": "Non-text Content",
+      "level": "A",
+      "result": "passed",
+      "notes": "all visual information is also available as text",
+      "issue": "",
+      "description": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-1-1"
+    },
+    {
+      "id": "010201",
+      "number": "1.2.1",
+      "title": "Audio-only and Video-only (Prerecorded)",
+      "level": "A",
+      "result": "passed",
+      "notes": "Thorium Reader can restitue publications with pre-recorded audio or video.",
+      "issue": "",
+      "description": "Either an alternative for time-based media or an audio track is provided that presents equivalent information for prerecorded video-only content.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-2-1"
+    },
+    {
+      "id": "010202",
+      "number": "1.2.2",
+      "title": "Captions (Prerecorded)",
+      "level": "A",
+      "result": "passed",
+      "notes": "Thorium Reader can restitue publications with pre-recorded captions.",
+      "issue": "",
+      "description": "Captions are provided for all prerecorded audio content in synchronized media, except when the media is a media alternative for text and is clearly labeled as such.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-2-2"
+    },
+    {
+      "id": "010204",
+      "number": "1.2.4",
+      "title": "Captions (Live)",
+      "level": "AA",
+      "result": "inapplicable",
+      "notes": "Live captions may be available depending on the video-service provided by the ebook creator.",
+      "issue": "",
+      "description": "Captions are provided for all live audio content in synchronized media.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-2-4"
+    },
+    {
+      "id": "010205",
+      "number": "1.2.5",
+      "title": "Audio Description (Prerecorded)",
+      "level": "AA",
+      "result": "passed",
+      "notes": "Thorium Reader can restitue publications with pre-recorded Audio descriptions.",
+      "issue": "",
+      "description": "Audio description is provided for all prerecorded video content in synchronized media.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-2-5"
+    },
+    {
+      "id": "010206",
+      "number": "1.2.6",
+      "title": "Sign Language (Prerecorded)",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "Thorium Reader can restitue publications with pre-recorded Sign language videos. An experimental feature allows the reading of authored-synchronisation between text and video.",
+      "issue": "",
+      "description": "Sign language interpretation is provided for all prerecorded audio content in synchronized media.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-2-6"
+    },
+    {
+      "id": "010207",
+      "number": "1.2.7",
+      "title": "Extended Audio Description (Prerecorded)",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "Thorium Reader can restitue publications with pre-recorded extended audio descriptions.",
+      "issue": "",
+      "description": "Where pauses in foreground audio are insufficient to allow audio descriptions to convey the sense of the video, extended audio description is provided for all prerecorded video content in synchronized media.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-2-7"
+    },
+    {
+      "id": "010208",
+      "number": "1.2.8",
+      "title": "Media Alternative (Prerecorded)",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "Thorium Reader can restitue publications with pre-recorded media alternative.",
+      "issue": "",
+      "description": "An alternative for time-based media is provided for all prerecorded synchronized media and for all prerecorded video-only media.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-2-8"
+    },
+    {
+      "id": "010209",
+      "number": "1.2.9",
+      "title": "Audio-only (Live)",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "Thorium Reader can restitue publications with live-audio only, depending of the streaming application chosen and implemented by the ebook-creator.",
+      "issue": "",
+      "description": "An alternative for time-based media that presents equivalent information for live audio-only content is provided.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-2-9"
+    },
+    {
+      "id": "010301",
+      "number": "1.3.1",
+      "title": "Info and Relationships",
+      "level": "A",
+      "result": "passed",
+      "notes": "Thorium Reader makes use of HTML markup with additional ARIA roles when necessary. It also fully restitues all XHTML and ARIA markup as authored in publications.",
+      "issue": "",
+      "description": "Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-3-1"
+    },
+    {
+      "id": "010302",
+      "number": "1.3.2",
+      "title": "Meaningful Sequence",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "When the sequence in which content is presented affects its meaning, a correct reading sequence can be programmatically determined.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-3-2"
+    },
+    {
+      "id": "010303",
+      "number": "1.3.3",
+      "title": "Sensory Characteristics",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "Instructions provided for understanding and operating content do not rely solely on sensory characteristics of components such as shape, color, size, visual location, orientation, or sound.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-3-3"
+    },
+    {
+      "id": "010304",
+      "number": "1.3.4",
+      "title": "Orientation",
+      "level": "AA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "Content does not restrict its view and operation to a single display orientation, such as portrait or landscape, unless a specific display orientation is essential.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-3-4"
+    },
+    {
+      "id": "010305",
+      "number": "1.3.5",
+      "title": "Identify Input Purpose",
+      "level": "AA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "The purpose of each input field collecting information about the user can be programmatically determined when the input field serves a purpose identified in the Input Purposes for user interface components section.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-3-5"
+    },
+    {
+      "id": "010306",
+      "number": "1.3.6",
+      "title": "Identify Purpose",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "In content implemented using markup languages, the purpose of user interface components, icons, and regions can be programmatically determined.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-3-6"
+    },
+    {
+      "id": "010401",
+      "number": "1.4.1",
+      "title": "Use of Color",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-4-1"
+    },
+    {
+      "id": "010402",
+      "number": "1.4.2",
+      "title": "Audio Control",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "If any audio on a web page plays automatically for more than 3 seconds, either a mechanism is available to pause or stop the audio, or a mechanism is available to control audio volume independently from the overall system volume level.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-4-2"
+    },
+    {
+      "id": "010403",
+      "number": "1.4.3",
+      "title": "Contrast (Minimum)",
+      "level": "AA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "The visual presentation of text and images of text has a contrast ratio of at least 4.5:1, except for large text (3:1), incidental, or logotypes.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-4-3"
+    },
+    {
+      "id": "010404",
+      "number": "1.4.4",
+      "title": "Resize text",
+      "level": "AA",
+      "result": "failed",
+      "notes": "The text from the interface cannot be resized. ",
+      "issue": "https://github.com/edrlab/thorium-reader/issues/3293",
+      "issuelabel": "Make the interface scalable #3293",
+      "description": "Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-4-4"
+    },
+    {
+      "id": "010405",
+      "number": "1.4.5",
+      "title": "Images of Text",
+      "level": "AA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "If the technologies being used can achieve the visual presentation, text is used to convey information rather than images of text except for customizable or essential cases.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-4-5"
+    },
+    {
+      "id": "010406",
+      "number": "1.4.6",
+      "title": "Contrast (Enhanced)",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "The visual presentation of text and images of text has a contrast ratio of at least 7:1, except for large text (4.5:1), incidental, or logotypes.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-4-6"
+    },
+    {
+      "id": "010407",
+      "number": "1.4.7",
+      "title": "Low or No Background Audio",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "For prerecorded audio-only content that contains primarily speech in the foreground, is not an audio CAPTCHA or audio logo, and is not vocalization intended to be primarily musical expression such as singing or rapping, at least one of the following is true: no background, turn off, or 20 dB.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-4-7"
+    },
+    {
+      "id": "010408",
+      "number": "1.4.8",
+      "title": "Visual Presentation",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "For the visual presentation of blocks of text, a mechanism is available to achieve the following: foreground and background colors can be selected, width is no more than 80 characters or glyphs, text is not justified, line spacing is at least space-and-a-half within paragraphs, paragraph spacing is at least 1.5 times larger than line spacing, and text can be resized without assistive technology up to 200 percent.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-4-8"
+    },
+    {
+      "id": "010409",
+      "number": "1.4.9",
+      "title": "Images of Text (No Exception)",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "Images of text are only used for pure decoration or where a particular presentation of text is essential to the information being conveyed.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-4-9"
+    },
+    {
+      "id": "010410",
+      "number": "1.4.10",
+      "title": "Reflow",
+      "level": "AA",
+      "result": "failed",
+      "notes": "The text from the interface cannot be resized. ",
+      "issue": "https://github.com/edrlab/thorium-reader/issues/3293",
+      "issuelabel": "Make the interface scalable #3293",
+      "description": "Content can be presented without loss of information or functionality, and without requiring scrolling in two dimensions for vertical scrolling content at 320 CSS pixels width or horizontal scrolling content at 256 CSS pixels height.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-4-10"
+    },
+    {
+      "id": "010411",
+      "number": "1.4.11",
+      "title": "Non-text Contrast",
+      "level": "AA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "The visual presentation of user interface components and graphical objects has a contrast ratio of at least 3:1 against adjacent color(s).",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-4-11"
+    },
+    {
+      "id": "010412",
+      "number": "1.4.12",
+      "title": "Text Spacing",
+      "level": "AA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "In content implemented using markup languages that support the following text style properties, no loss of content or functionality occurs by setting line height to at least 1.5 times the font size, spacing following paragraphs to at least 2 times the font size, letter spacing to at least 0.12 times the font size, and word spacing to at least 0.16 times the font size.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-4-12"
+    },
+    {
+      "id": "010413",
+      "number": "1.4.13",
+      "title": "Content on Hover or Focus",
+      "level": "AA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden, the following are true: dismissible, hoverable, persistent.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/1-4-13"
+    },
+    {
+      "id": "020101",
+      "number": "2.1.1",
+      "title": "Keyboard",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes, except where the underlying function requires input that depends on the path of the user's movement and not just the endpoints.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-1-1"
+    },
+    {
+      "id": "020102",
+      "number": "2.1.2",
+      "title": "No Keyboard Trap",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "If keyboard focus can be moved to a component of the page using a keyboard interface, then focus can be moved away from that component using only a keyboard interface, and, if it requires more than unmodified arrow or tab keys or other standard exit methods, the user is advised of the method for moving focus away.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-1-2"
+    },
+    {
+      "id": "020103",
+      "number": "2.1.3",
+      "title": "Keyboard (No Exception)",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-1-3"
+    },
+    {
+      "id": "020104",
+      "number": "2.1.4",
+      "title": "Character Key Shortcuts",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "If a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters), punctuation, number, or symbol characters, then at least one of the following is true: turn off, remap, or active only on focus.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-1-4"
+    },
+    {
+      "id": "020201",
+      "number": "2.2.1",
+      "title": "Timing Adjustable",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "For each time limit that is set by the content, at least one of the following is true: turn off, adjust, extend, real-time exception, essential exception, or 20 hour exception.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-2-1"
+    },
+    {
+      "id": "020202",
+      "number": "2.2.2",
+      "title": "Pause, Stop, Hide",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "For moving, blinking, scrolling, or auto-updating information, a mechanism for the user to pause, stop, or hide it is available unless the movement is part of an activity where it is essential.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-2-2"
+    },
+    {
+      "id": "020203",
+      "number": "2.2.3",
+      "title": "No Timing",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "Timing is not an essential part of the event or activity presented by the content, except for non-interactive synchronized media and real-time events.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-2-3"
+    },
+    {
+      "id": "020204",
+      "number": "2.2.4",
+      "title": "Interruptions",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "Interruptions can be postponed or suppressed by the user, except interruptions involving an emergency.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-2-4"
+    },
+    {
+      "id": "020205",
+      "number": "2.2.5",
+      "title": "Re-authenticating",
+      "level": "AAA",
+      "result": "inapplicable",
+      "notes": "",
+      "issue": "",
+      "description": "When an authenticated session expires, the user can continue the activity without loss of data after re-authenticating.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-2-5"
+    },
+    {
+      "id": "020206",
+      "number": "2.2.6",
+      "title": "Timeouts",
+      "level": "AAA",
+      "result": "inapplicable",
+      "notes": "",
+      "issue": "",
+      "description": "Users are warned of the duration of any user inactivity that could cause data loss, unless the data is preserved for more than 20 hours when the user does not take any actions.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-2-6"
+    },
+    {
+      "id": "020301",
+      "number": "2.3.1",
+      "title": "Three Flashes or Below Threshold",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "Web pages do not contain anything that flashes more than three times in any one second period, or the flash is below the general flash and red flash thresholds.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-3-1"
+    },
+    {
+      "id": "020302",
+      "number": "2.3.2",
+      "title": "Three Flashes",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "Web pages do not contain anything that flashes more than three times in any one second period.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-3-2"
+    },
+    {
+      "id": "020303",
+      "number": "2.3.3",
+      "title": "Animation from Interactions",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "Motion animation triggered by interaction can be disabled, unless the animation is essential to the functionality or information being conveyed.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-3-3"
+    },
+    {
+      "id": "020401",
+      "number": "2.4.1",
+      "title": "Bypass Blocks",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "A mechanism is available to bypass blocks of content that are repeated on multiple web pages.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-4-1"
+    },
+    {
+      "id": "020402",
+      "number": "2.4.2",
+      "title": "Page Titled",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "Web pages have titles that describe topic or purpose.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-4-2"
+    },
+    {
+      "id": "020403",
+      "number": "2.4.3",
+      "title": "Focus Order",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "If a web page can be navigated sequentially and the navigation sequences affect meaning or operation, focusable components receive focus in an order that preserves meaning and operability.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-4-3"
+    },
+    {
+      "id": "020404",
+      "number": "2.4.4",
+      "title": "Link Purpose (In Context)",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "The purpose of each link can be determined from the link text alone or from the link text together with its programmatically determined link context, except where the purpose of the link would be ambiguous to users in general.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-4-4"
+    },
+    {
+      "id": "020405",
+      "number": "2.4.5",
+      "title": "Multiple Ways",
+      "level": "AA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "More than one way is available to locate a web page within a set of web pages except where the web page is the result of, or a step in, a process.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-4-5"
+    },
+    {
+      "id": "020406",
+      "number": "2.4.6",
+      "title": "Headings and Labels",
+      "level": "AA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "Headings and labels describe topic or purpose.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-4-6"
+    },
+    {
+      "id": "020407",
+      "number": "2.4.7",
+      "title": "Focus Visible",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-4-7"
+    },
+    {
+      "id": "020408",
+      "number": "2.4.8",
+      "title": "Location",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "Information about the user's location within a set of web pages is available.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-4-8"
+    },
+    {
+      "id": "020409",
+      "number": "2.4.9",
+      "title": "Link Purpose (Link Only)",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "A mechanism is available to allow the purpose of each link to be identified from link text alone, except where the purpose of the link would be ambiguous to users in general.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-4-9"
+    },
+    {
+      "id": "020410",
+      "number": "2.4.10",
+      "title": "Section Headings",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "Section headings are used to organize the content.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-4-10"
+    },
+    {
+      "id": "020411",
+      "number": "2.4.11",
+      "title": "Focus Not Obscured (Minimum)",
+      "level": "AA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "When a user interface component receives keyboard focus, the component is not entirely hidden behind author-created content.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-4-11"
+    },
+    {
+      "id": "020412",
+      "number": "2.4.12",
+      "title": "Focus Not Obscured (Enhanced)",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "When a user interface component receives keyboard focus, no part of the component is hidden behind author-created content.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-4-12"
+    },
+    {
+      "id": "020413",
+      "number": "2.4.13",
+      "title": "Focus Appearance",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "When the keyboard focus indicator is visible, an area of the focus indicator meets the following: is at least as large as the area of a 2 CSS pixel thick perimeter of the unfocused component or sub-component, and has a contrast ratio of at least 3:1 between the same pixels in the focused and unfocused states.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-4-13"
+    },
+    {
+      "id": "020501",
+      "number": "2.5.1",
+      "title": "Pointer Gestures",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "All functionality that uses multipoint or path-based gestures for operation can be operated with a single pointer without a path-based gesture, unless a multipoint or path-based gesture is essential.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-5-1"
+    },
+    {
+      "id": "020502",
+      "number": "2.5.2",
+      "title": "Pointer Cancellation",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "For functionality that can be operated using a single pointer, at least one of the following is true: no down-event, abort or undo, up reversal, or essential.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-5-2"
+    },
+    {
+      "id": "020503",
+      "number": "2.5.3",
+      "title": "Label in Name",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "For user interface components with labels that include text or images of text, the name contains the text that is presented visually.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-5-3"
+    },
+    {
+      "id": "020504",
+      "number": "2.5.4",
+      "title": "Motion Actuation",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-5-4"
+    },
+    {
+      "id": "020505",
+      "number": "2.5.5",
+      "title": "Target Size (Enhanced)",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "The size of the target for pointer inputs is at least 44 by 44 CSS pixels except when equivalent, inline, user agent control, or essential.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-5-5"
+    },
+    {
+      "id": "020506",
+      "number": "2.5.6",
+      "title": "Concurrent Input Mechanisms",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "Web content does not restrict use of input modalities available on a platform except where the restriction is essential, required to ensure the security of the content, or required to respect user settings.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-5-6"
+    },
+    {
+      "id": "020507",
+      "number": "2.5.7",
+      "title": "Dragging Movements",
+      "level": "AA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "All functionality that uses a dragging movement for operation can be achieved by a single pointer without dragging, unless dragging is essential or the functionality is determined by the user agent and not modified by the author.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-5-7"
+    },
+    {
+      "id": "020508",
+      "number": "2.5.8",
+      "title": "Target Size (Minimum)",
+      "level": "AA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "The size of the target for pointer inputs is at least 24 by 24 CSS pixels, except when spacing, equivalent, inline, user agent control, or essential.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/2-5-8"
+    },
+    {
+      "id": "030101",
+      "number": "3.1.1",
+      "title": "Language of Page",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "The default human language of each web page can be programmatically determined.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/3-1-1"
+    },
+    {
+      "id": "030102",
+      "number": "3.1.2",
+      "title": "Language of Parts",
+      "level": "AA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "The human language of each passage or phrase in the content can be programmatically determined except for proper names, technical terms, words of indeterminate language, and words or phrases that have become part of the vernacular of the immediately surrounding text.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/3-1-2"
+    },
+    {
+      "id": "030103",
+      "number": "3.1.3",
+      "title": "Unusual Words",
+      "level": "AAA",
+      "result": "failed",
+      "notes": "There is an ongoing discussion about Dictionary Integration in Thorium Reader",
+      "issue": "https://github.com/edrlab/thorium-reader/discussions/1751",
+      "issuelabel": "Dictionary Integration #1751",
+      "description": "A mechanism is available for identifying specific definitions of words or phrases used in an unusual or restricted way, including idioms and jargon.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/3-1-3"
+    },
+    {
+      "id": "030104",
+      "number": "3.1.4",
+      "title": "Abbreviations",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "If the abbr tag is present in a puiblication, it will be rendered as a tooltip and made available to assistive technologies.",
+      "issue": "",
+      "description": "A mechanism for identifying the expanded form or meaning of abbreviations is available.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/3-1-4"
+    },
+    {
+      "id": "030105",
+      "number": "3.1.5",
+      "title": "Reading Level",
+      "level": "AAA",
+      "result": "inapplicable",
+      "notes": "",
+      "issue": "",
+      "description": "When text requires reading ability more advanced than the lower secondary education level after removal of proper names and titles, supplemental content, or a version that does not require reading ability more advanced than the lower secondary education level, is available.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/3-1-5"
+    },
+    {
+      "id": "030106",
+      "number": "3.1.6",
+      "title": "Pronunciation",
+      "level": "AAA",
+      "result": "inapplicable",
+      "notes": "",
+      "issue": "",
+      "description": "A mechanism is available for identifying specific pronunciation of words where meaning of the words, in context, is ambiguous without knowing the pronunciation.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/3-1-6"
+    },
+    {
+      "id": "030201",
+      "number": "3.2.1",
+      "title": "On Focus",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "When any user interface component receives focus, it does not initiate a change of context.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/3-2-1"
+    },
+    {
+      "id": "030202",
+      "number": "3.2.2",
+      "title": "On Input",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "Changing the setting of any user interface component does not automatically cause a change of context unless the user has been advised of the behavior before using the component.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/3-2-2"
+    },
+    {
+      "id": "030203",
+      "number": "3.2.3",
+      "title": "Consistent Navigation",
+      "level": "AA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "Navigational mechanisms that are repeated on multiple web pages within a set of web pages occur in the same relative order each time they are repeated, unless a change is initiated by the user.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/3-2-3"
+    },
+    {
+      "id": "030204",
+      "number": "3.2.4",
+      "title": "Consistent Identification",
+      "level": "AA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "Components that have the same functionality within a set of web pages are identified consistently.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/3-2-4"
+    },
+    {
+      "id": "030205",
+      "number": "3.2.5",
+      "title": "Change on Request",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "Changes of context are initiated only by user request or a mechanism is available to turn off such changes.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/3-2-5"
+    },
+    {
+      "id": "030206",
+      "number": "3.2.6",
+      "title": "Consistent Help",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "If a web page contains any help mechanisms, and those mechanisms are repeated on multiple web pages within a set of web pages, they occur in the same order relative to other page content, unless a change is initiated by the user.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/3-2-6"
+    },
+    {
+      "id": "030301",
+      "number": "3.3.1",
+      "title": "Error Identification",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "If an input error is automatically detected, the item that is in error is identified and the error is described to the user in text.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/3-3-1"
+    },
+    {
+      "id": "030302",
+      "number": "3.3.2",
+      "title": "Labels or Instructions",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "Labels or instructions are provided when content requires user input.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/3-3-2"
+    },
+    {
+      "id": "030303",
+      "number": "3.3.3",
+      "title": "Error Suggestion",
+      "level": "AA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "If an input error is automatically detected and suggestions for correction are known, then the suggestions are provided to the user, unless it would jeopardize the security or purpose of the content.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/3-3-3"
+    },
+    {
+      "id": "030304",
+      "number": "3.3.4",
+      "title": "Error Prevention (Legal, Financial, Data)",
+      "level": "AA",
+      "result": "inapplicable",
+      "notes": "",
+      "issue": "",
+      "description": "For web pages that cause legal commitments or financial transactions for the user to occur, that modify or delete user-controllable data in data storage systems, or that submit user test responses, at least one of the following is true: reversible, checked, or confirmed.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/3-3-4"
+    },
+    {
+      "id": "030305",
+      "number": "3.3.5",
+      "title": "Help",
+      "level": "AAA",
+      "result": "inapplicable",
+      "notes": "",
+      "issue": "",
+      "description": "Context-sensitive help is available.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/3-3-5"
+    },
+    {
+      "id": "030306",
+      "number": "3.3.6",
+      "title": "Error Prevention (All)",
+      "level": "AAA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "For web pages that require the user to submit information, at least one of the following is true: reversible, checked, or confirmed.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/3-3-6"
+    },
+    {
+      "id": "030307",
+      "number": "3.3.7",
+      "title": "Redundant Entry",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "Information previously entered by or provided to the user that is required to be entered again in the same process is either auto-populated, or available for the user to select.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/3-3-7"
+    },
+    {
+      "id": "030308",
+      "number": "3.3.8",
+      "title": "Accessible Authentication",
+      "level": "AA",
+      "result": "inapplicable",
+      "notes": "",
+      "issue": "",
+      "description": "A cognitive function test is not required for any step in an authentication process unless that step provides at least one of the following: alternative, mechanism, object recognition, or personal content.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/3-3-8"
+    },
+    {
+      "id": "030309",
+      "number": "3.3.9",
+      "title": "Accessible Authentication (No Exception)",
+      "level": "AAA",
+      "result": "inapplicable",
+      "notes": "",
+      "issue": "",
+      "description": "A cognitive function test is not required for any step in an authentication process unless that step provides at least one of the following: alternative or mechanism.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/3-3-9"
+    },
+    {
+      "id": "040101",
+      "number": "4.1.1",
+      "title": "Parsing",
+      "level": "A",
+      "result": "inapplicable",
+      "notes": "",
+      "issue": "",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/4-1-1"
+    },
+    {
+      "id": "040102",
+      "number": "4.1.2",
+      "title": "Name, Role, Value",
+      "level": "A",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "For all user interface components, the name and role can be programmatically determined; states, properties, and values that can be set by the user can be programmatically set; and notification of changes to these items is available to user agents, including assistive technologies.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/4-1-2"
+    },
+    {
+      "id": "040103",
+      "number": "4.1.3",
+      "title": "Status Messages",
+      "level": "AA",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "description": "In content implemented using markup languages, status messages can be programmatically determined through role or properties such that they can be presented to the user by assistive technologies without receiving focus.",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/4-1-3"
+    }
+  ],
+  "epub": [
+    {
+      "id": "disc-1",
+      "number": "2.2",
+      "title": "Discoverability: accessModeSufficient",
+      "description": "EPUB publications MUST include accessModeSufficient metadata indicating one or more access modes sufficient to consume content without significant loss of information.",
+      "url": "https://www.w3.org/TR/epub-a11y-12/",
+      "result": "passed",
+      "notes": "",
+      "issue": ""
+    },
+    {
+      "id": "disc-2",
+      "number": "2.2",
+      "title": "Discoverability: accessibilityFeature",
+      "description": "EPUB publications MUST include accessibilityFeature metadata listing features and adaptations that contribute to accessibility (e.g., alternative text, extended descriptions, captions).",
+      "url": "https://www.w3.org/TR/epub-a11y-12/",
+      "result": "passed",
+      "notes": "",
+      "issue": ""
+    },
+    {
+      "id": "disc-3",
+      "number": "2.2",
+      "title": "Discoverability: accessibilityHazard",
+      "description": "EPUB publications MUST include accessibilityHazard metadata identifying any potential hazards such as flashing, motion simulation, or sound.",
+      "url": "https://www.w3.org/TR/epub-a11y-12/",
+      "result": "passed",
+      "notes": "",
+      "issue": ""
+    },
+    {
+      "id": "disc-4",
+      "number": "2.2",
+      "title": "Discoverability: accessMode",
+      "description": "EPUB publications SHOULD include accessMode metadata specifying sensory perceptual systems required to process content (textual, visual, auditory, tactile).",
+      "url": "https://www.w3.org/TR/epub-a11y-12/",
+      "result": "passed",
+      "notes": "",
+      "issue": ""
+    },
+    {
+      "id": "disc-5",
+      "number": "2.2",
+      "title": "Discoverability: accessibilitySummary",
+      "description": "EPUB publications SHOULD include accessibilitySummary metadata providing human-readable summary of accessibility complementing other metadata.",
+      "url": "https://www.w3.org/TR/epub-a11y-12/",
+      "result": "passed",
+      "notes": "",
+      "issue": ""
+    },
+    {
+      "id": "wcag-1",
+      "number": "3.3.1",
+      "title": "WCAG Conformance: Minimum Level",
+      "description": "EPUB publications MUST meet the requirements of WCAG 2.0 Level A at minimum, though WCAG 2.2 Level AA is strongly recommended.",
+      "url": "https://www.w3.org/TR/epub-a11y-12/",
+      "result": "passed",
+      "notes": "",
+      "issue": ""
+    },
+    {
+      "id": "page-1",
+      "number": "3.4.1.3.1",
+      "title": "Page Navigation: Pagination Source",
+      "description": "When EPUB includes page navigation, the source of static page break locations must be identified with recognizable identifier such as ISBN or ISSN.",
+      "url": "https://www.w3.org/TR/epub-a11y-12/",
+      "result": "passed",
+      "notes": "",
+      "issue": ""
+    },
+    {
+      "id": "page-2",
+      "number": "3.4.1.3.2",
+      "title": "Page Navigation: Page List",
+      "description": "EPUB publications with page navigation MUST include a page list providing navigation to static page break locations.",
+      "url": "https://www.w3.org/TR/epub-a11y-12/",
+      "result": "passed",
+      "notes": "",
+      "issue": ""
+    },
+    {
+      "id": "page-3",
+      "number": "3.4.1.3.3",
+      "title": "Page Navigation: Page Breaks",
+      "description": "EPUB publications with page navigation SHOULD include page break markers identifying all pages reproduced from the source.",
+      "url": "https://www.w3.org/TR/epub-a11y-12/",
+      "result": "passed",
+      "notes": "",
+      "issue": ""
+    },
+    {
+      "id": "sync-1",
+      "number": "3.4.2.3.1",
+      "title": "Synchronized Text-Audio: Completeness",
+      "description": "EPUB with synchronized text-audio playback MUST include audio playback for all visible textual content and textual alternatives for visual media.",
+      "url": "https://www.w3.org/TR/epub-a11y-12/",
+      "result": "passed",
+      "notes": "",
+      "issue": ""
+    },
+    {
+      "id": "sync-2",
+      "number": "3.4.2.3.2",
+      "title": "Synchronized Text-Audio: Reading Order",
+      "description": "Synchronized text-audio playback instructions SHOULD reflect spine order of documents and element order within documents, or result in logical playback.",
+      "url": "https://www.w3.org/TR/epub-a11y-12/",
+      "result": "passed",
+      "notes": "",
+      "issue": ""
+    },
+    {
+      "id": "sync-3",
+      "number": "3.4.2.3.3",
+      "title": "Synchronized Text-Audio: Skippability",
+      "description": "Synchronized text-audio playback instructions SHOULD identify all skippable structures enabling users to skip secondary content.",
+      "url": "https://www.w3.org/TR/epub-a11y-12/",
+      "result": "passed",
+      "notes": "",
+      "issue": ""
+    },
+    {
+      "id": "sync-4",
+      "number": "3.4.2.3.4",
+      "title": "Synchronized Text-Audio: Escapability",
+      "description": "Synchronized text-audio playback instructions SHOULD identify all escapable structures enabling users to exit from structured content.",
+      "url": "https://www.w3.org/TR/epub-a11y-12/",
+      "result": "passed",
+      "notes": "",
+      "issue": ""
+    },
+    {
+      "id": "sync-5",
+      "number": "3.4.2.3.5",
+      "title": "Synchronized Text-Audio: Navigation Document",
+      "description": "EPUB with synchronized text-audio playback SHOULD include synchronized playback for the EPUB navigation document.",
+      "url": "https://www.w3.org/TR/epub-a11y-12/",
+      "result": "passed",
+      "notes": "",
+      "issue": ""
+    },
+    {
+      "id": "conf-1",
+      "number": "3.5.2",
+      "title": "Conformance Reporting: Publication Conformance",
+      "description": "EPUB publications MUST specify conformance using dcterms:conformsTo property in format: 'EPUB Accessibility 1.2 - WCAG [VERSION] Level [LEVEL]'.",
+      "url": "https://www.w3.org/TR/epub-a11y-12/",
+      "result": "passed",
+      "notes": "",
+      "issue": ""
+    },
+    {
+      "id": "conf-2",
+      "number": "3.5.3.1",
+      "title": "Conformance Reporting: Evaluator Name",
+      "description": "Package document metadata MUST include a11y:certifiedBy property specifying name of party that evaluated the EPUB publication.",
+      "url": "https://www.w3.org/TR/epub-a11y-12/",
+      "result": "passed",
+      "notes": "",
+      "issue": ""
+    },
+    {
+      "id": "conf-3",
+      "number": "3.5.3.2",
+      "title": "Conformance Reporting: Evaluation Date",
+      "description": "If evaluation date is known, include dcterms:date property conforming to ISO 8601 format associated with evaluator information.",
+      "url": "https://www.w3.org/TR/epub-a11y-12/",
+      "result": "passed",
+      "notes": "",
+      "issue": ""
+    },
+    {
+      "id": "conf-4",
+      "number": "3.5.3.3",
+      "title": "Conformance Reporting: Evaluator Credentials",
+      "description": "If evaluator has credentials, include a11y:certifierCredential properties associated with evaluator information.",
+      "url": "https://www.w3.org/TR/epub-a11y-12/",
+      "result": "passed",
+      "notes": "",
+      "issue": ""
+    },
+    {
+      "id": "conf-5",
+      "number": "3.5.3.4",
+      "title": "Conformance Reporting: Evaluator Report",
+      "description": "If evaluator provides public assessment report, provide link using a11y:certifierReport property associated with evaluator information.",
+      "url": "https://www.w3.org/TR/epub-a11y-12/",
+      "result": "passed",
+      "notes": "",
+      "issue": ""
+    },
+    {
+      "id": "feedback",
+      "number": "3.7",
+      "title": "Accessibility Feedback",
+      "description": "EPUB publications MAY include accessibility contact email using a11y:contactEmail property for users to report issues.",
+      "url": "https://www.w3.org/TR/epub-a11y-12/",
+      "result": "passed",
+      "notes": "",
+      "issue": ""
+    }
+  ],
+  "daisyURS": [
+    {
+      "id": "daisy-3.1",
+      "number": "3.1",
+      "title": "Navigation: Forward and Backward",
+      "description": "User must have straightforward way to navigate forward and backward through content (text or audio-based).",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-have-a-straightforward-way-to-navigate-forward-and-backward-through-the-content",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-3.2",
+      "number": "3.2",
+      "title": "Navigation: Table of Contents",
+      "description": "User must be able to navigate publication using Table of Contents with focus matching current reading position, supporting hierarchical/nested structures.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-navigate-the-publication-using-the-table-of-contents",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-3.3",
+      "number": "3.3",
+      "title": "Navigation: By Pages",
+      "description": "User must have way to navigate content by page numbers; may include pseudo-pages for publications without page markup.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-have-a-way-to-navigate-the-content-by-pages",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-3.4",
+      "number": "3.4",
+      "title": "Navigation: Audio Location",
+      "description": "User must have way to go to specific location in audio-based content via time, percentage, or other approach.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-have-a-way-to-go-to-a-specific-location-in-audio-based-content",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-3.5",
+      "number": "3.5",
+      "title": "Navigation: Return to Last Location",
+      "description": "User must be able to return to last reading location when reopening publication; automatic saving required.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-return-to-the-last-location-the-next-time-they-open-the-publication",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-3.6",
+      "number": "3.6",
+      "title": "Navigation: Determine Current Location",
+      "description": "User must be able to determine current position in content; minimum information is percentage progress.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-determine-their-location-in-the-content",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-3.7",
+      "number": "3.7",
+      "title": "Navigation: Return to Previous Location",
+      "description": "User must be able to go back to previous location in content.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-go-back-to-a-previous-location-in-the-content",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-4.1",
+      "number": "4.1",
+      "title": "Screen Reader: User Interface",
+      "description": "User must be able to use screen reader in user interface; all components must provide semantic labels and roles per WCAG 2.1 and ARIA.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-use-their-screen-reader-in-the-user-interface",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-4.2",
+      "number": "4.2",
+      "title": "Screen Reader: Navigation",
+      "description": "Screen reader users must be able to navigate through content by headings, block items, lines, words and characters.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#screen-reader-assistive-technology-users-must-be-able-to-navigate-through-content-by-headings-block-items-lines-words-and-characters",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-4.3",
+      "number": "4.3",
+      "title": "Screen Reader: Continuous Reading",
+      "description": "Screen reader users must be able to read continuously from current position, pause, and resume from paused location.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#screen-reader-users-must-be-able-to-read-continuously-from-the-current-position-and-be-able-to-pause-then-resume-reading-from-the-paused-reading-location",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-4.4",
+      "number": "4.4",
+      "title": "Screen Reader: Semantic Markup",
+      "description": "User must be able to leverage screen reader's ability to interpret semantic markup; headings, lists, tables, images must be exposed.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-take-advantage-of-their-screen-reader-s-ability-to-leverage-semantic-markup-in-the-content",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-4.5",
+      "number": "4.5",
+      "title": "Screen Reader: Scrolling Mode",
+      "description": "User must be able to use screen reader in scrolling mode.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-use-their-screen-reader-in-a-scrolling-mode",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-4.6",
+      "number": "4.6",
+      "title": "Screen Reader: Internal Hyperlinks",
+      "description": "Screen reader users must be able to navigate confidently between internal hyperlinks and read from new navigation position.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#screen-reader-users-must-be-able-to-navigate-confidently-between-internal-hyperlinks",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-4.7",
+      "number": "4.7",
+      "title": "Screen Reader: Actionable Content",
+      "description": "Screen reader users must be able to activate actionable content such as links, buttons, expandable elements.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#screen-reader-users-must-be-able-to-activate-actionable-content",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-4.8",
+      "number": "4.8",
+      "title": "Screen Reader: Footnotes/Endnotes",
+      "description": "Screen reader users must be able to detect footnote references, reach footnote content, read it, and return to original position.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#screen-reader-users-must-be-able-to-use-footnotes-and-endnotes",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-4.9",
+      "number": "4.9",
+      "title": "Screen Reader: Additional Navigation",
+      "description": "User could use additional navigation features provided by reading app such as navigation by heading, landmarks, tables, figures, math.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-could-use-additional-navigation-features-of-the-reading-app",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "could-have"
+    },
+    {
+      "id": "daisy-5.1",
+      "number": "5.1",
+      "title": "Read Aloud: Text-to-Speech",
+      "description": "User must be able to listen to text-based content using text-to-speech; seamless transition between embedded audio, TTS, and screen reader.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-listen-to-text-based-content-using-text-to-speech",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-5.2",
+      "number": "5.2",
+      "title": "Read Aloud: Starting Position",
+      "description": "User must control starting position of read aloud; starting from screen reader position, indicated position, or reading position.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-control-the-starting-position-of-the-read-aloud",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-5.3",
+      "number": "5.3",
+      "title": "Read Aloud: Selected Content",
+      "description": "User must be able to select text (word, phrase, sentence, paragraph) and have it read aloud.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-read-aloud-selected-parts-of-the-content",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-5.4",
+      "number": "5.4",
+      "title": "Read Aloud: Continuous Reading",
+      "description": "User must listen to read aloud without manually advancing; continuous until end or user interruption.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-listen-to-the-read-aloud-without-having-to-manually-advance-to-subsequent-pages-or-chapters",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-5.5",
+      "number": "5.5",
+      "title": "Read Aloud: Logical Reading Order",
+      "description": "Read aloud must follow logical reading order of content rather than visual layout.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-have-the-content-read-aloud-in-the-logical-reading-order",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-5.6",
+      "number": "5.6",
+      "title": "Read Aloud: Appropriate Pauses",
+      "description": "Read aloud must use appropriate pauses after headings, paragraphs, list items rather than continuous reading.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-of-read-aloud-must-hear-appropriate-pauses-after-headings-paragraphs-list-items-etc",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-5.7",
+      "number": "5.7",
+      "title": "Read Aloud: View Text",
+      "description": "User must see text being read aloud with automatic display updates; text highlighted may move to different part while read aloud continues.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-view-the-text-being-read-aloud",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-5.8",
+      "number": "5.8",
+      "title": "Read Aloud: Visual Emphasis",
+      "description": "User must be able to visually emphasize text being read aloud and turn feature off.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-visually-emphasize-the-text-being-read-aloud-and-be-able-to-turn-this-feature-off",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-5.9",
+      "number": "5.9",
+      "title": "Read Aloud: Emphasis Customization",
+      "description": "User must be able to change color or style of visual emphasis; could adjust number of words highlighted.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-change-the-color-or-style-of-the-visual-emphasis",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-5.10",
+      "number": "5.10",
+      "title": "Read Aloud: Language",
+      "description": "User must hear read aloud in correct language when reading content with language tags; could override language switching.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-of-read-aloud-must-hear-content-in-the-correct-language",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-5.11",
+      "number": "5.11",
+      "title": "Read Aloud: Playback Speed",
+      "description": "User must control playback speed of read aloud; speed adjustments maintain natural pitch and pronunciation.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-control-the-rate-of-the-read-aloud",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-5.12",
+      "number": "5.12",
+      "title": "Read Aloud: Voice Control",
+      "description": "User must be able to control voice of read aloud.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-control-the-voice-of-the-read-aloud",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-5.13",
+      "number": "5.13",
+      "title": "Read Aloud: Image Alt Text",
+      "description": "User must be able to listen to image alt text included in read aloud.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-listen-to-image-alt-text",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-5.14",
+      "number": "5.14",
+      "title": "Read Aloud: Math Content",
+      "description": "User must be able to listen to math content when using read aloud.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-listen-to-math-content-when-using-read-aloud",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-5.15",
+      "number": "5.15",
+      "title": "Read Aloud: Locked Device",
+      "description": "User must be able to lock mobile device and use read aloud.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-lock-their-mobile-device-and-use-read-aloud",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-5.16",
+      "number": "5.16",
+      "title": "Read Aloud: Media Controls",
+      "description": "User must control read-aloud playback using device media controls (play, pause, skip, stop).",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-control-read-aloud-playback-using-the-device-s-media-controls",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-5.17",
+      "number": "5.17",
+      "title": "Read Aloud: Tables",
+      "description": "User must use read aloud with tables; must read left to right, top to bottom.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-use-read-aloud-with-tables",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-5.18",
+      "number": "5.18",
+      "title": "Read Aloud: Expandable Content",
+      "description": "User must use read aloud with expandable/collapsible content; expanded content read, collapsed not read.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-use-read-aloud-with-expandable-collapsible-content",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-5.19",
+      "number": "5.19",
+      "title": "Read Aloud: Escape Structures",
+      "description": "User must escape from certain structures when using read aloud and continue from following item.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-escape-from-certain-structures-when-using-read-aloud",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-5.20",
+      "number": "5.20",
+      "title": "Read Aloud: Skip Content",
+      "description": "User must configure app to not announce skippable elements.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-decide-that-the-read-aloud-should-skip-over-certain-content",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-5.21",
+      "number": "5.21",
+      "title": "Read Aloud: Reading Modes",
+      "description": "User could choose from range of read aloud modes such as word, sentence, paragraph, page, chapter.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-could-be-able-to-choose-from-a-range-of-read-aloud-modes",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "could-have"
+    },
+    {
+      "id": "daisy-5.22",
+      "number": "5.22",
+      "title": "Read Aloud: Pause Length",
+      "description": "User could adjust pause length between content blocks during read aloud.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-could-be-able-to-adjust-read-aloud-to-change-the-pause-length-between-content-blocks",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "could-have"
+    },
+    {
+      "id": "daisy-5.23",
+      "number": "5.23",
+      "title": "Read Aloud: Semantic Expressiveness",
+      "description": "User could choose to have semantic expressiveness for read aloud.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-could-be-able-to-choose-to-have-semantic-expressiveness-for-read-aloud",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "could-have"
+    },
+    {
+      "id": "daisy-6.1",
+      "number": "6.1",
+      "title": "Embedded Audio: Playback",
+      "description": "User must access and play pre-recorded audio; seamless transition between embedded audio, TTS read aloud, and screen reader.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-access-and-play-pre-recorded-audio-human-narrated-or-pre-recorded-tts",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-6.2",
+      "number": "6.2",
+      "title": "Embedded Audio: Starting Position",
+      "description": "User must control starting position of embedded audio via time, percentage, or other approach.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-control-the-starting-position-of-the-embedded-audio",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-6.3",
+      "number": "6.3",
+      "title": "Embedded Audio: Continuous Playback",
+      "description": "User must listen to embedded audio without manually advancing; continuous playback with optional sleep timer.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-listen-to-the-embedded-audio-without-having-to-manually-advance-to-subsequent-pages-or-chapters",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-6.4",
+      "number": "6.4",
+      "title": "Embedded Audio: Logical Reading Order",
+      "description": "User must listen to embedded audio in correct logical reading order matching publication structure.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-listen-to-embedded-audio-content-in-the-correct-logical-reading-order-matching-the-intended-structure-of-the-publication",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-6.5",
+      "number": "6.5",
+      "title": "Embedded Audio: Synchronized Text",
+      "description": "User must view corresponding text while listening to embedded audio if synchronized text available.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-view-the-corresponding-text-while-listening-to-embedded-audio-if-synchronized-text-is-available",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-6.6",
+      "number": "6.6",
+      "title": "Embedded Audio: Visual Emphasis Toggle",
+      "description": "User must enable or disable visual emphasis of synchronized text during embedded audio playback.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-enable-or-disable-visual-emphasis-of-synchronized-text-during-embedded-audio-playback-if-synchronized-text-is-available",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-6.7",
+      "number": "6.7",
+      "title": "Embedded Audio: Emphasis Customization",
+      "description": "User must customize color and style of visual emphasis; could adjust number of words highlighted.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-customize-the-color-and-style-of-the-visual-emphasis-applied-to-synchronized-text-during-embedded-audio-playback-if-synchronized-text-is-available",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-6.8",
+      "number": "6.8",
+      "title": "Embedded Audio: Playback Speed",
+      "description": "User must adjust playback speed without distortion; speed adjustments maintain natural pitch and pronunciation.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-adjust-the-playback-speed-of-embedded-audio-without-distortion-of-pitch-or-pronunciation",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-6.9",
+      "number": "6.9",
+      "title": "Embedded Audio: Alt Text",
+      "description": "User must listen to alt texts included in embedded audio and skip if supported.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-listen-to-alt-texts-included-in-embedded-audio-and-must-be-able-to-disable-or-skip-them-if-supported-by-the-publication",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-6.10",
+      "number": "6.10",
+      "title": "Embedded Audio: Math Content",
+      "description": "User must listen to math content included in embedded audio if present.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-listen-to-math-content-included-in-embedded-audio-if-present-in-the-publication",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-6.11",
+      "number": "6.11",
+      "title": "Embedded Audio: Locked Device",
+      "description": "User must lock mobile device and continue listening to embedded audio.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-lock-their-mobile-device-and-continue-listening-to-embedded-audio",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-6.12",
+      "number": "6.12",
+      "title": "Embedded Audio: Device Controls",
+      "description": "User must control embedded audio playback using device-level media controls.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-control-embedded-audio-playback-using-device-level-media-controls",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-6.13",
+      "number": "6.13",
+      "title": "Embedded Audio: Table Structure",
+      "description": "User must listen to embedded audio that conveys structure and content of tables.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-listen-to-embedded-audio-that-accurately-conveys-the-structure-and-content-of-tables",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-6.14",
+      "number": "6.14",
+      "title": "Embedded Audio: Expandable Content",
+      "description": "User must listen to embedded audio reflecting current state of expandable content; only expanded content plays.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-listen-to-embedded-audio-that-reflects-the-current-state-of-expandable-or-collapsible-content-playing-only-content-that-is-expanded",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-6.15",
+      "number": "6.15",
+      "title": "Embedded Audio: Escape Structures",
+      "description": "User can escape from defined structures during embedded audio playback and resume from following item.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-escape-from-defined-structures-during-embedded-audio-playback-and-resume-listening-from-the-item-that-follows",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-6.16",
+      "number": "6.16",
+      "title": "Embedded Audio: Skip Content",
+      "description": "User must configure embedded audio playback to skip content marked as skippable.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-configure-embedded-audio-playback-to-skip-content-marked-as-skippable",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-6.17",
+      "number": "6.17",
+      "title": "Embedded Audio: Selected Portion",
+      "description": "User could play embedded audio for selected portion of text if content is synchronized.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-could-be-able-to-play-embedded-audio-for-a-selected-portion-of-the-text-if-the-content-is-synchronized",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "could-have"
+    },
+    {
+      "id": "daisy-6.18",
+      "number": "6.18",
+      "title": "Embedded Audio: Playback Modes",
+      "description": "User could choose different playback modes for embedded audio including non-continuous playback.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-could-be-able-to-choose-from-different-playback-modes-for-embedded-audio-including-non-continuous-playback-based-on-content-units-if-supported-by-the-publication",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "could-have"
+    },
+    {
+      "id": "daisy-6.19",
+      "number": "6.19",
+      "title": "Embedded Audio: Pause Length",
+      "description": "User could adjust pause length between content blocks during embedded audio playback.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-could-be-able-to-adjust-the-pause-length-between-content-blocks-during-embedded-audio-playback-if-supported-by-the-publication",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "could-have"
+    },
+    {
+      "id": "daisy-7.1",
+      "number": "7.1",
+      "title": "Visual: Typeface",
+      "description": "User must change typeface of all text, choosing from sans serif and serif fonts.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-change-the-typeface",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-7.2",
+      "number": "7.2",
+      "title": "Visual: Line Spacing",
+      "description": "User must be able to control line spacing of text.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-change-the-font-weight",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-7.3",
+      "number": "7.3",
+      "title": "Visual: Letter Spacing",
+      "description": "User must be able to control letter spacing.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-change-the-text-size",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-7.4",
+      "number": "7.4",
+      "title": "Visual: Text Justification",
+      "description": "User must turn off justification and center alignment of blocks of text.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-change-the-line-spacing-word-spacing-and-letter-spacing",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-7.5",
+      "number": "7.5",
+      "title": "Visual: Font Size",
+      "description": "User must be able to change font size.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-turn-off-justification-and-center-alignment-of-blocks-of-text",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-7.6",
+      "number": "7.6",
+      "title": "Visual: Margins and Line Length",
+      "description": "User must change margins and adjust line length for blocks of text.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-change-the-margins-and-adjust-the-line-length-for-blocks-of-text",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-7.7",
+      "number": "7.7",
+      "title": "Visual: Scrolling View",
+      "description": "User must view reflowable content in scrolling view.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-view-the-content-in-a-scrolling-view",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-7.8",
+      "number": "7.8",
+      "title": "Visual: Platform Features",
+      "description": "User must use app with high contrast and magnification features of operating system platform.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-enlarge-images",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-7.9",
+      "number": "7.9",
+      "title": "Visual: Math Expressions",
+      "description": "User must adjust size and color of math expressions by adjusting text's font size and color.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-adjust-the-size-and-color-of-math-expressions-by-adjusting-the-text-s-font-size-and-color",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-7.10",
+      "number": "7.10",
+      "title": "Visual: Background and Foreground Colors",
+      "description": "User must personalize background and foreground colors.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-personalize-the-background-and-foreground-colors",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-7.11",
+      "number": "7.11",
+      "title": "Visual: Brightness",
+      "description": "User must change display brightness.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-use-the-app-with-the-high-contrast-and-magnification-features-of-the-operating-system-platform",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-7.12",
+      "number": "7.12",
+      "title": "Visual: Hide Content",
+      "description": "User must visually hide certain content such as page breaks and footnotes.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-change-the-display-brightness",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-7.13",
+      "number": "7.13",
+      "title": "Visual: Text Styling",
+      "description": "User should remove visual text styling (underline, italic, bold).",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-visually-hide-certain-content",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-7.14",
+      "number": "7.14",
+      "title": "Visual: Reading Emphasis",
+      "description": "User should visually emphasize text being read using highlight, ruler lines, or other means.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-should-be-able-to-remove-the-visual-text-styling-underline-italic-bold",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "should-have"
+    },
+    {
+      "id": "daisy-7.15",
+      "number": "7.15",
+      "title": "Visual: Math Enlargement",
+      "description": "User should enlarge math expressions for closer inspection.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-should-be-able-to-visually-emphasize-the-text-being-read-using-a-contrasting-highlight-ruler-lines-deemphasizing-the-surrounding-text-or-other-means",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "should-have"
+    },
+    {
+      "id": "daisy-7.16",
+      "number": "7.16",
+      "title": "Visual: Capitalization",
+      "description": "User could change capitalization of text to sentence style.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-should-be-able-to-enlarge-math-expressions-for-closer-inspection",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "should-have"
+    },
+    {
+      "id": "daisy-7.17",
+      "number": "7.17",
+      "title": "Visual: Pagination",
+      "description": "User could view content in paginated view.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-could-be-able-to-change-the-capitalization-of-text-to-sentence-style",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "could-have"
+    },
+    {
+      "id": "daisy-7.18",
+      "number": "7.18",
+      "title": "Visual: Math Color",
+      "description": "User could display mathematical expressions without color formatting using consistent text color.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-could-be-able-to-view-the-content-in-a-paginated-view",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "could-have"
+    },
+    {
+      "id": "daisy-7.19",
+      "number": "7.19",
+      "title": "Visual: Additional Features",
+      "description": "Additional visual adjustment features provided by reading app.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-could-be-able-to-display-mathematical-expressions-without-color-formatting-using-a-consistent-text-color-instead",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "could-have"
+    },
+    {
+      "id": "daisy-8.1",
+      "number": "8.1",
+      "title": "Bookmarking: Create",
+      "description": "User must create bookmarks at arbitrary positions within content.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-create-bookmarks",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-8.2",
+      "number": "8.2",
+      "title": "Bookmarking: Delete",
+      "description": "User must delete bookmarks individually; could delete all bookmarks at once.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-delete-bookmarks",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-8.3",
+      "number": "8.3",
+      "title": "Bookmarking: Overview",
+      "description": "User must view overview of all bookmarks sorted by appearance order and navigate from there.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-view-an-overview-of-all-bookmarks-and-navigate-from-there",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-8.4",
+      "number": "8.4",
+      "title": "Bookmarking: Identify",
+      "description": "User must identify each bookmark via meaningful system-generated title; should be editable or taggable.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-identify-each-bookmark",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-8.5",
+      "number": "8.5",
+      "title": "Bookmarking: Auto-Save",
+      "description": "User bookmarks must be saved automatically including during offline use.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-save-bookmarks-automatically-including-during-offline-use",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-9.1",
+      "number": "9.1",
+      "title": "Highlighting: Create",
+      "description": "User must create, review, edit and delete highlights.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-create-review-edit-and-delete-highlights",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-9.2",
+      "number": "9.2",
+      "title": "Highlighting: Distinguish",
+      "description": "User must distinguish highlights.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-distinguish-the-highlights",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-9.3",
+      "number": "9.3",
+      "title": "Highlighting: Hide",
+      "description": "User should hide highlights.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-should-be-able-to-hide-highlights",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-9.4",
+      "number": "9.4",
+      "title": "Highlighting: Change",
+      "description": "User must change color or category of highlights.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-change-the-color-or-category-of-highlights",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-9.5",
+      "number": "9.5",
+      "title": "Highlighting: Navigate",
+      "description": "User should navigate from highlight to highlight.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-should-be-able-to-navigate-from-highlight-to-highlight",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "should-have"
+    },
+    {
+      "id": "daisy-9.6",
+      "number": "9.6",
+      "title": "Highlighting: Auto-Save",
+      "description": "User highlights must be saved automatically including during offline use.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-save-highlights-automatically-including-during-offline-use",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-9.7",
+      "number": "9.7",
+      "title": "Highlighting: Export",
+      "description": "User should export highlighted sections.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-should-be-able-to-export-highlighted-sections",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "should-have"
+    },
+    {
+      "id": "daisy-10.1",
+      "number": "10.1",
+      "title": "Notes: Create",
+      "description": "User must create, review, edit and delete notes during reading.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-create-review-edit-and-delete-notes-during-reading",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-10.2",
+      "number": "10.2",
+      "title": "Notes: View in Context",
+      "description": "User must view notes in context such as margin or overlay maintaining reading position.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-view-notes-in-context-such-as-in-a-margin-overlay-or-other-adjacent-display-that-maintains-the-user-s-reading-position",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-10.3",
+      "number": "10.3",
+      "title": "Notes: Auto-Save",
+      "description": "User notes must be saved automatically including during offline use.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-save-notes-automatically-including-during-offline-use",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-10.4",
+      "number": "10.4",
+      "title": "Notes: Navigate",
+      "description": "Screen reader users should navigate from one note to another.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#screen-reader-users-should-be-able-to-navigate-from-one-note-to-another",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "should-have"
+    },
+    {
+      "id": "daisy-10.5",
+      "number": "10.5",
+      "title": "Notes: Formatting",
+      "description": "User should apply basic formatting to note content (bold, italic, underline).",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-should-be-able-to-apply-basic-formatting-to-the-content-of-a-note",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "should-have"
+    },
+    {
+      "id": "daisy-10.6",
+      "number": "10.6",
+      "title": "Notes: Visibility",
+      "description": "User should hide or show notes.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-should-be-able-to-hide-or-show-notes",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "should-have"
+    },
+    {
+      "id": "daisy-10.7",
+      "number": "10.7",
+      "title": "Notes: Read Aloud",
+      "description": "User should have notes read aloud individually or in sequence.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-should-be-able-to-have-notes-read-aloud-either-individually-or-all-in-sequence",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "should-have"
+    },
+    {
+      "id": "daisy-10.8",
+      "number": "10.8",
+      "title": "Notes: Export",
+      "description": "User should export notes in structured format.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-should-be-able-to-export-notes-in-a-structured-format",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "should-have"
+    },
+    {
+      "id": "daisy-10.9",
+      "number": "10.9",
+      "title": "Notes: Format Variety",
+      "description": "User could create notes in formats beyond text such as handwriting, math notation, or video.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-could-be-able-to-create-notes-in-formats-beyond-plain-text-such-as-handwriting-math-notation-or-video",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "could-have"
+    },
+    {
+      "id": "daisy-11.1",
+      "number": "11.1",
+      "title": "Answers: Input",
+      "description": "User must enter, edit and review answers into input fields embedded within publication.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-enter-edit-and-review-answers-into-input-fields-embedded-within-a-publication",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-11.2",
+      "number": "11.2",
+      "title": "Answers: Save",
+      "description": "User must save answers automatically; ideally online with offline support and syncing.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-save-their-answers",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-11.3",
+      "number": "11.3",
+      "title": "Answers: View Previous",
+      "description": "User must see previously saved answers when reopening book.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-see-previously-saved-answers-when-reopening-a-book",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-11.4",
+      "number": "11.4",
+      "title": "Answers: Navigate Fields",
+      "description": "Screen reader users must navigate between input fields.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#screen-reader-users-must-be-able-to-navigate-between-input-fields",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-11.5",
+      "number": "11.5",
+      "title": "Answers: Text Formatting",
+      "description": "User should format answers in text fields using basic rich text editor.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-should-be-able-to-format-answers-in-text-fields-using-a-basic-rich-text-editor",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "should-have"
+    },
+    {
+      "id": "daisy-11.6",
+      "number": "11.6",
+      "title": "Answers: Share",
+      "description": "User should share answers with others by export or within system.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-should-be-able-to-share-answers-with-others-e-g-teachers-students",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "should-have"
+    },
+    {
+      "id": "daisy-11.7",
+      "number": "11.7",
+      "title": "Answers: Custom Fields",
+      "description": "User could add custom input fields where none exist.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-could-be-able-to-add-custom-input-fields-where-none-exist",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "could-have"
+    },
+    {
+      "id": "daisy-11.8",
+      "number": "11.8",
+      "title": "Answers: Synchronize",
+      "description": "User could synchronize answers across multiple devices.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-could-be-able-to-synchronize-answers-across-multiple-devices",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "could-have"
+    },
+    {
+      "id": "daisy-11.9",
+      "number": "11.9",
+      "title": "Answers: Auto-Check",
+      "description": "User could have answers automatically checked.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-could-be-able-to-have-their-answers-automatically-checked",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "could-have"
+    },
+    {
+      "id": "daisy-12.1",
+      "number": "12.1",
+      "title": "Library: Login",
+      "description": "User must have simple accessible way to log in to reading system.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-have-a-simple-way-to-log-in-to-the-reading-system",
+      "result": "passed",
+      "notes": "this remains dependant of the feed provider",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-12.2",
+      "number": "12.2",
+      "title": "Library: Search and Browse",
+      "description": "User must search, browse and acquire titles in service provider's collection.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-search-browse-and-acquire-titles-in-a-service-provider-s-collection",
+      "result": "passed",
+      "notes": "this remains dependant of the feed provider",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-12.3",
+      "number": "12.3",
+      "title": "Library: Add Titles",
+      "description": "User must add titles from diverse sources (sideload content).",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-add-titles-from-diverse-sources",
+      "result": "passed",
+      "notes": "this remains dependant of the feed provider",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-12.4",
+      "number": "12.4",
+      "title": "Library: Serial Subscriptions",
+      "description": "User must subscribe to and unsubscribe from serial publications.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-have-a-simple-way-to-subscribe-to-serial-publications-and-to-end-the-subscription",
+      "result": "passed",
+      "notes": "this remains dependant of the feed provider",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-12.5",
+      "number": "12.5",
+      "title": "Library: Remove Titles",
+      "description": "User must be able to remove titles from bookshelf.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-remove-titles-from-their-bookshelf",
+      "result": "passed",
+      "notes": "this remains dependant of the feed provider",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-12.6",
+      "number": "12.6",
+      "title": "Library: Download",
+      "description": "User must be able to download titles and read offline.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-download-titles-and-read-them-offline",
+      "result": "passed",
+      "notes": "this remains dependant of the feed provider",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-12.7",
+      "number": "12.7",
+      "title": "Library: Manage Sources",
+      "description": "User must be able manage titles from multiple sources.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-manage-titles-from-multiple-sources",
+      "result": "passed",
+      "notes": "this remains dependant of the feed provider",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-12.8",
+      "number": "12.8",
+      "title": "Library: Manage Collection",
+      "description": "User must manage diverse collection with search, sort, filter, categorization.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-manage-their-diverse-collection-of-reading-materials",
+      "result": "passed",
+      "notes": "this remains dependant of the feed provider",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-12.9",
+      "number": "12.9",
+      "title": "Library: Synchronized Bookshelf",
+      "description": "Bookshelf must automatically reflect changes made in synchronized services, syncing across devices.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-s-bookshelf-must-automatically-reflect-changes-made-in-synchronized-services",
+      "result": "passed",
+      "notes": "this remains dependant of the feed provider",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-12.10",
+      "number": "12.10",
+      "title": "Library: Publication Preview",
+      "description": "User should be able to preview publication when available.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-should-be-able-to-preview-a-publication-when-available",
+      "result": "passed",
+      "notes": "this remains dependant of the feed provider",
+      "issue": "",
+      "level": "should-have"
+    },
+    {
+      "id": "daisy-12.11",
+      "number": "12.11",
+      "title": "Library: Open EPUB from File Manager",
+      "description": "User should be able to open EPUB files directly from file manager.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-should-be-able-to-open-epub-files-directly-from-a-file-manager",
+      "result": "passed",
+      "notes": "this remains dependant of the feed provider",
+      "issue": "",
+      "level": "should-have"
+    },
+    {
+      "id": "daisy-13.1",
+      "number": "13.1",
+      "title": "Misc: Documentation",
+      "description": "User must have user-friendly documentation for reading system.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-have-user-friendly-documentation",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-13.2",
+      "number": "13.2",
+      "title": "Misc: Error Messages",
+      "description": "User must receive clear and user-friendly error messages.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-receive-clear-and-user-friendly-error-messages",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "should-have"
+    },
+    {
+      "id": "daisy-13.3",
+      "number": "13.3",
+      "title": "Misc: Protected Content",
+      "description": "User must access and read protected content using assistive technologies.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-must-be-able-to-access-and-read-protected-content-using-assistive-technologies",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "level": "must-have"
+    },
+    {
+      "id": "daisy-13.4",
+      "number": "13.4",
+      "title": "Misc: Citations",
+      "description": "User should get citations or references in accepted formats.",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#the-user-should-be-able-to-get-a-citation-or-reference",
+      "result": "failed",
+      "notes": "",
+      "issue": "",
+      "level": "should-have"
+    },
+    {
+      "id": "daisy-14.1",
+      "number": "14.1",
+      "title": "Less distraction mode / Zen mode / Simplified interface",
+      "description": "A simplified or 'Zen' mode should be available, hiding most interface controls and presenting only essential reading functions. This reduces cognitive load and visual distractions, benefiting users with attention-related or cognitive disabilities.",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#less-distraction-mode-zen-mode-simplified-interface",
+      "level": "potentially valuable"
+    },
+    {
+      "id": "daisy-14.2",
+      "number": "14.2",
+      "title": "Configurable reading preferences",
+      "description": "The application shall allow users to configure reading-related features both globally (via application settings) and locally (per document). Global settings (e.g. font size, contrast, voice speed) ensure consistency, while some features (e.g. layout or reading mode) may need to be overridden per document.",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#configurable-reading-preferences",
+      "level": "potentially valuable"
+    },
+    {
+      "id": "daisy-14.3",
+      "number": "14.3",
+      "title": "Follow external links",
+      "description": "Some digital publications include hyperlinks to external web resources. Users should be able to follow these links and open them in an external web browser outside the reading system, supporting access to supplementary materials.",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#follow-external-links",
+      "level": "potentially valuable"
+    },
+    {
+      "id": "daisy-14.4",
+      "number": "14.4",
+      "title": "Parallel text viewing and navigation for linked content",
+      "description": "Users should be able to view multiple versions of a text side by side, such as an original and a translation, or a text with annotations, supporting comparative reading and study.",
+      "result": "Untested",
+      "notes": "No test file",
+      "issue": "",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#parallel-text-viewing-and-navigation-for-linked-content-such-as-translations-or-annotations",
+      "level": "potentially valuable"
+    },
+    {
+      "id": "daisy-14.5",
+      "number": "14.5",
+      "title": "Display word counts in tables of contents",
+      "description": "The app should display the word count for each article or chapter in the table of contents, helping users estimate the length and effort required for each section.",
+      "result": "failed",
+      "notes": "",
+      "issue": "",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#display-word-counts-in-tables-of-contents-of-serial-publications",
+      "level": "potentially valuable"
+    },
+    {
+      "id": "daisy-14.6",
+      "number": "14.6",
+      "title": "Disclose text style properties to assistive technologies",
+      "description": "Text style properties such as font, line spacing, indentation, justification, and emphasis (bold, italic, underline) should be made available to assistive technologies, allowing screen readers and braille displays to convey visual structure and emphasis in non-visual ways.",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#disclose-text-style-properties-to-assistive-technologies-e-g-for-presentation-on-braille-devices",
+      "level": "potentially valuable"
+    },
+    {
+      "id": "daisy-14.7",
+      "number": "14.7",
+      "title": "Turn hyphenation on/off",
+      "description": "Users should be able to enable or disable hyphenation. This customization supports a more accessible and comfortable reading experience, especially for users with dyslexia or low vision, by reducing visual clutter and improving text flow.",
+      "result": "cantTell",
+      "notes": "Hyphenation is turned off when text is not justified",
+      "issue": "",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#turn-hyphenation-on-off",
+      "level": "potentially valuable"
+    },
+    {
+      "id": "daisy-14.8",
+      "number": "14.8",
+      "title": "Reflow of text for fixed layout as well",
+      "description": "Text in fixed-layout documents should be able to reflow, allowing for better readability on small screens or when using magnification.",
+      "result": "failed",
+      "notes": "",
+      "issue": "",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#reflow-of-text-for-fixed-layout-as-well",
+      "level": "potentially valuable"
+    },
+    {
+      "id": "daisy-14.9",
+      "number": "14.9",
+      "title": "Regional navigation features",
+      "description": "The app could provide region-based navigation which zooms in and steps the reader through a defined reading order. The reader could navigate between regions at their own pace.",
+      "result": "Untested",
+      "notes": "No test file",
+      "issue": "",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#regional-navigation-features",
+      "level": "potentially valuable"
+    },
+    {
+      "id": "daisy-14.10",
+      "number": "14.10",
+      "title": "Support for LLM inference or other processing",
+      "description": "The app should allow integration of AI-powered features, such as summarization, question answering, or contextual assistance based on the content of the publication.",
+      "result": "failed",
+      "notes": "This would be subject to respect of copyrighted content by third party AI providers.",
+      "issue": "",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#support-for-llm-inference-or-other-processing",
+      "level": "potentially valuable"
+    },
+    {
+      "id": "daisy-14.11",
+      "number": "14.11",
+      "title": "Print or export specific content",
+      "description": "Users should be able to print or export selected parts of a publication, such as templates or activity pages. This supports hands-on learning and accessibility for users who benefit from physical or tactile formats.",
+      "result": "passed",
+      "notes": "PDF only",
+      "issue": "",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#print-or-export-specific-content",
+      "level": "potentially valuable"
+    },
+    {
+      "id": "daisy-14.12",
+      "number": "14.12",
+      "title": "Export content for alternative format production",
+      "description": "The app must allow users to export content in a digital format suitable for creating alternative accessible formats, such as braille or large print.",
+      "result": "failed",
+      "notes": "",
+      "issue": "",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#export-content-for-alternative-format-production",
+      "level": "potentially valuable"
+    },
+    {
+      "id": "daisy-14.13",
+      "number": "14.13",
+      "title": "Support for tactile graphics",
+      "description": "The app should, where feasible, support the rendering of tactile graphics via compatible hardware such as refreshable Braille displays or pin-matrix devices, enabling users with visual impairments to access graphical content.",
+      "result": "failed",
+      "notes": "",
+      "issue": "",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#support-for-tactile-graphics",
+      "level": "potentially valuable"
+    },
+    {
+      "id": "daisy-14.14",
+      "number": "14.14",
+      "title": "Dynamic content based on user input",
+      "description": "The user should be able to enter personal or contextual information\u2014such as the number of servings in a recipe or a name for personalized narration\u2014which then dynamically updates the content. This makes digital publications more engaging and helps reduce cognitive load.",
+      "result": "passed",
+      "notes": "",
+      "issue": "",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#dynamic-content-based-on-user-input",
+      "level": "potentially valuable"
+    },
+    {
+      "id": "daisy-14.15",
+      "number": "14.15",
+      "title": "Book recommendations based on personal preferences",
+      "description": "The app should provide personalized book recommendations based on the user's reading history, interests, or profile, making it easier to discover relevant content.",
+      "result": "failed",
+      "notes": "",
+      "issue": "",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#book-recommendations-based-on-personal-preferences",
+      "level": "potentially valuable"
+    },
+    {
+      "id": "daisy-14.16",
+      "number": "14.16",
+      "title": "Book recommendation sharing",
+      "description": "Users should be able to share book recommendations with others, for example via social media or within the reading platform, to encourage community and engagement.",
+      "result": "inapplicable",
+      "notes": "",
+      "issue": "",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#book-recommendation-sharing",
+      "level": "potentially valuable"
+    },
+    {
+      "id": "daisy-14.17",
+      "number": "14.17",
+      "title": "Borrowing history indicator",
+      "description": "The app should indicate which books a user has previously borrowed or read, helping them avoid duplicates and revisit favorites.",
+      "result": "cantTell",
+      "notes": "",
+      "issue": "",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#borrowing-history-indicator",
+      "level": "potentially valuable"
+    },
+    {
+      "id": "daisy-14.18",
+      "number": "14.18",
+      "title": "Digital clippings archive",
+      "description": "The app should allow users to save and organize excerpts or quotes from digital publications, functioning as a digital scrapbook for easy reference and study.",
+      "result": "cantTell",
+      "notes": "",
+      "issue": "",
+      "url": "https://daisy.github.io/reading-apps-ux-reqs/requirements/published/FINAL-20251031/#digital-clippings-archive",
+      "level": "potentially valuable"
+    }
+  ]
+}
