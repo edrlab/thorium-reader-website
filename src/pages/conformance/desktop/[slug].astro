@@ -1,0 +1,14 @@
+---
+import { getCollection } from "astro:content";
+import LocaleRedirect from "../../../components/LocaleRedirect.astro";
+
+export async function getStaticPaths() {
+  const docs = await getCollection("desktop-conformance");
+  return docs.map((doc) => ({
+    params: { slug: doc.id },
+  }));
+}
+
+const { slug } = Astro.params;
+---
+<LocaleRedirect path={ `conformance/desktop/${ slug }/` } />
