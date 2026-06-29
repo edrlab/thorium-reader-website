@@ -9,9 +9,6 @@ import BadgeOutput from "../../../components/badge/BadgeOutput.astro";
 import { t } from "../../../i18n/utils.js";
 import { locales } from "../../../i18n/locales.js";
 import { addPublicationUniversalLink, addPublicationScheme } from "../../../links.js";
-import rawThoriumLogo from "../../../components/logos/assets/thorium-logo.svg?raw";
-
-const thoriumLogoDataUri = `data:image/svg+xml;base64,${ Buffer.from(rawThoriumLogo).toString("base64") }`;
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
@@ -91,16 +88,29 @@ const badgeTexts = Object.fromEntries(
     </div>
   </section>
 
+  <div id="badge-data" hidden
+    data-badge-texts={ JSON.stringify(badgeTexts) }
+    data-universal-link={ addPublicationUniversalLink }
+    data-scheme={ addPublicationScheme }
+  ></div>
+
   <Footer slot="footer" />
 </Layout>
 
-<script define:vars={{ badgeTexts, addPublicationUniversalLink, addPublicationScheme, defaultIcon: thoriumLogoDataUri }}>
+<script>
+  import { makeSVG, esc } from "../../../components/badge/badge-svg.js";
+
+  const dataEl                      = document.getElementById("badge-data");
+  const badgeTexts                  = JSON.parse(dataEl.dataset.badgeTexts);
+  const addPublicationUniversalLink = dataEl.dataset.universalLink;
+  const addPublicationScheme        = dataEl.dataset.scheme;
+
   const form      = document.getElementById("badge-form");
   const previewEl = document.getElementById("preview-badge");
   const embedCode = document.getElementById("embed-code");
 
   function update() {
-    const selectedLang    = form.querySelector("[name=lang]").value;
+    const selectedLang     = form.querySelector("[name=lang]").value;
     const publicationInput = form.querySelector("[name=publication]");
     const title            = form.querySelector("[name=title]").value.trim();
     const author           = form.querySelector("[name=author]").value.trim();
@@ -115,16 +125,16 @@ const badgeTexts = Object.fromEntries(
     const svgTitle = title ? alt.replace("{{name}}", title) : `${ line1 } ${ line2 }`;
 
     const params = new URLSearchParams();
-    if (publicationValid)    params.set("publication",      publicationInput.value.trim());
-    if (title)               params.set("title",            title);
-    if (author)              params.set("author",           author);
-    if (cover)               params.set("cover",            cover);
-    if (passphrase)          params.set("passphrase",       passphrase);
-    if (passphraseHash)      params.set("hashed_passphrase", passphraseHash);
-    const previewLink   = publicationValid ? `${ addPublicationScheme }?${ params.toString() }` : null;
-    const embedLink     = publicationValid ? `${ addPublicationUniversalLink }?${ params.toString() }` : null;
+    if (publicationValid) params.set("publication",       publicationInput.value.trim());
+    if (title)            params.set("title",             title);
+    if (author)           params.set("author",            author);
+    if (cover)            params.set("cover",             cover);
+    if (passphrase)       params.set("passphrase",        passphrase);
+    if (passphraseHash)   params.set("hashed_passphrase", passphraseHash);
+    const previewLink = publicationValid ? `${ addPublicationScheme }?${ params.toString() }` : null;
+    const embedLink   = publicationValid ? `${ addPublicationUniversalLink }?${ params.toString() }` : null;
 
-    const svg = makeSVG({ line1, line2, title: svgTitle, iconUri: defaultIcon });
+    const svg = makeSVG({ line1, line2, title: svgTitle });
 
     previewEl.innerHTML = previewLink
       ? `<a href="${ esc(previewLink) }">${ svg }</a>`

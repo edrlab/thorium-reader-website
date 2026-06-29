@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Footer from "../../components/Footer.astro";
 import PageHeader from "../../components/sections/PageHeader.astro";
+import ThoriumBadge from "../../components/badge/ThoriumBadge.astro";
 import { t } from "../../i18n/utils.js";
 import { addPublicationScheme } from "../../links.js";
 
@@ -17,9 +18,12 @@ const lang = "en";
   <section class="add-landing-section">
     <div class="container">
       <div class="add-landing-actions">
-        <a id="open-btn" href="#" class="btn action-button-accent">
-          { t(lang, "badge.landing.publication.open") }
-        </a>
+        <ThoriumBadge
+          id="open-btn"
+          line1={ t(lang, "badge.shared.buttonLine1") }
+          line2={ t(lang, "badge.shared.buttonLine2") }
+          title={ t(lang, "badge.shared.button") }
+        />
         <a href={ `${ import.meta.env.BASE_URL }${ lang }/download` } class="btn action-button">
           { t(lang, "badge.landing.publication.download") }
         </a>

@@ -1,0 +1,16 @@
+---
+import { makeSVG } from "./badge-svg.js";
+
+interface Props {
+  line1: string;
+  line2: string;
+  title: string;
+  href?: string;
+  id?: string;
+}
+
+const { line1, line2, title, href = "#", id } = Astro.props;
+const svg = makeSVG({ line1, line2, title });
+---
+
+<a href={ href } id={ id } set:html={ svg } />
