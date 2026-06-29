@@ -203,7 +203,7 @@ const sortById = (items = []) => {
 											<p class="label">{item.result}</p>
 										</td>
 										<td>
-											{item.notes && <p class="notes" set:html={item.notes} />}
+											{item.notes && <div class="notes" set:html={item.notes} />}
 											{item.additionalInfo && <p class="notes">{item.additionalInfo}</p>}
 											{item.issue && item.issuelabel ? (
 												<p class="issue">
