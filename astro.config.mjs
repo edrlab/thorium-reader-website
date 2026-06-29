@@ -1,5 +1,7 @@
 import { defineConfig, fontProviders } from "astro/config";
 import sitemap from "@astrojs/sitemap";
+import mdx from "@astrojs/mdx";
+import remarkCustomHeaderId from "remark-custom-header-id";
 import { defaultLocale, locales, bcp47Locale } from "./src/i18n/locales.js";
 import { discordHref } from "./src/links.js";
 
@@ -25,6 +27,7 @@ export default defineConfig({
   site: "https://www.thoriumreader.com",
   output: "static",
   integrations: [
+    mdx(),
     sitemap({
       filter: (page) =>
         locales.some((l) => page.startsWith(`https://www.thoriumreader.com/${ l }/`)),
@@ -44,5 +47,8 @@ export default defineConfig({
     routing: {
       prefixDefaultLocale: true,
     },
+  },
+  markdown: {
+    remarkPlugins: [remarkCustomHeaderId],
   },
 });
