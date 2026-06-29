@@ -15,6 +15,7 @@ const {
 const platformData = reportedPlatform || "desktop";
 const platformConformanceData = index?.conformance?.[platformData] ?? {};
 const changelogData = platformConformanceData.changelog ?? changelog;
+const conformanceSummary = platformConformanceData.conformanceSummary;
 const methodologyData =
 	platformConformanceData.testingMethodology ?? testingMethodology;
 const standardsToShow =
@@ -41,6 +42,9 @@ const sortById = (items = []) => {
 ---
 
 <div class="conformance-report">
+		<i>{conformanceSummary && (
+			<p class="conformance-summary">{conformanceSummary}</p>
+		)}</i>
 	<section id="about-report">
 		<h2>About This Report</h2>
 
@@ -51,11 +55,15 @@ const sortById = (items = []) => {
 			<dd>{platformConformanceData.version || version}</dd>
 			<dt>Platform:</dt>
 			<dd>{platformConformanceData.platform || platform}</dd>
-			<dt>Report Date:</dt>
+            <!--		
+            <dt>Report Date:</dt>
 			<dd>{platformConformanceData.reportDate || reportDate}</dd>
+            -->
 			<dt>Evaluation Date:</dt>
 			<dd>{platformConformanceData.evaluationDate || evaluationDate}</dd>
 		</dl>
+
+
 
 		<details>
 			<summary>Changelog</summary>
