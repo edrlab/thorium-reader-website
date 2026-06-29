@@ -1,4 +1,12 @@
 ---
+import sanitizeHtml from "sanitize-html";
+
+const sanitize = (html) => sanitizeHtml(html ?? "", {
+	allowedTags: ["a", "code", "em", "li", "ol", "p", "strong", "ul"],
+	allowedAttributes: { "a": ["href", "target", "rel"] },
+	allowedSchemes: ["http", "https"],
+});
+
 const {
 	reportedPlatform,
 	index = {},
@@ -190,7 +198,7 @@ const sortById = (items = []) => {
 											<summary class="sc-title" id={`sc_${standard}_${item.id}`}>
 													{item.number} {item.title}
 												</summary>
-												<p class="sc-text" set:html={item.description} />
+												<p class="sc-text" set:html={sanitize(item.description)} />
 												<p class="issue">
 													<a href={item.url} target="_blank" rel="noreferrer">
 														{item.title}
@@ -203,7 +211,7 @@ const sortById = (items = []) => {
 											<p class="label">{item.result}</p>
 										</td>
 										<td>
-											{item.notes && <div class="notes" set:html={item.notes} />}
+											{item.notes && <div class="notes" set:html={sanitize(item.notes)} />}
 											{item.additionalInfo && <p class="notes">{item.additionalInfo}</p>}
 											{item.issue && item.issuelabel ? (
 												<p class="issue">
