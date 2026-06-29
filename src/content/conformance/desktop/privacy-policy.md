@@ -33,7 +33,7 @@ The IP address of the device is not stored along with the above information.
 
 It is not possible to opt-out from this notification.
 
-2/ Readium LCP DRM information: a notification is sent to an LCP Server each time a protected publication is open. This is required by the LCP specification for checking if the license of use of the publication has been updated. There is not centralized LCP Server, each server is operated by the distributor of the protected publication acquired by the user.
+2/ Readium LCP DRM information: a notification is sent to an LCP Server each time a protected publication is opened. This is required by the LCP specification for checking if the license of use of the publication has been updated. There is no centralized LCP Server; each server is operated by the distributor of the protected publication acquired by the user.
 
 Parameters of such notification are:
 
