@@ -11,4 +11,16 @@ const desktopReleaseNotes = defineCollection({
   }),
 });
 
-export const collections = { "desktop-release-notes": desktopReleaseNotes };
+const desktopConformance = defineCollection({
+  loader: glob({ pattern: "*.{md,mdx}", base: "src/content/conformance/desktop" }),
+  schema: z.object({
+    title: z.string(),
+    reportedPlatform: z.string().optional(),
+    date: z.string().optional(),
+  }),
+});
+
+export const collections = {
+  "desktop-release-notes": desktopReleaseNotes,
+  "desktop-conformance": desktopConformance,
+};
