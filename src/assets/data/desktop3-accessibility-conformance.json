@@ -1,18 +1,18 @@
 {
-  "productName": "Thorium Reader Desktop",
+  "productName": "Thorium Reader",
   "version": "3",
   "platform": "Desktop (Windows, macOS, Linux)",
   "description": "Thorium Reader is a free and open-source EPUB reading application designed with accessibility as a core feature. This is the desktop version supporting Windows, macOS, and Linux platforms.",
   "reportDate": "2025-02-26",
   "evaluationDate": "2025-02-26",
-  "evaluationMethodology": "This report documents conformance evaluation of Thorium Reader Desktop version 3 against WCAG 2.2, UAAG 2.0, EPUB Accessibility 1.1, and DAISY User Requirements Standards. The evaluation methodology included: automated testing using accessibility scanning tools, manual accessibility review by accessibility professionals, user testing with assistive technologies (NVDA, JAWS on Windows; VoiceOver on macOS; Orca on Linux), functional testing with various EPUB publications, and keyboard navigation testing.",
-  "conformanceLevel": "UAAG 2.0 Level AA, WCAG 2.2 Level AA, EPUB Accessibility 1.1",
-  "conformanceSummary": "“Thorium Reader Desktop provides comprehensive access to assistive technologies and offers a variety of customisation options for content display and interface behaviour.” In many cases, it meets the Level AAA criteria. However, there are certain limitations: the lack of a zoom function for the interface can detract from the reading experience, and some specialised features have not yet been tested.",
+  "evaluationMethodology": "This report documents conformance evaluation of Thorium Reader Desktop version 3 against WCAG 2.2, UAAG 2.0,and DAISY User Requirements Standards. The evaluation methodology included: automated testing using accessibility scanning tools, manual accessibility review by accessibility professionals, user testing with assistive technologies (NVDA,  on Windows; VoiceOver on macOS), functional testing with various EPUB publications, and keyboard navigation testing.",
+  "conformanceLevel": "UAAG 2.0 Level AA, WCAG 2.2 Level AA",
+  "conformanceSummary": "Thorium Reader Desktop provides comprehensive access to assistive technologies and offers a variety of customisation options for content display and interface behaviour. In many cases, it meets the Level AAA criteria. However, there are certain limitations: the lack of a zoom function for the interface can detract from the reading experience, and some specialised features have not yet been tested.",
   "accessibilityHazards": "none",
   "keyFindings": {
     "strengths": [
       "Full keyboard navigation support with no keyboard traps",
-      "Excellent screen reader compatibility (NVDA, JAWS, VoiceOver, Orca)",
+      "Excellent screen reader compatibility (NVDA, VoiceOver)",
       "Comprehensive text configuration options (size, color, spacing, font)",
       "Adjustable visual presentation and contrast settings",
       "Support for platform accessibility services",
@@ -26,9 +26,9 @@
     ]
   },
   "testingEnvironments": [
-    "Windows 10+ with NVDA and JAWS",
+    "Windows 10+ with NVDA",
     "macOS 10.13+ with VoiceOver",
-    "Linux (multiple distributions) with Orca",
+    "Linux (multiple distributions)",
     "Manual keyboard navigation testing",
     "Testing with various EPUB publications from epubtest.org"
   ],
@@ -96,13 +96,6 @@
         "url": "https://www.w3.org/WAI/WCAG22/quickref/",
         "referenceUrl": "https://www.w3.org/WAI/WCAG22/"
       },
-      "epub": {
-        "name": "EPUB Accessibility",
-        "title": "EPUB 3 Accessibility",
-        "version": "1.2",
-        "url": "https://www.w3.org/TR/epub-a11y-12/",
-        "referenceUrl": "https://www.w3.org/TR/epub-a11y-12/"
-      },
       "daisyURS": {
         "name": "DAISY URS",
         "title": "DAISY Unified Readability Standards",
@@ -118,7 +111,7 @@
   "testingMethodology": {
     "methodology": "The evaluation included the following testing approaches:",
     "testingApproaches": [
-      "Assistive technology testing (NVDA, JAWS, VoiceOver, Orca)",
+      "Assistive technology testing (NVDA, VoiceOver)",
       "Code audit",
       "EPUB accessible reading features tested through epubtest.org"
     ],
@@ -1959,208 +1952,7 @@
       "url": "https://www.w3.org/WAI/WCAG22/Understanding/4-1-3"
     }
   ],
-  "epub": [
-    {
-      "id": "disc-1",
-      "number": "2.2",
-      "title": "Discoverability: accessModeSufficient",
-      "description": "EPUB publications MUST include accessModeSufficient metadata indicating one or more access modes sufficient to consume content without significant loss of information.",
-      "url": "https://www.w3.org/TR/epub-a11y-12/",
-      "result": "passed",
-      "notes": "",
-      "issue": ""
-    },
-    {
-      "id": "disc-2",
-      "number": "2.2",
-      "title": "Discoverability: accessibilityFeature",
-      "description": "EPUB publications MUST include accessibilityFeature metadata listing features and adaptations that contribute to accessibility (e.g., alternative text, extended descriptions, captions).",
-      "url": "https://www.w3.org/TR/epub-a11y-12/",
-      "result": "passed",
-      "notes": "",
-      "issue": ""
-    },
-    {
-      "id": "disc-3",
-      "number": "2.2",
-      "title": "Discoverability: accessibilityHazard",
-      "description": "EPUB publications MUST include accessibilityHazard metadata identifying any potential hazards such as flashing, motion simulation, or sound.",
-      "url": "https://www.w3.org/TR/epub-a11y-12/",
-      "result": "passed",
-      "notes": "",
-      "issue": ""
-    },
-    {
-      "id": "disc-4",
-      "number": "2.2",
-      "title": "Discoverability: accessMode",
-      "description": "EPUB publications SHOULD include accessMode metadata specifying sensory perceptual systems required to process content (textual, visual, auditory, tactile).",
-      "url": "https://www.w3.org/TR/epub-a11y-12/",
-      "result": "passed",
-      "notes": "",
-      "issue": ""
-    },
-    {
-      "id": "disc-5",
-      "number": "2.2",
-      "title": "Discoverability: accessibilitySummary",
-      "description": "EPUB publications SHOULD include accessibilitySummary metadata providing human-readable summary of accessibility complementing other metadata.",
-      "url": "https://www.w3.org/TR/epub-a11y-12/",
-      "result": "passed",
-      "notes": "",
-      "issue": ""
-    },
-    {
-      "id": "wcag-1",
-      "number": "3.3.1",
-      "title": "WCAG Conformance: Minimum Level",
-      "description": "EPUB publications MUST meet the requirements of WCAG 2.0 Level A at minimum, though WCAG 2.2 Level AA is strongly recommended.",
-      "url": "https://www.w3.org/TR/epub-a11y-12/",
-      "result": "passed",
-      "notes": "",
-      "issue": ""
-    },
-    {
-      "id": "page-1",
-      "number": "3.4.1.3.1",
-      "title": "Page Navigation: Pagination Source",
-      "description": "When EPUB includes page navigation, the source of static page break locations must be identified with recognizable identifier such as ISBN or ISSN.",
-      "url": "https://www.w3.org/TR/epub-a11y-12/",
-      "result": "passed",
-      "notes": "",
-      "issue": ""
-    },
-    {
-      "id": "page-2",
-      "number": "3.4.1.3.2",
-      "title": "Page Navigation: Page List",
-      "description": "EPUB publications with page navigation MUST include a page list providing navigation to static page break locations.",
-      "url": "https://www.w3.org/TR/epub-a11y-12/",
-      "result": "passed",
-      "notes": "",
-      "issue": ""
-    },
-    {
-      "id": "page-3",
-      "number": "3.4.1.3.3",
-      "title": "Page Navigation: Page Breaks",
-      "description": "EPUB publications with page navigation SHOULD include page break markers identifying all pages reproduced from the source.",
-      "url": "https://www.w3.org/TR/epub-a11y-12/",
-      "result": "passed",
-      "notes": "",
-      "issue": ""
-    },
-    {
-      "id": "sync-1",
-      "number": "3.4.2.3.1",
-      "title": "Synchronized Text-Audio: Completeness",
-      "description": "EPUB with synchronized text-audio playback MUST include audio playback for all visible textual content and textual alternatives for visual media.",
-      "url": "https://www.w3.org/TR/epub-a11y-12/",
-      "result": "passed",
-      "notes": "",
-      "issue": ""
-    },
-    {
-      "id": "sync-2",
-      "number": "3.4.2.3.2",
-      "title": "Synchronized Text-Audio: Reading Order",
-      "description": "Synchronized text-audio playback instructions SHOULD reflect spine order of documents and element order within documents, or result in logical playback.",
-      "url": "https://www.w3.org/TR/epub-a11y-12/",
-      "result": "passed",
-      "notes": "",
-      "issue": ""
-    },
-    {
-      "id": "sync-3",
-      "number": "3.4.2.3.3",
-      "title": "Synchronized Text-Audio: Skippability",
-      "description": "Synchronized text-audio playback instructions SHOULD identify all skippable structures enabling users to skip secondary content.",
-      "url": "https://www.w3.org/TR/epub-a11y-12/",
-      "result": "passed",
-      "notes": "",
-      "issue": ""
-    },
-    {
-      "id": "sync-4",
-      "number": "3.4.2.3.4",
-      "title": "Synchronized Text-Audio: Escapability",
-      "description": "Synchronized text-audio playback instructions SHOULD identify all escapable structures enabling users to exit from structured content.",
-      "url": "https://www.w3.org/TR/epub-a11y-12/",
-      "result": "passed",
-      "notes": "",
-      "issue": ""
-    },
-    {
-      "id": "sync-5",
-      "number": "3.4.2.3.5",
-      "title": "Synchronized Text-Audio: Navigation Document",
-      "description": "EPUB with synchronized text-audio playback SHOULD include synchronized playback for the EPUB navigation document.",
-      "url": "https://www.w3.org/TR/epub-a11y-12/",
-      "result": "passed",
-      "notes": "",
-      "issue": ""
-    },
-    {
-      "id": "conf-1",
-      "number": "3.5.2",
-      "title": "Conformance Reporting: Publication Conformance",
-      "description": "EPUB publications MUST specify conformance using dcterms:conformsTo property in format: 'EPUB Accessibility 1.2 - WCAG [VERSION] Level [LEVEL]'.",
-      "url": "https://www.w3.org/TR/epub-a11y-12/",
-      "result": "passed",
-      "notes": "",
-      "issue": ""
-    },
-    {
-      "id": "conf-2",
-      "number": "3.5.3.1",
-      "title": "Conformance Reporting: Evaluator Name",
-      "description": "Package document metadata MUST include a11y:certifiedBy property specifying name of party that evaluated the EPUB publication.",
-      "url": "https://www.w3.org/TR/epub-a11y-12/",
-      "result": "passed",
-      "notes": "",
-      "issue": ""
-    },
-    {
-      "id": "conf-3",
-      "number": "3.5.3.2",
-      "title": "Conformance Reporting: Evaluation Date",
-      "description": "If evaluation date is known, include dcterms:date property conforming to ISO 8601 format associated with evaluator information.",
-      "url": "https://www.w3.org/TR/epub-a11y-12/",
-      "result": "passed",
-      "notes": "",
-      "issue": ""
-    },
-    {
-      "id": "conf-4",
-      "number": "3.5.3.3",
-      "title": "Conformance Reporting: Evaluator Credentials",
-      "description": "If evaluator has credentials, include a11y:certifierCredential properties associated with evaluator information.",
-      "url": "https://www.w3.org/TR/epub-a11y-12/",
-      "result": "passed",
-      "notes": "",
-      "issue": ""
-    },
-    {
-      "id": "conf-5",
-      "number": "3.5.3.4",
-      "title": "Conformance Reporting: Evaluator Report",
-      "description": "If evaluator provides public assessment report, provide link using a11y:certifierReport property associated with evaluator information.",
-      "url": "https://www.w3.org/TR/epub-a11y-12/",
-      "result": "passed",
-      "notes": "",
-      "issue": ""
-    },
-    {
-      "id": "feedback",
-      "number": "3.7",
-      "title": "Accessibility Feedback",
-      "description": "EPUB publications MAY include accessibility contact email using a11y:contactEmail property for users to report issues.",
-      "url": "https://www.w3.org/TR/epub-a11y-12/",
-      "result": "passed",
-      "notes": "",
-      "issue": ""
-    }
-  ],
+
   "daisyURS": [
     {
       "id": "daisy-3.1",
