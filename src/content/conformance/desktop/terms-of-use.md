@@ -1,5 +1,4 @@
 ---
-layout: content.njk
 title: Terms of Use - Desktop
 reportedPlatform: desktop
 date: "2026-04-08"

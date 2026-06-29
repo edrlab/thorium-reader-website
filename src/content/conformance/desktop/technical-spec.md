@@ -1,5 +1,4 @@
 ---
-layout: content.njk
 title: Technical Specification - Desktop
 reportedPlatform: desktop
 date: "2026-05-04"

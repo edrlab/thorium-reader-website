@@ -1,5 +1,4 @@
 ---
-layout: content.njk
 title: Privacy Policy - Desktop
 reportedPlatform: desktop
 date: "2026-03-01"
