@@ -19,7 +19,7 @@ The application does not collect Personal Data from its users.
 
 The application sends two kinds of non-personal data to servers:
 
-1/ Generic usage data: a notification is sent to an EDRLab telemery server each time the application is started. This information is for analytics only and not accessed by any third party. It is used to get information about the evolution of the number of installs of the application per operating system, the evolution of usage sessions and the main locales in use.
+1/ Generic usage data: a notification is sent to an EDRLab telemetry server each time the application is started. This information is for analytics only and not accessed by any third party. It is used to get information about the evolution of the number of installs of the application per operating system, the evolution of usage sessions and the main locales in use.
 
 Parameters of such notification are:
 
