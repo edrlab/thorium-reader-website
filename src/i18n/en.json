@@ -149,7 +149,7 @@
                     "hint": "The name of your catalog as it appears in Thorium Reader."
                 },
                 "main": {
-                    "label": "Browse URL",
+                    "label": "Main catalog URL",
                     "placeholder": "https://example.com/opds",
                     "hint": "An OPDS or web URL to browse the catalog. At least one catalog URL is required."
                 },
