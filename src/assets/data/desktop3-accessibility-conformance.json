@@ -141,7 +141,7 @@
       "title": "Render Alternative Content",
       "level": "A",
       "result": "passed",
-      "notes": "<ul><code>Abbr</code> are rendered in a tooltip when they get focus.</li><li>Users can access `alt` text through TTS. However, that support can be enhanced by providing the `alt` text in the image viewing modal. See <a href=https://github.com/edrlab/thorium-reader/issues/3139>Issue #3139: Allow users to display alt texts to extend support for UAAG Guideline 1.1: Alternative content accessibility.</a> </li> <li>The video player allows to activate subtitles if they are available. Embed players are the responsibility of the ebook content creator. </li></ul>"
+      "notes": "<ul><code>Abbr</code> are rendered in a tooltip when they get focus.</li><li>Users can access `alt` text through TTS. However, that support can be enhanced by providing the `alt` text in the image viewing modal. See <a href=\"https://github.com/edrlab/thorium-reader/issues/3139\">Issue #3139: Allow users to display alt texts to extend support for UAAG Guideline 1.1: Alternative content accessibility.</a> </li> <li>The video player allows to activate subtitles if they are available. Embed players are the responsibility of the ebook content creator. </li></ul>"
     },
     {
       "id": "010102",
@@ -149,7 +149,7 @@
       "title": "Indicate Unrendered Alternative Content",
       "level": "A",
       "result": "failed",
-      "notes": "<ul><li><code>Abbr</code> are indicated by a dotted underline.</li> <li><code>alt</code> text are not indicated. See <a href=https://github.com/edrlab/thorium-reader/issues/3139>Issue 3139: Allow users to display alt texts.</a> </li><li>The video player indicates the presence of subtitles if they are available. Embed players are the responsibility of the ebook content creator. </li></ul>"
+      "notes": "<ul><li><code>Abbr</code> are indicated by a dotted underline.</li> <li><code>alt</code> text are not indicated. See <a href=\"https://github.com/edrlab/thorium-reader/issues/3139\">Issue 3139: Allow users to display alt texts.</a> </li><li>The video player indicates the presence of subtitles if they are available. Embed players are the responsibility of the ebook content creator. </li></ul>"
     },
     {
       "id": "010103",
@@ -157,7 +157,7 @@
       "title": "Replace Non-Text Content",
       "level": "A",
       "result": "passed",
-      "notes": "Caption Clean view is available for TTS reading. It should be extended to visual reading (see <a href=https://github.com/edrlab/thorium-reader/issues/3141>Issue  #3141 Extend Caption / Clean View to visual reading (UAAG1.1.3 Replace Non-Text Content)</a>)"
+      "notes": "Caption Clean view is available for TTS reading. It should be extended to visual reading (see <a href=\"https://github.com/edrlab/thorium-reader/issues/3141\">Issue  #3141 Extend Caption / Clean View to visual reading (UAAG1.1.3 Replace Non-Text Content)</a>)"
     },
     {
       "id": "010104",
