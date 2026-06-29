@@ -1,0 +1,32 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../../../layouts/Layout.astro";
+import Footer from "../../../../components/Footer.astro";
+import { locales } from "../../../../i18n/locales.js";
+import { formatDate } from "../../../../i18n/utils.js";
+
+export async function getStaticPaths() {
+  const docs = await getCollection("desktop-conformance");
+  return locales.flatMap((lang) =>
+    docs.map((doc) => ({
+      params: { lang, slug: doc.id },
+      props: { doc },
+    }))
+  );
+}
+
+const lang = Astro.currentLocale ?? "en";
+const { doc } = Astro.props;
+const { Content } = await render(doc);
+---
+
+<Layout title={ doc.data.title }>
+  <article class="release-notes container">
+    <h1>{ doc.data.title }</h1>
+    {doc.data.date && (
+      <time datetime={ doc.data.date }>{ formatDate(lang, doc.data.date) }</time>
+    )}
+    <Content />
+  </article>
+  <Footer slot="footer" />
+</Layout>
