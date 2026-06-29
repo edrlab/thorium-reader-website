@@ -187,8 +187,7 @@ const sortById = (items = []) => {
 									<tr>
 										<td data-order={item.id}>
 											<details>
-												<summary class="sc-title">
-													<a id={`sc_${standard}_${item.id}`} name={`sc_${standard}_${item.id}`}></a>
+											<summary class="sc-title" id={`sc_${standard}_${item.id}`}>
 													{item.number} {item.title}
 												</summary>
 												<p class="sc-text" set:html={item.description} />
