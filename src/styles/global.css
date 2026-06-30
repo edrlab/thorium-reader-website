@@ -144,6 +144,18 @@ img {
   top: 0;
 }
 
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .hero-illustration {
   display: block;
   position: absolute;
@@ -1979,33 +1991,53 @@ img {
 }
 
 .conformance-report thead th.sortable {
-  cursor: pointer;
   position: relative;
-  padding-right: 1.5rem;
+  padding-right: 0;
   user-select: none;
 }
 
-.conformance-report thead th.sortable::after {
-  content: "↕";
-  position: absolute;
-  right: 0.45rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 0.75rem;
-  opacity: 0.5;
+.conformance-report thead th.sortable .sortable-trigger {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font: inherit;
+  font-weight: 700;
+  margin: 0;
+  padding: 0.65rem;
+  text-align: left;
+  width: 100%;
 }
 
-.conformance-report thead th.sortable.sorted-asc::after {
+.conformance-report thead th.sortable .sort-icon {
+  flex-shrink: 0;
+}
+
+.conformance-report thead th.sortable.sorted-asc .sort-icon {
+  font-size: 0;
+}
+
+.conformance-report thead th.sortable.sorted-asc .sort-icon::before {
   content: "▲";
-  opacity: 0.9;
+  font-size: 0.75rem;
 }
 
-.conformance-report thead th.sortable.sorted-desc::after {
+.conformance-report thead th.sortable.sorted-desc .sort-icon {
+  font-size: 0;
+}
+
+.conformance-report thead th.sortable.sorted-desc .sort-icon::before {
   content: "▼";
-  opacity: 0.9;
+  font-size: 0.75rem;
 }
 
-.conformance-report thead th.sortable:focus-visible {
+.conformance-report thead th.sortable .sortable-trigger:hover,
+.conformance-report thead th.sortable .sortable-trigger:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: -2px;
 }
