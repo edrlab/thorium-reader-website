@@ -6,6 +6,10 @@
     "url": "https://www.w3.org/TR/UAAG20-Reference/",
     "referenceUrl": "https://www.w3.org/TR/UAAG20/"
   },
+    "conformanceOverview": {
+    "conformanceSummary": "Thorium Reader Desktop shows high conformance to UAAG 2.0, with strong support for keyboard operation, user preference controls, accessible documentation, and integration with platform accessibility services. Most criteria are passed across levels A to AAA; remaining non-conformances are concentrated in a limited set of user-adjustment features, notably configurable defaults for some alternative content behaviors and full interface-level scaling/zoom consistency.",
+    "evaluationDate": "2025-02-26"
+      },
   "rules": [
     {
       "id": "010101",

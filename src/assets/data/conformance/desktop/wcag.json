@@ -6,6 +6,10 @@
     "url": "https://www.w3.org/WAI/WCAG22/quickref/",
     "referenceUrl": "https://www.w3.org/WAI/WCAG22/"
   },
+  "conformanceOverview": {
+    "conformanceSummary": "Thorium Reader Desktop provides comprehensive access to assistive technologies and offers a variety of customisation options for content display and interface behaviour. In many cases, it meets the Level AAA criteria. However, there are certain limitations: the lack of a zoom function for the interface can detract from the reading experience, and some specialised features have not yet been tested.",
+    "evaluationDate": "2025-02-26"
+      },
   "rules": [
     {
       "id": "010101",

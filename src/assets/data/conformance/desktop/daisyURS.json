@@ -6,6 +6,10 @@
     "url": "https://daisy.org/s/readingURS/FINAL-20251031",
     "referenceUrl": "https://daisy.org/s/readingURS/FINAL-20251031"
   },
+    "conformanceOverview": {
+    "conformanceSummary": "Thorium Reader Desktop demonstrates strong overall alignment with the DAISY Reading Apps User Requirements, with broad support across core navigation, read-aloud, screen reader interoperability, annotation, and library workflows. Most must-have requirements are passed, while remaining gaps are concentrated in selected advanced or potentially valuable capabilities such as citation support, fixed-layout reflow, tactile graphics support, and some export or recommendation features.",
+    "evaluationDate": "2025-02-26"
+      },
   "rules": [
     {
       "id": "daisy-3.1",
