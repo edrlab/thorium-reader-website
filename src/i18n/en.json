@@ -117,6 +117,12 @@
             }
         }
     },
+    "conformance": {
+        "desktop": {
+            "title": "Conformance - Desktop",
+            "heading": "Conformance Documents - Desktop"
+        }
+    },
     "release-notes": {
         "title": "Release Notes",
         "see-all": "See all",

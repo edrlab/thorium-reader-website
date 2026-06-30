@@ -4,7 +4,7 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "../../../../layouts/Layout.astro";
 import Footer from "../../../../components/Footer.astro";
 import { locales } from "../../../../i18n/locales.js";
-import { formatDate } from "../../../../i18n/utils.js";
+import { t, formatDate } from "../../../../i18n/utils.js";
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
@@ -28,9 +28,9 @@ const docs = allDocs.sort((a, b) => {
 });
 ---
 
-<Layout title="Conformance - Desktop">
+<Layout title={ t(lang, "conformance.desktop.title") }>
   <section class="conformance-index container">
-    <h1>Conformance Documents - Desktop</h1>
+    <h1>{ t(lang, "conformance.desktop.heading") }</h1>
     <ul>
       { docs.map((doc) => (
         <li>
