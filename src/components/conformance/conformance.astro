@@ -206,12 +206,14 @@ const sortById = (items = []) => {
 				return null;
 			}
 
+			const standardSummary = platformConformanceData?.[standard]?.conformanceOverview?.conformanceSummary;
+
 			return (
 				<section class="report-section">
                 <h3 class="inline">{String(standard).toUpperCase()} Conformance Results</h3>
-{conformanceSummary && (
-			<p class="conformance-summary"><em>{conformanceSummary}</em></p>
-		)}
+				{standardSummary && (
+					<p class="conformance-summary"><em>{standardSummary}</em></p>
+				)}
 					<details>
 						<summary>{String(standard).toUpperCase()} Conformance Details</summary>
 						<table class="responsive" id={`${standard}-results`}>
