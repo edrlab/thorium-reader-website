@@ -3,7 +3,6 @@ import { getCollection } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "../../../../layouts/Layout.astro";
 import Footer from "../../../../components/Footer.astro";
-import Button from "../../../../components/buttons/Button.astro";
 import { locales } from "../../../../i18n/locales.js";
 import { formatDate } from "../../../../i18n/utils.js";
 
@@ -30,16 +29,14 @@ const docs = allDocs.sort((a, b) => {
 ---
 
 <Layout title="Conformance - Desktop">
-  <section class="release-notes-index conformance-index container">
+  <section class="conformance-index container">
     <h1>Conformance Documents - Desktop</h1>
     <ul>
       { docs.map((doc) => (
         <li>
-          <Button
-            class="action-button-accent conformance-link-button"
-            href={ getRelativeLocaleUrl(lang, `conformance/desktop/${ doc.id }`) }
-            label={ doc.data.title }
-          />
+          <a href={ getRelativeLocaleUrl(lang, `conformance/desktop/${ doc.id }`) }>
+            { doc.data.title }
+          </a>
           {doc.data.date && (
             <time datetime={ doc.data.date }>{ formatDate(lang, doc.data.date) }</time>
           )}
