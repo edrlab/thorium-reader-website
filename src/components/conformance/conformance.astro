@@ -1,11 +1,7 @@
 ---
-import sanitizeHtml from "sanitize-html";
-
-const sanitize = (html) => sanitizeHtml(html ?? "", {
-	allowedTags: ["a", "code", "em", "li", "ol", "p", "strong", "ul"],
-	allowedAttributes: { "a": ["href", "target", "rel"] },
-	allowedSchemes: ["http", "https"],
-});
+import ConformanceAbout from "./ConformanceAbout.astro";
+import ConformanceSection from "./ConformanceSection.astro";
+import ConformanceTable from "./ConformanceTable.astro";
 
 const {
 	reportedPlatform,
@@ -82,220 +78,39 @@ const sortById = (items = []) => {
 ---
 
 <section class="conformance-report">
-{conformanceSummary && (
-			<p class="conformance-summary"><em>{conformanceSummary}</em></p>
-		)}
-	<section id="about-report">
-		<h2>About This Report</h2>
+	{ conformanceSummary && (
+		<p class="conformance-summary"><em>{ conformanceSummary }</em></p>
+	) }
 
-		<dl>
-			<dt>Product Name:</dt>
-			<dd>{platformConformanceData.productName || productName}</dd>
-			<dt>Version:</dt>
-			<dd>{platformConformanceData.version || version}</dd>
-			<dt>Platform:</dt>
-			<dd>{platformConformanceData.platform || platform}</dd>
-            <!--		
-            <dt>Report Date:</dt>
-			<dd>{platformConformanceData.reportDate || reportDate}</dd>
-            -->
-			<dt>Evaluation Date:</dt>
-			<dd>{platformConformanceData.evaluationDate || evaluationDate}</dd>
-		</dl>
-
-
-
-		<details>
-			<summary>Changelog</summary>
-			{Array.isArray(changelogData) && changelogData.length > 0 ? (
-				<ul>
-					{changelogData.map((entry) => (
-						<li>
-							<strong>{entry.date}:</strong> {entry.description}
-						</li>
-					))}
-				</ul>
-			) : (
-				<p>No changelog available yet.</p>
-			)}
-		</details>
-
-		<details>
-			<summary>
-            More about this evaluation
-			</summary>
-				<h3 class="inline">Evaluation Methodology</h3>
-			{methodologyData ? (
-				<>
-					{methodologyData.methodology && (
-						<p>
-							<strong>{methodologyData.methodology}</strong>
-						</p>
-					)}
-
-					{Array.isArray(methodologyData.testingApproaches) &&
-						methodologyData.testingApproaches.length > 0 && (
-							<>
-								<h3>Testing Approaches</h3>
-								<ul>
-									{methodologyData.testingApproaches.map((approach) => (
-										<li>{approach}</li>
-									))}
-								</ul>
-							</>
-						)}
-
-					{Array.isArray(methodologyData.testedScenarios) &&
-						methodologyData.testedScenarios.length > 0 && (
-							<>
-								<h4>Tested Scenarios</h4>
-								<ul>
-									{methodologyData.testedScenarios.map((scenario) => (
-										<li>
-											<strong>{scenario.date}:</strong>{" "}
-											{scenario.url ? (
-												<a href={scenario.url} target="_blank" rel="noreferrer">
-													{scenario.scenario}
-												</a>
-											) : (
-												scenario.scenario
-											)}
-										</li>
-									))}
-								</ul>
-							</>
-						)}
-				</>
-			) : (
-				<p>No testing methodology information available.</p>
-			)}
-
-			<h3 class="inline">Standards &amp; References</h3>
-
-			{rulesets && (
-				<dl>
-					{Object.entries(rulesets).map(([, ruleset]) => (
-						<>
-							<dt>
-								{ruleset.title} ({ruleset.name})
-							</dt>
-							<dd>
-								Version: {ruleset.version} - Reference:{" "}
-								<a href={ruleset.referenceUrl} target="_blank" rel="noreferrer">
-									{ruleset.referenceUrl}
-								</a>
-							</dd>
-						</>
-					))}
-				</dl>
-			)}
-		</details>
-	</section>
+	<ConformanceAbout
+		productName={ platformConformanceData.productName || productName }
+		version={ platformConformanceData.version || version }
+		platform={ platformConformanceData.platform || platform }
+		evaluationDate={ platformConformanceData.evaluationDate || evaluationDate }
+		changelog={ changelogData }
+		testingMethodology={ methodologyData }
+		rulesets={ rulesets }
+	/>
 
 	<hr />
 
 	<section id="conformance" class="js-tabs">
 		<h2>Detailed Reports</h2>
-
-		{standardsToShow.map((standard) => {
+		{ standardsToShow.map((standard) => {
 			const setData = getSetData(standard);
-			const standardData = setData.rules;
-			const sortedData = sortById(standardData);
+			const rows = sortById(setData.rules);
 
-			if (!sortedData.length) {
-				return null;
-			}
+			if (!rows.length) return null;
 
 			const standardSummary = platformConformanceData?.[standard]?.conformanceOverview?.conformanceSummary;
+			const label = standard.toUpperCase();
 
 			return (
-				<section class="report-section">
-                <h3 class="inline">{String(standard).toUpperCase()} Conformance Results</h3>
-				{standardSummary && (
-					<p class="conformance-summary"><em>{standardSummary}</em></p>
-				)}
-					<details>
-						<summary>{String(standard).toUpperCase()} Conformance Details</summary>
-						<table class="responsive" id={`${standard}-results`}>
-							<caption class="sr-only">
-								{String(standard).toUpperCase()} conformance results
-								<span> (column headers with buttons are sortable).</span>
-							</caption>
-							<thead>
-								<tr>
-									<th class="sortable" data-priority="1">
-										<button type="button" class="sortable-trigger">
-											<span>Success Criteria</span>
-											<span class="sort-icon" aria-hidden="true">♢</span>
-										</button>
-									</th>
-									<th class="sortable">
-										<button type="button" class="sortable-trigger">
-											<span>Level</span>
-											<span class="sort-icon" aria-hidden="true">♢</span>
-										</button>
-									</th>
-									<th class="sortable" data-priority="2">
-										<button type="button" class="sortable-trigger">
-											<span>Result</span>
-											<span class="sort-icon" aria-hidden="true">♢</span>
-										</button>
-									</th>
-									<th class="sortable">
-										<button type="button" class="sortable-trigger">
-											<span>Notes</span>
-											<span class="sort-icon" aria-hidden="true">♢</span>
-										</button>
-									</th>
-								</tr>
-							</thead>
-							<tbody>
-								{sortedData.map((item) => (
-									<tr>
-										<td data-order={item.id}>
-											<details>
-											<summary class="sc-title" id={`sc_${standard}_${item.id}`}>
-													{item.number} {item.title}
-												</summary>
-												<p class="sc-text" set:html={sanitize(item.description)} />
-												<p class="issue">
-													<a href={item.url} target="_blank" rel="noreferrer">
-														{item.title}
-													</a>
-												</p>
-											</details>
-										</td>
-										<td class="lvl">{item.level}</td>
-										<td class={`result ${String(item.result ?? "").toLowerCase()}`}>
-											<p class="label">{item.result}</p>
-										</td>
-										<td>
-											{item.notes && <div class="notes" set:html={sanitize(item.notes)} />}
-											{item.additionalInfo && <p class="notes">{item.additionalInfo}</p>}
-											{item.issue && item.issuelabel ? (
-												<p class="issue">
-													<a href={item.issue} target="_blank" rel="noreferrer">
-														{item.issuelabel}
-													</a>
-												</p>
-											) : (
-												item.issue && (
-													<p class="issue">
-														<a href={item.issue} target="_blank" rel="noreferrer">
-															{item.issue}
-														</a>
-													</p>
-												)
-											)}
-										</td>
-									</tr>
-								))}
-							</tbody>
-						</table>
-					</details>
-				</section>
+				<ConformanceSection label={ label } conformanceSummary={ standardSummary }>
+					<ConformanceTable id={ standard } label={ label } rows={ rows } />
+				</ConformanceSection>
 			);
-		})}
+		}) }
 	</section>
 </section>
 

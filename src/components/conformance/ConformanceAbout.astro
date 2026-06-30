@@ -1,0 +1,37 @@
+---
+import ConformanceMethodology from "./ConformanceMethodology.astro";
+
+const { productName, version, platform, evaluationDate, changelog, testingMethodology, rulesets } = Astro.props;
+---
+
+<section id="about-report">
+	<h2>About This Report</h2>
+
+	<dl>
+		<dt>Product Name:</dt>
+		<dd>{productName}</dd>
+		<dt>Version:</dt>
+		<dd>{version}</dd>
+		<dt>Platform:</dt>
+		<dd>{platform}</dd>
+		<dt>Evaluation Date:</dt>
+		<dd>{evaluationDate}</dd>
+	</dl>
+
+	<details>
+		<summary>Changelog</summary>
+		{ Array.isArray(changelog) && changelog.length > 0 ? (
+			<ul>
+				{ changelog.map((entry) => (
+					<li>
+						<strong>{entry.date}:</strong> {entry.description}
+					</li>
+				)) }
+			</ul>
+		) : (
+			<p>No changelog available yet.</p>
+		) }
+	</details>
+
+	<ConformanceMethodology testingMethodology={testingMethodology} rulesets={rulesets} />
+</section>
