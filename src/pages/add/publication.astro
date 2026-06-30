@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Footer from "../../components/Footer.astro";
 import PageHeader from "../../components/sections/PageHeader.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
 import { t } from "../../i18n/utils.js";
 import { addPublicationScheme } from "../../links.js";
 
@@ -20,7 +21,7 @@ const lang = "en";
         <a id="open-btn" href="#" class="btn action-button-accent">
           { t(lang, "badge.landing.publication.open") }
         </a>
-        <a href={ `${ import.meta.env.BASE_URL }${ lang }/download` } class="btn action-button">
+        <a href={ getRelativeLocaleUrl(lang, "download") } class="btn action-button">
           { t(lang, "badge.landing.publication.download") }
         </a>
       </div>

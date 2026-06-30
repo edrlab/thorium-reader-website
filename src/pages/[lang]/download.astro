@@ -10,6 +10,7 @@ import Footer from "../../components/Footer.astro";
 import AppStoreBadge from "../../components/buttons/AppStoreBadge.astro";
 import MsStoreBadge from "../../components/buttons/MsStoreBadge.astro";
 import ActionButton from "../../components/buttons/ActionButton.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
 import { t, getImage, slugify } from "../../i18n/utils.js";
 import { locales } from "../../i18n/locales.js";
 import { downloadUrls, downloadPlatforms } from "../../links.js";
@@ -54,7 +55,7 @@ const osTabs = Object.entries(tabsData)
   >
     <div slot="actions" class="desktop-actions">
       <MsStoreBadge />
-      <ActionButton variant="accent" label={ t(lang, "button.releaseNotes") } href={`${ import.meta.env.BASE_URL }${ lang }/release-notes/desktop`} />
+      <ActionButton variant="accent" label={ t(lang, "button.releaseNotes") } href={ getRelativeLocaleUrl(lang, "release-notes/desktop") } />
     </div>
   </FeatureSection>
 

@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
 import { t } from "../i18n/utils.js";
 import { discordHref as defaultDiscordHref } from "../links.js";
 import DiscordButton from "./buttons/DiscordButton.astro";
@@ -16,9 +17,9 @@ interface Props {
 }
 
 const { image, clip = false, discordHref } = Astro.props;
-const lang = Astro.currentLocale;
+const lang = Astro.currentLocale ?? "en";
 const year = new Date().getFullYear();
-const conformancePath = `${ import.meta.env.BASE_URL }${ lang }/conformance/desktop`;
+const conformancePath = getRelativeLocaleUrl(lang, "conformance/desktop");
 ---
 
 <div class:list={["footer-top", { "has-image": image, clipped: image && clip }]}>
