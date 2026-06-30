@@ -30,7 +30,39 @@ const standardsToShow =
 	Array.isArray(standards) && standards.length > 0
 		? standards
 		: ["wcag", "uaag", "epub", "daisyURS"];
-const rulesets = platformConformanceData.rulesets;
+const legacyRulesets = platformConformanceData.rulesets;
+
+const getSetData = (standard) => {
+	const value = platformConformanceData?.[standard];
+
+	if (Array.isArray(value)) {
+		return {
+			ruleset: legacyRulesets?.[standard],
+			rules: value,
+		};
+	}
+
+	if (value && typeof value === "object") {
+		return {
+			ruleset: value.ruleset ?? legacyRulesets?.[standard],
+			rules: Array.isArray(value.rules) ? value.rules : [],
+		};
+	}
+
+	return {
+		ruleset: legacyRulesets?.[standard],
+		rules: [],
+	};
+};
+
+const rulesets = Object.fromEntries(
+	standardsToShow
+		.map((standard) => {
+			const setData = getSetData(standard);
+			return [standard, setData.ruleset];
+		})
+		.filter(([, ruleset]) => Boolean(ruleset)),
+);
 
 const sortById = (items = []) => {
 	return [...items].sort((a, b) => {
@@ -49,7 +81,7 @@ const sortById = (items = []) => {
 };
 ---
 
-<div class="conformance-report">
+<section class="conformance-report">
 {conformanceSummary && (
 			<p class="conformance-summary"><em>{conformanceSummary}</em></p>
 		)}
@@ -90,9 +122,9 @@ const sortById = (items = []) => {
 
 		<details>
 			<summary>
-				<h3 class="inline">Evaluation Methodology</h3>
+            More about this evaluation
 			</summary>
-
+				<h3 class="inline">Evaluation Methodology</h3>
 			{methodologyData ? (
 				<>
 					{methodologyData.methodology && (
@@ -104,7 +136,7 @@ const sortById = (items = []) => {
 					{Array.isArray(methodologyData.testingApproaches) &&
 						methodologyData.testingApproaches.length > 0 && (
 							<>
-								<h4>Testing Approaches</h4>
+								<h3>Testing Approaches</h3>
 								<ul>
 									{methodologyData.testingApproaches.map((approach) => (
 										<li>{approach}</li>
@@ -166,9 +198,8 @@ const sortById = (items = []) => {
 		<h2>Detailed Reports</h2>
 
 		{standardsToShow.map((standard) => {
-			const standardData = Array.isArray(platformConformanceData?.[standard])
-				? platformConformanceData[standard]
-				: [];
+			const setData = getSetData(standard);
+			const standardData = setData.rules;
 			const sortedData = sortById(standardData);
 
 			if (!sortedData.length) {
@@ -176,18 +207,44 @@ const sortById = (items = []) => {
 			}
 
 			return (
-				<div class="report-section">
+				<section class="report-section">
+                <h3 class="inline">{String(standard).toUpperCase()} Conformance Results</h3>
+{conformanceSummary && (
+			<p class="conformance-summary"><em>{conformanceSummary}</em></p>
+		)}
 					<details>
-						<summary>
-							<h3 class="inline">{String(standard).toUpperCase()} Conformance Results</h3>
-						</summary>
+						<summary>{String(standard).toUpperCase()} Conformance Details</summary>
 						<table class="responsive" id={`${standard}-results`}>
+							<caption class="sr-only">
+								{String(standard).toUpperCase()} conformance results
+								<span> (column headers with buttons are sortable).</span>
+							</caption>
 							<thead>
 								<tr>
-									<th class="sortable" data-priority="1" tabindex="0" role="button" aria-sort="none">Success Criteria</th>
-									<th class="sortable" tabindex="0" role="button" aria-sort="none">Level</th>
-									<th class="sortable" data-priority="2" tabindex="0" role="button" aria-sort="none">Result</th>
-									<th class="sortable" tabindex="0" role="button" aria-sort="none">Notes</th>
+									<th class="sortable" data-priority="1">
+										<button type="button" class="sortable-trigger">
+											<span>Success Criteria</span>
+											<span class="sort-icon" aria-hidden="true">♢</span>
+										</button>
+									</th>
+									<th class="sortable">
+										<button type="button" class="sortable-trigger">
+											<span>Level</span>
+											<span class="sort-icon" aria-hidden="true">♢</span>
+										</button>
+									</th>
+									<th class="sortable" data-priority="2">
+										<button type="button" class="sortable-trigger">
+											<span>Result</span>
+											<span class="sort-icon" aria-hidden="true">♢</span>
+										</button>
+									</th>
+									<th class="sortable">
+										<button type="button" class="sortable-trigger">
+											<span>Notes</span>
+											<span class="sort-icon" aria-hidden="true">♢</span>
+										</button>
+									</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -234,11 +291,11 @@ const sortById = (items = []) => {
 							</tbody>
 						</table>
 					</details>
-				</div>
+				</section>
 			);
 		})}
 	</section>
-</div>
+</section>
 
 <script>
 	document.addEventListener("DOMContentLoaded", function () {
@@ -276,6 +333,9 @@ const sortById = (items = []) => {
 
 			const headers = Array.from(table.querySelectorAll("thead th.sortable"));
 			headers.forEach((header, index) => {
+				const trigger = header.querySelector("button.sortable-trigger");
+				if (!trigger) return;
+
 				const sort = () => {
 					const currentDir = header.dataset.sortDir === "asc" ? "asc" : "desc";
 					const nextDir = currentDir === "asc" ? "desc" : "asc";
@@ -283,7 +343,7 @@ const sortById = (items = []) => {
 					headers.forEach((h) => {
 						h.dataset.sortDir = "";
 						h.classList.remove("sorted-asc", "sorted-desc");
-						h.setAttribute("aria-sort", "none");
+						h.removeAttribute("aria-sort");
 					});
 
 					header.dataset.sortDir = nextDir;
@@ -309,13 +369,7 @@ const sortById = (items = []) => {
 					}
 				};
 
-				header.addEventListener("click", sort);
-				header.addEventListener("keydown", (event) => {
-					if (event.key === "Enter" || event.key === " ") {
-						event.preventDefault();
-						sort();
-					}
-				});
+				trigger.addEventListener("click", sort);
 			});
 		}
 	});
