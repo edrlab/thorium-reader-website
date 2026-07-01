@@ -2066,6 +2066,10 @@ img {
   background: #fff4d6;
 }
 
+.conformance-report .result.inapplicable {
+  background: #d3d2d2;
+}
+
 .conformance-report .sc-title {
   font-weight: 700;
 }
