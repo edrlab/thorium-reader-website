@@ -1,0 +1,50 @@
+---
+import { getCollection } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Layout from "../../../../layouts/Layout.astro";
+import Footer from "../../../../components/Footer.astro";
+import { locales } from "../../../../i18n/locales.js";
+import { t, formatDate } from "../../../../i18n/utils.js";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.currentLocale ?? "en";
+const allDocs = await getCollection("platform-conformance");
+const docs = allDocs
+  .filter((doc) => doc.id.startsWith("desktop/"))
+  .sort((a, b) => {
+  const aDate = a.data.date ?? "";
+  const bDate = b.data.date ?? "";
+
+  if (aDate && bDate) {
+    return bDate.localeCompare(aDate);
+  }
+
+  if (aDate || bDate) {
+    return bDate ? 1 : -1;
+  }
+
+  return a.data.title.localeCompare(b.data.title);
+});
+---
+
+<Layout title={ t(lang, "conformance.desktop.title") }>
+  <section class="conformance-index container">
+    <h1>{ t(lang, "conformance.desktop.heading") }</h1>
+    <ul>
+      { docs.map((doc) => (
+        <li>
+          <a href={ getRelativeLocaleUrl(lang, `legals/desktop/${ doc.id.replace("desktop/", "") }`) }>
+            { doc.data.title }
+          </a>
+          {doc.data.date && (
+            <time datetime={ doc.data.date }>{ formatDate(lang, doc.data.date) }</time>
+          )}
+        </li>
+      )) }
+    </ul>
+  </section>
+  <Footer slot="footer" />
+</Layout>

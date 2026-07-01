@@ -1,32 +1,18 @@
 ---
-import { getCollection, render } from "astro:content";
-import Layout from "../../../../layouts/Layout.astro";
-import Footer from "../../../../components/Footer.astro";
+import { getCollection } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
 import { locales } from "../../../../i18n/locales.js";
-import { formatDate } from "../../../../i18n/utils.js";
 
 export async function getStaticPaths() {
-  const docs = await getCollection("desktop-conformance");
+  const docs = (await getCollection("platform-conformance")).filter((doc) => doc.id.startsWith("desktop/"));
   return locales.flatMap((lang) =>
     docs.map((doc) => ({
-      params: { lang, slug: doc.id },
-      props: { doc },
+      params: { lang, slug: doc.id.replace("desktop/", "") },
     }))
   );
 }
 
 const lang = Astro.currentLocale ?? "en";
-const { doc } = Astro.props;
-const { Content } = await render(doc);
+const { slug } = Astro.params;
+return Astro.redirect(getRelativeLocaleUrl(lang, `legals/desktop/${ slug }`));
 ---
-
-<Layout title={ doc.data.title }>
-  <article class="release-notes container">
-    <h1>{ doc.data.title }</h1>
-    {doc.data.date && (
-      <time datetime={ doc.data.date }>{ formatDate(lang, doc.data.date) }</time>
-    )}
-    <Content />
-  </article>
-  <Footer slot="footer" />
-</Layout>

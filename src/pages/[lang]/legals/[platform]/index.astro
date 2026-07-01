@@ -1,0 +1,69 @@
+---
+import { getCollection } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Layout from "../../../../layouts/Layout.astro";
+import Footer from "../../../../components/Footer.astro";
+import { locales } from "../../../../i18n/locales.js";
+import { formatDate } from "../../../../i18n/utils.js";
+
+export async function getStaticPaths() {
+  const docs = await getCollection("platform-conformance");
+  const platforms = [...new Set(docs.map((doc) => doc.id.split("/")[0]))]
+    .filter((platform) => platform !== "desktop")
+    .sort((a, b) => a.localeCompare(b));
+
+  return locales.flatMap((lang) =>
+    platforms.map((platform) => ({
+      params: { lang, platform },
+    }))
+  );
+}
+
+const lang = Astro.currentLocale ?? "en";
+const platform = Astro.params.platform ?? "";
+
+const docs = (await getCollection("platform-conformance"))
+  .filter((doc) => doc.id.startsWith(`${ platform }/`))
+  .sort((a, b) => {
+    const aDate = a.data.date ?? "";
+    const bDate = b.data.date ?? "";
+
+    if (aDate && bDate) {
+      return bDate.localeCompare(aDate);
+    }
+
+    if (aDate || bDate) {
+      return bDate ? 1 : -1;
+    }
+
+    return a.data.title.localeCompare(b.data.title);
+  });
+
+if (docs.length === 0) {
+  return Astro.redirect(getRelativeLocaleUrl(lang, "legals"));
+}
+
+const prettyPlatform = platform.charAt(0).toUpperCase() + platform.slice(1);
+---
+
+<Layout title={`${ prettyPlatform } legal documents`}>
+  <section class="conformance-index container">
+    <h1>{ prettyPlatform } legal documents</h1>
+    <ul>
+      { docs.map((doc) => {
+        const [, slug] = doc.id.split("/");
+        return (
+          <li>
+            <a href={ getRelativeLocaleUrl(lang, `legals/${ platform }/${ slug }`) }>
+              { doc.data.title }
+            </a>
+            {doc.data.date && (
+              <time datetime={ doc.data.date }>{ formatDate(lang, doc.data.date) }</time>
+            )}
+          </li>
+        );
+      }) }
+    </ul>
+  </section>
+  <Footer slot="footer" />
+</Layout>

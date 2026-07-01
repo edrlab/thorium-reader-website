@@ -19,7 +19,7 @@ interface Props {
 const { image, clip = false, discordHref } = Astro.props;
 const lang = Astro.currentLocale ?? "en";
 const year = new Date().getFullYear();
-const conformancePath = getRelativeLocaleUrl(lang, "conformance/desktop");
+const conformancePath = getRelativeLocaleUrl(lang, "legals");
 ---
 
 <div class:list={["footer-top", { "has-image": image, clipped: image && clip }]}>

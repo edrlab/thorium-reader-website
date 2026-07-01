@@ -11,8 +11,8 @@ const desktopReleaseNotes = defineCollection({
   }),
 });
 
-const desktopConformance = defineCollection({
-  loader: glob({ pattern: "*.{md,mdx}", base: "src/content/conformance/desktop" }),
+const platformConformance = defineCollection({
+  loader: glob({ pattern: "*/*.{md,mdx}", base: "src/content/legals" }),
   schema: z.object({
     title: z.string(),
     reportedPlatform: z.string().optional(),
@@ -20,7 +20,16 @@ const desktopConformance = defineCollection({
   }),
 });
 
+const legalsPages = defineCollection({
+  loader: glob({ pattern: "legals.md", base: "src/content/legals" }),
+  schema: z.object({
+    title: z.string(),
+    date: z.string().optional(),
+  }),
+});
+
 export const collections = {
   "desktop-release-notes": desktopReleaseNotes,
-  "desktop-conformance": desktopConformance,
+  "platform-conformance": platformConformance,
+  "legals-pages": legalsPages,
 };

@@ -1,0 +1,99 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Layout from "../../../layouts/Layout.astro";
+import Footer from "../../../components/Footer.astro";
+import { locales } from "../../../i18n/locales.js";
+import { formatDate } from "../../../i18n/utils.js";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.currentLocale ?? "en";
+const legalsDoc = await getEntry("legals-pages", "legals");
+
+if (!legalsDoc) {
+  throw new Error("Missing legal page content at src/content/legals/legals.md");
+}
+
+const { Content } = await render(legalsDoc);
+
+const allPlatformDocs = await getCollection("platform-conformance");
+const groupedDocs = allPlatformDocs.reduce<Record<string, typeof allPlatformDocs>>((acc, doc) => {
+  const [platform] = doc.id.split("/");
+
+  if (!acc[platform]) {
+    acc[platform] = [];
+  }
+
+  acc[platform].push(doc);
+  return acc;
+}, {});
+
+const sortedPlatforms = Object.keys(groupedDocs).sort((a, b) => a.localeCompare(b));
+
+const sortDocsByDateAndTitle = (a: (typeof allPlatformDocs)[number], b: (typeof allPlatformDocs)[number]) => {
+  const aDate = a.data.date ?? "";
+  const bDate = b.data.date ?? "";
+
+  if (aDate && bDate) {
+    return bDate.localeCompare(aDate);
+  }
+
+  if (aDate || bDate) {
+    return bDate ? 1 : -1;
+  }
+
+  return a.data.title.localeCompare(b.data.title);
+};
+---
+
+<Layout title={ legalsDoc.data.title }>
+  <section class="conformance-index container">
+    <h1>{ legalsDoc.data.title }</h1>
+    {legalsDoc.data.date && (
+      <time datetime={ legalsDoc.data.date }>{ formatDate(lang, legalsDoc.data.date) }</time>
+    )}
+    <Content />
+
+    { sortedPlatforms.map((platform) => {
+      const docs = groupedDocs[platform].sort(sortDocsByDateAndTitle);
+      const prettyPlatform = platform.charAt(0).toUpperCase() + platform.slice(1);
+
+      return (
+        <Fragment>
+          <h2>{ prettyPlatform } legal documents</h2>
+          <ul>
+            { docs.map((doc) => {
+              const [, slug] = doc.id.split("/");
+              return (
+                <li>
+                  <a href={ getRelativeLocaleUrl(lang, `legals/${ platform }/${ slug }`) }>
+                    { doc.data.title }
+                  </a>
+                  {doc.data.date && (
+                    <time datetime={ doc.data.date }>{ formatDate(lang, doc.data.date) }</time>
+                  )}
+                </li>
+              );
+            }) }
+          </ul>
+        </Fragment>
+      );
+    }) }
+  </section>
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  .conformance-index :global(p) {
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+  }
+
+  .conformance-index :global(hr) {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+</style>
