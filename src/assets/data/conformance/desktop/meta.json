@@ -2,29 +2,23 @@
   "productName": "Thorium Reader",
   "version": "3",
   "platform": "Desktop (Windows, macOS, Linux)",
+  "downloadPage": "https://github.com/edrlab/thorium-reader/releases",
   "description": "Thorium Reader is a free and open-source EPUB reading application designed with accessibility as a core feature. This is the desktop version supporting Windows, macOS, and Linux platforms.",
-  "reportDate": "2025-02-26",
   "evaluationDate": "2025-02-26",
-  "evaluationMethodology": "This report documents conformance evaluation of Thorium Reader Desktop version 3 against WCAG 2.2, UAAG 2.0,and DAISY User Requirements Standards. The evaluation methodology included: automated testing using accessibility scanning tools, manual accessibility review by accessibility professionals, user testing with assistive technologies (NVDA,  on Windows; VoiceOver on macOS), functional testing with various EPUB publications, and keyboard navigation testing.",
-  "conformanceLevel": "UAAG 2.0 Level AA, WCAG 2.2 Level AA",
-  "conformanceSummary": "Thorium Reader Desktop provides comprehensive access to assistive technologies and offers a variety of customisation options for content display and interface behaviour. In many cases, it meets the Level AAA criteria. However, there are certain limitations: the lack of a zoom function for the interface can detract from the reading experience, and some specialised features have not yet been tested.",
-  "accessibilityHazards": "none",
-  "keyFindings": {
-    "strengths": [
+  "conformanceSummary": "The application features extensive accessibility interoperability and content customization, It performs well against WCAG 2.2, UAAG 2.0, and DAISY requirements, though some advanced features and interface zoom are still limited.",
+  "strengths": [
       "Full keyboard navigation support with no keyboard traps",
       "Excellent screen reader compatibility (NVDA, VoiceOver)",
       "Comprehensive text configuration options (size, color, spacing, font)",
       "Adjustable visual presentation and contrast settings",
       "Support for platform accessibility services",
-      "Accessible documentation and help system",
       "Full EPUB accessibility feature support (page lists, navigation documents, reading order)"
     ],
     "limitations": [
       "WCAG 1.4.4 (Resize text): Viewport resizing without horizontal scrolling has limited implementation",
       "Interface zoom without breaking reading experience requires refinement",
       "Some specialized DAISY URS features not yet implemented (citation generation, tactile graphics support)"
-    ]
-  },
+    ],
   "testingEnvironments": [
     "Windows 10+ with NVDA",
     "macOS 10.13+ with VoiceOver",
@@ -32,76 +26,8 @@
     "Manual keyboard navigation testing",
     "Testing with various EPUB publications from epubtest.org"
   ],
-  "changelog": [
-    {
-      "date": "2025-02-26",
-      "description": "Initial conformance report for Thorium Reader Desktop 3"
-    },
-    {
-      "date": "2025-01-15",
-      "description": "Evaluation testing phase"
-    }
-  ],
-  "productInfo": {
-    "name": "Thorium Reader Desktop",
-    "version": "3",
-    "platform": "Windows 10, Windows 11, macOS 10.13+, Linux",
-    "description": "Thorium Reader Desktop is a free, open-source EPUB reading application available for Windows, macOS, and Linux. The application is free, with no ads and no private data leaks. It is localized in a large set of languages.",
-    "downloadPage": "https://github.com/edrlab/thorium-reader/releases",
-    "documentation": "English, French, Spanish"
-  },
-  "conformanceOverview": {
-    "conformanceSummary": "Thorium Reader Desktop provides full access to assistive technologies and numerous options to adjust content. In many situations, it reaches AAA level criterions. However, it has not yet been found how to provide interface zoom without breaking the reading experience.",
-    "accessibilityHazards": "none",
-    "evaluatedAgainst": {
-      "uaag": {
-        "ruleset": {
-          "name": "UAAG",
-          "title": "User Agent Accessibility Guidelines",
-          "version": "2.0",
-          "url": "https://www.w3.org/TR/UAAG20-Reference/",
-          "referenceUrl": "https://www.w3.org/TR/UAAG20/"
-        },
-        "conformanceSummary": "Thorium Reader Desktop provides comprehensive access to assistive technologies and offers a variety of customisation options for content display and interface behaviour. In many cases, it meets the Level AAA criteria. However, there are certain limitations: the lack of a zoom function for the interface can detract from the reading experience, and some specialised features have not yet been tested.",
-        "evaluationDate": "2025-02-26"
-      },
-      "wcag": {
-        "ruleset": {
-          "name": "WCAG",
-          "title": "Web Content Accessibility Guidelines",
-          "version": "2.2",
-          "url": "https://www.w3.org/WAI/WCAG22/quickref/",
-          "referenceUrl": "https://www.w3.org/WAI/WCAG22/"
-        },
-        "conformanceSummary": "Thorium Reader Desktop provides comprehensive access to assistive technologies and offers a variety of customisation options for content display and interface behaviour. In many cases, it meets the Level AAA criteria. However, there are certain limitations: the lack of a zoom function for the interface can detract from the reading experience, and some specialised features have not yet been tested.",
-        "evaluationDate": "2025-02-26"
-      },
-      "epub": {
-        "ruleset": null,
-        "conformanceSummary": "Thorium Reader Desktop provides comprehensive access to assistive technologies and offers a variety of customisation options for content display and interface behaviour. In many cases, it meets the Level AAA criteria. However, there are certain limitations: the lack of a zoom function for the interface can detract from the reading experience, and some specialised features have not yet been tested.",
-        "evaluationDate": "2025-02-26"
-      },
-      "daisyURS": {
-        "ruleset": {
-          "name": "DAISY URS",
-          "title": "DAISY Reading Apps User Requirements",
-          "version": "1.0",
-          "url": "https://daisy.org/s/readingURS/FINAL-20251031",
-          "referenceUrl": "https://daisy.org/s/readingURS/FINAL-20251031"
-        },
-        "conformanceSummary": "Thorium Reader Desktop provides comprehensive access to assistive technologies and offers a variety of customisation options for content display and interface behaviour. In many cases, it meets the Level AAA criteria. However, there are certain limitations: the lack of a zoom function for the interface can detract from the reading experience, and some specialised features have not yet been tested.",
-        "evaluationDate": "2025-02-26"
-      }
-    }
-  },
-  "testingMethodology": {
-    "methodology": "The evaluation included the following testing approaches:",
-    "testingApproaches": [
-      "Assistive technology testing (NVDA, VoiceOver)",
-      "Code audit",
-      "EPUB accessible reading features tested through epubtest.org"
-    ],
-    "testedScenarios": [
+  "testingMethodology": "The evaluation included the following testing approaches:",
+  "testedScenarios": [
       {
         "date": "August 15, 2025",
         "scenario": "Thorium Reader 3 with NVDA on Windows",
@@ -117,7 +43,20 @@
         "scenario": "Thorium Reader 3 on macOS",
         "url": "https://epubtest.org/results/3711"
       }
-    ]
-  },
-  "lastUpdated": "2026-02-27"
-}
+    ],
+  "changelog": [
+    {
+      "date": "2025-02-26",
+      "description": "Initial conformance report for Thorium Reader Desktop 3"
+    },
+    {
+      "date": "2025-01-15",
+      "description": "Evaluation testing phase"
+    },
+    {
+      "date": "2024-12-01",
+      "description": "Accessibility audit and code review"
+    }
+  ]
+}   
+
