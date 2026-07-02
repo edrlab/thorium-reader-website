@@ -48,6 +48,24 @@ export function t(lang: Lang, key: string, options: TOptions = {}): unknown {
   return i18next.getFixedT(lang ?? defaultLocale)(key, { ...options, returnObjects: true });
 }
 
+export function localizeCollection<T extends { id: string }>(entries: T[], lang: string): { slug: string; note: T }[] {
+  const bySlug = new Map<string, { en?: T; localized?: T }>();
+  for (const entry of entries) {
+    const sep = entry.id.indexOf("/");
+    const entryLang = entry.id.slice(0, sep);
+    const slug = entry.id.slice(sep + 1);
+    const bucket = bySlug.get(slug) ?? {};
+    if (entryLang === defaultLocale) bucket.en = entry;
+    if (entryLang === lang) bucket.localized = entry;
+    bySlug.set(slug, bucket);
+  }
+  return [...bySlug.entries()].map(([slug, { en, localized }]) => {
+    const note = localized ?? en;
+    if (!note) throw new Error(`Missing English fallback for release note "${ slug }"`);
+    return { slug, note };
+  });
+}
+
 const allImages = import.meta.glob<{ default: ImageMetadata }>("../assets/images/**/*.webp", { eager: true });
 
 export function getImage(lang: Lang, name: string): ImageMetadata {
