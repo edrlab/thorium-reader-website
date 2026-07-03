@@ -26,8 +26,9 @@
     "Manual keyboard navigation testing",
     "Testing with various EPUB publications from epubtest.org"
   ],
-  "testingMethodology": "The evaluation included the following testing approaches:",
-  "testedScenarios": [
+  "testingMethodology": {
+    "methodology": "The evaluation included the following testing approaches:",
+    "testedScenarios": [
       {
         "date": "August 15, 2025",
         "scenario": "Thorium Reader 3 with NVDA on Windows",
@@ -43,7 +44,8 @@
         "scenario": "Thorium Reader 3 on macOS",
         "url": "https://epubtest.org/results/3711"
       }
-    ],
+    ]
+  },
   "changelog": [
     {
       "date": "2025-02-26",
