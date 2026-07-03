@@ -13,12 +13,13 @@ export function getStaticPaths() {
 }
 
 const lang = Astro.currentLocale;
+const publicationTitleFallback = t(lang, "add.publication.fallbackName");
 ---
 
-<Layout title={ t(lang, "badge.landing.publication.title") + " — " + t(lang, "site.title") }>
+<Layout title={ t(lang, "add.publication.title") + " — " + t(lang, "site.title") }>
   <PageHeader
-    title={ t(lang, "badge.landing.publication.title") }
-    body={ t(lang, "badge.landing.publication.subtitle") }
+    title={ t(lang, "add.publication.title") }
+    body={ t(lang, "add.publication.subtitle") }
   />
 
   <section class="add-landing-section">
@@ -39,13 +40,13 @@ const lang = Astro.currentLocale;
   <Footer slot="footer" />
 </Layout>
 
-<script define:vars={{ addPublicationScheme }}>
+<script define:vars={{ addPublicationScheme, publicationTitleFallback }}>
   const params = new URLSearchParams(window.location.search);
   const title = params.get("title");
 
-  if (title) {
-    const titleEl = document.querySelector(".page-header h1");
-    if (titleEl) titleEl.textContent = title;
+  const subtitleEl = document.querySelector(".page-header p");
+  if (subtitleEl) {
+    subtitleEl.textContent = subtitleEl.textContent.replace("{{publicationTitle}}", title || publicationTitleFallback);
   }
 
   const openBtn = document.getElementById("open-btn");
