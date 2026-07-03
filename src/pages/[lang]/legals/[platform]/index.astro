@@ -43,7 +43,9 @@ if (docs.length === 0) {
   return Astro.redirect(getRelativeLocaleUrl(lang, "legals"));
 }
 
-const prettyPlatform = platform.charAt(0).toUpperCase() + platform.slice(1);
+const prettyPlatform = platform === "ios"
+  ? "iOS"
+  : platform.charAt(0).toUpperCase() + platform.slice(1);
 ---
 
 <Layout title={`${ prettyPlatform } legal documents`}>

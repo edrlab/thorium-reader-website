@@ -59,7 +59,9 @@ const sortDocsByDateAndTitle = (a: (typeof allPlatformDocs)[number], b: (typeof 
 
     { sortedPlatforms.map((platform) => {
       const docs = groupedDocs[platform].sort(sortDocsByDateAndTitle);
-      const prettyPlatform = platform.charAt(0).toUpperCase() + platform.slice(1);
+      const prettyPlatform = platform === "ios"
+        ? "iOS"
+        : platform.charAt(0).toUpperCase() + platform.slice(1);
 
       return (
         <Fragment>
@@ -87,6 +89,27 @@ const sortDocsByDateAndTitle = (a: (typeof allPlatformDocs)[number], b: (typeof 
 </Layout>
 
 <style>
+  .conformance-index h1 {
+    margin-bottom: 1rem;
+  }
+
+  .conformance-index h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .conformance-index ul {
+    margin-bottom: 1.25rem;
+  }
+
+  .conformance-index li + li {
+    margin-top: 0.65rem;
+  }
+
+  .conformance-index li time {
+    margin-left: 0.6rem;
+  }
+
   .conformance-index :global(p) {
     margin-top: 0.6em;
     margin-bottom: 0.6em;
