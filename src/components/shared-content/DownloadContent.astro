@@ -7,6 +7,7 @@ import FAQ from "../sections/FAQ.astro";
 import AppStoreBadge from "../buttons/AppStoreBadge.astro";
 import MsStoreBadge from "../buttons/MsStoreBadge.astro";
 import ActionButton from "../buttons/ActionButton.astro";
+import ClientData from "../ClientData.astro";
 import { t, getImage, slugify } from "../../i18n/utils.js";
 import { downloadUrls, downloadPlatforms } from "../../links.js";
 import { BREAKPOINT_MOBILE } from "../../breakpoints.js";
@@ -101,21 +102,17 @@ const osTabs = Object.entries(tabsData)
   class="bottom-gap"
 />
 
-<div id="download-tab-ids" hidden data-tab-ids={ JSON.stringify(osTabs.map(tab => tab.id)) }></div>
+<ClientData
+  id="download-tab-ids"
+  data={{ "data-tab-ids": JSON.stringify(osTabs.map(tab => tab.id)) }}
+/>
 
 <script>
+  import { slugify } from "../../i18n/utils.js";
+
   const tabIds: string[] = JSON.parse(
     (document.getElementById("download-tab-ids") as HTMLElement).dataset.tabIds!
   );
-
-  function slugify(str: string): string {
-    return str
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[̀-ͯ]/g, "")
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "");
-  }
 
   function activateFromHash() {
     const id = slugify(location.hash.slice(1).toLowerCase());

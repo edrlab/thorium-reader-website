@@ -1,0 +1,10 @@
+---
+interface Props {
+  id: string;
+  data: Record<string, string>;
+}
+
+const { id, data } = Astro.props;
+---
+
+<div id={ id } hidden {...data}></div>

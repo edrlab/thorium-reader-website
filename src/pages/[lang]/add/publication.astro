@@ -4,6 +4,7 @@ import Footer from "../../../components/Footer.astro";
 import PageHeader from "../../../components/sections/PageHeader.astro";
 import DownloadContent from "../../../components/shared-content/DownloadContent.astro";
 import ThoriumBadge from "../../../components/badge/ThoriumBadge.astro";
+import ClientData from "../../../components/ClientData.astro";
 import { t } from "../../../i18n/utils.js";
 import { locales } from "../../../i18n/locales.js";
 import { addPublicationScheme } from "../../../links.js";
@@ -38,16 +39,32 @@ const badgeAlt = t(lang, "badge.shared.alt");
 
   <DownloadContent lang={ lang } />
 
+  <ClientData
+    id="add-publication-data"
+    data={{
+      "data-scheme": addPublicationScheme,
+      "data-publication-title-fallback": publicationTitleFallback,
+      "data-badge-alt": badgeAlt,
+    }}
+  />
+
   <Footer slot="footer" />
 </Layout>
 
-<script define:vars={{ addPublicationScheme, publicationTitleFallback, badgeAlt }}>
+<script>
+  import { interpolate } from "../../../i18n/utils.js";
+
+  const dataEl = document.getElementById("add-publication-data") as HTMLElement;
+  const addPublicationScheme = dataEl.dataset.scheme!;
+  const publicationTitleFallback = dataEl.dataset.publicationTitleFallback!;
+  const badgeAlt = dataEl.dataset.badgeAlt!;
+
   const params = new URLSearchParams(window.location.search);
   const title = params.get("title");
 
   const subtitleEl = document.querySelector(".page-header p");
   if (subtitleEl) {
-    subtitleEl.textContent = subtitleEl.textContent.replace("{{publicationTitle}}", title || publicationTitleFallback);
+    subtitleEl.textContent = interpolate(subtitleEl.textContent, { publicationTitle: title || publicationTitleFallback });
   }
 
   const openBtn = document.getElementById("open-btn");
@@ -58,7 +75,7 @@ const badgeAlt = t(lang, "badge.shared.alt");
   if (title) {
     const badgeSvg = openBtn?.querySelector("svg");
     if (badgeSvg) {
-      const badgeTitle = badgeAlt.replace("{{name}}", title);
+      const badgeTitle = interpolate(badgeAlt, { name: title });
       badgeSvg.setAttribute("aria-label", badgeTitle);
       const titleEl = badgeSvg.querySelector("title");
       if (titleEl) titleEl.textContent = badgeTitle;

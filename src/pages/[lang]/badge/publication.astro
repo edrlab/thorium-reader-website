@@ -6,6 +6,7 @@ import Field from "../../../components/badge/Field.astro";
 import PassphraseFields from "../../../components/badge/PassphraseFields.astro";
 import BadgeLangSelector from "../../../components/badge/BadgeLangSelector.astro";
 import BadgeOutput from "../../../components/badge/BadgeOutput.astro";
+import ClientData from "../../../components/ClientData.astro";
 import { t } from "../../../i18n/utils.js";
 import { locales } from "../../../i18n/locales.js";
 import { addPublicationUniversalLink, addPublicationScheme } from "../../../links.js";
@@ -88,17 +89,21 @@ const badgeTexts = Object.fromEntries(
     </div>
   </section>
 
-  <div id="badge-data" hidden
-    data-badge-texts={ JSON.stringify(badgeTexts) }
-    data-universal-link={ addPublicationUniversalLink }
-    data-scheme={ addPublicationScheme }
-  ></div>
+  <ClientData
+    id="badge-data"
+    data={{
+      "data-badge-texts": JSON.stringify(badgeTexts),
+      "data-universal-link": addPublicationUniversalLink,
+      "data-scheme": addPublicationScheme,
+    }}
+  />
 
   <Footer slot="footer" />
 </Layout>
 
 <script>
   import { makeSVG, esc } from "../../../components/badge/badge-svg.js";
+  import { interpolate } from "../../../i18n/utils.js";
 
   const dataEl                      = document.getElementById("badge-data");
   const badgeTexts                  = JSON.parse(dataEl.dataset.badgeTexts);
@@ -122,7 +127,7 @@ const badgeTexts = Object.fromEntries(
     const cover            = coverInput.value.trim() && coverInput.validity.valid ? coverInput.value.trim() : "";
 
     const { line1, line2, alt } = badgeTexts[selectedLang] ?? Object.values(badgeTexts)[0];
-    const svgTitle = title ? alt.replace("{{name}}", title) : `${ line1 } ${ line2 }`;
+    const svgTitle = title ? interpolate(alt, { name: title }) : `${ line1 } ${ line2 }`;
 
     const params = new URLSearchParams();
     if (publicationValid) params.set("publication",       publicationInput.value.trim());

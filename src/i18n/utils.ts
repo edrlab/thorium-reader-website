@@ -48,6 +48,13 @@ export function t(lang: Lang, key: string, options: TOptions = {}): unknown {
   return i18next.getFixedT(lang ?? defaultLocale)(key, { ...options, returnObjects: true });
 }
 
+export function interpolate(template: string, values: Record<string, string>): string {
+  return Object.entries(values).reduce(
+    (result, [key, value]) => result.replace(`{{${ key }}}`, value),
+    template
+  );
+}
+
 export function localizeCollection<T extends { id: string }>(entries: T[], lang: string): { slug: string; note: T }[] {
   const bySlug = new Map<string, { en?: T; localized?: T }>();
   for (const entry of entries) {
