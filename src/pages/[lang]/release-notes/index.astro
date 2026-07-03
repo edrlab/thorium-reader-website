@@ -4,7 +4,7 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "../../../layouts/Layout.astro";
 import Footer from "../../../components/Footer.astro";
 import { locales } from "../../../i18n/locales.js";
-import { t, formatDate } from "../../../i18n/utils.js";
+import { t, formatDate, localizeCollection } from "../../../i18n/utils.js";
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
@@ -13,13 +13,13 @@ export function getStaticPaths() {
 const lang = Astro.currentLocale ?? "en";
 
 const desktopNotes = await getCollection("desktop-release-notes");
-const sortedDesktop = desktopNotes.sort((a, b) => b.data.date.localeCompare(a.data.date));
+const sortedDesktop = localizeCollection(desktopNotes, lang).sort((a, b) => b.note.data.date.localeCompare(a.note.data.date));
 
 const platforms = [
   {
     label: t(lang, "release-notes.platforms.desktop"),
     indexPath: "release-notes/desktop/",
-    notes: sortedDesktop.slice(0, 5).map((n) => ({ id: n.id, version: n.data.version, date: n.data.date, path: `release-notes/desktop/${ n.id }` })),
+    notes: sortedDesktop.slice(0, 5).map(({ slug, note }) => ({ version: note.data.version, date: note.data.date, path: `release-notes/desktop/${ slug }` })),
   },
 ];
 ---

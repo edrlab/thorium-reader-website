@@ -124,6 +124,18 @@
             "desktop": "Desktop"
         }
     },
+    "add": {
+        "catalog": {
+            "title": "Add Catalog to Thorium Reader",
+            "subtitle": "You are trying to add {{catalogName}} to Thorium Reader but you must download the app first.",
+            "fallbackName": "this catalog"
+        },
+        "publication": {
+            "title": "Add Publication to Thorium Reader",
+            "subtitle": "You are trying to add {{publicationTitle}} to Thorium Reader but you must download the app first.",
+            "fallbackName": "this publication"
+        }
+    },
     "badge": {
         "index": {
             "title": "Badge Generator",
@@ -149,7 +161,7 @@
                     "hint": "The name of your catalog as it appears in Thorium Reader."
                 },
                 "main": {
-                    "label": "Browse URL",
+                    "label": "Main catalog URL",
                     "placeholder": "https://example.com/opds",
                     "hint": "An OPDS or web URL to browse the catalog. At least one catalog URL is required."
                 },
@@ -250,20 +262,6 @@
                 "hint": "Copy and paste this snippet into your page.",
                 "copy": "Copy to clipboard",
                 "copied": "Copied!"
-            }
-        },
-        "landing": {
-            "catalog": {
-                "title": "Open in Thorium Reader",
-                "subtitle": "Tap the button below to add this catalog to your library.",
-                "open": "Open in Thorium Reader",
-                "download": "Download Thorium Reader"
-            },
-            "publication": {
-                "title": "Open in Thorium Reader",
-                "subtitle": "Tap the button below to open this publication in Thorium Reader.",
-                "open": "Open in Thorium Reader",
-                "download": "Download Thorium Reader"
             }
         }
     },

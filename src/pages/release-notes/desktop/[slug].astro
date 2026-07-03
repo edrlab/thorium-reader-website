@@ -4,8 +4,9 @@ import LocaleRedirect from "../../../components/LocaleRedirect.astro";
 
 export async function getStaticPaths() {
   const notes = await getCollection("desktop-release-notes");
-  return notes.map((note) => ({
-    params: { slug: note.id },
+  const slugs = new Set(notes.map((note) => note.id.slice(note.id.indexOf("/") + 1)));
+  return [...slugs].map((slug) => ({
+    params: { slug },
   }));
 }
 

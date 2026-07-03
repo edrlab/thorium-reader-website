@@ -5,10 +5,10 @@ This is the process for adding a new platform collection alongside the existing 
 ## 1. Create the content folder
 
 ```
-src/content/release-notes/ios/
+src/content/release-notes/ios/en/
 ```
 
-Add release note files there following the same naming convention (`X-Y-Z.md`). See `docs/release-notes.md` for the required frontmatter.
+Add release note files there following the same naming convention (`X-Y-Z.md`), under one subfolder per locale (`en`, `fr`, `it`, ...). See `docs/release-notes.md` for the required frontmatter and the localization/fallback rules.
 
 ## 2. Register the collection
 
@@ -16,7 +16,7 @@ In `src/content.config.ts`, define the new collection and add it to the exports:
 
 ```ts
 const iosReleaseNotes = defineCollection({
-  loader: glob({ pattern: "*.md", base: "src/content/release-notes/ios" }),
+  loader: glob({ pattern: "*/*.md", base: "src/content/release-notes/ios" }),
   schema: z.object({
     title: z.string(),
     version: z.string(),
@@ -64,21 +64,23 @@ In `src/pages/[lang]/release-notes/index.astro`, add the new platform to the `pl
 
 ```ts
 const iosNotes = await getCollection("ios-release-notes");
-const sortedIos = iosNotes.sort((a, b) => b.data.date.localeCompare(a.data.date));
+const sortedIos = localizeCollection(iosNotes, lang).sort((a, b) => b.note.data.date.localeCompare(a.note.data.date));
 
 const platforms = [
   {
     label: t(lang, "release-notes.platforms.desktop"),
     indexPath: "release-notes/desktop/",
-    notes: sortedDesktop.slice(0, 5).map((n) => ({ id: n.id, version: n.data.version, date: n.data.date, path: `release-notes/desktop/${ n.id }` })),
+    notes: sortedDesktop.slice(0, 5).map(({ slug, note }) => ({ version: note.data.version, date: note.data.date, path: `release-notes/desktop/${ slug }` })),
   },
   {
     label: t(lang, "release-notes.platforms.ios"),
     indexPath: "release-notes/ios/",
-    notes: sortedIos.slice(0, 5).map((n) => ({ id: n.id, version: n.data.version, date: n.data.date, path: `release-notes/ios/${ n.id }` })),
+    notes: sortedIos.slice(0, 5).map(({ slug, note }) => ({ version: note.data.version, date: note.data.date, path: `release-notes/ios/${ slug }` })),
   },
 ];
 ```
+
+`localizeCollection` (from `src/i18n/utils.ts`) resolves each version to the localized note if it exists, falling back to the English one otherwise.
 
 ## 6. Verify
 

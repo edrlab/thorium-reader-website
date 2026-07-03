@@ -1,0 +1,156 @@
+---
+import BreakpointImage from "../images/BreakpointImage.astro";
+import FeatureSection from "../sections/FeatureSection.astro";
+import ComicBookDecoration from "../decorations/ComicBookDecoration.astro";
+import TabsSection from "../sections/TabsSection.astro";
+import FAQ from "../sections/FAQ.astro";
+import AppStoreBadge from "../buttons/AppStoreBadge.astro";
+import MsStoreBadge from "../buttons/MsStoreBadge.astro";
+import ActionButton from "../buttons/ActionButton.astro";
+import ClientData from "../ClientData.astro";
+import { t, getImage, slugify } from "../../i18n/utils.js";
+import { downloadUrls, downloadPlatforms } from "../../links.js";
+import { BREAKPOINT_MOBILE } from "../../breakpoints.js";
+import rawShape6WaveBottom from "../../assets/shapes/thorium-shape-6-wave-bottom.svg?raw";
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+
+const downloadLinks = t(lang, "download.tabs.links", { returnObjects: true }) as Record<string, string>;
+
+const linkAnchors = Object.fromEntries(
+  Object.entries(downloadUrls).map(([ key, url ]) => [
+    key,
+    `<a href="${ url }" data-platform="${ downloadPlatforms[key] ?? "" }">${ downloadLinks[key] ?? key }</a>`,
+  ])
+);
+
+function osSteps(key: string): string[] {
+  const steps = t(lang, `download.tabs.${ key }.steps`, { returnObjects: true, ...linkAnchors });
+  return Array.isArray(steps) ? steps : [];
+}
+
+const tabsData = t(lang, "download.tabs", { returnObjects: true }) as Record<string, { label: string; steps: string[] }>;
+const osTabs = Object.entries(tabsData)
+  .filter(([ key ]) => key !== "label" && key !== "links")
+  .map(([ key, tab ]) => ({ id: slugify(key), key, label: tab.label }));
+---
+
+<FeatureSection
+  id="desktop"
+  title={ t(lang, "download.features.desktop.title") }
+  body={ t(lang, "download.features.desktop.body") }
+  reverse
+  textAlign="left"
+>
+  <div slot="actions" class="desktop-actions">
+    <MsStoreBadge />
+    <ActionButton variant="accent" label={ t(lang, "button.releaseNotes") } href={`${ import.meta.env.BASE_URL }${ lang }/release-notes/desktop`} />
+  </div>
+</FeatureSection>
+
+<TabsSection
+  class="download-tabs-section"
+  id="download-tabs"
+  tabs={ osTabs }
+  label={ t(lang, "download.tabs.label") }
+>
+  <ComicBookDecoration slot="border-top" lang={ lang } />
+
+  { osTabs.map((tab, i) => (
+    <div
+      id={`panel-${ tab.id }`}
+      role="tabpanel"
+      aria-labelledby={ tab.id }
+      tabindex={ 0 }
+      hidden={ i !== 0 }
+    >
+      <ul class="download-steps">
+        { osSteps(tab.key).map(s => <li set:html={ s } />) }
+      </ul>
+    </div>
+  )) }
+
+  <div slot="border-bottom" class="tabs-wave tabs-wave-bottom" aria-hidden="true">
+    <Fragment set:html={ rawShape6WaveBottom } />
+  </div>
+</TabsSection>
+
+<FeatureSection
+  id="ios"
+  title={ t(lang, "download.features.ios.title") }
+  body={ t(lang, "download.features.ios.body") }
+  fullWidth
+>
+  <AppStoreBadge slot="actions" />
+  <figure>
+    <BreakpointImage
+      sources={[
+        { src: getImage(lang, "thorium-mobile-download-screens-compact.webp"), alt: t(lang, "alts.thorium-mobile-download-screens-compact"), media: `(max-width: ${ BREAKPOINT_MOBILE }px)` },
+        { src: getImage(lang, "thorium-mobile-download-screens-large.webp"),   alt: t(lang, "alts.thorium-mobile-download-screens-large") },
+      ]}
+    />
+  </figure>
+</FeatureSection>
+
+<FAQ
+  title={ t(lang, "faq.title") }
+  items={ t(lang, "faq.items", { returnObjects: true }) as { question: string; answer: unknown[] }[] }
+  class="bottom-gap"
+/>
+
+<ClientData
+  id="download-tab-ids"
+  data={{ "data-tab-ids": JSON.stringify(osTabs.map(tab => tab.id)) }}
+/>
+
+<script>
+  import { slugify } from "../../i18n/utils.js";
+
+  const tabIds: string[] = JSON.parse(
+    (document.getElementById("download-tab-ids") as HTMLElement).dataset.tabIds!
+  );
+
+  function activateFromHash() {
+    const id = slugify(location.hash.slice(1).toLowerCase());
+    if (!tabIds.includes(id)) return;
+    const tab = document.getElementById(id);
+    if (!tab) return;
+    tab.click();
+    tab.scrollIntoView();
+  }
+
+  document.addEventListener("DOMContentLoaded", activateFromHash);
+  window.addEventListener("hashchange", activateFromHash);
+</script>
+
+<script>
+  const FILE_EXT = /\.(dmg|exe|appimage|deb)$/i;
+
+  function downloadLabel(url: string): string {
+    try {
+      const { pathname, hostname, hash } = new URL(url);
+      const last = pathname.split("/").filter(Boolean).pop() ?? "";
+      if (FILE_EXT.test(last)) return last;
+      if (hash) return hash.slice(1);
+      return last || hostname;
+    } catch {
+      return url;
+    }
+  }
+
+  document.addEventListener("click", (e) => {
+    const link = (e.target as Element).closest(".download-steps a") as HTMLAnchorElement | null;
+    if (!link || typeof gtag === "undefined") return;
+
+    gtag("event", "thorium_download", {
+      link_url: link.href,
+      link_text: link.textContent?.trim(),
+      file_name: downloadLabel(link.href),
+      platform: link.dataset.platform || undefined,
+    });
+  });
+</script>
