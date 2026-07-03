@@ -160,4 +160,4 @@ Full release notes are available from the [code repository release page](https:/
 
 EDRLab is the owner of the Application, including all copyrights, trademarks, trade names, logos, patents, trade secrets and other intellectual property rights relating thereto. EDRLab may license third parties for the use or operation of the Application.
 
-For complete and up to date Terms of use, please see the [Terms of Use](/documents/desktop3/terms-of-use/) page.
+For complete and up to date Terms of use, please see the [Terms of Use](terms-of-use/) page.
