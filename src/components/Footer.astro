@@ -20,6 +20,7 @@ const { image, clip = false, discordHref } = Astro.props;
 const lang = Astro.currentLocale ?? "en";
 const year = new Date().getFullYear();
 const conformancePath = getRelativeLocaleUrl(lang, "legals");
+const accessibilityPath = getRelativeLocaleUrl(lang, "accessibility");
 ---
 
 <div class:list={["footer-top", { "has-image": image, clipped: image && clip }]}>
@@ -54,5 +55,7 @@ const conformancePath = getRelativeLocaleUrl(lang, "legals");
     <span>EDRLab &copy; { year }</span>
     <span aria-hidden="true" style="padding-inline: 0.5rem">|</span>
     <a href={ conformancePath }>{ t(lang, "footer.legal") }</a>
+    <span aria-hidden="true" style="padding-inline: 0.5rem">|</span>
+    <a href={ accessibilityPath }>{ t(lang, "footer.accessibility") }</a>
   </div>
 </footer>

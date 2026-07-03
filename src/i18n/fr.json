@@ -28,7 +28,8 @@
         "discord": "Rejoindre notre Discord"
     },
     "footer": {
-        "legal": "Mentions légales"
+        "legal": "Mentions légales",
+        "accessibility": "Accessibilité"
     },
     "home": {
         "hero": {

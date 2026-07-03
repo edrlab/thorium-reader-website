@@ -292,7 +292,8 @@
         "skipToMain": "Vai al contenuto principale"
     },
     "footer": {
-        "legal": "Note legali"
+        "legal": "Note legali",
+        "accessibility": "Accessibilità"
     },
     "lang": {
         "label": "Lingua"

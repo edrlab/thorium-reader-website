@@ -21,7 +21,7 @@ const platformConformance = defineCollection({
 });
 
 const legalsPages = defineCollection({
-  loader: glob({ pattern: "legals.md", base: "src/content/legals" }),
+  loader: glob({ pattern: "{legals,accessibility}.md", base: "src/content/legals" }),
   schema: z.object({
     title: z.string(),
     date: z.string().optional(),
