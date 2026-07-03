@@ -1,167 +1,22 @@
 ---
-import BreakpointImage from "../../components/images/BreakpointImage.astro";
 import Layout from "../../layouts/Layout.astro";
 import PageHeader from "../../components/sections/PageHeader.astro";
-import FeatureSection from "../../components/sections/FeatureSection.astro";
-import ComicBookDecoration from "../../components/decorations/ComicBookDecoration.astro";
-import TabsSection from "../../components/sections/TabsSection.astro";
-import FAQ from "../../components/sections/FAQ.astro";
+import DownloadContent from "../../components/shared-content/DownloadContent.astro";
 import Footer from "../../components/Footer.astro";
-import AppStoreBadge from "../../components/buttons/AppStoreBadge.astro";
-import MsStoreBadge from "../../components/buttons/MsStoreBadge.astro";
-import ActionButton from "../../components/buttons/ActionButton.astro";
-import { getRelativeLocaleUrl } from "astro:i18n";
-import { t, getImage, slugify } from "../../i18n/utils.js";
+import { t } from "../../i18n/utils.js";
 import { locales } from "../../i18n/locales.js";
-import { downloadUrls, downloadPlatforms } from "../../links.js";
-import { BREAKPOINT_MOBILE } from "../../breakpoints.js";
-import rawShape6WaveBottom from "../../assets/shapes/thorium-shape-6-wave-bottom.svg?raw";
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
 }
 
 const lang = Astro.currentLocale;
-
-const downloadLinks = t(lang, "download.tabs.links", { returnObjects: true }) as Record<string, string>;
-
-const linkAnchors = Object.fromEntries(
-  Object.entries(downloadUrls).map(([ key, url ]) => [
-    key,
-    `<a href="${ url }" data-platform="${ downloadPlatforms[key] ?? "" }">${ downloadLinks[key] ?? key }</a>`,
-  ])
-);
-
-function osSteps(key: string): string[] {
-  const steps = t(lang, `download.tabs.${ key }.steps`, { returnObjects: true, ...linkAnchors });
-  return Array.isArray(steps) ? steps : [];
-}
-
-const tabsData = t(lang, "download.tabs", { returnObjects: true }) as Record<string, { label: string; steps: string[] }>;
-const osTabs = Object.entries(tabsData)
-  .filter(([key]) => key !== "label" && key !== "links")
-  .map(([key, tab]) => ({ id: slugify(key), key, label: tab.label }));
 ---
 
 <Layout>
   <PageHeader class="download-page-header" title={ t(lang, "download.header.title") } />
 
-  <FeatureSection
-    id="desktop"
-    title={ t(lang, "download.features.desktop.title") }
-    body={ t(lang, "download.features.desktop.body") }
-    reverse
-    textAlign="left"
-  >
-    <div slot="actions" class="desktop-actions">
-      <MsStoreBadge />
-      <ActionButton variant="accent" label={ t(lang, "button.releaseNotes") } href={ getRelativeLocaleUrl(lang, "release-notes/desktop") } />
-    </div>
-  </FeatureSection>
-
-  <TabsSection
-    class="download-tabs-section"
-    id="download-tabs"
-    tabs={ osTabs }
-    label={ t(lang, "download.tabs.label") }
-  >
-    <ComicBookDecoration slot="border-top" lang={ lang } />
-
-    { osTabs.map((tab, i) => {
-      const steps = osSteps(tab.key);
-      return (
-        <div
-          id={`panel-${ tab.id }`}
-          role="tabpanel"
-          aria-labelledby={ tab.id }
-          tabindex={ 0 }
-          hidden={ i !== 0 }
-        >
-          <ul class="download-steps">
-            { steps.map(s => <li set:html={ s } />) }
-          </ul>
-        </div>
-      );
-    }) }
-
-    <div slot="border-bottom" class="tabs-wave tabs-wave-bottom" aria-hidden="true">
-      <Fragment set:html={ rawShape6WaveBottom } />
-    </div>
-  </TabsSection>
-
-  <FeatureSection
-    id="ios"
-    title={ t(lang, "download.features.ios.title") }
-    body={ t(lang, "download.features.ios.body") }
-    fullWidth
-  >
-    <AppStoreBadge slot="actions" />
-    <figure>
-      <BreakpointImage
-        sources={[
-          { src: getImage(lang, "thorium-mobile-download-screens-compact.webp"), alt: t(lang, "alts.thorium-mobile-download-screens-compact"), media: `(max-width: ${ BREAKPOINT_MOBILE }px)` },
-          { src: getImage(lang, "thorium-mobile-download-screens-large.webp"),   alt: t(lang, "alts.thorium-mobile-download-screens-large") },
-        ]}
-      />
-    </figure>
-  </FeatureSection>
-
-  <FAQ
-    title={ t(lang, "faq.title") }
-    items={ t(lang, "faq.items", { returnObjects: true }) as { question: string; answer: unknown[] }[] }
-    class="bottom-gap"
-  />
+  <DownloadContent lang={ lang } />
 
   <Footer slot="footer" />
 </Layout>
-
-<script define:vars={{ tabIds: osTabs.map(t => t.id) }}>
-  function slugify(str) {
-    return str
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[̀-ͯ]/g, "")
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "");
-  }
-
-  function activateFromHash() {
-    const id = slugify(location.hash.slice(1).toLowerCase());
-    if (!tabIds.includes(id)) return;
-    const tab = document.getElementById(id);
-    if (!tab) return;
-    tab.click();
-    tab.scrollIntoView();
-  }
-
-  document.addEventListener("DOMContentLoaded", activateFromHash);
-  window.addEventListener("hashchange", activateFromHash);
-</script>
-
-<script>
-  const FILE_EXT = /\.(dmg|exe|appimage|deb)$/i;
-
-  function downloadLabel(url) {
-    try {
-      const { pathname, hostname, hash } = new URL(url);
-      const last = pathname.split("/").filter(Boolean).pop() ?? "";
-      if (FILE_EXT.test(last)) return last;
-      if (hash) return hash.slice(1);
-      return last || hostname;
-    } catch {
-      return url;
-    }
-  }
-
-  document.addEventListener("click", (e) => {
-    const link = (e.target as Element).closest(".download-steps a") as HTMLAnchorElement | null;
-    if (!link || typeof gtag === "undefined") return;
-
-    gtag("event", "thorium_download", {
-      link_url: link.href,
-      link_text: link.textContent?.trim(),
-      file_name: downloadLabel(link.href),
-      platform: link.dataset.platform || undefined,
-    });
-  });
-</script>

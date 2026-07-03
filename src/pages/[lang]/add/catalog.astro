@@ -1,0 +1,84 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Footer from "../../../components/Footer.astro";
+import PageHeader from "../../../components/sections/PageHeader.astro";
+import DownloadContent from "../../../components/shared-content/DownloadContent.astro";
+import ThoriumBadge from "../../../components/badge/ThoriumBadge.astro";
+import ClientData from "../../../components/ClientData.astro";
+import { t } from "../../../i18n/utils.js";
+import { locales } from "../../../i18n/locales.js";
+import { addCatalogScheme } from "../../../links.js";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.currentLocale;
+const catalogNameFallback = t(lang, "add.catalog.fallbackName");
+const badgeAlt = t(lang, "badge.shared.alt");
+---
+
+<Layout title={ t(lang, "add.catalog.title") + " — " + t(lang, "site.title") }>
+  <PageHeader
+    title={ t(lang, "add.catalog.title") }
+    body={ t(lang, "add.catalog.subtitle") }
+  />
+
+  <section class="add-landing-section">
+    <div class="container">
+      <div class="add-landing-actions">
+        <ThoriumBadge
+          id="open-btn"
+          line1={ t(lang, "badge.shared.buttonLine1") }
+          line2={ t(lang, "badge.shared.buttonLine2") }
+          title={ t(lang, "badge.shared.button") }
+        />
+      </div>
+    </div>
+  </section>
+
+  <DownloadContent lang={ lang } />
+
+  <ClientData
+    id="add-catalog-data"
+    data={{
+      "data-scheme": addCatalogScheme,
+      "data-catalog-name-fallback": catalogNameFallback,
+      "data-badge-alt": badgeAlt,
+    }}
+  />
+
+  <Footer slot="footer" />
+</Layout>
+
+<script>
+  import { interpolate } from "../../../i18n/utils.js";
+
+  const dataEl = document.getElementById("add-catalog-data") as HTMLElement;
+  const addCatalogScheme = dataEl.dataset.scheme!;
+  const catalogNameFallback = dataEl.dataset.catalogNameFallback!;
+  const badgeAlt = dataEl.dataset.badgeAlt!;
+
+  const params = new URLSearchParams(window.location.search);
+  const title = params.get("title");
+
+  const subtitleEl = document.querySelector(".page-header p");
+  if (subtitleEl) {
+    subtitleEl.textContent = interpolate(subtitleEl.textContent, { catalogName: title || catalogNameFallback });
+  }
+
+  const openBtn = document.getElementById("open-btn");
+  if (openBtn) {
+    openBtn.setAttribute("href", `${ addCatalogScheme }${ window.location.search }`);
+  }
+
+  if (title) {
+    const badgeSvg = openBtn?.querySelector("svg");
+    if (badgeSvg) {
+      const badgeTitle = interpolate(badgeAlt, { name: title });
+      badgeSvg.setAttribute("aria-label", badgeTitle);
+      const titleEl = badgeSvg.querySelector("title");
+      if (titleEl) titleEl.textContent = badgeTitle;
+    }
+  }
+</script>

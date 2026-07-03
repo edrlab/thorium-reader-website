@@ -4,7 +4,7 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "../../../../layouts/Layout.astro";
 import Footer from "../../../../components/Footer.astro";
 import { locales } from "../../../../i18n/locales.js";
-import { t, formatDate } from "../../../../i18n/utils.js";
+import { t, formatDate, localizeCollection } from "../../../../i18n/utils.js";
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
@@ -12,16 +12,16 @@ export function getStaticPaths() {
 
 const lang = Astro.currentLocale ?? "en";
 const allNotes = await getCollection("desktop-release-notes");
-const notes = allNotes.sort((a, b) => b.data.date.localeCompare(a.data.date));
+const notes = localizeCollection(allNotes, lang).sort((a, b) => b.note.data.date.localeCompare(a.note.data.date));
 ---
 
 <Layout title={ t(lang, "release-notes.title") }>
   <section class="release-notes-index container">
     <h1>{ t(lang, "release-notes.title") }</h1>
     <ul>
-      { notes.map((note) => (
+      { notes.map(({ slug, note }) => (
         <li>
-          <a href={ getRelativeLocaleUrl(lang, `release-notes/desktop/${ note.id }`) }>
+          <a href={ getRelativeLocaleUrl(lang, `release-notes/desktop/${ slug }`) }>
             { note.data.title }
           </a>
           <time datetime={ note.data.date }>{ formatDate(lang, note.data.date) }</time>
