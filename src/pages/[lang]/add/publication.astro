@@ -14,6 +14,7 @@ export function getStaticPaths() {
 
 const lang = Astro.currentLocale;
 const publicationTitleFallback = t(lang, "add.publication.fallbackName");
+const badgeAlt = t(lang, "badge.shared.alt");
 ---
 
 <Layout title={ t(lang, "add.publication.title") + " — " + t(lang, "site.title") }>
@@ -40,7 +41,7 @@ const publicationTitleFallback = t(lang, "add.publication.fallbackName");
   <Footer slot="footer" />
 </Layout>
 
-<script define:vars={{ addPublicationScheme, publicationTitleFallback }}>
+<script define:vars={{ addPublicationScheme, publicationTitleFallback, badgeAlt }}>
   const params = new URLSearchParams(window.location.search);
   const title = params.get("title");
 
@@ -52,5 +53,15 @@ const publicationTitleFallback = t(lang, "add.publication.fallbackName");
   const openBtn = document.getElementById("open-btn");
   if (openBtn) {
     openBtn.setAttribute("href", `${ addPublicationScheme }${ window.location.search }`);
+  }
+
+  if (title) {
+    const badgeSvg = openBtn?.querySelector("svg");
+    if (badgeSvg) {
+      const badgeTitle = badgeAlt.replace("{{name}}", title);
+      badgeSvg.setAttribute("aria-label", badgeTitle);
+      const titleEl = badgeSvg.querySelector("title");
+      if (titleEl) titleEl.textContent = badgeTitle;
+    }
   }
 </script>
