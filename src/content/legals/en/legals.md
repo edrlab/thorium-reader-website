@@ -21,11 +21,10 @@ We collect technical data such as IP addresses, browser types, operating systems
 
 ### Google Analytics
 Google Analytics is a web analytics service offered by Google that tracks and reports website traffic. Google uses the data it collects to track and monitor use of our Service. This data is shared with other Google services. Google may use the collected data to contextualise and personalise the ads of its own advertising network.
-You may opt out of certain Google Analytics features through your mobile device settings, such as your device advertising settings or by following the instructions provided by Google in their Privacy Policy: https://policies.google.com/privacy
-For more information on the privacy practices of Google, please visit the Google Privacy & Terms web page: https://policies.google.com/privacy
+You may opt out of certain Google Analytics features by following the instructions provided by [Google Privacy Policy](https://policies.google.com/privacy) 
 
 ### GitHub Pages
-When a GitHub Pages site is visited, the visitor's IP address is logged and stored for security purposes, regardless of whether the visitor has signed in to GitHub. For more information about GitHub's security practices, see GitHub Privacy Statement.
+When a GitHub Pages site is visited, the visitor's IP address is logged and stored for security purposes, regardless of whether the visitor has signed in to GitHub. For more information about GitHub's security practices, see [GitHub Privacy Statement](https://docs.github.com/site-policy/privacy-policies/github-privacy-statement).
 
 ## Purpose of processing
 We use this data to analyse website traffic, improve content and usability, and measure the performance of our pages.
