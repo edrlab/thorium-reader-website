@@ -161,7 +161,7 @@
                     "hint": "Il nome del tuo catalogo come appare su Thorium Reader."
                 },
                 "main": {
-                    "label": "Inserisci l'URL",
+                    "label": "URL del catalogo",
                     "placeholder": "https://esempio.com/opds",
                     "hint": "Inserisci un URL OPDS o Web per navigare il catalogo. È necessario almeno un URL."
                 },
@@ -364,5 +364,17 @@
         "thorium-desktop": "Un laptop che mostra Thorium Reader Desktop. La biblioteca mostra tutte le pubblicazioni come una griglia; puoi cercare e importare una nuova pubblicazione. Ogni libro mostra la copertina con il titolo e il nome dell'autore di seguito, seguiti dal formato e dalle opzioni.",
         "thorium-reader-screens": "Tre telefoni che mostrano i temi di Thorium Reader: uno schermo in modalità seppia, uno in modalità chiara con il pannello delle impostazioni dello schermo aperto e uno in modalità scura.",
         "thorium-mobile-download-screens-large": "Quattro telefoni sono disposti uno accanto all'altro. Il primo mostra la libreria dell'app per dispositivi mobili, il secondo un romanzo con lo sfondo in modalità scuro, il terzo un audiolibro con la relativa interfaccia di riproduzione, il quarto un manga a schermo intero."
+    },
+    "add": {
+        "catalog": {
+            "title": "Aggiungi catalogo a Thorium Reader",
+            "subtitle": "Se desideri aggiungere {{catalogName}} a Thorium Reader devi prima scaricare l'app.",
+            "fallbackName": "questo catalogo"
+        },
+        "publication": {
+            "title": "Aggiungi la pubblicazione su Thorium Reader",
+            "subtitle": "Se desideri aggiungere {{publicationTitle}} su Thorium Reader devi prima scaricare l'app.",
+            "fallbackName": "questa pubblicazione"
+        }
     }
 }
