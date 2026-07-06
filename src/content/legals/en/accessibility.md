@@ -5,7 +5,7 @@ date: "2026-07-03"
 
 This website is designed to comply with the technical standard for websites level ‘AA’ of the Web Content Accessibility Guidelines (WCAG) version 2.2.
 
-This site was tested Axe Dev Tools and with Voice Over on Chrome on MacOS Tahoe 26.5.1. No accessibility blockers were found. Last testing: July 2026.
+This site was tested with Axe Dev Tools and with Voice Over on Chrome on MacOS Tahoe 26.5.1. No accessibility blockers were found. Last testing: July 2026.
 
 You should be able to:
 
