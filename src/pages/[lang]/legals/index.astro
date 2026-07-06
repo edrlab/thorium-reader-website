@@ -40,7 +40,7 @@ const sortDocsByDateAndTitle = (a: { note: (typeof allPlatformDocs)[number] }, b
 ---
 
 <Layout title={ legalsDoc.data.title }>
-  <section class="conformance-index container">
+  <article class="release-notes container">
     <h1>{ legalsDoc.data.title }</h1>
     {legalsDoc.data.date && (
       <time datetime={ legalsDoc.data.date }>{ formatDate(lang, legalsDoc.data.date) }</time>
@@ -55,7 +55,7 @@ const sortDocsByDateAndTitle = (a: { note: (typeof allPlatformDocs)[number] }, b
       return (
         <Fragment>
           <h2>{ title }</h2>
-          <ul>
+          <ul class="legals-platform-list">
             { docs.map(({ slug, note }) => (
               <li>
                 <a href={ getRelativeLocaleUrl(lang, `legals/${ platform }/${ slug }`) }>
@@ -70,6 +70,6 @@ const sortDocsByDateAndTitle = (a: { note: (typeof allPlatformDocs)[number] }, b
         </Fragment>
       );
     }) }
-  </section>
+  </article>
   <Footer slot="footer" />
 </Layout>

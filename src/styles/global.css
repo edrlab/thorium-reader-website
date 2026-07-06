@@ -1918,6 +1918,47 @@ img {
   gap: 0.25rem;
 }
 
+.release-notes ul.legals-platform-list {
+  list-style: none;
+  padding-inline-start: 0;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  max-width: 52ch;
+}
+
+.release-notes .legals-platform-list li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding-block: var(--space-xs);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.release-notes .legals-platform-list li + li {
+  margin-top: 0.65rem;
+}
+
+.release-notes .legals-platform-list a {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.15s;
+}
+
+.release-notes .legals-platform-list a:hover {
+  opacity: 0.65;
+}
+
+.release-notes .legals-platform-list time {
+  font-size: var(--text-xs);
+  color: #555;
+  flex-shrink: 0;
+  margin-left: 0.6rem;
+}
+
 .release-notes a {
   color: var(--color-mauve);
   text-decoration: underline;
