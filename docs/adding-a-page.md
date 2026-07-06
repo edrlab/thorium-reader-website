@@ -47,4 +47,4 @@ Add the page's strings to `src/i18n/en.json` under a new top-level key. See `doc
 
 ## Nested pages
 
-For nested routes (e.g. `/your-page/sub-page/`), mirror the structure inside `src/pages/[lang]/your-page/` and add a corresponding stub under `src/pages/your-page/`. See the `release-notes/desktop/` pages as a reference.
+For nested routes (e.g. `/your-page/sub-page/`), mirror the structure inside `src/pages/[lang]/your-page/` and add a corresponding stub under `src/pages/your-page/`. See the `release-notes/[platform]/` pages as a reference. If your page is organized per-platform (content-driven, dynamic route), see [Adding a Platform](adding-a-platform.md) instead.

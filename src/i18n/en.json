@@ -118,18 +118,18 @@
             }
         }
     },
-    "conformance": {
-        "desktop": {
-            "title": "Legal documents - Desktop",
-            "heading": "Legal documents - Desktop"
+    "platform": {
+        "names": {
+            "desktop": "Desktop",
+            "ios": "iOS"
         }
+    },
+    "legals": {
+        "platformTitle": "{{platform}} legal documents"
     },
     "release-notes": {
         "title": "Release Notes",
-        "see-all": "See all",
-        "platforms": {
-            "desktop": "Desktop"
-        }
+        "see-all": "See all"
     },
     "add": {
         "catalog": {

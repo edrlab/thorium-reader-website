@@ -6,12 +6,15 @@ import { locales } from "../../../../i18n/locales.js";
 import { formatDate, localizeCollection } from "../../../../i18n/utils.js";
 
 export async function getStaticPaths() {
-  const notes = await getCollection("desktop-release-notes");
+  const notes = await getCollection("release-notes");
+  const platforms = [...new Set(notes.map((n) => n.id.split("/")[0]))];
   return locales.flatMap((lang) =>
-    localizeCollection(notes, lang).map(({ slug, note }) => ({
-      params: { lang, slug },
-      props: { note },
-    }))
+    platforms.flatMap((platform) =>
+      localizeCollection(notes, lang, platform).map(({ slug, note }) => ({
+        params: { lang, platform, slug },
+        props: { note },
+      }))
+    )
   );
 }
 

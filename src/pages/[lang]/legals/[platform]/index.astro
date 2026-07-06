@@ -4,13 +4,11 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "../../../../layouts/Layout.astro";
 import Footer from "../../../../components/Footer.astro";
 import { locales } from "../../../../i18n/locales.js";
-import { formatDate } from "../../../../i18n/utils.js";
+import { t, formatDate, interpolate, localizeCollection } from "../../../../i18n/utils.js";
 
 export async function getStaticPaths() {
   const docs = await getCollection("platform-conformance");
-  const platforms = [...new Set(docs.map((doc) => doc.id.split("/")[0]))]
-    .filter((platform) => platform !== "desktop")
-    .sort((a, b) => a.localeCompare(b));
+  const platforms = [...new Set(docs.map((doc) => doc.id.split("/")[0]))].sort((a, b) => a.localeCompare(b));
 
   return locales.flatMap((lang) =>
     platforms.map((platform) => ({
@@ -22,11 +20,11 @@ export async function getStaticPaths() {
 const lang = Astro.currentLocale ?? "en";
 const platform = Astro.params.platform ?? "";
 
-const docs = (await getCollection("platform-conformance"))
-  .filter((doc) => doc.id.startsWith(`${ platform }/`))
+const allDocs = await getCollection("platform-conformance");
+const docs = localizeCollection(allDocs, lang, platform)
   .sort((a, b) => {
-    const aDate = a.data.date ?? "";
-    const bDate = b.data.date ?? "";
+    const aDate = a.note.data.date ?? "";
+    const bDate = b.note.data.date ?? "";
 
     if (aDate && bDate) {
       return bDate.localeCompare(aDate);
@@ -36,35 +34,31 @@ const docs = (await getCollection("platform-conformance"))
       return bDate ? 1 : -1;
     }
 
-    return a.data.title.localeCompare(b.data.title);
+    return a.note.data.title.localeCompare(b.note.data.title);
   });
 
 if (docs.length === 0) {
   return Astro.redirect(getRelativeLocaleUrl(lang, "legals"));
 }
 
-const prettyPlatform = platform === "ios"
-  ? "iOS"
-  : platform.charAt(0).toUpperCase() + platform.slice(1);
+const platformName = t(lang, `platform.names.${ platform }`) as string;
+const title = interpolate(t(lang, "legals.platformTitle") as string, { platform: platformName });
 ---
 
-<Layout title={`${ prettyPlatform } legal documents`}>
+<Layout title={ title }>
   <section class="conformance-index container">
-    <h1>{ prettyPlatform } legal documents</h1>
+    <h1>{ title }</h1>
     <ul>
-      { docs.map((doc) => {
-        const [, slug] = doc.id.split("/");
-        return (
-          <li>
-            <a href={ getRelativeLocaleUrl(lang, `legals/${ platform }/${ slug }`) }>
-              { doc.data.title }
-            </a>
-            {doc.data.date && (
-              <time datetime={ doc.data.date }>{ formatDate(lang, doc.data.date) }</time>
-            )}
-          </li>
-        );
-      }) }
+      { docs.map(({ slug, note }) => (
+        <li>
+          <a href={ getRelativeLocaleUrl(lang, `legals/${ platform }/${ slug }`) }>
+            { note.data.title }
+          </a>
+          {note.data.date && (
+            <time datetime={ note.data.date }>{ formatDate(lang, note.data.date) }</time>
+          )}
+        </li>
+      )) }
     </ul>
   </section>
   <Footer slot="footer" />

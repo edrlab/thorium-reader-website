@@ -1,6 +1,8 @@
 # Adding Release Notes
 
-Release notes are Markdown files located in `src/content/release-notes/desktop/<lang>/`, one subfolder per locale (`en`, `fr`, `it`, ...).
+Release notes are Markdown files located in `src/content/release-notes/<platform>/<lang>/` (`desktop` is the only platform with content today), one subfolder per locale (`en`, `fr`, `it`, ...).
+
+See [Adding a Platform](adding-a-platform.md) if you're introducing release notes for a brand-new platform rather than adding a note to an existing one.
 
 ## Steps
 

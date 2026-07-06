@@ -1,41 +1,31 @@
 ---
-import { getCollection, getEntry, render } from "astro:content";
+import { getCollection, render } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "../../../layouts/Layout.astro";
 import Footer from "../../../components/Footer.astro";
 import { locales } from "../../../i18n/locales.js";
-import { formatDate } from "../../../i18n/utils.js";
+import { t, formatDate, interpolate, localizeCollection } from "../../../i18n/utils.js";
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
 }
 
 const lang = Astro.currentLocale ?? "en";
-const legalsDoc = await getEntry("legals-pages", "legals");
+const legalsPages = await getCollection("legals-pages");
+const legalsDoc = localizeCollection(legalsPages, lang).find(({ slug }) => slug === "legals")?.note;
 
 if (!legalsDoc) {
-  throw new Error("Missing legal page content at src/content/legals/legals.md");
+  throw new Error("Missing legal page content at src/content/legals/en/legals.md");
 }
 
 const { Content } = await render(legalsDoc);
 
 const allPlatformDocs = await getCollection("platform-conformance");
-const groupedDocs = allPlatformDocs.reduce<Record<string, typeof allPlatformDocs>>((acc, doc) => {
-  const [platform] = doc.id.split("/");
+const platforms = [...new Set(allPlatformDocs.map((doc) => doc.id.split("/")[0]))].sort((a, b) => a.localeCompare(b));
 
-  if (!acc[platform]) {
-    acc[platform] = [];
-  }
-
-  acc[platform].push(doc);
-  return acc;
-}, {});
-
-const sortedPlatforms = Object.keys(groupedDocs).sort((a, b) => a.localeCompare(b));
-
-const sortDocsByDateAndTitle = (a: (typeof allPlatformDocs)[number], b: (typeof allPlatformDocs)[number]) => {
-  const aDate = a.data.date ?? "";
-  const bDate = b.data.date ?? "";
+const sortDocsByDateAndTitle = (a: { note: (typeof allPlatformDocs)[number] }, b: { note: (typeof allPlatformDocs)[number] }) => {
+  const aDate = a.note.data.date ?? "";
+  const bDate = b.note.data.date ?? "";
 
   if (aDate && bDate) {
     return bDate.localeCompare(aDate);
@@ -45,7 +35,7 @@ const sortDocsByDateAndTitle = (a: (typeof allPlatformDocs)[number], b: (typeof 
     return bDate ? 1 : -1;
   }
 
-  return a.data.title.localeCompare(b.data.title);
+  return a.note.data.title.localeCompare(b.note.data.title);
 };
 ---
 
@@ -57,29 +47,25 @@ const sortDocsByDateAndTitle = (a: (typeof allPlatformDocs)[number], b: (typeof 
     )}
     <Content />
 
-    { sortedPlatforms.map((platform) => {
-      const docs = groupedDocs[platform].sort(sortDocsByDateAndTitle);
-      const prettyPlatform = platform === "ios"
-        ? "iOS"
-        : platform.charAt(0).toUpperCase() + platform.slice(1);
+    { platforms.map((platform) => {
+      const docs = localizeCollection(allPlatformDocs, lang, platform).sort(sortDocsByDateAndTitle);
+      const platformName = t(lang, `platform.names.${ platform }`) as string;
+      const title = interpolate(t(lang, "legals.platformTitle") as string, { platform: platformName });
 
       return (
         <Fragment>
-          <h2>{ prettyPlatform } legal documents</h2>
+          <h2>{ title }</h2>
           <ul>
-            { docs.map((doc) => {
-              const [, slug] = doc.id.split("/");
-              return (
-                <li>
-                  <a href={ getRelativeLocaleUrl(lang, `legals/${ platform }/${ slug }`) }>
-                    { doc.data.title }
-                  </a>
-                  {doc.data.date && (
-                    <time datetime={ doc.data.date }>{ formatDate(lang, doc.data.date) }</time>
-                  )}
-                </li>
-              );
-            }) }
+            { docs.map(({ slug, note }) => (
+              <li>
+                <a href={ getRelativeLocaleUrl(lang, `legals/${ platform }/${ slug }`) }>
+                  { note.data.title }
+                </a>
+                {note.data.date && (
+                  <time datetime={ note.data.date }>{ formatDate(lang, note.data.date) }</time>
+                )}
+              </li>
+            )) }
           </ul>
         </Fragment>
       );

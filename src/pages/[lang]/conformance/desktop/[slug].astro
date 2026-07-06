@@ -5,9 +5,10 @@ import { locales } from "../../../../i18n/locales.js";
 
 export async function getStaticPaths() {
   const docs = (await getCollection("platform-conformance")).filter((doc) => doc.id.startsWith("desktop/"));
+  const slugs = new Set(docs.map((doc) => doc.id.split("/")[2]));
   return locales.flatMap((lang) =>
-    docs.map((doc) => ({
-      params: { lang, slug: doc.id.replace("desktop/", "") },
+    [...slugs].map((slug) => ({
+      params: { lang, slug },
     }))
   );
 }

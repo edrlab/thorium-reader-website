@@ -4,8 +4,9 @@ import LocaleRedirect from "../../../components/LocaleRedirect.astro";
 
 export async function getStaticPaths() {
   const docs = (await getCollection("platform-conformance")).filter((doc) => doc.id.startsWith("desktop/"));
-  return docs.map((doc) => ({
-    params: { slug: doc.id.replace("desktop/", "") },
+  const slugs = new Set(docs.map((doc) => doc.id.split("/")[2]));
+  return [...slugs].map((slug) => ({
+    params: { slug },
   }));
 }
 

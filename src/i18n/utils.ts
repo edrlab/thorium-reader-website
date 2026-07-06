@@ -55,12 +55,19 @@ export function interpolate(template: string, values: Record<string, string>): s
   );
 }
 
-export function localizeCollection<T extends { id: string }>(entries: T[], lang: string): { slug: string; note: T }[] {
+export function localizeCollection<T extends { id: string }>(
+  entries: T[],
+  lang: string,
+  platform?: string
+): { slug: string; note: T }[] {
+  const prefix = platform ? `${ platform }/` : "";
   const bySlug = new Map<string, { en?: T; localized?: T }>();
   for (const entry of entries) {
-    const sep = entry.id.indexOf("/");
-    const entryLang = entry.id.slice(0, sep);
-    const slug = entry.id.slice(sep + 1);
+    if (!entry.id.startsWith(prefix)) continue;
+    const rest = entry.id.slice(prefix.length);
+    const sep = rest.indexOf("/");
+    const entryLang = rest.slice(0, sep);
+    const slug = rest.slice(sep + 1);
     const bucket = bySlug.get(slug) ?? {};
     if (entryLang === defaultLocale) bucket.en = entry;
     if (entryLang === lang) bucket.localized = entry;
@@ -68,7 +75,7 @@ export function localizeCollection<T extends { id: string }>(entries: T[], lang:
   }
   return [...bySlug.entries()].map(([slug, { en, localized }]) => {
     const note = localized ?? en;
-    if (!note) throw new Error(`Missing English fallback for release note "${ slug }"`);
+    if (!note) throw new Error(`Missing English fallback for "${ platform ? platform + "/" : "" }${ slug }"`);
     return { slug, note };
   });
 }

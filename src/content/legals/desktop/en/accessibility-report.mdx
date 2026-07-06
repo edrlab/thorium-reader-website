@@ -1,0 +1,27 @@
+---
+title: "Conformance Report - Desktop"
+reportedPlatform: "desktop"
+date: "2026-03-01"
+---
+
+import ConformanceTable from "../../../../components/conformance/conformance.astro";
+import meta from "../../../../assets/data/conformance/desktop/meta.json";
+import uaag from "../../../../assets/data/conformance/desktop/uaag.json";
+import wcag from "../../../../assets/data/conformance/desktop/wcag.json";
+import epub from "../../../../assets/data/conformance/desktop/epub.json";
+import daisyURS from "../../../../assets/data/conformance/desktop/daisyURS.json";
+
+<ConformanceTable
+	index={{
+		conformance: {
+			desktop: {
+				...meta,
+				uaag,
+				wcag,
+				epub,
+				daisyURS,
+			},
+		},
+	}}
+	reportedPlatform="desktop"
+/>
