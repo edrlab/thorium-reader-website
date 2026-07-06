@@ -109,7 +109,7 @@
                     "hint": "Luettelon nimi siinä muodossa, jossa se näkyy Thorium Readerissa."
                 },
                 "main": {
-                    "label": "Selattava URL",
+                    "label": "Pääasiallinen URL",
                     "placeholder": "https://example.com/opds",
                     "hint": "OPDS- tai verkko-osoite luettelon selaamista varten. Vähintään yksi URL vaaditaan."
                 },
@@ -363,6 +363,18 @@
                 "Thorium Reader on täysin ilmainen ja sitä ylläpitää voittoa tavoittelematon järjestö.",
                 "Saatavilla: iOS, iPadOS, Windows, macOS ja Linux."
             ]
+        }
+    },
+    "add": {
+        "catalog": {
+            "title": "Lisää luettelo Thorium Readeriin",
+            "subtitle": "Yrität lisätä {{catalogName}}:n Thorium Reader -sovellukseen, mutta sinun on ensin ladattava sovellus.",
+            "fallbackName": "tämä luettelo"
+        },
+        "publication": {
+            "title": "Lisää julkaisu Thorium Readeriin",
+            "subtitle": "Yrität lisätä {{publicationTitle}} :n Thorium Reader -sovellukseen, mutta sinun on ensin ladattava sovellus.",
+            "fallbackName": "tämä julkaisu"
         }
     }
 }
