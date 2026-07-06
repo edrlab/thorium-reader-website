@@ -144,7 +144,7 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
 </Layout>
 
 <script>
-  import { makeSVG, esc } from "../../../components/badge/badge-svg.js";
+  import { makeSVG, esc, catalogParamAttrs, catalogIsValid } from "@edrlab/thorium-badges/svg";
   import { interpolate } from "../../../i18n/utils.js";
 
   const dataEl               = document.getElementById("badge-data");
@@ -156,38 +156,28 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
   const previewEl = document.getElementById("preview-badge");
   const embedCode = document.getElementById("embed-code");
 
-  function update() {
-    const selectedLang   = form.querySelector("[name=lang]").value;
-    const title          = form.querySelector("[name=title]").value.trim();
-    const mainInput      = form.querySelector("[name=main]");
-    const bookshelfInput = form.querySelector("[name=bookshelf]");
-    const passphrase     = form.querySelector("[name=passphrase]").value.trim();
-    const passphraseHash = form.querySelector("[name=hashed_passphrase]").value.trim();
-    const iconInput      = form.querySelector("[name=icon]");
-    const bannerInput    = form.querySelector("[name=banner]");
-    const color          = form.querySelector("[name=color]").value.trim();
-    const openIn         = form.querySelector("[name=open_in]").value;
+  // Attribute names use the custom element's kebab-case convention (e.g.
+  // "hashed-passphrase"); form field names use the matching snake_case.
+  function get(attrName) {
+    const input = form.querySelector(`[name=${ attrName.replace(/-/g, "_") }]`);
+    const value = input.value.trim();
+    return value && input.validity.valid ? value : "";
+  }
 
-    const mainValid      = mainInput.value.trim()      && mainInput.validity.valid;
-    const bookshelfValid = bookshelfInput.value.trim() && bookshelfInput.validity.valid;
-    const icon           = iconInput.value.trim()   && iconInput.validity.valid   ? iconInput.value.trim()   : "";
-    const banner         = bannerInput.value.trim() && bannerInput.validity.valid ? bannerInput.value.trim() : "";
-    const hasUrl         = mainValid || bookshelfValid;
+  function update() {
+    const selectedLang = form.querySelector("[name=lang]").value;
+    const title        = get("title");
 
     const { line1, line2, alt } = badgeTexts[selectedLang] ?? Object.values(badgeTexts)[0];
     const svgTitle = title ? interpolate(alt, { name: title }) : `${ line1 } ${ line2 }`;
 
     const params = new URLSearchParams();
-    if (title)          params.set("title",             title);
-    if (mainValid)      params.set("main",              mainInput.value.trim());
-    if (bookshelfValid) params.set("bookshelf",         bookshelfInput.value.trim());
-    if (passphrase)     params.set("passphrase",        passphrase);
-    if (passphraseHash) params.set("hashed_passphrase", passphraseHash);
-    if (openIn)         params.set("open_in",           openIn);
-    if (icon)           params.set("icon",              icon);
-    if (banner)         params.set("banner",            banner);
-    if (color)          params.set("color",             color);
-    const hasParams   = title && hasUrl;
+    for (const [attrName, paramName] of catalogParamAttrs) {
+      const value = get(attrName);
+      if (value) params.set(paramName, value);
+    }
+
+    const hasParams   = catalogIsValid(get);
     const previewLink = hasParams ? `${ addCatalogScheme }?${ params.toString() }` : null;
     const embedLink   = hasParams ? `${ addCatalogUniversalLink }?${ params.toString() }` : null;
 
