@@ -40,7 +40,7 @@ const sortDocsByDateAndTitle = (a: { note: (typeof allPlatformDocs)[number] }, b
 ---
 
 <Layout title={ legalsDoc.data.title }>
-  <article class="release-notes container">
+  <article class="platform-doc container">
     <h1>{ legalsDoc.data.title }</h1>
     {legalsDoc.data.date && (
       <time datetime={ legalsDoc.data.date }>{ formatDate(lang, legalsDoc.data.date) }</time>

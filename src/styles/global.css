@@ -1683,12 +1683,12 @@ img {
 }
 
 /* ── Release Notes Hub ── */
-.release-notes-hub {
+.platform-hub {
   padding-top: calc(4rem + var(--space-lg));
   padding-bottom: var(--section-pad);
 }
 
-.release-notes-hub h1 {
+.platform-hub h1 {
   font-family: var(--font-heading);
   font-size: var(--text-hero);
   font-weight: 800;
@@ -1698,12 +1698,12 @@ img {
   margin-bottom: var(--space-lg);
 }
 
-.release-notes-hub-platform {
+.platform-hub-platform {
   margin-bottom: var(--space-lg);
   max-width: 52ch;
 }
 
-.release-notes-hub-platform h2 {
+.platform-hub-platform h2 {
   font-size: var(--text-xs);
   font-weight: 700;
   text-transform: uppercase;
@@ -1713,13 +1713,13 @@ img {
   border-bottom: 2px solid var(--color-mauve);
 }
 
-.release-notes-hub-platform ul {
+.platform-hub-platform ul {
   list-style: none;
   display: flex;
   flex-direction: column;
 }
 
-.release-notes-hub-platform li {
+.platform-hub-platform li {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -1728,7 +1728,7 @@ img {
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 }
 
-.release-notes-hub-platform li a {
+.platform-hub-platform li a {
   font-weight: 600;
   color: var(--color-mauve);
   text-decoration: underline;
@@ -1736,17 +1736,17 @@ img {
   transition: color 0.15s;
 }
 
-.release-notes-hub-platform li a:hover {
+.platform-hub-platform li a:hover {
   color: var(--color-wine);
 }
 
-.release-notes-hub-platform time {
+.platform-hub-platform time {
   font-size: var(--text-xs);
   color: #555;
   flex-shrink: 0;
 }
 
-.release-notes-hub-see-all {
+.platform-hub-see-all {
   display: inline-block;
   margin-top: var(--space-sm);
   font-size: var(--text-xs);
@@ -1757,18 +1757,18 @@ img {
   transition: color 0.15s;
 }
 
-.release-notes-hub-see-all:hover {
+.platform-hub-see-all:hover {
   color: var(--color-wine);
 }
 
 /* ── Release Notes & Conformance Index ── */
-.release-notes-index,
+.platform-index,
 .conformance-index {
   padding-top: calc(4rem + var(--space-lg));
   padding-bottom: var(--section-pad);
 }
 
-.release-notes-index h1,
+.platform-index h1,
 .conformance-index h1 {
   font-family: var(--font-heading);
   font-size: var(--text-hero);
@@ -1779,7 +1779,7 @@ img {
   margin-bottom: var(--space-lg);
 }
 
-.release-notes-index ul,
+.platform-index ul,
 .conformance-index ul {
   list-style: none;
   display: flex;
@@ -1788,7 +1788,7 @@ img {
   max-width: 52ch;
 }
 
-.release-notes-index li,
+.platform-index li,
 .conformance-index li {
   display: flex;
   align-items: baseline;
@@ -1798,7 +1798,7 @@ img {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.release-notes-index a,
+.platform-index a,
 .conformance-index a {
   font-weight: 600;
   text-decoration: underline;
@@ -1806,12 +1806,12 @@ img {
   transition: opacity 0.15s;
 }
 
-.release-notes-index a:hover,
+.platform-index a:hover,
 .conformance-index a:hover {
   opacity: 0.65;
 }
 
-.release-notes-index time,
+.platform-index time,
 .conformance-index time {
   font-size: var(--text-xs);
   color: #555;
@@ -1851,13 +1851,13 @@ img {
 
 
 /* Article */
-.release-notes {
+.platform-doc {
   padding-top: calc(4rem + var(--space-lg));
   padding-bottom: var(--section-pad);
   max-width: 72ch;
 }
 
-.release-notes > h1 {
+.platform-doc > h1 {
   font-family: var(--font-heading);
   font-size: var(--text-hero);
   font-weight: 800;
@@ -1867,7 +1867,7 @@ img {
   margin-bottom: var(--space-xs);
 }
 
-.release-notes > time {
+.platform-doc > time {
   display: block;
   font-size: var(--text-xs);
   color: #555;
@@ -1875,7 +1875,7 @@ img {
 }
 
 /* Prose */
-.release-notes h2 {
+.platform-doc h2 {
   font-family: var(--font-heading);
   font-size: var(--text-heading);
   font-weight: 800;
@@ -1886,7 +1886,7 @@ img {
   margin-bottom: var(--space-sm);
 }
 
-.release-notes h3 {
+.platform-doc h3 {
   font-family: var(--font-heading);
   font-size: var(--text-sm);
   font-weight: 800;
@@ -1896,21 +1896,21 @@ img {
   margin-bottom: var(--space-xs);
 }
 
-.release-notes h4 {
+.platform-doc h4 {
   font-size: var(--text-base);
   font-weight: 700;
   margin-top: var(--space-md);
   margin-bottom: var(--space-xs);
 }
 
-.release-notes p {
+.platform-doc p {
   line-height: var(--leading-body);
   margin-bottom: var(--space-sm);
   text-wrap: pretty;
 }
 
-.release-notes ul,
-.release-notes ol {
+.platform-doc ul,
+.platform-doc ol {
   padding-inline-start: 1.5rem;
   margin-bottom: var(--space-sm);
   display: flex;
@@ -1918,7 +1918,7 @@ img {
   gap: 0.25rem;
 }
 
-.release-notes ul.legals-platform-list {
+.platform-doc ul.legals-platform-list {
   list-style: none;
   padding-inline-start: 0;
   margin-bottom: 1.25rem;
@@ -1928,7 +1928,7 @@ img {
   max-width: 52ch;
 }
 
-.release-notes .legals-platform-list li {
+.platform-doc .legals-platform-list li {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -1937,47 +1937,47 @@ img {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.release-notes .legals-platform-list li + li {
+.platform-doc .legals-platform-list li + li {
   margin-top: 0.65rem;
 }
 
-.release-notes .legals-platform-list a {
+.platform-doc .legals-platform-list a {
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: opacity 0.15s;
 }
 
-.release-notes .legals-platform-list a:hover {
+.platform-doc .legals-platform-list a:hover {
   opacity: 0.65;
 }
 
-.release-notes .legals-platform-list time {
+.platform-doc .legals-platform-list time {
   font-size: var(--text-xs);
   color: #555;
   flex-shrink: 0;
   margin-left: 0.6rem;
 }
 
-.release-notes a {
+.platform-doc a {
   color: var(--color-mauve);
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: opacity 0.15s;
 }
 
-.release-notes a:hover {
+.platform-doc a:hover {
   opacity: 0.65;
 }
 
-.release-notes code {
+.platform-doc code {
   font-size: 0.9em;
   background: rgba(0, 0, 0, 0.06);
   padding: 0.1em 0.35em;
   border-radius: 3px;
 }
 
-.release-notes pre {
+.platform-doc pre {
   background: #f4f4f4;
   border-radius: var(--radius-ui);
   padding: var(--space-md);
@@ -1988,13 +1988,13 @@ img {
   margin-bottom: var(--space-sm);
 }
 
-.release-notes pre code {
+.platform-doc pre code {
   background: none;
   padding: 0;
   font-size: inherit;
 }
 
-.release-notes blockquote {
+.platform-doc blockquote {
   border-inline-start: 3px solid var(--color-mauve);
   padding-inline-start: var(--space-md);
   margin-inline: 0;

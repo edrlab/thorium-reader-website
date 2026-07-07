@@ -20,7 +20,7 @@ const platformName = t(lang, `platform.names.${ platform }`) as string;
 ---
 
 <Layout title={ t(lang, "release-notes.title") }>
-  <section class="release-notes-index container">
+  <section class="platform-index container">
     <h1>{ platformName } — { t(lang, "release-notes.title") }</h1>
     <ul>
       { notes.map(({ slug, note }) => (

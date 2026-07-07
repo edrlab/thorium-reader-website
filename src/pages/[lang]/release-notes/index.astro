@@ -30,10 +30,10 @@ const platforms = platformIds.map((platform) => {
 ---
 
 <Layout title={ t(lang, "release-notes.title") }>
-  <section class="release-notes-hub container">
+  <section class="platform-hub container">
     <h1>{ t(lang, "release-notes.title") }</h1>
     { platforms.map(({ label, indexPath, notes }) => (
-      <div class="release-notes-hub-platform">
+      <div class="platform-hub-platform">
         <h2>{ label }</h2>
         <ul>
           { notes.map(({ version, date, path }) => (
@@ -43,7 +43,7 @@ const platforms = platformIds.map((platform) => {
             </li>
           )) }
         </ul>
-        <a class="release-notes-hub-see-all" href={ getRelativeLocaleUrl(lang, indexPath) }>{ t(lang, "release-notes.see-all") }</a>
+        <a class="platform-hub-see-all" href={ getRelativeLocaleUrl(lang, indexPath) }>{ t(lang, "release-notes.see-all") }</a>
       </div>
     )) }
   </section>
