@@ -1483,7 +1483,6 @@ img {
   line-height: var(--leading-display);
   letter-spacing: -0.02em;
   color: var(--color-mauve);
-  max-width: 20ch;
 }
 
 .page-header p {
