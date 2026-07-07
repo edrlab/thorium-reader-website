@@ -12,11 +12,6 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
-    },
-    "./svg": {
-      "types": "./dist/badge-svg.d.ts",
-      "import": "./dist/svg.js",
-      "default": "./dist/svg.js"
     }
   },
   "files": [
