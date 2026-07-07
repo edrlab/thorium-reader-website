@@ -24,6 +24,7 @@ html {
   --color-bg:           var(--color-cream);
   --color-text:         #000000;
   --color-text-on-dark: var(--color-cream);
+  --color-text-muted:   #555;
 
   /* Type scale */
   --text-xs:      0.833rem;
@@ -31,6 +32,11 @@ html {
   --text-sm:      1.125rem;
   --text-heading: 2rem;
   --text-hero:    2.5rem;
+
+  /* Reading measure */
+  --measure-narrow: 40ch; /* marketing blurbs */
+  --measure-medium: 52ch; /* intro/list content */
+  --measure-wide:   72ch; /* long-form prose */
 
   /* Line heights */
   --leading-display: 1.05;
@@ -338,7 +344,7 @@ img {
 
 .field-hint {
   font-size: var(--text-xs);
-  color: #555;
+  color: var(--color-text-muted);
   line-height: var(--leading-body);
 }
 
@@ -848,6 +854,23 @@ img {
   text-wrap: pretty;
 }
 
+/* Shared brand-heading treatment (size/color overrides live on each rule below) */
+.hero-text h1,
+.feature-text h2,
+.cta-text h2,
+.faq-section h2,
+.page-header h1,
+.platform-hub h1,
+.platform-index h1,
+.conformance-index h1,
+.platform-doc > h1,
+.platform-doc h2 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-mauve);
+}
+
 /* ── Hero ── */
 .hero {
   color: var(--color-cream);
@@ -896,12 +919,9 @@ img {
 }
 
 .hero-text h1 {
-  font-family: var(--font-heading);
   font-size: var(--text-hero);
-  font-weight: 800;
   line-height: var(--leading-display);
   color: var(--color-cream);
-  letter-spacing: -0.02em;
 }
 
 @media (max-width: 768px) {
@@ -912,7 +932,7 @@ img {
 
 .hero-text p {
   color: var(--color-cream);
-  max-width: 40ch;
+  max-width: var(--measure-narrow);
 }
 
 @media (max-width: 768px) {
@@ -1076,12 +1096,8 @@ img {
 }
 
 .feature-text h2 {
-  font-family: var(--font-heading);
   font-size: var(--text-heading);
-  font-weight: 800;
   line-height: var(--leading-heading);
-  letter-spacing: -0.02em;
-  color: var(--color-mauve);
 }
 
 .feature-text .btn {
@@ -1227,16 +1243,13 @@ img {
 }
 
 .cta-text h2 {
-  font-family: var(--font-heading);
   font-size: var(--text-heading);
-  font-weight: 800;
   line-height: var(--leading-heading);
-  letter-spacing: -0.02em;
   color: var(--color-cream);
 }
 
 .cta-text p {
-  max-width: 40ch;
+  max-width: var(--measure-narrow);
 }
 
 .cta-devices {
@@ -1269,14 +1282,10 @@ img {
 }
 
 .faq-section h2 {
-  font-family: var(--font-heading);
   font-size: var(--text-heading);
-  font-weight: 800;
   line-height: var(--leading-heading);
-  color: var(--color-mauve);
   text-align: center;
   margin-bottom: 2.5rem;
-  letter-spacing: -0.02em;
 }
 
 .faq-list {
@@ -1477,16 +1486,12 @@ img {
 }
 
 .page-header h1 {
-  font-family: var(--font-heading);
   font-size: var(--text-hero);
-  font-weight: 800;
   line-height: var(--leading-display);
-  letter-spacing: -0.02em;
-  color: var(--color-mauve);
 }
 
 .page-header p {
-  max-width: 52ch;
+  max-width: var(--measure-medium);
   margin-top: var(--space-md);
 }
 
@@ -1516,7 +1521,7 @@ img {
   list-style: none;
   padding: 0;
   margin: 0;
-  max-width: 52ch;
+  max-width: var(--measure-medium);
 }
 
 .badge-hub-item {
@@ -1580,8 +1585,7 @@ img {
 
 .badge-layout .field-group-label {
   font-size: var(--text-sm);
-  color: var(--color-text);
-  opacity: 0.55;
+  color: var(--color-text-muted);
   margin: 0;
 }
 
@@ -1688,18 +1692,14 @@ img {
 }
 
 .platform-hub h1 {
-  font-family: var(--font-heading);
   font-size: var(--text-hero);
-  font-weight: 800;
   line-height: var(--leading-display);
-  letter-spacing: -0.02em;
-  color: var(--color-mauve);
   margin-bottom: var(--space-lg);
 }
 
 .platform-hub-platform {
   margin-bottom: var(--space-lg);
-  max-width: 52ch;
+  max-width: var(--measure-medium);
 }
 
 .platform-hub-platform h2 {
@@ -1741,7 +1741,7 @@ img {
 
 .platform-hub-platform time {
   font-size: var(--text-xs);
-  color: #555;
+  color: var(--color-text-muted);
   flex-shrink: 0;
 }
 
@@ -1769,12 +1769,8 @@ img {
 
 .platform-index h1,
 .conformance-index h1 {
-  font-family: var(--font-heading);
   font-size: var(--text-hero);
-  font-weight: 800;
   line-height: var(--leading-display);
-  letter-spacing: -0.02em;
-  color: var(--color-mauve);
   margin-bottom: var(--space-lg);
 }
 
@@ -1784,7 +1780,7 @@ img {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
-  max-width: 52ch;
+  max-width: var(--measure-medium);
 }
 
 .platform-index li,
@@ -1813,7 +1809,7 @@ img {
 .platform-index time,
 .conformance-index time {
   font-size: var(--text-xs);
-  color: #555;
+  color: var(--color-text-muted);
   flex-shrink: 0;
 }
 
@@ -1853,34 +1849,26 @@ img {
 .platform-doc {
   padding-top: calc(4rem + var(--space-lg));
   padding-bottom: var(--section-pad);
-  max-width: 72ch;
+  max-width: var(--measure-wide);
 }
 
 .platform-doc > h1 {
-  font-family: var(--font-heading);
   font-size: var(--text-hero);
-  font-weight: 800;
   line-height: var(--leading-display);
-  letter-spacing: -0.02em;
-  color: var(--color-mauve);
   margin-bottom: var(--space-xs);
 }
 
 .platform-doc > time {
   display: block;
   font-size: var(--text-xs);
-  color: #555;
+  color: var(--color-text-muted);
   margin-bottom: var(--space-lg);
 }
 
 /* Prose */
 .platform-doc h2 {
-  font-family: var(--font-heading);
   font-size: var(--text-heading);
-  font-weight: 800;
   line-height: var(--leading-heading);
-  letter-spacing: -0.02em;
-  color: var(--color-mauve);
   margin-top: var(--space-lg);
   margin-bottom: var(--space-sm);
 }
@@ -1896,8 +1884,10 @@ img {
 }
 
 .platform-doc h4 {
+  font-family: var(--font-heading);
   font-size: var(--text-base);
   font-weight: 700;
+  color: var(--color-mauve);
   margin-top: var(--space-md);
   margin-bottom: var(--space-xs);
 }
@@ -1924,7 +1914,7 @@ img {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
-  max-width: 52ch;
+  max-width: var(--measure-medium);
 }
 
 .platform-doc .legals-platform-list li {
@@ -1953,7 +1943,7 @@ img {
 
 .platform-doc .legals-platform-list time {
   font-size: var(--text-xs);
-  color: #555;
+  color: var(--color-text-muted);
   flex-shrink: 0;
   margin-left: 0.6rem;
 }
