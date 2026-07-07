@@ -31,6 +31,7 @@ abstract class ThoriumBadgeElement extends BaseElement {
   protected abstract urlAttrs: Set<string>;
 
   protected abstract isValid(get: (attr: string) => string): boolean;
+  protected abstract requiredAttrsMessage: string;
 
   connectedCallback() {
     if (!this.shadowRoot) this.attachShadow({ mode: "open" });
@@ -54,6 +55,12 @@ abstract class ThoriumBadgeElement extends BaseElement {
       if (value) assertValidUrl(this.tagName.toLowerCase(), attrName, value);
     }
 
+    if (!this.isValid((name) => this.attr(name))) {
+      throw new Error(
+        `<${ this.tagName.toLowerCase() }> is missing required attribute(s): ${ this.requiredAttrsMessage }.`
+      );
+    }
+
     const locale = resolveLocale(this.getAttribute("lang"));
     const { line1, line2, alt } = badgeTexts[locale];
     const title = this.attr("title");
@@ -66,13 +73,9 @@ abstract class ThoriumBadgeElement extends BaseElement {
       if (value) params.set(paramName, value);
     }
 
-    const href = this.isValid((name) => this.attr(name))
-      ? `${ this.universalLink }?${ params.toString() }`
-      : null;
+    const href = `${ this.universalLink }?${ params.toString() }`;
 
-    root.innerHTML = href
-      ? `<style>${ sharedStyle }</style><a href="${ esc(href) }">${ svg }</a>`
-      : `<style>${ sharedStyle }</style>${ svg }`;
+    root.innerHTML = `<style>${ sharedStyle }</style><a href="${ esc(href) }">${ svg }</a>`;
   }
 }
 
@@ -84,6 +87,7 @@ class ThoriumBadgeCatalogElement extends ThoriumBadgeElement {
   protected universalLink = addCatalogUniversalLink;
   protected paramAttrs = catalogParamAttrs;
   protected urlAttrs = catalogUrlAttrs;
+  protected requiredAttrsMessage = `"title" and at least one of "main" or "bookshelf"`;
 
   protected isValid(get: (attr: string) => string): boolean {
     return catalogIsValid(get);
@@ -98,6 +102,7 @@ class ThoriumBadgePublicationElement extends ThoriumBadgeElement {
   protected universalLink = addPublicationUniversalLink;
   protected paramAttrs = publicationParamAttrs;
   protected urlAttrs = publicationUrlAttrs;
+  protected requiredAttrsMessage = `"publication"`;
 
   protected isValid(get: (attr: string) => string): boolean {
     return publicationIsValid(get);
