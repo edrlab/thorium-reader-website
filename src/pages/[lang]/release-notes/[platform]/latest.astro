@@ -8,12 +8,11 @@ export async function getStaticPaths() {
   const notes = await getCollection("release-notes");
   const platforms = getPlatforms(notes);
   return locales.flatMap((lang) =>
-    platforms.map((platform) => {
-      const latest = localizeCollection(notes, lang, platform).sort((a, b) => b.note.data.date.localeCompare(a.note.data.date))[0];
-      return {
-        params: { lang, platform },
-        props: { latestSlug: latest.slug },
-      };
+    platforms.flatMap((platform) => {
+      const localized = localizeCollection(notes, lang, platform).sort((a, b) => b.note.data.date.localeCompare(a.note.data.date));
+      const latest = localized[0];
+      if (!latest) return [];
+      return [{ params: { lang, platform }, props: { latestSlug: latest.slug } }];
     })
   );
 }
