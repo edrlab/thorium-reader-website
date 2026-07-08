@@ -4,7 +4,7 @@ reportedPlatform: ios
 date: "2026-04-22"
 ---
 
-This privacy policy is applicable to the Thorium Reader app (hereinafter referred to as "Application") for mobile devices, which was developed by European Digital Reading Lab (hereinafter referred to as "Service Provider") as a a Free service. This service is provided "AS IS".
+This privacy policy is applicable to the Thorium Reader app (hereinafter referred to as "Application") for mobile devices, which was developed by European Digital Reading Lab (hereinafter referred to as "Service Provider") as a Free service. This service is provided "AS IS".
 
 **What information does the Application obtain and how is it used?**
 
