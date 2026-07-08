@@ -10,7 +10,7 @@ const sanitize = (html) => sanitizeHtml(html ?? "", {
 const { id, label, rows } = Astro.props;
 ---
 
-<table class="responsive" id={`${id}-results`}>
+<table class="responsive" id={ `${ id }-results` }>
 	<caption class="sr-only">
 		{ label } conformance results
 		<span> (column headers with buttons are sortable).</span>
@@ -46,37 +46,37 @@ const { id, label, rows } = Astro.props;
 	<tbody>
 		{ rows.map((item) => (
 			<tr>
-				<td data-order={item.id}>
+				<td data-order={ item.id }>
 					<details>
-						<summary class="sc-title" id={`sc_${id}_${item.id}`}>
-							{item.number} {item.title}
+						<summary class="sc-title" id={ `sc_${ id }_${ item.id }` }>
+							{ item.number } { item.title }
 						</summary>
-						<p class="sc-text" set:html={sanitize(item.description)} />
+						<p class="sc-text" set:html={ sanitize(item.description) } />
 						<p class="issue">
-							<a href={item.url} target="_blank" rel="noreferrer">
-								{item.title}
+							<a href={ item.url } target="_blank" rel="noreferrer">
+								{ item.title }
 							</a>
 						</p>
 					</details>
 				</td>
-				<td class="lvl">{item.level}</td>
-				<td class={`result ${String(item.result ?? "").toLowerCase()}`}>
-					<p class="label">{item.result}</p>
+				<td class="lvl">{ item.level }</td>
+				<td class={ `result ${ String(item.result ?? "").toLowerCase() }` }>
+					<p class="label">{ item.result }</p>
 				</td>
 				<td>
-					{ item.notes && <div class="notes" set:html={sanitize(item.notes)} /> }
-					{ item.additionalInfo && <p class="notes">{item.additionalInfo}</p> }
+					{ item.notes && <div class="notes" set:html={ sanitize(item.notes) } /> }
+					{ item.additionalInfo && <p class="notes">{ item.additionalInfo }</p> }
 					{ item.issue && item.issuelabel ? (
 						<p class="issue">
-							<a href={item.issue} target="_blank" rel="noreferrer">
-								{item.issuelabel}
+							<a href={ item.issue } target="_blank" rel="noreferrer">
+								{ item.issuelabel }
 							</a>
 						</p>
 					) : (
 						item.issue && (
 							<p class="issue">
-								<a href={item.issue} target="_blank" rel="noreferrer">
-									{item.issue}
+								<a href={ item.issue } target="_blank" rel="noreferrer">
+									{ item.issue }
 								</a>
 							</p>
 						)

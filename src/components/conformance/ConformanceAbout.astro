@@ -9,13 +9,13 @@ const { productName, version, platform, evaluationDate, changelog, testingMethod
 
 	<dl>
 		<dt>Product Name:</dt>
-		<dd>{productName}</dd>
+		<dd>{ productName }</dd>
 		<dt>Version:</dt>
-		<dd>{version}</dd>
+		<dd>{ version }</dd>
 		<dt>Platform:</dt>
-		<dd>{platform}</dd>
+		<dd>{ platform }</dd>
 		<dt>Evaluation Date:</dt>
-		<dd>{evaluationDate}</dd>
+		<dd>{ evaluationDate }</dd>
 	</dl>
 
 	<details>
@@ -24,7 +24,7 @@ const { productName, version, platform, evaluationDate, changelog, testingMethod
 			<ul>
 				{ changelog.map((entry) => (
 					<li>
-						<strong>{entry.date}:</strong> {entry.description}
+						<strong>{ entry.date }:</strong> { entry.description }
 					</li>
 				)) }
 			</ul>
@@ -33,5 +33,5 @@ const { productName, version, platform, evaluationDate, changelog, testingMethod
 		) }
 	</details>
 
-	<ConformanceMethodology testingMethodology={testingMethodology} rulesets={rulesets} />
+	<ConformanceMethodology testingMethodology={ testingMethodology } rulesets={ rulesets } />
 </section>

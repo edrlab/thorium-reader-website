@@ -54,9 +54,9 @@ const title = interpolate(t(lang, "legals.platformTitle") as string, { platform:
           <a href={ getRelativeLocaleUrl(lang, `legals/${ platform }/${ slug }`) }>
             { note.data.title }
           </a>
-          {note.data.date && (
+          { note.data.date && (
             <time datetime={ note.data.date }>{ formatDate(lang, note.data.date) }</time>
-          )}
+          ) }
         </li>
       )) }
     </ul>

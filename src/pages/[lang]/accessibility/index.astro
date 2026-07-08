@@ -23,9 +23,9 @@ const { Content } = await render(accessibilityDoc);
 <Layout title={ accessibilityDoc.data.title }>
   <section class="platform-doc container">
     <h1>{ accessibilityDoc.data.title }</h1>
-    {accessibilityDoc.data.date && (
+    { accessibilityDoc.data.date && (
       <time datetime={ accessibilityDoc.data.date }>{ formatDate(lang, accessibilityDoc.data.date) }</time>
-    )}
+    ) }
     <Content />
   </section>
   <Footer slot="footer" />
