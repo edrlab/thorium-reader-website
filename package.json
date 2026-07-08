@@ -3,8 +3,8 @@
   "type": "module",
   "version": "0.2.0",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "dev": "pnpm --filter @edrlab/thorium-badges build && concurrently -k \"pnpm --filter @edrlab/thorium-badges dev\" \"astro dev\"",
+    "build": "pnpm --filter @edrlab/thorium-badges build && astro build && node scripts/copy-embed.mjs",
     "preview": "astro preview"
   },
   "devEngines": {
@@ -12,6 +12,11 @@
       "name": "pnpm",
       "version": "11.1.0",
       "onFail": "warn"
+    },
+    "runtime": {
+      "name": "node",
+      "version": ">=22.18.0",
+      "onFail": "error"
     }
   },
   "dependencies": {
@@ -22,5 +27,8 @@
     "remark-custom-header-id": "^1.0.0",
     "sanitize-html": "^2.17.5",
     "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.3"
   }
 }

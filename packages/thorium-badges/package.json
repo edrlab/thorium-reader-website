@@ -1,0 +1,32 @@
+{
+  "name": "@edrlab/thorium-badges",
+  "version": "0.9.0",
+  "type": "module",
+  "description": "Web components for embedding \"Add to Thorium Reader\" badges (catalog and publication) on any page.",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "unpkg": "dist/thorium-badges.iife.js",
+  "jsdelivr": "dist/thorium-badges.iife.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "generate": "node scripts/generate-badge-texts.mjs",
+    "prebuild": "pnpm run generate",
+    "build": "vite build && vite build --config vite.iife.config.ts",
+    "predev": "pnpm run generate",
+    "dev": "vite build --watch"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vite": "^7.3.3",
+    "vite-plugin-dts": "^5.0.3"
+  }
+}
