@@ -296,10 +296,7 @@
     },
     "release-notes": {
         "see-all": "Vedi tutte",
-        "title": "Note di rilascio",
-        "platforms": {
-            "desktop": "Desktop"
-        }
+        "title": "Note di rilascio"
     },
     "home": {
         "cta": {
@@ -352,7 +349,8 @@
         "skipToMain": "Vai al contenuto principale"
     },
     "footer": {
-        "legal": "Note legali"
+        "legal": "Note legali",
+        "accessibility": "Accessibilità"
     },
     "lang": {
         "label": "Lingua"

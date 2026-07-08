@@ -1,0 +1,67 @@
+---
+const { testingMethodology, rulesets } = Astro.props;
+---
+
+<details>
+	<summary>More about this evaluation</summary>
+	<h3 class="inline">Evaluation Methodology</h3>
+	{ testingMethodology ? (
+		<>
+			{ testingMethodology.methodology && (
+				<p>
+					<strong>{ testingMethodology.methodology }</strong>
+				</p>
+			) }
+			{ Array.isArray(testingMethodology.testingApproaches) && testingMethodology.testingApproaches.length > 0 && (
+				<>
+					<h3>Testing Approaches</h3>
+					<ul>
+						{ testingMethodology.testingApproaches.map((approach) => (
+							<li>{ approach }</li>
+						)) }
+					</ul>
+				</>
+			) }
+			{ Array.isArray(testingMethodology.testedScenarios) && testingMethodology.testedScenarios.length > 0 && (
+				<>
+					<h4>Tested Scenarios</h4>
+					<ul>
+						{ testingMethodology.testedScenarios.map((scenario) => (
+							<li>
+								<strong>{ scenario.date }:</strong>{ " " }
+								{ scenario.url ? (
+									<a href={ scenario.url } target="_blank" rel="noreferrer">
+										{ scenario.scenario }
+									</a>
+								) : (
+									scenario.scenario
+								) }
+							</li>
+						)) }
+					</ul>
+				</>
+			) }
+		</>
+	) : (
+		<p>No testing methodology information available.</p>
+	) }
+
+	<h3 class="inline">Standards &amp; References</h3>
+	{ rulesets && (
+		<dl>
+			{ Object.entries(rulesets).map(([, ruleset]) => (
+				<>
+					<dt>
+						{ ruleset.title } ({ ruleset.name })
+					</dt>
+					<dd>
+						Version: { ruleset.version } - Reference:{ " " }
+						<a href={ ruleset.referenceUrl } target="_blank" rel="noreferrer">
+							{ ruleset.referenceUrl }
+						</a>
+					</dd>
+				</>
+			)) }
+		</dl>
+	) }
+</details>

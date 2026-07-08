@@ -1,0 +1,65 @@
+---
+import { getCollection } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Layout from "../../../../layouts/Layout.astro";
+import Footer from "../../../../components/Footer.astro";
+import { locales } from "../../../../i18n/locales.js";
+import { t, formatDate, interpolate, localizeCollection, getPlatforms } from "../../../../i18n/utils.js";
+
+export async function getStaticPaths() {
+  const docs = await getCollection("platform-conformance");
+  const platforms = getPlatforms(docs);
+
+  return locales.flatMap((lang) =>
+    platforms.map((platform) => ({
+      params: { lang, platform },
+    }))
+  );
+}
+
+const lang = Astro.currentLocale ?? "en";
+const platform = Astro.params.platform ?? "";
+
+const allDocs = await getCollection("platform-conformance");
+const docs = localizeCollection(allDocs, lang, platform)
+  .sort((a, b) => {
+    const aDate = a.note.data.date ?? "";
+    const bDate = b.note.data.date ?? "";
+
+    if (aDate && bDate) {
+      return bDate.localeCompare(aDate);
+    }
+
+    if (aDate || bDate) {
+      return bDate ? 1 : -1;
+    }
+
+    return a.note.data.title.localeCompare(b.note.data.title);
+  });
+
+if (docs.length === 0) {
+  return Astro.redirect(getRelativeLocaleUrl(lang, "legals"));
+}
+
+const platformName = t(lang, `platform.names.${ platform }`) as string;
+const title = interpolate(t(lang, "legals.platformTitle") as string, { platform: platformName });
+---
+
+<Layout title={ title }>
+  <section class="conformance-index container">
+    <h1>{ title }</h1>
+    <ul>
+      { docs.map(({ slug, note }) => (
+        <li>
+          <a href={ getRelativeLocaleUrl(lang, `legals/${ platform }/${ slug }`) }>
+            { note.data.title }
+          </a>
+          { note.data.date && (
+            <time datetime={ note.data.date }>{ formatDate(lang, note.data.date) }</time>
+          ) }
+        </li>
+      )) }
+    </ul>
+  </section>
+  <Footer slot="footer" />
+</Layout>

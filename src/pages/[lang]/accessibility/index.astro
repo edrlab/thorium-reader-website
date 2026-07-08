@@ -1,0 +1,32 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../../layouts/Layout.astro";
+import Footer from "../../../components/Footer.astro";
+import { locales } from "../../../i18n/locales.js";
+import { formatDate, localizeCollection } from "../../../i18n/utils.js";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.currentLocale ?? "en";
+const legalsPages = await getCollection("legals-pages");
+const accessibilityDoc = localizeCollection(legalsPages, lang).find(({ slug }) => slug === "accessibility")?.note;
+
+if (!accessibilityDoc) {
+  throw new Error("Missing accessibility content at src/content/legals/en/accessibility.md");
+}
+
+const { Content } = await render(accessibilityDoc);
+---
+
+<Layout title={ accessibilityDoc.data.title }>
+  <section class="platform-doc container">
+    <h1>{ accessibilityDoc.data.title }</h1>
+    { accessibilityDoc.data.date && (
+      <time datetime={ accessibilityDoc.data.date }>{ formatDate(lang, accessibilityDoc.data.date) }</time>
+    ) }
+    <Content />
+  </section>
+  <Footer slot="footer" />
+</Layout>

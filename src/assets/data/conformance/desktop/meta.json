@@ -1,0 +1,64 @@
+{
+  "productName": "Thorium Reader",
+  "version": "3",
+  "platform": "Desktop (Windows, macOS, Linux)",
+  "downloadPage": "https://github.com/edrlab/thorium-reader/releases",
+  "description": "Thorium Reader is a free and open-source EPUB reading application designed with accessibility as a core feature. This is the desktop version supporting Windows, macOS, and Linux platforms.",
+  "evaluationDate": "2025-02-26",
+  "conformanceSummary": "The application features extensive accessibility interoperability and content customization, It performs well against WCAG 2.2, UAAG 2.0, and DAISY requirements, though some advanced features and interface zoom are still limited.",
+  "strengths": [
+      "Full keyboard navigation support with no keyboard traps",
+      "Excellent screen reader compatibility (NVDA, VoiceOver)",
+      "Comprehensive text configuration options (size, color, spacing, font)",
+      "Adjustable visual presentation and contrast settings",
+      "Support for platform accessibility services",
+      "Full EPUB accessibility feature support (page lists, navigation documents, reading order)"
+    ],
+    "limitations": [
+      "WCAG 1.4.4 (Resize text): Viewport resizing without horizontal scrolling has limited implementation",
+      "Interface zoom without breaking reading experience requires refinement",
+      "Some specialized DAISY URS features not yet implemented (citation generation, tactile graphics support)"
+    ],
+  "testingEnvironments": [
+    "Windows 10+ with NVDA",
+    "macOS 10.13+ with VoiceOver",
+    "Linux (multiple distributions)",
+    "Manual keyboard navigation testing",
+    "Testing with various EPUB publications from epubtest.org"
+  ],
+  "testingMethodology": {
+    "methodology": "The evaluation included the following testing approaches:",
+    "testedScenarios": [
+      {
+        "date": "August 15, 2025",
+        "scenario": "Thorium Reader 3 with NVDA on Windows",
+        "url": "https://epubtest.org/results/3632"
+      },
+      {
+        "date": "August 15, 2025",
+        "scenario": "Thorium Reader 3 on Windows",
+        "url": "https://epubtest.org/results/3700"
+      },
+      {
+        "date": "August 15, 2025",
+        "scenario": "Thorium Reader 3 on macOS",
+        "url": "https://epubtest.org/results/3711"
+      }
+    ]
+  },
+  "changelog": [
+    {
+      "date": "2025-02-26",
+      "description": "Initial conformance report for Thorium Reader Desktop 3"
+    },
+    {
+      "date": "2025-01-15",
+      "description": "Evaluation testing phase"
+    },
+    {
+      "date": "2024-12-01",
+      "description": "Accessibility audit and code review"
+    }
+  ]
+}   
+

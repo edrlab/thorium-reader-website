@@ -1,0 +1,88 @@
+---
+import sanitizeHtml from "sanitize-html";
+
+const sanitize = (html) => sanitizeHtml(html ?? "", {
+	allowedTags: ["a", "code", "em", "li", "ol", "p", "strong", "ul"],
+	allowedAttributes: { "a": ["href", "target", "rel"] },
+	allowedSchemes: ["http", "https"],
+});
+
+const { id, label, rows } = Astro.props;
+---
+
+<table class="responsive" id={ `${ id }-results` }>
+	<caption class="sr-only">
+		{ label } conformance results
+		<span> (column headers with buttons are sortable).</span>
+	</caption>
+	<thead>
+		<tr>
+			<th class="sortable" data-priority="1">
+				<button type="button" class="sortable-trigger">
+					<span>Success Criteria</span>
+					<span class="sort-icon" aria-hidden="true">♢</span>
+				</button>
+			</th>
+			<th class="sortable">
+				<button type="button" class="sortable-trigger">
+					<span>Level</span>
+					<span class="sort-icon" aria-hidden="true">♢</span>
+				</button>
+			</th>
+			<th class="sortable" data-priority="2">
+				<button type="button" class="sortable-trigger">
+					<span>Result</span>
+					<span class="sort-icon" aria-hidden="true">♢</span>
+				</button>
+			</th>
+			<th class="sortable">
+				<button type="button" class="sortable-trigger">
+					<span>Notes</span>
+					<span class="sort-icon" aria-hidden="true">♢</span>
+				</button>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		{ rows.map((item) => (
+			<tr>
+				<td data-order={ item.id }>
+					<details>
+						<summary class="sc-title" id={ `sc_${ id }_${ item.id }` }>
+							{ item.number } { item.title }
+						</summary>
+						<p class="sc-text" set:html={ sanitize(item.description) } />
+						<p class="issue">
+							<a href={ item.url } target="_blank" rel="noopener noreferrer">
+								{ item.title }
+							</a>
+						</p>
+					</details>
+				</td>
+				<td class="lvl">{ item.level }</td>
+				<td class={ `result ${ String(item.result ?? "").toLowerCase() }` }>
+					<p class="label">{ item.result }</p>
+				</td>
+				<td>
+					{ item.notes && <div class="notes" set:html={ sanitize(item.notes) } /> }
+					{ item.additionalInfo && <p class="notes">{ item.additionalInfo }</p> }
+					{ item.issue && item.issuelabel ? (
+						<p class="issue">
+							<a href={ item.issue } target="_blank" rel="noopener noreferrer">
+								{ item.issuelabel }
+							</a>
+						</p>
+					) : (
+						item.issue && (
+							<p class="issue">
+								<a href={ item.issue } target="_blank" rel="noopener noreferrer">
+									{ item.issue }
+								</a>
+							</p>
+						)
+					) }
+				</td>
+			</tr>
+		)) }
+	</tbody>
+</table>

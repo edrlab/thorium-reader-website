@@ -1,5 +1,4 @@
 export const blogHref = "https://blog.thoriumreader.com/";
-export const conformanceHref = "https://conformance.thoriumreader.com/";
 export const supportHref = (lang: string) =>
   lang === "en"
     ? "https://support.thoriumreader.com"

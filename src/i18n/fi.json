@@ -28,7 +28,8 @@
         "discord": "Liity Discord-yhteisöömme"
     },
     "footer": {
-        "legal": "Oikeudelliset huomautukset"
+        "legal": "Oikeudelliset huomautukset",
+        "accessibility": "Saavutettavuus"
     },
     "download": {
         "features": {
@@ -90,10 +91,7 @@
     },
     "release-notes": {
         "title": "Julkaisutiedot",
-        "see-all": "Katso kaikki",
-        "platforms": {
-            "desktop": "Työpöytäsovellus"
-        }
+        "see-all": "Katso kaikki"
     },
     "badge": {
         "catalog": {

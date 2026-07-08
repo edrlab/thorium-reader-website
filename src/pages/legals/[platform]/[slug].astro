@@ -1,0 +1,20 @@
+---
+import { getCollection } from "astro:content";
+import LocaleRedirect from "../../../components/LocaleRedirect.astro";
+
+export async function getStaticPaths() {
+  const docs = await getCollection("platform-conformance");
+  const seen = new Set<string>();
+
+  return docs.flatMap((doc) => {
+    const [platform, , slug] = doc.id.split("/");
+    const key = `${ platform }/${ slug }`;
+    if (seen.has(key)) return [];
+    seen.add(key);
+    return [{ params: { platform, slug } }];
+  });
+}
+
+const { platform, slug } = Astro.params;
+---
+<LocaleRedirect path={ `legals/${ platform }/${ slug }/` } />

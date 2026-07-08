@@ -28,7 +28,8 @@
         "discord": "Join us on Discord"
     },
     "footer": {
-        "legal": "Legal Notices"
+        "legal": "Legal Notices",
+        "accessibility": "Accessibility"
     },
     "home": {
         "hero": {
@@ -117,12 +118,18 @@
             }
         }
     },
+    "platform": {
+        "names": {
+            "desktop": "Desktop",
+            "ios": "iOS"
+        }
+    },
+    "legals": {
+        "platformTitle": "{{platform}} legal documents"
+    },
     "release-notes": {
         "title": "Release Notes",
-        "see-all": "See all",
-        "platforms": {
-            "desktop": "Desktop"
-        }
+        "see-all": "See all"
     },
     "add": {
         "catalog": {
