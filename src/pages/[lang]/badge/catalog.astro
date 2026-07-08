@@ -159,7 +159,9 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
   // Attribute names use the custom element's kebab-case convention (e.g.
   // "hashed-passphrase"); form field names use the matching snake_case.
   function get(attrName) {
-    const input = form.querySelector(`[name=${ attrName.replace(/-/g, "_") }]`);
+    const fieldName = attrName.replace(/-/g, "_");
+    const input = form.elements.namedItem(fieldName);
+    if (!(input instanceof HTMLInputElement || input instanceof HTMLSelectElement || input instanceof HTMLTextAreaElement)) return "";
     const value = input.value.trim();
     return value && input.validity.valid ? value : "";
   }
