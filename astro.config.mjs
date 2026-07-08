@@ -1,6 +1,7 @@
 import { defineConfig, fontProviders } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
+import starlight from "@astrojs/starlight";
 import { unified } from "@astrojs/markdown-remark";
 import remarkCustomHeaderId from "remark-custom-header-id";
 import { defaultLocale, locales, bcp47Locale } from "./src/i18n/locales.js";
@@ -28,6 +29,15 @@ export default defineConfig({
   site: "https://www.thoriumreader.com",
   output: "static",
   integrations: [
+    starlight({
+      title: "Thorium Reader Guides",
+      sidebar: [
+        {
+          label: "Guides",
+          items: [{ autogenerate: { directory: "guides" } }],
+        },
+      ],
+    }),
     mdx(),
     sitemap({
       filter: (page) =>
@@ -50,7 +60,8 @@ export default defineConfig({
     },
   },
   markdown: {
-    processor: unified(),
-    remarkPlugins: [remarkCustomHeaderId],
+    processor: unified({
+      remarkPlugins: [remarkCustomHeaderId],
+    }),
   },
 });
