@@ -17,7 +17,7 @@ const {
 } = Astro.props;
 
 if (!reportedPlatform) {
-	throw new Error("ConformanceTable requires a `reportedPlatform` prop");
+	throw new Error("Conformance report requires a `reportedPlatform` prop");
 }
 const platformConformanceData = index?.conformance?.[reportedPlatform] ?? {};
 const changelogData = platformConformanceData.changelog ?? changelog;
