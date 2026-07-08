@@ -1,0 +1,14 @@
+---
+const { label, conformanceSummary } = Astro.props;
+---
+
+<section class="report-section">
+	<h3 class="inline">{ label } Conformance Results</h3>
+	{ conformanceSummary && (
+		<p class="conformance-summary"><em>{ conformanceSummary }</em></p>
+	) }
+	<details>
+		<summary>{ label } Conformance Details</summary>
+		<slot />
+	</details>
+</section>

@@ -1,0 +1,14 @@
+---
+import { getCollection } from "astro:content";
+import LocaleRedirect from "../../../components/LocaleRedirect.astro";
+import { getPlatforms } from "../../../i18n/utils.js";
+
+export async function getStaticPaths() {
+  const notes = await getCollection("release-notes");
+  const platforms = getPlatforms(notes);
+  return platforms.map((platform) => ({ params: { platform } }));
+}
+
+const platform = Astro.params.platform;
+---
+<LocaleRedirect path={ `release-notes/${ platform }/` } />

@@ -28,7 +28,8 @@
         "discord": "Liity Discord-yhteisöömme"
     },
     "footer": {
-        "legal": "Oikeudelliset huomautukset"
+        "legal": "Oikeudelliset huomautukset",
+        "accessibility": "Saavutettavuus"
     },
     "download": {
         "features": {
@@ -90,15 +91,12 @@
     },
     "release-notes": {
         "title": "Julkaisutiedot",
-        "see-all": "Katso kaikki",
-        "platforms": {
-            "desktop": "Työpöytäsovellus"
-        }
+        "see-all": "Katso kaikki"
     },
     "badge": {
         "catalog": {
             "header": {
-                "title": "Merkkigeneraattori",
+                "title": "Merkkigeneraattori luettelolle",
                 "subtitle": "Luo \"Lisää Thorium Readeriin\" -merkki luetteloosi."
             },
             "form": {
@@ -109,7 +107,7 @@
                     "hint": "Luettelon nimi siinä muodossa, jossa se näkyy Thorium Readerissa."
                 },
                 "main": {
-                    "label": "Selauksen URL",
+                    "label": "Pääasiallinen URL",
                     "placeholder": "https://example.com/opds",
                     "hint": "OPDS- tai verkko-osoite luettelon selaamista varten. Vähintään yksi URL vaaditaan."
                 },
@@ -119,9 +117,9 @@
                     "hint": "OPDS- tai verkko-osoite, jonka kautta pääsee käyttäjän kirjahyllyyn. Vähintään yksi URL vaaditaan."
                 },
                 "icon": {
-                    "label": "Ikonin URL",
+                    "label": "Kuvakkeen URL",
                     "placeholder": "https://example.com/icon.png",
-                    "hint": "Valinnainen. Neliönmuotoinen kuva (PNG tai SVG), joka edustaa luetteloasi."
+                    "hint": "Valinnainen. Neliönmuotoinen kuvake (PNG tai SVG), joka edustaa luetteloasi."
                 },
                 "color": {
                     "label": "Korostusväri",
@@ -133,17 +131,23 @@
                     "blue": "Sininen",
                     "green": "Vihreä",
                     "purple": "Violetti",
-                    "orange": "Oranssi"
+                    "orange": "Oranssi",
+                    "pink": "Vaaleanpunainen"
                 },
                 "openIn": {
                     "label": "Avaa käyttäen",
                     "default": "Oletus",
                     "webview": "Sovelluksen sisäinen selain",
                     "browser": "Ulkoinen selain",
-                    "hint": "Valinnainen. Määriteltävä tapa avata luettelon verkko-osoitteet."
+                    "hint": "Valinnainen. Tapa avata luettelon verkko-osoitteet."
                 },
                 "urls": {
                     "legend": "Luettelon URL"
+                },
+                "banner": {
+                    "label": "Banner-kuvan URL",
+                    "placeholder": "https://example.com/banner.png",
+                    "hint": "Valinnainen. Leveä banner-kuva luetteloosi."
                 }
             }
         },
@@ -155,9 +159,9 @@
                 "hint": "Valinnainen. Tekstimuotoinen salasana, joka vaaditaan luetteloon pääsemiseksi."
             },
             "passphraseHash": {
-                "label": "Hajautettu salasana",
+                "label": "Tiivistetty salasana",
                 "placeholder": "e3b0c44298fc1c149afb…",
-                "hint": "Valinnainen. Hajautetussa muodossa tallennettu salasana. Valitse tämä tekstimuotoisen salasanan sijasta, jos et halua salasanan näkyvän."
+                "hint": "Valinnainen. Esitiivistetyssä muodossa tallennettu salasana. Valitse tämä, jos et halua käyttää tekstimuotoista salasanaa."
             },
             "lang": {
                 "label": "Merkin kieli"
@@ -176,6 +180,60 @@
                 "copy": "Kopioi leikepöydälle",
                 "copied": "Kopioitu!"
             }
+        },
+        "index": {
+            "title": "Merkkigeneraattori",
+            "catalog": {
+                "title": "Merkki luettelolle",
+                "subtitle": "Luo \"Lisää Thorium Readeriin\" -merkki luetteloosi."
+            },
+            "publication": {
+                "title": "Merkki julkaisulle",
+                "subtitle": "Luo \"Lisää Thorium Readeriin\" -merkki julkaisulle."
+            }
+        },
+        "publication": {
+            "header": {
+                "title": "Merkkigeneraattori julkaisulle",
+                "subtitle": "Luo \"Lisää Thorium Readeriin\" -merkki julkaisulle."
+            },
+            "form": {
+                "legend": "Julkaisun tiedot",
+                "publication": {
+                    "label": "Julkaisun URL",
+                    "placeholder": "https://example.com/book.epub",
+                    "hint": "Pakollinen. Julkaisutiedoston URL-osoite."
+                },
+                "title": {
+                    "label": "Nimi",
+                    "placeholder": "Kirjani",
+                    "hint": "Valinnainen. Julkaisun nimi."
+                },
+                "author": {
+                    "label": "Tekijä",
+                    "placeholder": "Maija Meikäläinen",
+                    "hint": "Valinnainen. Tekijän nimi."
+                },
+                "cover": {
+                    "label": "Kannen URL-osoite",
+                    "placeholder": "https://example.com/cover.jpg",
+                    "hint": "Valinnainen. Kansikuvan URL-osoite."
+                }
+            }
+        },
+        "landing": {
+            "catalog": {
+                "title": "Avaa Thorium Readerissa",
+                "subtitle": "Paina allaolevaa painiketta, jotta voit lisätä tämän luettelon omaan kirjastoosi.",
+                "open": "Avaa Thorium Readerissa",
+                "download": "Lataa Thorium Reader"
+            },
+            "publication": {
+                "title": "Avaa Thorium Readerissa",
+                "subtitle": "Paina allaolevaa painiketta avataksesi tämän julkaisun Thorium Readerissa.",
+                "open": "Avaa Thorium Readerissa",
+                "download": "Lataa Thorium Reader"
+            }
         }
     },
     "faq": {
@@ -185,8 +243,8 @@
                 "question": "Onko Thorium Reader ilmainen?",
                 "answer": [
                     "Kyllä, Thorium Reader on ilmainen kaikilla alustoilla.",
-                    "Sen on kehittänyt EDRLab (European Digital Reading Lab), voittoa tavoittelematon järjestö, joka edistää avoimia standardeja, lukemista ja saavutettavuutta.",
-                    "Thorium Readerin avulla tuemme Readium-työkalupakettien kehitystyötä. Niitä käytetään sadoissa lukusovelluksissa."
+                    "Ohjelman on kehittänyt EDRLab (European Digital Reading Lab), voittoa tavoittelematon järjestö, joka edistää avoimia standardeja, lukemista ja saavutettavuutta.",
+                    "Thorium Readerin avulla tuetaan Readium-työkalupakettien kehitystyötä. Niitä käytetään sadoissa lukusovelluksissa."
                 ]
             },
             {
@@ -194,10 +252,10 @@
                 "answer": [
                     [
                         "Jos sinulla on iPhone tai iPad, Thorium Reader toimii laitteissa, joissa on vähintään iOS/iPadOS 26",
-                        "Windows-laitteissa vaatimuksena on Windows 10 tai myöhempi",
+                        "Windows-laitteissa vaatimuksena on Windows 10 tai uudempi",
                         "Jos käytössä on macOS, tarvitaan macOS 12 Monterey tai uudempi",
                         [
-                            "Lopulta Linux:",
+                            "Lopuksi Linux:",
                             "Ubuntu 18.04 tai uudempi",
                             "Fedora 32 tai uudempi",
                             "Debian 10 tai uudempi"
@@ -234,19 +292,19 @@
             {
                 "question": "Voinko avata DRM-suojattuja tiedostoja Thorium Readerissa?",
                 "answer": [
-                    "Kyllä, kunhan käytössä on Readium LCP, yhteentoimivan DRM:n ISO-standardi.",
-                    "Readium LCP -suojatut tiedostot käyttävät lisenssitiedostoa (tiedostotunniste .lcpl), joka on yhteensopiva EPUB-, PDF- tai Readium-äänikirjojen kanssa."
+                    "Kyllä, kunhan käytössä on Readium LCP, joka on ISO-standardoitu DRM-suojaus.",
+                    "Readium LCP -suojatut tiedostot käyttävät lisenssitiedostoa (tiedostotunniste .lcpl), joka on yhteensopiva EPUB:n, PDF:n tai Readium-äänikirjojen kanssa."
                 ]
             },
             {
                 "question": "Voinko käyttää Thorium Readeria offline-tilassa?",
                 "answer": [
-                    "Kyllä, kun luet tai kuuntele tiedostoja, jotka olet ladannut itsellesi suoratoiston sijaan.",
+                    "Kyllä, kun luet tai kuuntelet julkaisuja, jotka olet ladannut itsellesi suoratoiston sijaan.",
                     "Jotta voit lukea LCP-suojattuja tiedostoja, Thorium Readerin tarvitsee verkkoyhteyden ainakin kerran, mutta sen jälkeen yhteyttä ei vaadita."
                 ]
             },
             {
-                "question": "Voinko ostaa e-kirjoja, äänikirjoja, sarjakuvia tai mangaa kauppiaalta?",
+                "question": "Voinko ostaa e-kirjoja, äänikirjoja, sarjakuvia tai mangaa myyjiltä?",
                 "answer": [
                     "Kyllä, Thorium Reader on yhteensopiva sellaisten jälleenmyyjien kanssa, jotka myyvät LCP-suojattuja tai DRM-vapaita julkaisuja.",
                     "Tutustu Tuki-sivulla luetteloon jälleenmyyjistä, jotka tarjoavat Thorium Reader -yhteensopivia sisältöjä."
@@ -256,22 +314,22 @@
                 "question": "Voinko lainata e-kirjoja, äänikirjoja, sarjakuvia, mangaa ja sanoma- tai aikakauslehtiä kirjastosta?",
                 "answer": [
                     "Kyllä, kunhan kirjastosi käyttää Readium LCP -suojausta ladattujen tiedostojen suojaamiseen.",
-                    "Tulevaisuudessa upotamme luettelon kirjastoista suoraan sovellukseemme, jotta selailu, haku, lainaukset ja varaukset sujuisivat paremmin."
+                    "Tulevaisuudessa sovellukseen upotetaan luettelo kirjastoista, jotta selailu, haku, lainaukset ja varaukset sujuisivat paremmin."
                 ]
             },
             {
                 "question": "Voinko ladata ilmaista sisältöä Thorium Readerilla?",
                 "answer": [
                     "Kyllä, Thorium Reader sopii täysin yhteen Project Gutenbergin, Librivoxin ja monien muiden lähteiden kanssa, jotka tarjoavat tekijänoikeusvapaata tai avoimesti lisensoitua sisältöä.",
-                    "Myöhemmin näitä tarjoajia upotetaan suoraan sovellukseen, jotta ilmaisten e- ja äänikirjojen lataaminen olisi sujuvampaa."
+                    "Tulevaisuudessa näitä tarjoajia upotetaan suoraan sovellukseen, jotta ilmaisten e- ja äänikirjojen lataaminen olisi sujuvampaa."
                 ]
             }
         ]
     },
     "alts": {
-        "thorium-desktop": "Kannettava tietokone, jonka näytöllä näkyy Thorium Reader. Kirjastonäkymässä julkaisut näkyvät ruudukkona, jossa voi tehdä hakuja tai lisätä uusia julkaisuja. Kustakin kirjasta on näkyvillä kansikuva, jonka olla kirjan nimi, tekijät, formaatti ja lisätietopainike.",
-        "thorium-mobile-download-screens-compact": "Kolme puhelinta vierekkäin. Ensimmäisessä näkyy mobiilisovelluksen kirjahylly, toisessa tummassa tilassa romaani ja kolmannessa manga koko näytön tilassa.",
-        "thorium-mobile-download-screens-large": "Neljä puhelinta vierekkäin. Ensimmäisessä näkyy mobiilisovelluksen kirjahyllynäkymä, toisessa romaani tummassa tilassa, kolmannessa äänikirjan kuuntelukäyttöliittymä ja neljännessä mangaa koko näytön tilassa.",
+        "thorium-desktop": "Kannettava tietokone, jonka näytöllä näkyy Thorium Reader. Kirjastonäkymässä julkaisut näkyvät ruudukkona, jossa voi tehdä hakuja tai lisätä uusia julkaisuja. Kustakin kirjasta on näkyvillä kansikuva, jonka alla kirjan nimi, tekijät, formaatti ja lisätietopainike.",
+        "thorium-mobile-download-screens-compact": "Kolme puhelinta vierekkäin. Ensimmäisessä näkyy mobiilisovelluksen kirjahylly, toisessa romaani tummassa tilassa ja kolmannessa manga koko näytön tilassa.",
+        "thorium-mobile-download-screens-large": "Neljä puhelinta vierekkäin. Ensimmäisessä näkyy mobiilisovelluksen kirjahyllynäkymä, toisessa romaani tummassa tilassa, kolmannessa äänikirjan kuuntelunäkymä ja neljännessä manga koko näytön tilassa.",
         "thorium-reader-desktop-mobile": "Vierekkäin kannettava tietokone, jossa auki e-kirja, tabletti, jossa auki sarjakuva sekä puhelin, jossa auki Dracula-äänikirja.",
         "thorium-reader-mobile-option": "Kaksi puhelinta osin päällekkäin: alemmassa näkyy Dracula-äänikirjan kansi, ylemmässä katkelma e-kirjan kohdasta Jonathan Harkerin päiväkirja.",
         "thorium-reader-screens": "Kolme puhelinta, jotka havainnollistavat Thoriumin teemoja: seepia, vaalea ja tumma. Keskimmäisessä on avoinna ulkoasuvalikko."
@@ -303,6 +361,18 @@
                 "Thorium Reader on täysin ilmainen ja sitä ylläpitää voittoa tavoittelematon järjestö.",
                 "Saatavilla: iOS, iPadOS, Windows, macOS ja Linux."
             ]
+        }
+    },
+    "add": {
+        "catalog": {
+            "title": "Lisää luettelo Thorium Readeriin",
+            "subtitle": "Yrität lisätä {{catalogName}}:n Thorium Reader -sovellukseen, mutta sinun on ensin ladattava sovellus.",
+            "fallbackName": "tämä luettelo"
+        },
+        "publication": {
+            "title": "Lisää julkaisu Thorium Readeriin",
+            "subtitle": "Yrität lisätä {{publicationTitle}} :n Thorium Reader -sovellukseen, mutta sinun on ensin ladattava sovellus.",
+            "fallbackName": "tämä julkaisu"
         }
     }
 }

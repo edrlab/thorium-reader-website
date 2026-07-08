@@ -1,7 +1,7 @@
 {
   "name": "thorium-site",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "scripts": {
     "dev": "pnpm --filter @edrlab/thorium-badges build && concurrently -k \"pnpm --filter @edrlab/thorium-badges dev\" \"astro dev\"",
     "build": "pnpm --filter @edrlab/thorium-badges build && astro build && node scripts/copy-embed.mjs",
@@ -20,9 +20,12 @@
     }
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.3.14",
     "@astrojs/sitemap": "^3.7.2",
     "astro": "^6.3.1",
     "i18next": "^26.1.0",
+    "remark-custom-header-id": "^1.0.0",
+    "sanitize-html": "^2.17.5",
     "sharp": "^0.34.5"
   },
   "devDependencies": {

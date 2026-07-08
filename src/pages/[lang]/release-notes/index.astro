@@ -4,7 +4,7 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "../../../layouts/Layout.astro";
 import Footer from "../../../components/Footer.astro";
 import { locales } from "../../../i18n/locales.js";
-import { t, formatDate, localizeCollection } from "../../../i18n/utils.js";
+import { t, formatDate, localizeCollection, getPlatforms } from "../../../i18n/utils.js";
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
@@ -12,23 +12,28 @@ export function getStaticPaths() {
 
 const lang = Astro.currentLocale ?? "en";
 
-const desktopNotes = await getCollection("desktop-release-notes");
-const sortedDesktop = localizeCollection(desktopNotes, lang).sort((a, b) => b.note.data.date.localeCompare(a.note.data.date));
+const allNotes = await getCollection("release-notes");
+const platformIds = getPlatforms(allNotes);
 
-const platforms = [
-  {
-    label: t(lang, "release-notes.platforms.desktop"),
-    indexPath: "release-notes/desktop/",
-    notes: sortedDesktop.slice(0, 5).map(({ slug, note }) => ({ version: note.data.version, date: note.data.date, path: `release-notes/desktop/${ slug }` })),
-  },
-];
+const platforms = platformIds.map((platform) => {
+  const sorted = localizeCollection(allNotes, lang, platform).sort((a, b) => b.note.data.date.localeCompare(a.note.data.date));
+  return {
+    label: t(lang, `platform.names.${ platform }`) as string,
+    indexPath: `release-notes/${ platform }/`,
+    notes: sorted.slice(0, 5).map(({ slug, note }) => ({
+      version: note.data.version,
+      date: note.data.date,
+      path: `release-notes/${ platform }/${ slug }`,
+    })),
+  };
+});
 ---
 
 <Layout title={ t(lang, "release-notes.title") }>
-  <section class="release-notes-hub container">
+  <section class="platform-hub container">
     <h1>{ t(lang, "release-notes.title") }</h1>
     { platforms.map(({ label, indexPath, notes }) => (
-      <div class="release-notes-hub-platform">
+      <div class="platform-hub-platform">
         <h2>{ label }</h2>
         <ul>
           { notes.map(({ version, date, path }) => (
@@ -38,7 +43,7 @@ const platforms = [
             </li>
           )) }
         </ul>
-        <a class="release-notes-hub-see-all" href={ getRelativeLocaleUrl(lang, indexPath) }>{ t(lang, "release-notes.see-all") }</a>
+        <a class="platform-hub-see-all" href={ getRelativeLocaleUrl(lang, indexPath) }>{ t(lang, "release-notes.see-all") }</a>
       </div>
     )) }
   </section>

@@ -28,7 +28,8 @@
         "discord": "Rejoindre notre Discord"
     },
     "footer": {
-        "legal": "Mentions légales"
+        "legal": "Mentions légales",
+        "accessibility": "Accessibilité"
     },
     "home": {
         "hero": {
@@ -119,10 +120,7 @@
     },
     "release-notes": {
         "title": "Notes de version",
-        "see-all": "Voir tout",
-        "platforms": {
-            "desktop": "Bureau"
-        }
+        "see-all": "Voir tout"
     },
     "badge": {
         "catalog": {

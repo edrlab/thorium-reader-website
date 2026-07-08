@@ -1,0 +1,195 @@
+---
+import ConformanceAbout from "./ConformanceAbout.astro";
+import ConformanceSection from "./ConformanceSection.astro";
+import ConformanceTable from "./ConformanceTable.astro";
+
+const {
+	reportedPlatform,
+	index = {},
+	productName,
+	version,
+	platform,
+	reportDate,
+	evaluationDate,
+	changelog,
+	testingMethodology,
+	standards,
+} = Astro.props;
+
+if (!reportedPlatform) {
+	throw new Error("Conformance report requires a `reportedPlatform` prop");
+}
+const platformConformanceData = index?.conformance?.[reportedPlatform] ?? {};
+const changelogData = platformConformanceData.changelog ?? changelog;
+const conformanceSummary = platformConformanceData.conformanceSummary;
+const methodologyData =
+	platformConformanceData.testingMethodology ?? testingMethodology;
+const standardsToShow =
+	Array.isArray(standards) && standards.length > 0
+		? standards
+		: ["wcag", "uaag", "epub", "daisyURS"];
+const legacyRulesets = platformConformanceData.rulesets;
+
+const getSetData = (standard) => {
+	const value = platformConformanceData?.[standard];
+
+	if (Array.isArray(value)) {
+		return {
+			ruleset: legacyRulesets?.[standard],
+			rules: value,
+		};
+	}
+
+	if (value && typeof value === "object") {
+		return {
+			ruleset: value.ruleset ?? legacyRulesets?.[standard],
+			rules: Array.isArray(value.rules) ? value.rules : [],
+		};
+	}
+
+	return {
+		ruleset: legacyRulesets?.[standard],
+		rules: [],
+	};
+};
+
+const rulesets = Object.fromEntries(
+	standardsToShow
+		.map((standard) => {
+			const setData = getSetData(standard);
+			return [standard, setData.ruleset];
+		})
+		.filter(([, ruleset]) => Boolean(ruleset)),
+);
+
+const sortById = (items = []) => {
+	return [...items].sort((a, b) => {
+		const aId = Number(a?.id);
+		const bId = Number(b?.id);
+
+		if (Number.isFinite(aId) && Number.isFinite(bId)) {
+			return aId - bId;
+		}
+
+		return String(a?.id ?? "").localeCompare(String(b?.id ?? ""), undefined, {
+			numeric: true,
+			sensitivity: "base",
+		});
+	});
+};
+---
+
+<section class="conformance-report">
+	{ conformanceSummary && (
+		<p class="conformance-summary"><em>{ conformanceSummary }</em></p>
+	) }
+
+	<ConformanceAbout
+		productName={ platformConformanceData.productName || productName }
+		version={ platformConformanceData.version || version }
+		platform={ platformConformanceData.platform || platform }
+		evaluationDate={ platformConformanceData.evaluationDate || evaluationDate }
+		changelog={ changelogData }
+		testingMethodology={ methodologyData }
+		rulesets={ rulesets }
+	/>
+
+	<hr />
+
+	<section id="conformance" class="js-tabs">
+		<h2>Detailed Reports</h2>
+		{ standardsToShow.map((standard) => {
+			const setData = getSetData(standard);
+			const rows = sortById(setData.rules);
+
+			if (!rows.length) return null;
+
+			const standardSummary = platformConformanceData?.[standard]?.conformanceOverview?.conformanceSummary;
+			const label = standard.toUpperCase();
+
+			return (
+				<ConformanceSection label={ label } conformanceSummary={ standardSummary }>
+					<ConformanceTable id={ standard } label={ label } rows={ rows } />
+				</ConformanceSection>
+			);
+		}) }
+	</section>
+</section>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		const collator = new Intl.Collator(undefined, {
+			numeric: true,
+			sensitivity: "base",
+		});
+
+		const getCellValue = (row, index) => {
+			const cell = row.cells[index];
+			if (!cell) return "";
+
+			const orderValue = cell.getAttribute("data-order");
+			if (orderValue !== null) {
+				return orderValue.trim();
+			}
+
+			return (cell.textContent || "").trim();
+		};
+
+		const compareValues = (a, b) => {
+			const numA = Number(a);
+			const numB = Number(b);
+
+			if (Number.isFinite(numA) && Number.isFinite(numB)) {
+				return numA - numB;
+			}
+
+			return collator.compare(String(a), String(b));
+		};
+
+		for (const table of document.querySelectorAll("table.responsive")) {
+			const tbody = table.tBodies[0];
+			if (!tbody) continue;
+
+			const headers = Array.from(table.querySelectorAll("thead th.sortable"));
+			headers.forEach((header, index) => {
+				const trigger = header.querySelector("button.sortable-trigger");
+				if (!trigger) return;
+
+				const sort = () => {
+					const currentDir = header.dataset.sortDir === "asc" ? "asc" : "desc";
+					const nextDir = currentDir === "asc" ? "desc" : "asc";
+
+					headers.forEach((h) => {
+						h.dataset.sortDir = "";
+						h.classList.remove("sorted-asc", "sorted-desc");
+						h.removeAttribute("aria-sort");
+					});
+
+					header.dataset.sortDir = nextDir;
+					header.classList.add(nextDir === "asc" ? "sorted-asc" : "sorted-desc");
+					header.setAttribute("aria-sort", nextDir === "asc" ? "ascending" : "descending");
+
+					const rows = Array.from(tbody.rows).map((row, originalIndex) => ({
+						row,
+						originalIndex,
+						value: getCellValue(row, index),
+					}));
+
+					rows.sort((left, right) => {
+						const cmp = compareValues(left.value, right.value);
+						if (cmp !== 0) {
+							return nextDir === "asc" ? cmp : -cmp;
+						}
+						return left.originalIndex - right.originalIndex;
+					});
+
+					for (const { row } of rows) {
+						tbody.appendChild(row);
+					}
+				};
+
+				trigger.addEventListener("click", sort);
+			});
+		}
+	});
+</script>

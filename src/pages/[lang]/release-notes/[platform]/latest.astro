@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { locales } from "../../../../i18n/locales.js";
+import { localizeCollection, getPlatforms } from "../../../../i18n/utils.js";
+
+export async function getStaticPaths() {
+  const notes = await getCollection("release-notes");
+  const platforms = getPlatforms(notes);
+  return locales.flatMap((lang) =>
+    platforms.flatMap((platform) => {
+      const localized = localizeCollection(notes, lang, platform).sort((a, b) => b.note.data.date.localeCompare(a.note.data.date));
+      const latest = localized[0];
+      if (!latest) return [];
+      return [{ params: { lang, platform }, props: { latestSlug: latest.slug } }];
+    })
+  );
+}
+
+const lang = Astro.currentLocale ?? "en";
+const platform = Astro.params.platform ?? "";
+const { latestSlug } = Astro.props;
+
+return Astro.redirect(getRelativeLocaleUrl(lang, `release-notes/${ platform }/${ latestSlug }`));
+---
