@@ -91,10 +91,7 @@
     },
     "release-notes": {
         "title": "Julkaisutiedot",
-        "see-all": "Katso kaikki",
-        "platforms": {
-            "desktop": "Työpöytäsovellus"
-        }
+        "see-all": "Katso kaikki"
     },
     "badge": {
         "catalog": {

@@ -236,10 +236,7 @@
     },
     "release-notes": {
         "see-all": "Vedi tutte",
-        "title": "Note di rilascio",
-        "platforms": {
-            "desktop": "Desktop"
-        }
+        "title": "Note di rilascio"
     },
     "home": {
         "cta": {

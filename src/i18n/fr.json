@@ -120,10 +120,7 @@
     },
     "release-notes": {
         "title": "Notes de version",
-        "see-all": "Voir tout",
-        "platforms": {
-            "desktop": "Bureau"
-        }
+        "see-all": "Voir tout"
     },
     "badge": {
         "catalog": {
