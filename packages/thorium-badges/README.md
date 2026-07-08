@@ -9,7 +9,7 @@ Each element renders as a link — the inline SVG badge wrapped in an `<a>` to t
 
 ## Installation
 
-`@edrlab/thorium-badges` is not currently published to the npm registry. Within this monorepo, it's consumed as a pnpm workspace dependency (`"@edrlab/thorium-badges": "workspace:*"`).
+`@edrlab/thorium-badges` is not currently published to the npm registry.
 
 ## Usage
 
