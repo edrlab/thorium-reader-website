@@ -1,10 +1,11 @@
 ---
 import { getCollection } from "astro:content";
 import LocaleRedirect from "../../../components/LocaleRedirect.astro";
+import { getPlatforms } from "../../../i18n/utils.js";
 
 export async function getStaticPaths() {
   const notes = await getCollection("release-notes");
-  const platforms = [...new Set(notes.map((n) => n.id.split("/")[0]))];
+  const platforms = getPlatforms(notes);
   return platforms.map((platform) => ({ params: { platform } }));
 }
 

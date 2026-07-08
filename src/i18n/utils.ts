@@ -55,6 +55,10 @@ export function interpolate(template: string, values: Record<string, string>): s
   );
 }
 
+export function getPlatforms<T extends { id: string }>(entries: T[]): string[] {
+  return [...new Set(entries.map((entry) => entry.id.split("/")[0]))].sort((a, b) => a.localeCompare(b));
+}
+
 export function localizeCollection<T extends { id: string }>(
   entries: T[],
   lang: string,

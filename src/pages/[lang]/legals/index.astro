@@ -4,7 +4,7 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "../../../layouts/Layout.astro";
 import Footer from "../../../components/Footer.astro";
 import { locales } from "../../../i18n/locales.js";
-import { t, formatDate, interpolate, localizeCollection } from "../../../i18n/utils.js";
+import { t, formatDate, interpolate, localizeCollection, getPlatforms } from "../../../i18n/utils.js";
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
@@ -21,7 +21,7 @@ if (!legalsDoc) {
 const { Content } = await render(legalsDoc);
 
 const allPlatformDocs = await getCollection("platform-conformance");
-const platforms = [...new Set(allPlatformDocs.map((doc) => doc.id.split("/")[0]))].sort((a, b) => a.localeCompare(b));
+const platforms = getPlatforms(allPlatformDocs);
 
 const sortDocsByDateAndTitle = (a: { note: (typeof allPlatformDocs)[number] }, b: { note: (typeof allPlatformDocs)[number] }) => {
   const aDate = a.note.data.date ?? "";

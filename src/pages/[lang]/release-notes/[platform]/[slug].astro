@@ -3,11 +3,11 @@ import { getCollection, render } from "astro:content";
 import Layout from "../../../../layouts/Layout.astro";
 import Footer from "../../../../components/Footer.astro";
 import { locales } from "../../../../i18n/locales.js";
-import { formatDate, localizeCollection } from "../../../../i18n/utils.js";
+import { formatDate, localizeCollection, getPlatforms } from "../../../../i18n/utils.js";
 
 export async function getStaticPaths() {
   const notes = await getCollection("release-notes");
-  const platforms = [...new Set(notes.map((n) => n.id.split("/")[0]))];
+  const platforms = getPlatforms(notes);
   return locales.flatMap((lang) =>
     platforms.flatMap((platform) =>
       localizeCollection(notes, lang, platform).map(({ slug, note }) => ({

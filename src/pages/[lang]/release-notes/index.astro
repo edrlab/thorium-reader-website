@@ -4,7 +4,7 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "../../../layouts/Layout.astro";
 import Footer from "../../../components/Footer.astro";
 import { locales } from "../../../i18n/locales.js";
-import { t, formatDate, localizeCollection } from "../../../i18n/utils.js";
+import { t, formatDate, localizeCollection, getPlatforms } from "../../../i18n/utils.js";
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
@@ -13,7 +13,7 @@ export function getStaticPaths() {
 const lang = Astro.currentLocale ?? "en";
 
 const allNotes = await getCollection("release-notes");
-const platformIds = [...new Set(allNotes.map((n) => n.id.split("/")[0]))].sort((a, b) => a.localeCompare(b));
+const platformIds = getPlatforms(allNotes);
 
 const platforms = platformIds.map((platform) => {
   const sorted = localizeCollection(allNotes, lang, platform).sort((a, b) => b.note.data.date.localeCompare(a.note.data.date));

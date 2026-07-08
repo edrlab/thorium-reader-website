@@ -2,11 +2,11 @@
 import { getCollection } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { locales } from "../../../../i18n/locales.js";
-import { localizeCollection } from "../../../../i18n/utils.js";
+import { localizeCollection, getPlatforms } from "../../../../i18n/utils.js";
 
 export async function getStaticPaths() {
   const notes = await getCollection("release-notes");
-  const platforms = [...new Set(notes.map((n) => n.id.split("/")[0]))];
+  const platforms = getPlatforms(notes);
   return locales.flatMap((lang) =>
     platforms.map((platform) => {
       const latest = localizeCollection(notes, lang, platform).sort((a, b) => b.note.data.date.localeCompare(a.note.data.date))[0];
