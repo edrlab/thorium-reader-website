@@ -5,7 +5,7 @@ description: Add a catalog or a publication to Thorium Reader from your own site
 
 Thorium Reader can be opened directly from a link on your site to pre-fill a catalog (OPDS or web) or a single publication, so a reader can add it in one tap without copy-pasting a URL. This guide covers the link format, the two ways to trigger it (HTTPS universal links and a custom scheme), and the two ready-made tools for embedding an "Add to Thorium Reader" badge: a static generator page and a web component.
 
-## The two link kinds
+## The Two Kinds of Link
 
 Every deep link targets one of two actions, each with its own base URL:
 
@@ -21,7 +21,7 @@ Both forms take the same query parameters — only the base URL differs.
 
 Two scoped variants of the custom scheme also exist, each handled by only one app: `com.thoriumreader.desktop:` and `com.thoriumreader.mobile:`. They're aliases for platform-to-platform handoffs where the caller already knows which app it's targeting. For a badge or link on a web page, always use the generic `com.thoriumreader:` scheme (or the HTTPS universal link) so it works regardless of which platform the visitor is on.
 
-## Add a catalog
+## Add a Catalog
 
 Base URL: `/add/catalog`.
 
@@ -42,7 +42,7 @@ Base URL: `/add/catalog`.
 https://www.thoriumreader.com/add/catalog?title=My+Library&main=https%3A%2F%2Fexample.com%2Fcatalog
 ```
 
-## Add a publication
+## Add a Publication
 
 Base URL: `/add/publication`.
 
@@ -59,7 +59,7 @@ Base URL: `/add/publication`.
 https://www.thoriumreader.com/add/publication?publication=https%3A%2F%2Fexample.com%2Fbook.epub&title=My+Book
 ```
 
-## Platform support
+## Platform Support
 
 Both parameter tables above are the full set defined by the deep link format, but the two apps don't currently implement all of them equally:
 
@@ -68,17 +68,17 @@ Both parameter tables above are the full set defined by the deep link format, bu
 
 So a badge built with, say, `icon` and `color` will show them on mobile but not on desktop today. This reflects the reader apps' current state and may close over time — if parity matters for your use case, treat `title` + `main`/`bookshelf` (catalog) or `title` + `publication` (publication) as the only fields guaranteed to work everywhere.
 
-## The badge
+## The Badge
 
 An "Add to Thorium Reader" badge is a small SVG button (the Thorium logo plus localized "Add to Thorium Reader" text) that links to one of the URLs above. There are two ways to get one, depending on whether you want a one-off link or a live component.
 
-### Generator pages
+### Generator Pages
 
 The [badge generator](/en/badge/) hosts two form-based generators, one for catalogs and one for publications. Fill in the fields and the page renders a live SVG preview plus an HTML snippet — an `<a>` wrapping the inline SVG, pointed at the HTTPS universal link — ready to paste into any page. The badge's text is rendered in whichever locale is selected in the generator, independently of the page's own locale.
 
 Use this when you want a static, copy-pasted badge with no build step or JavaScript dependency on your page.
 
-### `@edrlab/thorium-badges` web components
+### `@edrlab/thorium-badges` Web Components
 
 For sites that want the badge to stay in sync with catalog/publication data (rather than a one-time generated snippet), the `@edrlab/thorium-badges` package provides two custom elements: `<thorium-badge-catalog>` and `<thorium-badge-publication>`. Each renders as a link — the inline SVG badge wrapped in an `<a>` to the corresponding HTTPS universal link — built from its attributes.
 
@@ -107,7 +107,7 @@ or with a plain `<script src>` and no build step:
 <script src="https://www.thoriumreader.com/embed/thorium-badges.js"></script>
 ```
 
-#### `<thorium-badge-catalog>` attributes
+#### `<thorium-badge-catalog>` Attributes
 
 | Attribute | Required | Description |
 |---|---|---|
@@ -123,7 +123,7 @@ or with a plain `<script src>` and no build step:
 
 Throws if `title`, or at least one of `main`/`bookshelf`, isn't set.
 
-#### `<thorium-badge-publication>` attributes
+#### `<thorium-badge-publication>` Attributes
 
 | Attribute | Required | Description |
 |---|---|---|

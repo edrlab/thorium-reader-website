@@ -1,0 +1,10 @@
+/* Starlight theme overrides: reuse brand fonts only (no color overrides for now).
+   Loaded exclusively on /guides pages via the `customCss` Starlight config option. */
+
+:root {
+  --sl-font: var(--font-sans);
+}
+
+main :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-heading);
+}

@@ -32,13 +32,18 @@ export default defineConfig({
     starlight({
       title: "Thorium Reader Guides",
       logo: {
-        src: "./src/components/logos/assets/logo-thorium-reader.webp",
+        light: "./src/components/logos/assets/logo-thorium-reader-light-mode.webp",
+        dark: "./src/components/logos/assets/logo-thorium-reader.webp",
         replacesTitle: true,
       },
       social: [
         { icon: "discord", label: "Discord", href: discordHref },
         { icon: "github", label: "GitHub", href: githubHref },
       ],
+      customCss: ["./src/styles/starlight.css"],
+      components: {
+        Head: "./src/components/starlight/Head.astro",
+      },
       sidebar: [
         {
           label: "Guides",
