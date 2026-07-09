@@ -5,7 +5,7 @@ import starlight from "@astrojs/starlight";
 import { unified } from "@astrojs/markdown-remark";
 import remarkCustomHeaderId from "remark-custom-header-id";
 import { defaultLocale, locales, bcp47Locale } from "./src/i18n/locales.js";
-import { discordHref } from "./src/links.js";
+import { discordHref, githubHref } from "./src/links.js";
 
 export default defineConfig({
   fonts: [
@@ -31,6 +31,14 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Thorium Reader Guides",
+      logo: {
+        src: "./src/components/logos/assets/logo-thorium-reader.webp",
+        replacesTitle: true,
+      },
+      social: [
+        { icon: "discord", label: "Discord", href: discordHref },
+        { icon: "github", label: "GitHub", href: githubHref },
+      ],
       sidebar: [
         {
           label: "Guides",
