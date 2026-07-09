@@ -27,17 +27,16 @@ Base URL: `/add/catalog`.
 
 | Parameter | Required | Description |
 |---|---|---|
-| `title` | yes | Catalog display name in Thorium Reader. |
-| `main` | yes* | OPDS or web URL to browse the catalog. |
-| `bookshelf` | yes* | OPDS or web URL for the user's bookshelf. |
-| `passphrase` | no | Plain-text LCP passphrase. |
-| `hashed_passphrase` | no | Pre-hashed LCP passphrase — use instead of `passphrase`. |
-| `open_in` | no | How Thorium should open the catalog's URLs: `webview` or `browser`. |
-| `icon` | no | Square image URL (PNG or SVG) for the catalog icon. |
-| `banner` | no | Banner image URL. |
-| `color` | no | Accent color: `gray`, `red`, `yellow`, `blue`, `green`, `purple`, `orange`, or `pink`. |
+| `title` | ✓ | Catalog display name in Thorium Reader. |
+| `main` / `bookshelf` | one of* | OPDS or web URL to browse the catalog / for the user's bookshelf. |
+| `passphrase` | | Plain-text LCP passphrase. |
+| `hashed_passphrase` | | Pre-hashed LCP passphrase — use instead of `passphrase`. |
+| `open_in` | | How Thorium should open the catalog's URLs: `webview` or `browser`. |
+| `icon` | | Square image URL (PNG or SVG) for the catalog icon. |
+| `banner` | | Banner image URL. |
+| `color` | | Accent color: `gray`, `red`, `yellow`, `blue`, `green`, `purple`, `orange`, or `pink`. |
 
-\* `title` and at least one of `main` or `bookshelf` are required.
+\* At least one of `main` or `bookshelf` is required.
 
 ```text
 https://www.thoriumreader.com/add/catalog?title=My+Library&main=https%3A%2F%2Fexample.com%2Fcatalog
@@ -49,12 +48,12 @@ Base URL: `/add/publication`.
 
 | Parameter | Required | Description |
 |---|---|---|
-| `publication` | yes | Direct URL to the publication file. |
-| `title` | no | Publication title. |
-| `author` | no | Publication author. |
-| `cover` | no | Cover image URL. |
-| `passphrase` | no | Plain-text LCP passphrase. |
-| `hashed_passphrase` | no | Pre-hashed LCP passphrase — use instead of `passphrase`. |
+| `publication` | ✓ | Direct URL to the publication file. |
+| `title` | | Publication title. |
+| `author` | | Publication author. |
+| `cover` | | Cover image URL. |
+| `passphrase` | | Plain-text LCP passphrase. |
+| `hashed_passphrase` | | Pre-hashed LCP passphrase — use instead of `passphrase`. |
 
 ```text
 https://www.thoriumreader.com/add/publication?publication=https%3A%2F%2Fexample.com%2Fbook.epub&title=My+Book
