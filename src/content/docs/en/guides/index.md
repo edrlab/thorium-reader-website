@@ -1,6 +1,6 @@
 ---
-title: Guides
+title: Overview
 description: Guides for Thorium Reader.
 ---
 
-This is a placeholder landing page for the guides section.
+Developer guides for integrating with Thorium Reader — practical references for anyone building a website or catalog that feeds content into the app.
