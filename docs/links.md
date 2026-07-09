@@ -7,7 +7,6 @@ All external URLs and versioned identifiers are centralized in `src/links.ts`. I
 | Export | Type | Description |
 |--------|------|-------------|
 | `blogHref` | `string` | Thorium Reader blog URL |
-| `conformanceHref` | `string` | Conformance report URL |
 | `supportHref(lang)` | `(lang: string) => string` | Support site URL, locale-aware |
 | `discordHref` | `string` | Discord invite URL |
 | `appleAppId` | `string` | App Store app ID |
