@@ -3,7 +3,7 @@ title: Deep Linking
 description: Add a catalog or a publication to Thorium Reader from your own site — links, badge, and web components.
 ---
 
-Thorium Reader can be opened directly from a link on your site to pre-fill a catalog (OPDS or web) or a single publication, so a reader can add it in one tap without copy-pasting a URL. This guide covers the link format, the two ways to trigger it (HTTPS universal links and a custom scheme), and the two ready-made tools for embedding an "Add to Thorium Reader" badge: a static generator page and a web component.
+Thorium Reader can be opened directly from a link on your site to add a catalog (OPDS or web) or a single publication, so a reader can add it in one tap without copy-pasting a URL. This guide covers the link format, the two ways to trigger it (HTTPS universal links and a custom scheme), and the two ready-made tools for embedding an "Add to Thorium Reader" badge: a static generator page and a web component.
 
 ## The Two Kinds of Link
 
@@ -42,6 +42,15 @@ Base URL: `/add/catalog`.
 https://www.thoriumreader.com/add/catalog?title=My+Library&main=https%3A%2F%2Fexample.com%2Fcatalog
 ```
 
+### `webview` vs. `browser`
+
+`open_in` controls where Thorium opens the catalog's URLs:
+
+- `webview` — an in-app browser window embedded inside Thorium Reader. The reader stays in context and any session stays contained to the app.
+- `browser` — the user's default system browser, outside Thorium Reader.
+
+`webview` is the better default for a self-contained browsing experience. Prefer `browser` when the catalog relies on an authentication method that doesn't work in embedded web views — most federated sign-in flows (Google Sign-In, and others that enforce Google's "secure browsers" policy) refuse to run inside an embedded webview and only complete in a full system browser. If your catalog gates access behind that kind of login, set `open_in=browser` so users can actually sign in.
+
 ## Add a Publication
 
 Base URL: `/add/publication`.
@@ -61,12 +70,7 @@ https://www.thoriumreader.com/add/publication?publication=https%3A%2F%2Fexample.
 
 ## Platform Support
 
-Both parameter tables above are the full set defined by the deep link format, but the two apps don't currently implement all of them equally:
-
-- **Mobile** reads every parameter listed — `title`/`main`/`bookshelf`/`color`/`open_in`/`icon`/`banner`/`passphrase`/`hashed_passphrase` for catalogs, and the full publication set.
-- **Desktop** currently only reads `title` and `main` for a catalog, and `publication` for a publication — `bookshelf`, `passphrase`, `hashed_passphrase`, `icon`, `banner`, `open_in`, and `color` are parsed from the URL but not yet applied.
-
-So a badge built with, say, `icon` and `color` will show them on mobile but not on desktop today. This reflects the reader apps' current state and may close over time — if parity matters for your use case, treat `title` + `main`/`bookshelf` (catalog) or `title` + `publication` (publication) as the only fields guaranteed to work everywhere.
+Use the full set of parameters you'd like to provide — it's the best way to get the richest result wherever it's supported. A platform that doesn't yet honor a given parameter simply ignores it, and support is expected to broaden over time.
 
 ## The Badge
 
