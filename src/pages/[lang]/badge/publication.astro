@@ -106,7 +106,7 @@ const badgeTexts = Object.fromEntries(
   import { interpolate } from "../../../i18n/utils.js";
 
   const dataEl                      = document.getElementById("badge-data") as HTMLElement;
-  const badgeTexts                  = JSON.parse(dataEl.dataset.badgeTexts);
+  const badgeTexts                  = JSON.parse(dataEl.dataset.badgeTexts!);
   const addPublicationUniversalLink = dataEl.dataset.universalLink;
   const addPublicationScheme        = dataEl.dataset.scheme;
 

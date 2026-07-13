@@ -148,7 +148,7 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
   import { interpolate } from "../../../i18n/utils.js";
 
   const dataEl               = document.getElementById("badge-data") as HTMLElement;
-  const badgeTexts           = JSON.parse(dataEl.dataset.badgeTexts);
+  const badgeTexts           = JSON.parse(dataEl.dataset.badgeTexts!);
   const addCatalogUniversalLink = dataEl.dataset.universalLink;
   const addCatalogScheme     = dataEl.dataset.scheme;
 
