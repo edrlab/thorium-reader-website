@@ -374,5 +374,14 @@
             "subtitle": "Yrität lisätä {{publicationTitle}} :n Thorium Reader -sovellukseen, mutta sinun on ensin ladattava sovellus.",
             "fallbackName": "tämä julkaisu"
         }
+    },
+    "platform": {
+        "names": {
+            "desktop": "Työpöytä",
+            "ios": "iOS"
+        }
+    },
+    "legals": {
+        "platformTitle": "{{platform}} oikeudelliset asiakirjat"
     }
 }
