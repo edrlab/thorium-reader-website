@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "../../../../layouts/Layout.astro";
 import Footer from "../../../../components/Footer.astro";
@@ -21,7 +21,7 @@ const lang = Astro.currentLocale ?? "en";
 const platform = Astro.params.platform ?? "";
 
 const allDocs = await getCollection("platform-conformance");
-const docs = localizeCollection(allDocs, lang, platform)
+const docs = localizeCollection<CollectionEntry<"platform-conformance">>(allDocs, lang, platform)
   .sort((a, b) => {
     const aDate = a.note.data.date ?? "";
     const bDate = b.note.data.date ?? "";
