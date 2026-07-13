@@ -13,7 +13,7 @@ export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
 }
 
-const lang = Astro.currentLocale;
+const lang = Astro.currentLocale ?? "en";
 const catalogNameFallback = t(lang, "add.catalog.fallbackName");
 const badgeAlt = t(lang, "badge.shared.alt");
 ---
