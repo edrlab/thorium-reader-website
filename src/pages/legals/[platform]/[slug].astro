@@ -1,12 +1,12 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import LocaleRedirect from "../../../components/LocaleRedirect.astro";
 
 export async function getStaticPaths() {
   const docs = await getCollection("platform-conformance");
   const seen = new Set<string>();
 
-  return docs.flatMap((doc) => {
+  return docs.flatMap((doc: CollectionEntry<"platform-conformance">) => {
     const [platform, , slug] = doc.id.split("/");
     const key = `${ platform }/${ slug }`;
     if (seen.has(key)) return [];
