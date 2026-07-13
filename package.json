@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "pnpm --filter @edrlab/thorium-badges build && concurrently -k \"pnpm --filter @edrlab/thorium-badges dev\" \"astro dev\"",
     "build": "pnpm --filter @edrlab/thorium-badges build && astro build && node scripts/copy-embed.mjs",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "check": "astro check"
   },
   "devEngines": {
     "packageManager": {
@@ -29,6 +30,8 @@
     "sharp": "^0.34.5"
   },
   "devDependencies": {
-    "concurrently": "^10.0.3"
+    "@astrojs/check": "^0.9.9",
+    "concurrently": "^10.0.3",
+    "typescript": "^5.9.3"
   }
 }
