@@ -3,7 +3,7 @@ import BreakpointImage from "../images/BreakpointImage.astro";
 import FeatureSection from "../sections/FeatureSection.astro";
 import ComicBookDecoration from "../decorations/ComicBookDecoration.astro";
 import TabsSection from "../sections/TabsSection.astro";
-import FAQ from "../sections/FAQ.astro";
+import FAQ, { type FAQItem } from "../sections/FAQ.astro";
 import AppStoreBadge from "../buttons/AppStoreBadge.astro";
 import MsStoreBadge from "../buttons/MsStoreBadge.astro";
 import ActionButton from "../buttons/ActionButton.astro";
@@ -98,7 +98,7 @@ const osTabs = Object.entries(tabsData)
 
 <FAQ
   title={ t(lang, "faq.title") }
-  items={ t(lang, "faq.items", { returnObjects: true }) as { question: string; answer: unknown[] }[] }
+  items={ t(lang, "faq.items", { returnObjects: true }) as FAQItem[] }
   class="bottom-gap"
 />
 
