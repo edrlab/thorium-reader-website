@@ -110,9 +110,16 @@ const badgeTexts = Object.fromEntries(
   const addPublicationUniversalLink = dataEl.dataset.universalLink;
   const addPublicationScheme        = dataEl.dataset.scheme;
 
-  const form      = document.getElementById("badge-form") as HTMLFormElement;
-  const previewEl = document.getElementById("preview-badge") as HTMLElement;
-  const embedCode = document.getElementById("embed-code") as HTMLElement;
+  const form            = document.getElementById("badge-form") as HTMLFormElement;
+  const previewEl       = document.getElementById("preview-badge") as HTMLElement;
+  const embedCode       = document.getElementById("embed-code") as HTMLElement;
+  const webcomponentCode = document.getElementById("webcomponent-code") as HTMLElement;
+  const langSelect      = form.querySelector("[name=lang]") as HTMLSelectElement;
+
+  // The lang select is pre-filled with the generator page's own locale, not
+  // an explicit user choice, so only emit the web component's "lang"
+  // attribute once the visitor has actually interacted with that control.
+  let langTouched = false;
 
   // Attribute names use the custom element's kebab-case convention (e.g.
   // "hashed-passphrase"); form field names use the matching snake_case.
@@ -125,7 +132,7 @@ const badgeTexts = Object.fromEntries(
   }
 
   function update() {
-    const selectedLang = (form.querySelector("[name=lang]") as HTMLSelectElement).value;
+    const selectedLang = langSelect.value;
     const title        = get("title");
 
     const { line1, line2, alt } = badgeTexts[selectedLang] ?? Object.values(badgeTexts)[0];
@@ -150,8 +157,21 @@ const badgeTexts = Object.fromEntries(
     embedCode.textContent = embedLink
       ? `<a href="${ esc(embedLink) }">\n  ${ svg }\n</a>`
       : "";
+
+    const wcAttrs = [...publicationParamAttrs.map(([attr]) => attr), "lang"]
+      .map((attr) => [attr, attr === "lang" ? (langTouched ? selectedLang : "") : get(attr)])
+      .filter(([, value]) => value)
+      .map(([attr, value]) => `  ${ attr }="${ esc(value) }"`)
+      .join("\n");
+
+    webcomponentCode.textContent = hasParams
+      ? `<thorium-badge-publication\n${ wcAttrs }\n></thorium-badge-publication>`
+      : "";
   }
 
-  form.addEventListener("input", update);
+  form.addEventListener("input", (e) => {
+    if (e.target === langSelect) langTouched = true;
+    update();
+  });
   update();
 </script>
