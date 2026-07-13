@@ -17,7 +17,7 @@ export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
 }
 
-const lang = Astro.currentLocale;
+const lang = Astro.currentLocale ?? "en";
 
 const badgeTexts = Object.fromEntries(
   locales.map((l) => [l, {
@@ -147,16 +147,16 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
   import { makeSVG, esc, catalogParamAttrs, catalogIsValid } from "../../../../packages/thorium-badges/src/badge-svg.js";
   import { interpolate } from "../../../i18n/utils.js";
 
-  const dataEl               = document.getElementById("badge-data");
-  const badgeTexts           = JSON.parse(dataEl.dataset.badgeTexts);
+  const dataEl               = document.getElementById("badge-data") as HTMLElement;
+  const badgeTexts           = JSON.parse(dataEl.dataset.badgeTexts!);
   const addCatalogUniversalLink = dataEl.dataset.universalLink;
   const addCatalogScheme     = dataEl.dataset.scheme;
 
-  const form            = document.getElementById("badge-form");
-  const previewEl       = document.getElementById("preview-badge");
-  const embedCode       = document.getElementById("embed-code");
-  const webcomponentCode = document.getElementById("webcomponent-code");
-  const langSelect      = form.querySelector("[name=lang]");
+  const form            = document.getElementById("badge-form") as HTMLFormElement;
+  const previewEl       = document.getElementById("preview-badge") as HTMLElement;
+  const embedCode       = document.getElementById("embed-code") as HTMLElement;
+  const webcomponentCode = document.getElementById("webcomponent-code") as HTMLElement;
+  const langSelect      = form.querySelector("[name=lang]") as HTMLSelectElement;
 
   // The lang select is pre-filled with the generator page's own locale, not
   // an explicit user choice, so only emit the web component's "lang"
@@ -165,7 +165,7 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
 
   // Attribute names use the custom element's kebab-case convention (e.g.
   // "hashed-passphrase"); form field names use the matching snake_case.
-  function get(attrName) {
+  function get(attrName: string) {
     const fieldName = attrName.replace(/-/g, "_");
     const input = form.elements.namedItem(fieldName);
     if (!(input instanceof HTMLInputElement || input instanceof HTMLSelectElement || input instanceof HTMLTextAreaElement)) return "";
@@ -174,7 +174,7 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
   }
 
   function update() {
-    const selectedLang = form.querySelector("[name=lang]").value;
+    const selectedLang = langSelect.value;
     const title        = get("title");
 
     const { line1, line2, alt } = badgeTexts[selectedLang] ?? Object.values(badgeTexts)[0];

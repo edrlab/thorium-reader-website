@@ -2,6 +2,19 @@
 import ConformanceAbout from "./ConformanceAbout.astro";
 import ConformanceSection from "./ConformanceSection.astro";
 import ConformanceTable from "./ConformanceTable.astro";
+import type { ConformanceIndex, ConformanceRule, ConformanceRuleset, ConformanceStandardData, ChangelogEntry, TestingMethodology } from "./types.ts";
+
+interface Props {
+	reportedPlatform: string;
+	index?: ConformanceIndex;
+	productName?: string;
+	version?: string;
+	platform?: string;
+	evaluationDate?: string;
+	changelog?: ChangelogEntry[];
+	testingMethodology?: TestingMethodology;
+	standards?: string[];
+}
 
 const {
 	reportedPlatform,
@@ -9,7 +22,6 @@ const {
 	productName,
 	version,
 	platform,
-	reportDate,
 	evaluationDate,
 	changelog,
 	testingMethodology,
@@ -30,8 +42,8 @@ const standardsToShow =
 		: ["wcag", "uaag", "epub", "daisyURS"];
 const legacyRulesets = platformConformanceData.rulesets;
 
-const getSetData = (standard) => {
-	const value = platformConformanceData?.[standard];
+const getSetData = (standard: string): { ruleset?: ConformanceRuleset; rules: ConformanceRule[] } => {
+	const value = platformConformanceData?.[standard] as ConformanceStandardData | ConformanceRule[] | undefined;
 
 	if (Array.isArray(value)) {
 		return {
@@ -62,7 +74,7 @@ const rulesets = Object.fromEntries(
 		.filter(([, ruleset]) => Boolean(ruleset)),
 );
 
-const sortById = (items = []) => {
+const sortById = (items: ConformanceRule[] = []) => {
 	return [...items].sort((a, b) => {
 		const aId = Number(a?.id);
 		const bId = Number(b?.id);
@@ -104,7 +116,7 @@ const sortById = (items = []) => {
 
 			if (!rows.length) return null;
 
-			const standardSummary = platformConformanceData?.[standard]?.conformanceOverview?.conformanceSummary;
+			const standardSummary = (platformConformanceData?.[standard] as ConformanceStandardData | undefined)?.conformanceOverview?.conformanceSummary;
 			const label = standard.toUpperCase();
 
 			return (
@@ -123,7 +135,7 @@ const sortById = (items = []) => {
 			sensitivity: "base",
 		});
 
-		const getCellValue = (row, index) => {
+		const getCellValue = (row: HTMLTableRowElement, index: number) => {
 			const cell = row.cells[index];
 			if (!cell) return "";
 
@@ -135,7 +147,7 @@ const sortById = (items = []) => {
 			return (cell.textContent || "").trim();
 		};
 
-		const compareValues = (a, b) => {
+		const compareValues = (a: string, b: string) => {
 			const numA = Number(a);
 			const numB = Number(b);
 
@@ -146,11 +158,11 @@ const sortById = (items = []) => {
 			return collator.compare(String(a), String(b));
 		};
 
-		for (const table of document.querySelectorAll("table.responsive")) {
+		for (const table of document.querySelectorAll<HTMLTableElement>("table.responsive")) {
 			const tbody = table.tBodies[0];
 			if (!tbody) continue;
 
-			const headers = Array.from(table.querySelectorAll("thead th.sortable"));
+			const headers = Array.from(table.querySelectorAll<HTMLElement>("thead th.sortable"));
 			headers.forEach((header, index) => {
 				const trigger = header.querySelector("button.sortable-trigger");
 				if (!trigger) return;

@@ -1,5 +1,5 @@
 ---
-import { getCollection, render } from "astro:content";
+import { getCollection, render, type CollectionEntry } from "astro:content";
 import Layout from "../../../layouts/Layout.astro";
 import Footer from "../../../components/Footer.astro";
 import { locales } from "../../../i18n/locales.js";
@@ -11,7 +11,7 @@ export function getStaticPaths() {
 
 const lang = Astro.currentLocale ?? "en";
 const legalsPages = await getCollection("legals-pages");
-const accessibilityDoc = localizeCollection(legalsPages, lang).find(({ slug }) => slug === "accessibility")?.note;
+const accessibilityDoc = localizeCollection<CollectionEntry<"legals-pages">>(legalsPages, lang).find(({ slug }) => slug === "accessibility")?.note;
 
 if (!accessibilityDoc) {
   throw new Error("Missing accessibility content at src/content/legals/en/accessibility.md");

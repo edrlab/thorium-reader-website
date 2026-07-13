@@ -43,7 +43,7 @@ export function formatDate(lang: Lang, isoDate: string): string {
 }
 
 export function t(lang: Lang, key: string, options: { returnObjects: true } & TOptions): unknown;
-export function t(lang: Lang, key: string, options?: TOptions): string | string[];
+export function t(lang: Lang, key: string, options?: TOptions): string;
 export function t(lang: Lang, key: string, options: TOptions = {}): unknown {
   return i18next.getFixedT(lang ?? defaultLocale)(key, { ...options, returnObjects: true });
 }

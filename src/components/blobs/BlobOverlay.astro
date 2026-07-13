@@ -14,7 +14,7 @@ const uid = Math.random().toString(36).slice(2, 8);
 const maskId = `blob-mask-${ uid }`;
 const filterId = `blob-cutout-${ uid }`;
 
-let w: number, h: number, pathD: string, processedSrc: string;
+let w = 0, h = 0, pathD = "", processedSrc = "";
 
 if (blobIsPath) {
   const viewBoxMatch = (blob as string).match(/viewBox="[^"]*?(\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)"[^>]*>/);

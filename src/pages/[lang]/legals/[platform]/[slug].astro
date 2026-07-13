@@ -1,5 +1,5 @@
 ---
-import { getCollection, render } from "astro:content";
+import { getCollection, render, type CollectionEntry } from "astro:content";
 import Layout from "../../../../layouts/Layout.astro";
 import Footer from "../../../../components/Footer.astro";
 import { locales } from "../../../../i18n/locales.js";
@@ -11,7 +11,7 @@ export async function getStaticPaths() {
 
   return locales.flatMap((lang) =>
     platforms.flatMap((platform) =>
-      localizeCollection(docs, lang, platform).map(({ slug, note }) => ({
+      localizeCollection<CollectionEntry<"platform-conformance">>(docs, lang, platform).map(({ slug, note }) => ({
         params: { lang, platform, slug },
         props: { note },
       }))

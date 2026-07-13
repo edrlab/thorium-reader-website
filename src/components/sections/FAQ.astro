@@ -1,7 +1,7 @@
 ---
-type FAQListItem = string | string[];
-type FAQBlock    = string | FAQListItem[];
-type FAQItem     = { question: string; answer: FAQBlock[] };
+export type FAQListItem = string | string[];
+export type FAQBlock    = string | FAQListItem[];
+export type FAQItem     = { question: string; answer: FAQBlock[] };
 
 interface Props {
   title: string;
