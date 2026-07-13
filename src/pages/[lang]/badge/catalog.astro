@@ -147,14 +147,14 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
   import { makeSVG, esc, catalogParamAttrs, catalogIsValid } from "../../../../packages/thorium-badges/src/badge-svg.js";
   import { interpolate } from "../../../i18n/utils.js";
 
-  const dataEl               = document.getElementById("badge-data");
+  const dataEl               = document.getElementById("badge-data") as HTMLElement;
   const badgeTexts           = JSON.parse(dataEl.dataset.badgeTexts);
   const addCatalogUniversalLink = dataEl.dataset.universalLink;
   const addCatalogScheme     = dataEl.dataset.scheme;
 
-  const form      = document.getElementById("badge-form");
-  const previewEl = document.getElementById("preview-badge");
-  const embedCode = document.getElementById("embed-code");
+  const form      = document.getElementById("badge-form") as HTMLFormElement;
+  const previewEl = document.getElementById("preview-badge") as HTMLElement;
+  const embedCode = document.getElementById("embed-code") as HTMLElement;
 
   // Attribute names use the custom element's kebab-case convention (e.g.
   // "hashed-passphrase"); form field names use the matching snake_case.
@@ -167,7 +167,7 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
   }
 
   function update() {
-    const selectedLang = form.querySelector("[name=lang]").value;
+    const selectedLang = (form.querySelector("[name=lang]") as HTMLSelectElement).value;
     const title        = get("title");
 
     const { line1, line2, alt } = badgeTexts[selectedLang] ?? Object.values(badgeTexts)[0];
