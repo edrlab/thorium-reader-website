@@ -1,7 +1,14 @@
 ---
 import sanitizeHtml from "sanitize-html";
+import type { ConformanceRule } from "./types.ts";
 
-const sanitize = (html) => sanitizeHtml(html ?? "", {
+interface Props {
+	id: string;
+	label: string;
+	rows: ConformanceRule[];
+}
+
+const sanitize = (html?: string) => sanitizeHtml(html ?? "", {
 	allowedTags: ["a", "code", "em", "li", "ol", "p", "strong", "ul"],
 	allowedAttributes: { "a": ["href", "target", "rel"] },
 	allowedSchemes: ["http", "https"],

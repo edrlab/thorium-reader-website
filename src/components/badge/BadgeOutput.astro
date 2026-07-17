@@ -15,8 +15,9 @@ const copiedText = t(lang, "badge.shared.output.copied");
 <div class="badge-output" aria-live="polite">
   <Tabs
     tabs={[
-      { id: "preview", label: t(lang, "badge.shared.preview.title") },
-      { id: "code",    label: t(lang, "badge.shared.output.title") },
+      { id: "preview",      label: t(lang, "badge.shared.preview.title") },
+      { id: "code",         label: t(lang, "badge.shared.output.title") },
+      { id: "webcomponent", label: t(lang, "badge.shared.webcomponent.title") },
     ]}
     label={ t(lang, "badge.shared.output.title") }
   >
@@ -31,7 +32,17 @@ const copiedText = t(lang, "badge.shared.output.copied");
       <p class="field-hint">{ t(lang, "badge.shared.output.hint") }</p>
       <div class="embed-code-wrap">
         <pre><code id="embed-code"></code></pre>
-        <button type="button" id="copy-btn" class="btn badge-copy-btn">
+        <button type="button" class="btn badge-copy-btn">
+          { copyText }
+        </button>
+      </div>
+    </div>
+
+    <div id="panel-webcomponent" role="tabpanel" aria-labelledby="webcomponent" tabindex="0" hidden>
+      <p class="field-hint">{ t(lang, "badge.shared.webcomponent.hint") }</p>
+      <div class="embed-code-wrap">
+        <pre><code id="webcomponent-code"></code></pre>
+        <button type="button" class="btn badge-copy-btn">
           { copyText }
         </button>
       </div>
@@ -40,22 +51,24 @@ const copiedText = t(lang, "badge.shared.output.copied");
 </div>
 
 <script define:vars={{ copyText, copiedText }}>
-  const copyBtn  = document.getElementById("copy-btn");
-  const embedCode = document.getElementById("embed-code");
+  document.querySelectorAll(".embed-code-wrap").forEach((wrap) => {
+    const code    = wrap.querySelector("code");
+    const copyBtn = wrap.querySelector(".badge-copy-btn");
 
-  copyBtn.addEventListener("click", async () => {
-    const text = embedCode.textContent;
-    if (!text) return;
-    try {
-      await navigator.clipboard.writeText(text);
-    } catch {
-      const range = document.createRange();
-      range.selectNodeContents(embedCode);
-      const sel = window.getSelection();
-      sel.removeAllRanges();
-      sel.addRange(range);
-    }
-    copyBtn.textContent = copiedText;
-    setTimeout(() => { copyBtn.textContent = copyText; }, 2000);
+    copyBtn.addEventListener("click", async () => {
+      const text = code.textContent;
+      if (!text) return;
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        const range = document.createRange();
+        range.selectNodeContents(code);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      }
+      copyBtn.textContent = copiedText;
+      setTimeout(() => { copyBtn.textContent = copyText; }, 2000);
+    });
   });
 </script>

@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "../../../layouts/Layout.astro";
 import Footer from "../../../components/Footer.astro";
@@ -16,7 +16,7 @@ const allNotes = await getCollection("release-notes");
 const platformIds = getPlatforms(allNotes);
 
 const platforms = platformIds.map((platform) => {
-  const sorted = localizeCollection(allNotes, lang, platform).sort((a, b) => b.note.data.date.localeCompare(a.note.data.date));
+  const sorted = localizeCollection<CollectionEntry<"release-notes">>(allNotes, lang, platform).sort((a, b) => b.note.data.date.localeCompare(a.note.data.date));
   return {
     label: t(lang, `platform.names.${ platform }`) as string,
     indexPath: `release-notes/${ platform }/`,

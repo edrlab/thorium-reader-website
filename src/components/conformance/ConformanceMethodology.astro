@@ -1,4 +1,11 @@
 ---
+import type { TestingMethodology, ConformanceRuleset } from "./types.ts";
+
+interface Props {
+	testingMethodology?: TestingMethodology;
+	rulesets?: Record<string, ConformanceRuleset>;
+}
+
 const { testingMethodology, rulesets } = Astro.props;
 ---
 

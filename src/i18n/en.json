@@ -287,6 +287,10 @@
                 "hint": "Copy and paste this snippet into your page.",
                 "copy": "Copy to clipboard",
                 "copied": "Copied!"
+            },
+            "webcomponent": {
+                "title": "Web component",
+                "hint": "Copy and paste this snippet into your page. Requires loading @edrlab/thorium-badges (npm import or your own <script> tag)."
             }
         }
     },
