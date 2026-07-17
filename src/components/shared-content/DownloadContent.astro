@@ -21,11 +21,7 @@ const { lang } = Astro.props;
 
 const downloadLinks = t(lang, "download.tabs.links", { returnObjects: true }) as Record<string, string>;
 
-interface DownloadLinkSlot extends LinkSlot {
-  platform: string;
-}
-
-const downloadLinkSlots: Record<string, DownloadLinkSlot> = Object.fromEntries(
+const downloadLinkSlots: Record<string, LinkSlot & { platform: string }> = Object.fromEntries(
   Object.entries(downloadUrls).map(([ key, url ]) => [
     key,
     { href: url, text: downloadLinks[key] ?? key, platform: downloadPlatforms[key] ?? "" },

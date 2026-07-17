@@ -159,24 +159,24 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
   import { makeSVG, esc, catalogParamAttrs, catalogIsValid } from "../../../../packages/thorium-badges/src/badge-svg.js";
   import { interpolate } from "../../../i18n/utils.js";
 
-  const dataEl               = document.getElementById("badge-data") as HTMLElement;
-  const badgeTexts           = JSON.parse(dataEl.dataset.badgeTexts!);
+  const dataEl                  = document.getElementById("badge-data") as HTMLElement;
+  const badgeTexts              = JSON.parse(dataEl.dataset.badgeTexts!);
   const addCatalogUniversalLink = dataEl.dataset.universalLink;
-  const addCatalogScheme     = dataEl.dataset.scheme;
+  const addCatalogScheme        = dataEl.dataset.scheme;
 
-  const form                       = document.getElementById("badge-form") as HTMLFormElement;
-  const previewEl                  = document.getElementById("preview-badge") as HTMLElement;
-  const embedCode                  = document.getElementById("embed-code") as HTMLElement;
-  const embedCodeHintLink          = document.getElementById("embed-code-hint-link") as HTMLElement;
-  const embedCodeHintWebcomponent  = document.getElementById("embed-code-hint-webcomponent") as HTMLElement;
-  const langSelect        = form.querySelector("[name=lang]") as HTMLInputElement;
-  const integrationSelect = form.querySelector("[name=integration]") as HTMLInputElement;
+  const form                      = document.getElementById("badge-form") as HTMLFormElement;
+  const previewEl                 = document.getElementById("preview-badge") as HTMLElement;
+  const embedCode                 = document.getElementById("embed-code") as HTMLElement;
+  const embedCodeHintLink         = document.getElementById("embed-code-hint-link") as HTMLElement;
+  const embedCodeHintWebcomponent = document.getElementById("embed-code-hint-webcomponent") as HTMLElement;
+  const langSelect                = form.querySelector("[name=lang]") as HTMLInputElement;
+  const integrationSelect         = form.querySelector("[name=integration]") as HTMLInputElement;
 
   // The "auto" language only makes sense for the web component (its text
   // renders client-side); the link/embed SVG bakes text in at generation
   // time, so it needs a concrete locale.
-  const langWrapper   = (document.getElementById("badge-lang") as HTMLElement).closest("[data-custom-select]") as HTMLElement;
-  const autoLangOption = langWrapper.querySelector('[data-value="auto"]') as HTMLElement;
+  const langWrapper      = (document.getElementById("badge-lang") as HTMLElement).closest("[data-custom-select]") as HTMLElement;
+  const autoLangOption   = langWrapper.querySelector('[data-value="auto"]') as HTMLElement;
   const defaultLangValue = langWrapper.querySelector('[aria-selected="true"]')?.getAttribute("data-value") ?? "en";
 
   function setAutoLangAvailable(available: boolean) {

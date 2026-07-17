@@ -147,18 +147,20 @@
             "title": "Add Catalog to Thorium Reader",
             "body": [
                 "You are trying to add {{catalogName}} to Thorium Reader.",
-                "If you've already installed Thorium Reader on your device, click on this link to try again.",
+                "If you've already installed Thorium Reader on your device, click on {{thisLink}} to try again.",
                 "Don't have Thorium Reader installed yet? Follow the instructions on this page."
             ],
+            "thisLink": "this link",
             "fallbackName": "this catalog"
         },
         "publication": {
             "title": "Add Publication to Thorium Reader",
             "body": [
                 "You are trying to add {{publicationTitle}} to Thorium Reader.",
-                "If you've already installed Thorium Reader on your device, click on this link to try again.",
+                "If you've already installed Thorium Reader on your device, click on {{thisLink}} to try again.",
                 "Don't have Thorium Reader installed yet? Follow the instructions on this page."
             ],
+            "thisLink": "this link",
             "fallbackName": "this publication"
         }
     },

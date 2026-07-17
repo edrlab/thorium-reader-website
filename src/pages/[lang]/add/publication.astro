@@ -1,11 +1,10 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Footer from "../../../components/Footer.astro";
-import PageIntro from "../../../components/sections/PageIntro.astro";
 import DownloadContent from "../../../components/shared-content/DownloadContent.astro";
 import ThoriumBadge from "../../../components/badge/ThoriumBadge.astro";
 import ClientData from "../../../components/ClientData.astro";
-import { t } from "../../../i18n/utils.js";
+import { t, splitLinks, type LinkSlot } from "../../../i18n/utils.js";
 import { locales } from "../../../i18n/locales.js";
 import { addPublicationScheme } from "../../../links.js";
 
@@ -16,13 +15,20 @@ export function getStaticPaths() {
 const lang = Astro.currentLocale ?? "en";
 const publicationTitleFallback = t(lang, "add.publication.fallbackName");
 const badgeAlt = t(lang, "badge.shared.alt");
+
+const introBody = t(lang, "add.publication.body", { returnObjects: true }) as string[];
+const retryLinkSlots: Record<string, LinkSlot & { id: string }> = {
+  thisLink: { href: "#", text: t(lang, "add.publication.thisLink"), id: "retry-link" },
+};
 ---
 
 <Layout title={ t(lang, "add.publication.title") + " — " + t(lang, "site.title") }>
-  <PageIntro
-    title={ t(lang, "add.publication.title") }
-    intro={ t(lang, "add.publication.body") }
-  />
+  <div class="page-intro">
+    <h1>{ t(lang, "add.publication.title") }</h1>
+    { introBody.map(paragraph => (
+      <p>{ splitLinks(paragraph, retryLinkSlots).map(seg => typeof seg === "string" ? seg : <a href={ seg.href } id={ seg.id }>{ seg.text }</a>) }</p>
+    )) }
+  </div>
 
   <section class="add-landing-section">
     <div class="container">
@@ -67,10 +73,13 @@ const badgeAlt = t(lang, "badge.shared.alt");
     subtitleEl.textContent = interpolate(subtitleEl.textContent, { publicationTitle: title || publicationTitleFallback });
   }
 
+  const retryHref = `${ addPublicationScheme }${ window.location.search }`;
+
   const openBtn = document.getElementById("open-btn");
-  if (openBtn) {
-    openBtn.setAttribute("href", `${ addPublicationScheme }${ window.location.search }`);
-  }
+  if (openBtn) openBtn.setAttribute("href", retryHref);
+
+  const retryLink = document.getElementById("retry-link");
+  if (retryLink) retryLink.setAttribute("href", retryHref);
 
   if (title) {
     const badgeSvg = openBtn?.querySelector("svg");

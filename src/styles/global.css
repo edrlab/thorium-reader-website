@@ -1497,6 +1497,24 @@ img {
   margin-top: var(--space-sm);
 }
 
+.page-header a,
+.page-intro a {
+  color: var(--color-mauve);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.page-header a:hover,
+.page-intro a:hover {
+  color: var(--color-wine);
+}
+
+.page-header a:focus-visible,
+.page-intro a:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
 /* ── Download page ── */
 .download-page-header {
   padding-bottom: 4rem;
