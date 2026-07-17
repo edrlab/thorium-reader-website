@@ -3,6 +3,7 @@ import Layout from "../../../layouts/Layout.astro";
 import Footer from "../../../components/Footer.astro";
 import DownloadContent from "../../../components/shared-content/DownloadContent.astro";
 import ThoriumBadge from "../../../components/badge/ThoriumBadge.astro";
+import EntryPreview from "../../../components/entryPreview/EntryPreview.astro";
 import ClientData from "../../../components/ClientData.astro";
 import { t, splitLinks, type LinkSlot } from "../../../i18n/utils.js";
 import { locales } from "../../../i18n/locales.js";
@@ -33,6 +34,7 @@ const retryLinkSlots: Record<string, LinkSlot & { id: string }> = {
   <section class="add-landing-section">
     <div class="container">
       <div class="add-landing-actions">
+        <EntryPreview id="entry-preview" type="catalog" titleFallback={ catalogNameFallback } />
         <ThoriumBadge
           id="open-btn"
           line1={ t(lang, "badge.shared.buttonLine1") }
