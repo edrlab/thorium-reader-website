@@ -3,4 +3,6 @@ title: Overview
 description: Guides for Thorium Reader.
 ---
 
-Developer guides for integrating with Thorium Reader — practical references for anyone building a website or catalog that feeds content into the app.
+Thorium Reader is designed to connect to any content source distributing ebooks, audiobooks and comics, including Readium LCP protected ones.
+
+These developer guides cover how integrators can go beyond sideloading to provide a seamless user experience on all platforms.

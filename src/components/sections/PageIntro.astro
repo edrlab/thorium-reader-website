@@ -1,0 +1,16 @@
+---
+import BodyBlocks, { type BodyBlock } from "./BodyBlocks.astro";
+
+interface Props {
+  title: string;
+  intro?: string | BodyBlock[];
+}
+
+const { title, intro } = Astro.props;
+const blocks = intro ? (Array.isArray(intro) ? intro : [intro]) : [];
+---
+
+<div class="page-intro">
+  <h1>{ title }</h1>
+  <BodyBlocks blocks={ blocks } />
+</div>

@@ -842,6 +842,7 @@ img {
 .faq-section,
 .steps-section,
 .page-header,
+.page-intro,
 .footer-top,
 .site-footer {
   position: relative;
@@ -860,6 +861,7 @@ img {
 .cta-text h2,
 .faq-section h2,
 .page-header h1,
+.page-intro h1,
 .platform-hub h1,
 .platform-index h1,
 .conformance-index h1,
@@ -1478,21 +1480,44 @@ img {
    8. Pages
    ───────────────────────────────────────────── */
 
-/* ── Page header (shared across pages without a hero) ── */
-.page-header {
+/* ── Page header & page intro (shared across pages without a hero) ── */
+.page-header,
+.page-intro {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
   /* 4rem accounts for the fixed nav height */
   padding-top: calc(4rem + var(--space-lg));
   padding-bottom: var(--space-lg);
 }
 
-.page-header h1 {
+.page-header h1,
+.page-intro h1 {
   font-size: var(--text-hero);
   line-height: var(--leading-display);
 }
 
-.page-header p {
+.page-header p,
+.page-intro p {
   max-width: var(--measure-medium);
   margin-top: var(--space-md);
+}
+
+.page-header ul,
+.page-intro ul {
+  max-width: var(--measure-medium);
+  margin-top: var(--space-md);
+  padding-left: var(--space-md);
+}
+
+.page-header p + p,
+.page-header ul + p,
+.page-header p + ul,
+.page-intro p + p,
+.page-intro ul + p,
+.page-intro p + ul {
+  margin-top: var(--space-sm);
 }
 
 /* ── Download page ── */

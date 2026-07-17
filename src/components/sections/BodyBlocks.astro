@@ -1,0 +1,20 @@
+---
+export type BodyListItem = string | string[];
+export type BodyBlock    = string | BodyListItem[];
+
+interface Props {
+  blocks: BodyBlock[];
+}
+
+const { blocks } = Astro.props;
+---
+
+{ blocks.map(block =>
+  typeof block === "string"
+    ? <p>{ block }</p>
+    : <ul>{ block.map(item =>
+        typeof item === "string"
+          ? <li>{ item }</li>
+          : <li>{ item[0] }<ul>{ item.slice(1).map(sub => <li>{ sub }</li>) }</ul></li>
+      ) }</ul>
+) }
