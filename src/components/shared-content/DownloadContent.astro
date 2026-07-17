@@ -8,7 +8,7 @@ import AppStoreBadge from "../buttons/AppStoreBadge.astro";
 import MsStoreBadge from "../buttons/MsStoreBadge.astro";
 import ActionButton from "../buttons/ActionButton.astro";
 import ClientData from "../ClientData.astro";
-import { t, getImage, slugify } from "../../i18n/utils.js";
+import { t, getImage, slugify, splitLinks, type LinkSlot } from "../../i18n/utils.js";
 import { downloadUrls, downloadPlatforms } from "../../links.js";
 import { BREAKPOINT_MOBILE } from "../../breakpoints.js";
 import rawShape6WaveBottom from "../../assets/shapes/thorium-shape-6-wave-bottom.svg?raw";
@@ -21,15 +21,19 @@ const { lang } = Astro.props;
 
 const downloadLinks = t(lang, "download.tabs.links", { returnObjects: true }) as Record<string, string>;
 
-const linkAnchors = Object.fromEntries(
+interface DownloadLinkSlot extends LinkSlot {
+  platform: string;
+}
+
+const downloadLinkSlots: Record<string, DownloadLinkSlot> = Object.fromEntries(
   Object.entries(downloadUrls).map(([ key, url ]) => [
     key,
-    `<a href="${ url }" data-platform="${ downloadPlatforms[key] ?? "" }">${ downloadLinks[key] ?? key }</a>`,
+    { href: url, text: downloadLinks[key] ?? key, platform: downloadPlatforms[key] ?? "" },
   ])
 );
 
 function osSteps(key: string): string[] {
-  const steps = t(lang, `download.tabs.${ key }.steps`, { returnObjects: true, ...linkAnchors });
+  const steps = t(lang, `download.tabs.${ key }.steps`, { returnObjects: true });
   return Array.isArray(steps) ? steps : [];
 }
 
@@ -69,7 +73,13 @@ const osTabs = Object.entries(tabsData)
       hidden={ i !== 0 }
     >
       <ul class="download-steps">
-        { osSteps(tab.key).map(s => <li set:html={ s } />) }
+        { osSteps(tab.key).map(step => (
+          <li>
+            { splitLinks(step, downloadLinkSlots).map(seg =>
+              typeof seg === "string" ? seg : <a href={ seg.href } data-platform={ seg.platform }>{ seg.text }</a>
+            ) }
+          </li>
+        )) }
       </ul>
     </div>
   )) }

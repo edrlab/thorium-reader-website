@@ -96,13 +96,18 @@ const listId = `cs-list-${ uid }`;
     }
 
     function close(returnFocus = true) {
+      const wasOpen = !list.hidden;
       list.hidden = true;
       list.style.cssText = "";
       listW = 0;
       listH = 0;
       btn.setAttribute("aria-expanded", "false");
       opts.forEach(o => o.setAttribute("tabindex", "-1"));
-      if (returnFocus) btn.focus();
+      // Only steal focus back to the button if the listbox was actually
+      // open — a programmatic `.click()` on an option (e.g. another
+      // control selecting a value on this select's behalf) shouldn't yank
+      // focus/scroll the page to this button.
+      if (returnFocus && wasOpen) btn.focus();
     }
 
     let rafId = 0;

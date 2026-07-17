@@ -1,6 +1,7 @@
 ---
 import Tabs from "../widgets/Tabs.astro";
-import { t } from "../../i18n/utils.js";
+import { t, splitLinks } from "../../i18n/utils.js";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 interface Props {
   lang: string;
@@ -10,14 +11,17 @@ const { lang } = Astro.props;
 
 const copyText   = t(lang, "badge.shared.output.copy");
 const copiedText = t(lang, "badge.shared.output.copied");
+
+const devGuidesSegments = splitLinks(t(lang, "badge.shared.webcomponent.hint"), {
+  devguides: { href: getRelativeLocaleUrl(lang, "guides/deep-linking"), text: t(lang, "badge.shared.webcomponent.devguides") },
+});
 ---
 
 <div class="badge-output" aria-live="polite">
   <Tabs
     tabs={[
-      { id: "preview",      label: t(lang, "badge.shared.preview.title") },
-      { id: "code",         label: t(lang, "badge.shared.output.title") },
-      { id: "webcomponent", label: t(lang, "badge.shared.webcomponent.title") },
+      { id: "preview", label: t(lang, "badge.shared.preview.title") },
+      { id: "code",    label: t(lang, "badge.shared.output.title") },
     ]}
     label={ t(lang, "badge.shared.output.title") }
   >
@@ -29,19 +33,12 @@ const copiedText = t(lang, "badge.shared.output.copied");
     </div>
 
     <div id="panel-code" role="tabpanel" aria-labelledby="code" tabindex="0" hidden>
-      <p class="field-hint">{ t(lang, "badge.shared.output.hint") }</p>
+      <p class="field-hint" id="embed-code-hint-link">{ t(lang, "badge.shared.output.hint") }</p>
+      <p class="field-hint" id="embed-code-hint-webcomponent" hidden>
+        { devGuidesSegments.map(seg => typeof seg === "string" ? seg : <a href={ seg.href }>{ seg.text }</a>) }
+      </p>
       <div class="embed-code-wrap">
         <pre><code id="embed-code"></code></pre>
-        <button type="button" class="btn badge-copy-btn">
-          { copyText }
-        </button>
-      </div>
-    </div>
-
-    <div id="panel-webcomponent" role="tabpanel" aria-labelledby="webcomponent" tabindex="0" hidden>
-      <p class="field-hint">{ t(lang, "badge.shared.webcomponent.hint") }</p>
-      <div class="embed-code-wrap">
-        <pre><code id="webcomponent-code"></code></pre>
         <button type="button" class="btn badge-copy-btn">
           { copyText }
         </button>

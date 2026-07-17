@@ -273,7 +273,14 @@
                 "hint": "Optional. A pre-hashed passphrase. Use this instead of the plain-text passphrase if you do not want to expose it."
             },
             "lang": {
-                "label": "Badge language"
+                "label": "Badge language",
+                "auto": "Automatic (visitor's browser language)"
+            },
+            "integration": {
+                "label": "Integration type",
+                "link": "Link",
+                "webcomponent": "Web Component",
+                "hint": "How you'll embed the badge on your page."
             },
             "button": "Add to Thorium Reader",
             "buttonLine1": "Add to",
@@ -290,8 +297,8 @@
                 "copied": "Copied!"
             },
             "webcomponent": {
-                "title": "Web component",
-                "hint": "Copy and paste this snippet into your page. Requires loading @edrlab/thorium-badges (npm import or your own <script> tag)."
+                "hint": "Copy and paste this snippet into your page. Requires loading @edrlab/thorium-badges (npm import or your own script tag). See the {{devguides}} for details.",
+                "devguides": "developer guides"
             }
         }
     },

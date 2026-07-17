@@ -15,6 +15,9 @@ const { lang, locales, selectedValue } = Astro.props;
   id="badge-lang"
   name="lang"
   label={ t(lang, "badge.shared.lang.label") }
-  options={ locales.map((l) => ({ value: l, label: localeName(lang, l) })) }
+  options={[
+    { value: "auto", label: t(lang, "badge.shared.lang.auto") },
+    ...locales.map((l) => ({ value: l, label: localeName(lang, l) })),
+  ]}
   selectedValue={ selectedValue }
 />

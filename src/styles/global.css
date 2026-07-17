@@ -348,6 +348,21 @@ img {
   line-height: var(--leading-body);
 }
 
+.field-hint a {
+  color: var(--color-mauve);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.field-hint a:hover {
+  color: var(--color-wine);
+}
+
+.field-hint a:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
 /* ── Custom select widget ── */
 .custom-select {
   position: relative;
