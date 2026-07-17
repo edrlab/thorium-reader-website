@@ -1102,59 +1102,21 @@ img {
   line-height: var(--leading-heading);
 }
 
+.feature-text ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding-inline-start: var(--space-md);
+}
+
 .feature-text .btn {
   align-self: flex-start;
-}
-
-.feature-top.reverse .feature-text {
-  text-align: right;
-  align-items: flex-end;
-}
-
-.feature-top.reverse .feature-text .btn {
-  align-self: auto;
-}
-
-.feature-top[data-text-align="left"] .feature-text {
-  text-align: left;
-  align-items: flex-start;
-}
-
-.feature-top[data-text-align="left"] .feature-text .btn {
-  align-self: flex-start;
-}
-
-.feature-top[data-text-align="right"] .feature-text {
-  text-align: right;
-  align-items: flex-end;
-}
-
-.feature-top[data-text-align="right"] .feature-text .btn {
-  align-self: auto;
 }
 
 @media (max-width: 768px) {
   .feature-top .feature-text,
   .feature-top.reverse .feature-text {
     grid-area: auto;
-  }
-
-  .feature-top .feature-text {
-    text-align: right;
-    align-items: flex-end;
-  }
-
-  .feature-top .feature-text .btn {
-    align-self: auto;
-  }
-
-  .feature-top.reverse .feature-text {
-    text-align: left;
-    align-items: flex-start;
-  }
-
-  .feature-top.reverse .feature-text .btn {
-    align-self: flex-start;
   }
 }
 
