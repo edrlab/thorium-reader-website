@@ -1,10 +1,32 @@
-/* Starlight theme overrides: reuse brand fonts only (no color overrides for now).
+/* Starlight theme overrides: brand fonts and accent color.
    Loaded exclusively on /guides pages via the `customCss` Starlight config option. */
 
-:root {
+:root,
+::backdrop {
   --sl-font: var(--font-sans);
+
+  /* Mirrors global.css: Starlight pages don't load that stylesheet. */
+  --color-wine: #4C1C2A;
+  --color-mauve: #A4485F;
+  --color-cream: #F9F4E3;
+
+  /* accent-low is the color text-invert/badge text is painted in, so it
+     needs to contrast with accent-high — mauve's contrast on cream (~5.2:1)
+     isn't strong enough, so use wine instead (~12.7:1). */
+  --sl-color-accent-low: var(--color-wine);
+  --sl-color-accent: var(--color-cream);
+  --sl-color-accent-high: var(--color-cream);
+}
+
+:root[data-theme="light"],
+[data-theme="light"] ::backdrop {
+  --sl-color-accent-low: var(--color-cream);
+  --sl-color-accent: var(--color-mauve);
+  --sl-color-accent-high: var(--color-mauve);
 }
 
 main :is(h1, h2, h3, h4, h5, h6) {
   font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--sl-color-text-accent);
 }
