@@ -6,6 +6,7 @@ import { unified } from "@astrojs/markdown-remark";
 import remarkCustomHeaderId from "remark-custom-header-id";
 import { defaultLocale, locales, bcp47Locale } from "./src/i18n/locales.js";
 import { discordHref, githubHref } from "./src/links.js";
+import sitemapAllowlist from "./src/sitemap-allowlist.json" with { type: "json" };
 
 export default defineConfig({
   fonts: [
@@ -53,8 +54,16 @@ export default defineConfig({
     }),
     mdx(),
     sitemap({
+      // Each allowlist entry lists the locales it applies to ("*" = every locale
+      // in src/i18n/locales.ts), and its path may contain a {version} placeholder
+      // matching a slug like "3-4-0" (not "latest").
       filter: (page) =>
-        locales.some((l) => page.startsWith(`https://www.thoriumreader.com/${ l }/`)),
+        sitemapAllowlist.some(({ path: template, locales: allowedLocales }) =>
+          (allowedLocales === "*" ? locales : allowedLocales).some((l) => {
+            const pattern = template.replace(/\{version\}/g, "\\d+-\\d+-\\d+");
+            return new RegExp(`^https://www\\.thoriumreader\\.com/${ l }${ pattern }$`).test(page);
+          }),
+        ),
       i18n: {
         defaultLocale,
         locales: Object.fromEntries(locales.map((l) => [l, bcp47Locale[l]])),
