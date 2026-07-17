@@ -44,6 +44,7 @@ export default defineConfig({
       customCss: ["./src/styles/starlight.css"],
       components: {
         Head: "./src/components/starlight/Head.astro",
+        FallbackContentNotice: "./src/components/starlight/FallbackContentNotice.astro",
       },
       sidebar: [
         {
