@@ -39,68 +39,93 @@ const osTabs = Object.entries(tabsData)
   .map(([ key, tab ]) => ({ id: slugify(key), key, label: tab.label }));
 ---
 
-<FeatureSection
-  id="desktop"
-  title={ t(lang, "download.features.desktop.title") }
-  body={ t(lang, "download.features.desktop.body") }
-  reverse
-  textAlign="left"
->
-  <div slot="actions" class="desktop-actions">
-    <MsStoreBadge />
-    <ActionButton variant="accent" label={ t(lang, "button.releaseNotes") } href={`${ import.meta.env.BASE_URL }${ lang }/release-notes/desktop`} />
-  </div>
-</FeatureSection>
-
-<TabsSection
-  class="download-tabs-section"
-  id="download-tabs"
-  tabs={ osTabs }
-  label={ t(lang, "download.tabs.label") }
->
-  <ComicBookDecoration slot="border-top" lang={ lang } />
-
-  { osTabs.map((tab, i) => (
-    <div
-      id={`panel-${ tab.id }`}
-      role="tabpanel"
-      aria-labelledby={ tab.id }
-      tabindex={ 0 }
-      hidden={ i !== 0 }
-    >
-      <ul class="download-steps">
-        { osSteps(tab.key).map(step => (
-          <li>
-            { splitLinks(step, downloadLinkSlots).map(seg =>
-              typeof seg === "string" ? seg : <a href={ seg.href } data-platform={ seg.platform }>{ seg.text }</a>
-            ) }
-          </li>
-        )) }
-      </ul>
+<div id="platform-desktop" data-platform-group="desktop">
+  <FeatureSection
+    id="desktop"
+    title={ t(lang, "download.features.desktop.title") }
+    body={ t(lang, "download.features.desktop.body") }
+    reverse
+    textAlign="left"
+  >
+    <div slot="actions" class="desktop-actions">
+      <MsStoreBadge />
+      <ActionButton variant="accent" label={ t(lang, "button.releaseNotes") } href={`${ import.meta.env.BASE_URL }${ lang }/release-notes/desktop`} />
     </div>
-  )) }
+  </FeatureSection>
 
-  <div slot="border-bottom" class="tabs-wave tabs-wave-bottom" aria-hidden="true">
-    <Fragment set:html={ rawShape6WaveBottom } />
-  </div>
-</TabsSection>
+  <TabsSection
+    class="download-tabs-section"
+    id="download-tabs"
+    tabs={ osTabs }
+    label={ t(lang, "download.tabs.label") }
+  >
+    <ComicBookDecoration slot="border-top" lang={ lang } />
 
-<FeatureSection
-  id="ios"
-  title={ t(lang, "download.features.ios.title") }
-  body={ t(lang, "download.features.ios.body") }
-  fullWidth
->
-  <AppStoreBadge slot="actions" />
-  <figure>
-    <BreakpointImage
-      sources={[
-        { src: getImage(lang, "thorium-mobile-download-screens-compact.webp"), alt: t(lang, "alts.thorium-mobile-download-screens-compact"), media: `(max-width: ${ BREAKPOINT_MOBILE }px)` },
-        { src: getImage(lang, "thorium-mobile-download-screens-large.webp"),   alt: t(lang, "alts.thorium-mobile-download-screens-large") },
-      ]}
-    />
-  </figure>
-</FeatureSection>
+    { osTabs.map((tab, i) => (
+      <div
+        id={`panel-${ tab.id }`}
+        role="tabpanel"
+        aria-labelledby={ tab.id }
+        tabindex={ 0 }
+        hidden={ i !== 0 }
+      >
+        <ul class="download-steps">
+          { osSteps(tab.key).map(step => (
+            <li>
+              { splitLinks(step, downloadLinkSlots).map(seg =>
+                typeof seg === "string" ? seg : <a href={ seg.href } data-platform={ seg.platform }>{ seg.text }</a>
+              ) }
+            </li>
+          )) }
+        </ul>
+      </div>
+    )) }
+
+    <div slot="border-bottom" class="tabs-wave tabs-wave-bottom" aria-hidden="true">
+      <Fragment set:html={ rawShape6WaveBottom } />
+    </div>
+  </TabsSection>
+</div>
+
+<div id="platform-ios" data-platform-group="ios">
+  <FeatureSection
+    id="ios"
+    title={ t(lang, "download.features.ios.title") }
+    body={ t(lang, "download.features.ios.body") }
+    fullWidth
+  >
+    <AppStoreBadge slot="actions" />
+    <figure>
+      <BreakpointImage
+        sources={[
+          { src: getImage(lang, "thorium-mobile-download-screens-compact.webp"), alt: t(lang, "alts.thorium-mobile-download-screens-compact"), media: `(max-width: ${ BREAKPOINT_MOBILE }px)` },
+          { src: getImage(lang, "thorium-mobile-download-screens-large.webp"),   alt: t(lang, "alts.thorium-mobile-download-screens-large") },
+        ]}
+      />
+    </figure>
+  </FeatureSection>
+</div>
+
+<script is:inline>
+  (function () {
+    var ua = navigator.userAgent;
+    var isIOS = /iPhone|iPod|iPad/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+    var priority = isIOS ? ["ios", "desktop"] : ["desktop", "ios"];
+
+    var groups = document.querySelectorAll("[data-platform-group]");
+    if (!groups.length) return;
+
+    var parent = groups[0].parentNode;
+    var afterLast = groups[groups.length - 1].nextSibling;
+    var byKey = {};
+    groups.forEach(function (el) { byKey[el.dataset.platformGroup] = el; });
+
+    priority.forEach(function (key) {
+      var el = byKey[key];
+      if (el) parent.insertBefore(el, afterLast);
+    });
+  })();
+</script>
 
 <FAQ
   title={ t(lang, "faq.title") }

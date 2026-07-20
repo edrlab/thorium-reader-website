@@ -1386,7 +1386,7 @@ img[hidden] {
   }
 }
 
-.download-tabs-section + .feature-section {
+[data-platform-group] + [data-platform-group] {
   margin-top: var(--section-pad);
 }
 

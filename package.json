@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.2.0",
   "scripts": {
-    "dev": "pnpm --filter @edrlab/thorium-badges build && concurrently -k \"pnpm --filter @edrlab/thorium-badges dev\" \"astro dev\"",
+    "dev": "pnpm --filter @edrlab/thorium-badges build && concurrently -kP \"pnpm --filter @edrlab/thorium-badges dev\" \"astro dev {@}\" --",
     "build": "pnpm --filter @edrlab/thorium-badges build && astro build && node scripts/copy-embed.mjs",
     "preview": "astro preview",
     "check": "astro check"
