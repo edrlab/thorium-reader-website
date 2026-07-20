@@ -1,5 +1,5 @@
 ---
-import { previewColors } from "../../../packages/thorium-badges/src/preview-colors.js";
+import { previewColors } from "./preview-colors.js";
 import brokenImageIcon from "./assets/icons/broken_image.svg?raw";
 
 interface Props {
@@ -32,7 +32,7 @@ const { foreground, backgroundStart, backgroundEnd } = previewColors.gray;
 </div>
 
 <script>
-  import { previewColors } from "../../../packages/thorium-badges/src/preview-colors.js";
+  import { previewColors } from "./preview-colors.js";
 
   function isHttpUrl(value: string): boolean {
     try {
