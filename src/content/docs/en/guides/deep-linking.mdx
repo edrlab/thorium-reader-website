@@ -3,7 +3,9 @@ title: Deep Linking
 description: Add a catalog or a publication to Thorium Reader from your own site — links, badge, and web components.
 ---
 
-Thorium Reader can be opened directly from a link on your site to add a catalog (OPDS or web) or a single publication, so a reader can add it in one tap without copy-pasting a URL. This guide covers the link format, the two ways to trigger it (HTTPS universal links and a custom scheme), and the two ready-made tools for embedding an "Add to Thorium Reader" badge: a static generator page and a web component.
+Thorium Reader can be opened directly from a link on your site to add a catalog (OPDS or web) or a single publication, so a reader can add it in one tap without copy-pasting a URL. This guide covers the link format, the two ways to trigger it (HTTPS universal links and a custom scheme), and the two ready-made tools for embedding an "Add to Thorium Reader" badge.
+
+The fastest way to get one: use the [badge generator](/en/badge/) for a static, copy-pasted snippet, or the [`@edrlab/thorium-badges` web components](#edrlabthorium-badges-web-components) if you want the badge to stay in sync with your catalog/publication data. See [The Badge](#the-badge) for details on both.
 
 ## The Two Kinds of Link
 
@@ -38,8 +40,25 @@ Base URL: `/add/catalog`.
 
 \* At least one of `main` or `bookshelf` is required.
 
+Try it — this badge adds the Standard Ebooks catalog:
+
+<thorium-badge-catalog
+  title="Standard Ebooks"
+  main="https://standardebooks.org"
+  icon="https://standardebooks.org/apple-touch-icon.png"
+  color="blue"
+></thorium-badge-catalog>
+
+<script type="module" src="https://www.thoriumreader.com/embed/thorium-badges.js"></script>
+
+It was built from this URL:
+
 ```text
-https://www.thoriumreader.com/add/catalog?title=My+Library&main=https%3A%2F%2Fexample.com%2Fcatalog
+https://www.thoriumreader.com/add/catalog
+  ?title=Standard+Ebooks
+  &main=https%3A%2F%2Fstandardebooks.org
+  &icon=https%3A%2F%2Fstandardebooks.org%2Fapple-touch-icon.png
+  &color=blue
 ```
 
 ### `webview` vs. `browser`
@@ -64,8 +83,23 @@ Base URL: `/add/publication`.
 | `passphrase` | | Plain-text LCP passphrase. |
 | `hashed_passphrase` | | Pre-hashed LCP passphrase — use instead of `passphrase`. |
 
+Try it — this badge adds *The Return of Sherlock Holmes* from Standard Ebooks:
+
+<thorium-badge-publication
+  publication="https://standardebooks.org/ebooks/arthur-conan-doyle/the-return-of-sherlock-holmes/downloads/arthur-conan-doyle_the-return-of-sherlock-holmes.epub"
+  title="The Return of Sherlock Holmes"
+  author="Arthur Conan Doyle"
+  cover="https://standardebooks.org/images/covers/arthur-conan-doyle_the-return-of-sherlock-holmes/d71b38fc2f07bc237fcafa4e90ba0931efb0b3c6/cover@2x.avif"
+></thorium-badge-publication>
+
+It was built from this URL:
+
 ```text
-https://www.thoriumreader.com/add/publication?publication=https%3A%2F%2Fexample.com%2Fbook.epub&title=My+Book
+https://www.thoriumreader.com/add/publication
+  ?publication=https%3A%2F%2Fstandardebooks.org%2Febooks%2Farthur-conan-doyle%2Fthe-return-of-sherlock-holmes%2Fdownloads%2Farthur-conan-doyle_the-return-of-sherlock-holmes.epub
+  &title=The+Return+of+Sherlock+Holmes
+  &author=Arthur+Conan+Doyle
+  &cover=https%3A%2F%2Fstandardebooks.org%2Fimages%2Fcovers%2Farthur-conan-doyle_the-return-of-sherlock-holmes%2Fd71b38fc2f07bc237fcafa4e90ba0931efb0b3c6%2Fcover%402x.avif
 ```
 
 ## Platform Support
@@ -127,6 +161,58 @@ or with a plain `<script src>` and no build step:
 
 Throws if `title`, or at least one of `main`/`bookshelf`, isn't set.
 
+A catalog that also exposes the user's bookshelf, so both are added from a single badge:
+
+```html
+<thorium-badge-catalog
+  title="My Library"
+  main="https://example.com/catalog"
+  bookshelf="https://example.com/catalog/bookshelf"
+></thorium-badge-catalog>
+```
+
+A passphrase-protected catalog — pass `hashed-passphrase` instead of `passphrase` to avoid putting the plain-text secret in your page's source:
+
+```html
+<thorium-badge-catalog
+  title="My Library"
+  main="https://example.com/catalog"
+  hashed-passphrase="a1b2c3d4e5f6..."
+></thorium-badge-catalog>
+```
+
+A catalog gated behind a login that doesn't work in an embedded webview (see [`webview` vs. `browser`](#webview-vs-browser)) — `open-in="browser"` opens it in the system browser instead:
+
+```html
+<thorium-badge-catalog
+  title="My Library"
+  main="https://example.com/catalog"
+  open-in="browser"
+></thorium-badge-catalog>
+```
+
+A catalog with its own icon, banner, and accent color, shown wherever Thorium Reader lists the catalog:
+
+```html
+<thorium-badge-catalog
+  title="My Library"
+  main="https://example.com/catalog"
+  icon="https://example.com/icon.png"
+  banner="https://example.com/banner.png"
+  color="blue"
+></thorium-badge-catalog>
+```
+
+A badge that matches the visitor's browser language instead of a fixed locale:
+
+```html
+<thorium-badge-catalog
+  title="My Library"
+  main="https://example.com/catalog"
+  lang="auto"
+></thorium-badge-catalog>
+```
+
 #### `<thorium-badge-publication>` Attributes
 
 | Attribute | Required | Description |
@@ -140,6 +226,37 @@ Throws if `title`, or at least one of `main`/`bookshelf`, isn't set.
 | `lang` | | Badge locale (`"auto"` to detect from the browser; unset falls back to the site default). |
 
 Throws if `publication` isn't set.
+
+A publication with a cover, shown while Thorium Reader fetches the file itself:
+
+```html
+<thorium-badge-publication
+  publication="https://example.com/book.epub"
+  title="My Book"
+  author="Jane Doe"
+  cover="https://example.com/cover.jpg"
+></thorium-badge-publication>
+```
+
+A passphrase-protected publication — pass `hashed-passphrase` instead of `passphrase` to avoid putting the plain-text secret in your page's source:
+
+```html
+<thorium-badge-publication
+  publication="https://example.com/book.epub"
+  title="My Book"
+  hashed-passphrase="a1b2c3d4e5f6..."
+></thorium-badge-publication>
+```
+
+A badge that matches the visitor's browser language instead of a fixed locale:
+
+```html
+<thorium-badge-publication
+  publication="https://example.com/book.epub"
+  title="My Book"
+  lang="auto"
+></thorium-badge-publication>
+```
 
 Any attribute pointing to a URL (`main`, `bookshelf`, `icon`, `banner`, `publication`, `cover`) is validated and throws if it isn't well-formed.
 
