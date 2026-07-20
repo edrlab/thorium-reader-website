@@ -16,6 +16,15 @@
   --sl-color-accent-low: var(--color-wine);
   --sl-color-accent: var(--color-cream);
   --sl-color-accent-high: var(--color-cream);
+
+  /* Site title img height is nav-height minus 2x this padding
+     (see SiteTitle.astro) — derive it so the logo matches the
+     1.75rem site header logo at every breakpoint. */
+  --sl-nav-pad-y: calc((var(--sl-nav-height) - 1.75rem) / 2);
+
+  /* Matches .site-header's --gutter padding in global.css (not loaded
+     here) so the logo starts at the same x-offset as on the main site. */
+  --sl-nav-pad-x: 3rem;
 }
 
 :root[data-theme="light"],
@@ -23,6 +32,13 @@
   --sl-color-accent-low: var(--color-cream);
   --sl-color-accent: var(--color-mauve);
   --sl-color-accent-high: var(--color-mauve);
+}
+
+@media (max-width: 768px) {
+  :root,
+  ::backdrop {
+    --sl-nav-pad-x: 1.25rem;
+  }
 }
 
 main :is(h1, h2, h3, h4, h5, h6) {
