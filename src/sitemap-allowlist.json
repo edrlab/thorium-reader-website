@@ -1,4 +1,4 @@
 [
   { "path": "/download/", "locales": "*" },
-  { "path": "/release-notes/desktop/{version}/", "locales": ["en"] }
+  { "path": "/release-notes/desktop/\\d+-\\d+-\\d+/", "locales": ["en"] }
 ]

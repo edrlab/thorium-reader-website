@@ -56,14 +56,12 @@ export default defineConfig({
     mdx(),
     sitemap({
       // Each allowlist entry lists the locales it applies to ("*" = every locale
-      // in src/i18n/locales.ts), and its path may contain a {version} placeholder
-      // matching a slug like "3-4-0" (not "latest").
+      // in src/i18n/locales.ts). path is a regex fragment matched against the pathname.
       filter: (page) =>
-        sitemapAllowlist.some(({ path: template, locales: allowedLocales }) =>
-          (allowedLocales === "*" ? locales : allowedLocales).some((l) => {
-            const pattern = template.replace(/\{version\}/g, "\\d+-\\d+-\\d+");
-            return new RegExp(`^https://www\\.thoriumreader\\.com/${ l }${ pattern }$`).test(page);
-          }),
+        sitemapAllowlist.some(({ path: pattern, locales: allowedLocales }) =>
+          (allowedLocales === "*" ? locales : allowedLocales).some((l) =>
+            new RegExp(`^https://www\\.thoriumreader\\.com/${ l }${ pattern }$`).test(page),
+          ),
         ),
       i18n: {
         defaultLocale,
