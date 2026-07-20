@@ -157,7 +157,7 @@ or with a plain `<script src>` and no build step:
 | `icon` | | URL of an icon to show for the catalog. |
 | `banner` | | URL of a banner image. |
 | `color` | | Accent color for the catalog entry. |
-| `lang` | | Badge locale (`"auto"` to detect from the browser; unset falls back to the site default). |
+| `lang` | | Badge locale (`"auto"` to detect from the browser; unset behaves the same as `"auto"`). |
 
 Throws if `title`, or at least one of `main`/`bookshelf`, isn't set.
 
@@ -223,7 +223,7 @@ A badge that matches the visitor's browser language instead of a fixed locale:
 | `cover` | | URL of the cover image. |
 | `passphrase` | | Plain-text passphrase, if the publication is protected. |
 | `hashed-passphrase` | | Pre-hashed passphrase, as an alternative to `passphrase`. |
-| `lang` | | Badge locale (`"auto"` to detect from the browser; unset falls back to the site default). |
+| `lang` | | Badge locale (`"auto"` to detect from the browser; unset behaves the same as `"auto"`). |
 
 Throws if `publication` isn't set.
 
@@ -267,8 +267,8 @@ Note that attribute names are kebab-case (`hashed-passphrase`, `open-in`) while 
 Supported `lang` values are `en`, `fr`, and `it`.
 
 - Set `lang` to one of those codes to force that locale.
-- Set `lang="auto"` to match the visitor's browser language (`navigator.languages`) against the supported list, using the first match.
-- If `lang` is unset, is `"auto"` with no match, or is any other unsupported value, the badge falls back to `en`.
+- Leaving `lang` unset, or setting it to `"auto"`, matches the visitor's browser language (`navigator.languages`) against the supported list, using the first match.
+- If that match fails to find a supported locale — or `lang` is any other unsupported value — the badge falls back to `en`.
 
 ## Pages
 
