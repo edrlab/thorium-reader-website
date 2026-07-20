@@ -1,0 +1,74 @@
+---
+import brokenImageIcon from "./assets/icons/broken_image.svg?raw";
+
+interface Props {
+  id?: string;
+  titleFallback: string;
+}
+
+const { id = "publication-preview", titleFallback } = Astro.props;
+---
+
+<div id={ id } class="publication-preview" data-title-fallback={ titleFallback }>
+  <span class="publication-preview-image">
+    <img class="publication-preview-image-img" alt="" hidden />
+    <span class="publication-preview-image-placeholder" aria-hidden="true" set:html={ brokenImageIcon }></span>
+  </span>
+  <div class="publication-preview-content">
+    <div class="publication-preview-text">
+      <p class="publication-preview-title"></p>
+      <p class="publication-preview-author" hidden></p>
+    </div>
+    <div class="publication-preview-badge">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<script>
+  function isHttpUrl(value: string): boolean {
+    try {
+      return ["http:", "https:"].includes(new URL(value).protocol);
+    } catch {
+      return false;
+    }
+  }
+
+  document.querySelectorAll<HTMLElement>(".publication-preview[data-title-fallback]").forEach((el) => {
+    if (!window.location.search) {
+      el.setAttribute("hidden", "");
+      return;
+    }
+
+    const titleFallback = el.dataset.titleFallback ?? "";
+    const params = new URLSearchParams(window.location.search);
+
+    const titleEl = el.querySelector<HTMLElement>(".publication-preview-title");
+    if (titleEl) titleEl.textContent = params.get("title") || titleFallback;
+
+    const author = params.get("author");
+    const authorEl = el.querySelector<HTMLElement>(".publication-preview-author");
+    if (authorEl && author) {
+      authorEl.textContent = author;
+      authorEl.hidden = false;
+    }
+
+    const imageParam = params.get("cover");
+    const img = el.querySelector<HTMLImageElement>(".publication-preview-image-img");
+    const placeholder = el.querySelector<HTMLElement>(".publication-preview-image-placeholder");
+    if (img && placeholder && imageParam && isHttpUrl(imageParam)) {
+      // Keep the placeholder showing until the image actually finishes loading,
+      // rather than revealing it optimistically and risking a flash of a broken
+      // image icon if the URL turns out not to be fetchable.
+      img.addEventListener("load", () => {
+        img.hidden = false;
+        placeholder.setAttribute("hidden", "");
+      });
+      img.addEventListener("error", () => {
+        img.hidden = true;
+        placeholder.removeAttribute("hidden");
+      });
+      img.src = imageParam;
+    }
+  });
+</script>

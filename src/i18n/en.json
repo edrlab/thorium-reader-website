@@ -151,7 +151,8 @@
                 "Don't have Thorium Reader installed yet? Follow the instructions on this page."
             ],
             "thisLink": "this link",
-            "fallbackName": "this catalog"
+            "fallbackName": "this catalog",
+            "invalidBody": "This link is missing the information needed to add a catalog to Thorium Reader. Please go back to the app or website you came from and try again."
         },
         "publication": {
             "title": "Add Publication to Thorium Reader",
@@ -161,7 +162,8 @@
                 "Don't have Thorium Reader installed yet? Follow the instructions on this page."
             ],
             "thisLink": "this link",
-            "fallbackName": "this publication"
+            "fallbackName": "this publication",
+            "invalidBody": "This link is missing the information needed to add a publication to Thorium Reader. Please go back to the app or website you came from and try again."
         }
     },
     "badge": {

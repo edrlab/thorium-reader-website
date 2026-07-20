@@ -3,7 +3,7 @@ import Layout from "../../../layouts/Layout.astro";
 import Footer from "../../../components/Footer.astro";
 import DownloadContent from "../../../components/shared-content/DownloadContent.astro";
 import ThoriumBadge from "../../../components/badge/ThoriumBadge.astro";
-import EntryPreview from "../../../components/entryPreview/EntryPreview.astro";
+import CatalogPreview from "../../../components/preview/CatalogPreview.astro";
 import ClientData from "../../../components/ClientData.astro";
 import { t, splitLinks, type LinkSlot } from "../../../i18n/utils.js";
 import { locales } from "../../../i18n/locales.js";
@@ -16,6 +16,7 @@ export function getStaticPaths() {
 const lang = Astro.currentLocale ?? "en";
 const catalogNameFallback = t(lang, "add.catalog.fallbackName");
 const badgeAlt = t(lang, "badge.shared.alt");
+const invalidBody = t(lang, "add.catalog.invalidBody");
 
 const introBody = t(lang, "add.catalog.body", { returnObjects: true }) as string[];
 const retryLinkSlots: Record<string, LinkSlot & { id: string }> = {
@@ -26,22 +27,24 @@ const retryLinkSlots: Record<string, LinkSlot & { id: string }> = {
 <Layout title={ t(lang, "add.catalog.title") + " — " + t(lang, "site.title") }>
   <div class="page-intro">
     <h1>{ t(lang, "add.catalog.title") }</h1>
-    { introBody.map(paragraph => (
-      <p>{ splitLinks(paragraph, retryLinkSlots).map(seg => typeof seg === "string" ? seg : <a href={ seg.href } id={ seg.id }>{ seg.text }</a>) }</p>
-    )) }
+    <div id="intro-body">
+      { introBody.map(paragraph => (
+        <p>{ splitLinks(paragraph, retryLinkSlots).map(seg => typeof seg === "string" ? seg : <a href={ seg.href } id={ seg.id }>{ seg.text }</a>) }</p>
+      )) }
+    </div>
+    <p id="intro-invalid" hidden>{ invalidBody }</p>
   </div>
 
   <section class="add-landing-section">
     <div class="container">
-      <div class="add-landing-actions">
-        <EntryPreview id="entry-preview" type="catalog" titleFallback={ catalogNameFallback } />
+      <CatalogPreview id="catalog-preview" titleFallback={ catalogNameFallback }>
         <ThoriumBadge
           id="open-btn"
           line1={ t(lang, "badge.shared.buttonLine1") }
           line2={ t(lang, "badge.shared.buttonLine2") }
           title={ t(lang, "badge.shared.button") }
         />
-      </div>
+      </CatalogPreview>
     </div>
   </section>
 
@@ -67,29 +70,39 @@ const retryLinkSlots: Record<string, LinkSlot & { id: string }> = {
   const catalogNameFallback = dataEl.dataset.catalogNameFallback!;
   const badgeAlt = dataEl.dataset.badgeAlt!;
 
-  const params = new URLSearchParams(window.location.search);
-  const title = params.get("title");
+  const introBodyEl = document.getElementById("intro-body");
+  const introInvalidEl = document.getElementById("intro-invalid");
 
-  const subtitleEl = document.querySelector(".page-intro p");
-  if (subtitleEl) {
-    subtitleEl.textContent = interpolate(subtitleEl.textContent, { catalogName: title || catalogNameFallback });
-  }
+  if (!window.location.search) {
+    // No params at all means this link carries no catalog data — show a
+    // distinct "invalid link" message instead of the normal flow's copy,
+    // rather than rendering "you are trying to add {fallback}" as if an
+    // add were actually in progress.
+    introBodyEl?.setAttribute("hidden", "");
+    introInvalidEl?.removeAttribute("hidden");
+  } else {
+    const params = new URLSearchParams(window.location.search);
+    const title = params.get("title");
 
-  const retryHref = `${ addCatalogScheme }${ window.location.search }`;
+    const subtitleEl = introBodyEl?.querySelector("p");
+    if (subtitleEl) {
+      subtitleEl.textContent = interpolate(subtitleEl.textContent, { catalogName: title || catalogNameFallback });
+    }
 
-  const openBtn = document.getElementById("open-btn");
-  if (openBtn) openBtn.setAttribute("href", retryHref);
+    const retryHref = `${ addCatalogScheme }${ window.location.search }`;
+    const openBtn = document.getElementById("open-btn");
+    const retryLink = document.getElementById("retry-link");
+    openBtn?.setAttribute("href", retryHref);
+    retryLink?.setAttribute("href", retryHref);
 
-  const retryLink = document.getElementById("retry-link");
-  if (retryLink) retryLink.setAttribute("href", retryHref);
-
-  if (title) {
-    const badgeSvg = openBtn?.querySelector("svg");
-    if (badgeSvg) {
-      const badgeTitle = interpolate(badgeAlt, { name: title });
-      badgeSvg.setAttribute("aria-label", badgeTitle);
-      const titleEl = badgeSvg.querySelector("title");
-      if (titleEl) titleEl.textContent = badgeTitle;
+    if (title) {
+      const badgeSvg = openBtn?.querySelector("svg");
+      if (badgeSvg) {
+        const badgeTitle = interpolate(badgeAlt, { name: title });
+        badgeSvg.setAttribute("aria-label", badgeTitle);
+        const titleEl = badgeSvg.querySelector("title");
+        if (titleEl) titleEl.textContent = badgeTitle;
+      }
     }
   }
 </script>

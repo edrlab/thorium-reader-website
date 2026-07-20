@@ -1529,89 +1529,119 @@ img[hidden] {
   padding-bottom: var(--section-pad);
 }
 
-.add-landing-actions {
+.catalog-preview,
+.publication-preview {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-md);
+  gap: var(--space-sm);
   width: fit-content;
-  max-width: 100%;
+  max-width: var(--measure-medium);
   padding: var(--space-sm);
   border-radius: var(--radius-card);
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* Removes the inline SVG's baseline gap so it centers with its flex sibling. */
-.add-landing-actions > a {
-  display: flex;
+.publication-preview {
+  gap: var(--space-md);
 }
 
-.add-landing-actions > a svg {
-  display: block;
-}
-
-.entry-preview {
+.catalog-preview-main {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  padding: var(--space-sm);
-  border-radius: var(--radius-card);
   min-width: 0;
+  padding: var(--space-sm);
+  border-radius: calc(var(--radius-card) - var(--space-xs));
   background: linear-gradient(135deg, var(--preview-bg-start), var(--preview-bg-end));
   color: var(--preview-fg);
 }
 
-.entry-preview-image {
+.publication-preview-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  min-width: 0;
+  align-self: stretch;
+}
+
+.catalog-preview-image,
+.publication-preview-image {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 48px;
-  height: 48px;
   border-radius: calc(var(--radius-card) - var(--space-xs));
   overflow: hidden;
   background: rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
-.entry-preview-image-img {
+.catalog-preview-image {
+  width: 48px;
+  height: 48px;
+}
+
+.publication-preview-image {
+  width: 128px;
+  aspect-ratio: 2 / 3;
+}
+
+.catalog-preview-image-img,
+.publication-preview-image-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
 }
 
-.entry-preview-image-placeholder {
+.catalog-preview-image-placeholder,
+.publication-preview-image-placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
+  color: rgba(0, 0, 0, 0.2);
   fill: currentColor;
 }
 
-.entry-preview-image-placeholder svg {
-  width: 80%;
-  height: 80%;
+.catalog-preview-image-placeholder svg,
+.publication-preview-image-placeholder svg {
+  width: 40%;
+  height: 40%;
   display: block;
 }
 
-.entry-preview-text {
+.catalog-preview-text,
+.publication-preview-text {
   display: flex;
   flex-direction: column;
   gap: 0.15em;
   min-width: 0;
 }
 
-.entry-preview-title {
+.catalog-preview-title,
+.publication-preview-title {
   margin: 0;
   font-weight: 700;
 }
 
-.entry-preview-author {
+.publication-preview-author {
   margin: 0;
   font-weight: 500;
+}
+
+/* Removes the inline SVG's baseline gap so it centers with its flex sibling. */
+.catalog-preview-badge > a,
+.publication-preview-badge > a {
+  display: flex;
+}
+
+.catalog-preview-badge > a svg,
+.publication-preview-badge > a svg {
+  display: block;
 }
 
 /* ── Badge generator ── */
