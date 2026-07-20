@@ -13,7 +13,7 @@ const copyText   = t(lang, "badge.shared.output.copy");
 const copiedText = t(lang, "badge.shared.output.copied");
 
 const devGuidesSegments = splitLinks(t(lang, "badge.shared.webcomponent.hint"), {
-  devguides: { href: getRelativeLocaleUrl(lang, "guides/deep-linking"), text: t(lang, "badge.shared.webcomponent.devguides") },
+  devguides: { href: `${ getRelativeLocaleUrl(lang, "guides/deep-linking") }#edrlabthorium-badges-web-components`, text: t(lang, "badge.shared.webcomponent.devguides") },
 });
 ---
 
