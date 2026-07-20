@@ -31,6 +31,7 @@ export default defineConfig({
   output: "static",
   integrations: [
     starlight({
+      disable404Route: true,
       title: "Thorium Reader Guides",
       logo: {
         light: "./src/components/logos/assets/logo-thorium-reader-light-mode.webp",
