@@ -312,23 +312,33 @@
         },
         "features": {
             "customize": {
-                "title": "I tuoi libri, le tue scelte",
+                "title": "Read it your way",
                 "body": [
-                    "Con Thorium Reader puoi passare dalla lettura all'ascolto quando preferisci...anche fare le due cose contemporaneamente.",
-                    "Controlla completamente la tua esperienza di lettura grazie a impostazioni di alta qualità facili da usare."
+                    "Ognuno è diverso, ecco perché vogliamo che l’esperienza di lettura sia completamente personalizzabile:",
+                    [
+                        "Regola la dimensione del testo, modifica le combinazioni dei colori grazie ai temi e al controllo delle spaziature.",
+                        "10+ font disponibili, inclusi i più accessibili.",
+                        "Preferisci ascoltare i tuoi libri? Ascolta qualsiasi ebook, ogni volta che vuoi. La tua preferenza sarà memorizzata.",
+                        "Navigazione integrale tramite tastiera.",
+                        "L'accessibilità non è un'extra con Thorium Reader: supporta JAWS, NVDA, Narrator e VoiceOver."
+                    ]
                 ]
             },
             "library": {
                 "body": [
-                    "Abbiamo creato uno spazio in cui tutti i libri sono i benvenuti.",
-                    "Scaricali dal Web, prendili in prestito da una biblioteca, acquistali in una libreria online...ma leggili tutti con Thorium Reader."
+                    "Un’unica biblioteca e una sola applicazione di lettura in cui custodire tutti i tuoi contenuti:",
+                    [
+                        "Leggi e ascolta ebook e audiolibri, fumetti e manga.",
+                        "Importa file EPUB, PDF, CBZ e audiolibri.",
+                        "Supporto per il formato Readium LCP, utilizzato da migliaia di biblioteche e piattaforme."
+                    ]
                 ],
                 "title": "Aggiungi i tuoi libri"
             }
         },
         "hero": {
             "subtitle": "Molto più di un'app di lettura, un nuovo spazio per tutti i tuoi libri, audiolibri, manga e fumetti.",
-            "title": "Read It Your Way"
+            "title": "Thorium Reader"
         }
     },
     "nav": {
