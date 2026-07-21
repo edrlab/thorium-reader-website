@@ -233,6 +233,10 @@
                 "hint": "Copia e incolla questo codice nella tua pagina.",
                 "copy": "Copia negli appunti",
                 "copied": "Copiato!"
+            },
+            "webcomponent": {
+                "title": "Web component",
+                "hint": "Copia e incolla questo frammento di codice sorgente sulla tua pagina. Richiede il caricamento di @edrlab/thorium-badges (npm import o il tuo tag <script>)."
             }
         },
         "index": {
@@ -374,5 +378,14 @@
             "subtitle": "Se desideri aggiungere {{publicationTitle}} su Thorium Reader devi prima scaricare l'app.",
             "fallbackName": "questa pubblicazione"
         }
+    },
+    "platform": {
+        "names": {
+            "desktop": "Desktop",
+            "ios": "iOS"
+        }
+    },
+    "legals": {
+        "platformTitle": "{{platform}} documenti legali"
     }
 }
