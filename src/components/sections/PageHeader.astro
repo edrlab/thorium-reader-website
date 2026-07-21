@@ -1,17 +1,18 @@
 ---
+import BodyBlocks, { type BodyBlock } from "./BodyBlocks.astro";
+
 interface Props {
   title: string;
-  body?: string | string[];
+  body?: string | BodyBlock[];
   class?: string;
 }
 
 const { title, body, class: className } = Astro.props;
+const blocks = body ? (Array.isArray(body) ? body : [body]) : [];
 ---
 
-<section class:list={["page-header", className]}>
-  <div class="container">
-    <h1>{ title }</h1>
-    { body && (Array.isArray(body) ? body : [body]).map((p) => <p>{ p }</p>) }
-    <slot />
-  </div>
-</section>
+<header class:list={["page-header", className]}>
+  <h1>{ title }</h1>
+  <BodyBlocks blocks={ blocks } />
+  <slot />
+</header>

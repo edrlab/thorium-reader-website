@@ -122,6 +122,10 @@ img {
   height: auto;
 }
 
+img[hidden] {
+  display: none;
+}
+
 
 /* ─────────────────────────────────────────────
    2. Utilities
@@ -346,6 +350,21 @@ img {
   font-size: var(--text-xs);
   color: var(--color-text-muted);
   line-height: var(--leading-body);
+}
+
+.field-hint a {
+  color: var(--color-mauve);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.field-hint a:hover {
+  color: var(--color-wine);
+}
+
+.field-hint a:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
 }
 
 /* ── Custom select widget ── */
@@ -842,6 +861,7 @@ img {
 .faq-section,
 .steps-section,
 .page-header,
+.page-intro,
 .footer-top,
 .site-footer {
   position: relative;
@@ -860,6 +880,7 @@ img {
 .cta-text h2,
 .faq-section h2,
 .page-header h1,
+.page-intro h1,
 .platform-hub h1,
 .platform-index h1,
 .conformance-index h1,
@@ -1100,59 +1121,21 @@ img {
   line-height: var(--leading-heading);
 }
 
+.feature-text ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding-inline-start: var(--space-md);
+}
+
 .feature-text .btn {
   align-self: flex-start;
-}
-
-.feature-top.reverse .feature-text {
-  text-align: right;
-  align-items: flex-end;
-}
-
-.feature-top.reverse .feature-text .btn {
-  align-self: auto;
-}
-
-.feature-top[data-text-align="left"] .feature-text {
-  text-align: left;
-  align-items: flex-start;
-}
-
-.feature-top[data-text-align="left"] .feature-text .btn {
-  align-self: flex-start;
-}
-
-.feature-top[data-text-align="right"] .feature-text {
-  text-align: right;
-  align-items: flex-end;
-}
-
-.feature-top[data-text-align="right"] .feature-text .btn {
-  align-self: auto;
 }
 
 @media (max-width: 768px) {
   .feature-top .feature-text,
   .feature-top.reverse .feature-text {
     grid-area: auto;
-  }
-
-  .feature-top .feature-text {
-    text-align: right;
-    align-items: flex-end;
-  }
-
-  .feature-top .feature-text .btn {
-    align-self: auto;
-  }
-
-  .feature-top.reverse .feature-text {
-    text-align: left;
-    align-items: flex-start;
-  }
-
-  .feature-top.reverse .feature-text .btn {
-    align-self: flex-start;
   }
 }
 
@@ -1403,7 +1386,7 @@ img {
   }
 }
 
-.download-tabs-section + .feature-section {
+[data-platform-group] + [data-platform-group] {
   margin-top: var(--section-pad);
 }
 
@@ -1478,21 +1461,62 @@ img {
    8. Pages
    ───────────────────────────────────────────── */
 
-/* ── Page header (shared across pages without a hero) ── */
-.page-header {
+/* ── Page header & page intro (shared across pages without a hero) ── */
+.page-header,
+.page-intro {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
   /* 4rem accounts for the fixed nav height */
   padding-top: calc(4rem + var(--space-lg));
   padding-bottom: var(--space-lg);
 }
 
-.page-header h1 {
+.page-header h1,
+.page-intro h1 {
   font-size: var(--text-hero);
   line-height: var(--leading-display);
 }
 
-.page-header p {
+.page-header p,
+.page-intro p {
   max-width: var(--measure-medium);
   margin-top: var(--space-md);
+}
+
+.page-header ul,
+.page-intro ul {
+  max-width: var(--measure-medium);
+  margin-top: var(--space-md);
+  padding-left: var(--space-md);
+}
+
+.page-header p + p,
+.page-header ul + p,
+.page-header p + ul,
+.page-intro p + p,
+.page-intro ul + p,
+.page-intro p + ul {
+  margin-top: var(--space-sm);
+}
+
+.page-header a,
+.page-intro a {
+  color: var(--color-mauve);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.page-header a:hover,
+.page-intro a:hover {
+  color: var(--color-wine);
+}
+
+.page-header a:focus-visible,
+.page-intro a:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
 }
 
 /* ── Download page ── */
@@ -1505,10 +1529,119 @@ img {
   padding-bottom: var(--section-pad);
 }
 
-.add-landing-actions {
+.catalog-preview,
+.publication-preview {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   gap: var(--space-sm);
+  width: fit-content;
+  max-width: var(--measure-medium);
+  padding: var(--space-sm);
+  border-radius: var(--radius-card);
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.publication-preview {
+  gap: var(--space-md);
+}
+
+.catalog-preview-main {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  min-width: 0;
+  padding: var(--space-sm);
+  border-radius: calc(var(--radius-card) - var(--space-xs));
+  background: linear-gradient(135deg, var(--preview-bg-start), var(--preview-bg-end));
+  color: var(--preview-fg);
+}
+
+.publication-preview-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  min-width: 0;
+  align-self: stretch;
+}
+
+.catalog-preview-image,
+.publication-preview-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: calc(var(--radius-card) - var(--space-xs));
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.catalog-preview-image {
+  width: 48px;
+  height: 48px;
+}
+
+.publication-preview-image {
+  width: 128px;
+  aspect-ratio: 2 / 3;
+}
+
+.catalog-preview-image-img,
+.publication-preview-image-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.catalog-preview-image-placeholder,
+.publication-preview-image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: rgba(0, 0, 0, 0.2);
+  fill: currentColor;
+}
+
+.catalog-preview-image-placeholder svg,
+.publication-preview-image-placeholder svg {
+  width: 40%;
+  height: 40%;
+  display: block;
+}
+
+.catalog-preview-text,
+.publication-preview-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15em;
+  min-width: 0;
+}
+
+.catalog-preview-title,
+.publication-preview-title {
+  margin: 0;
+  font-weight: 700;
+}
+
+.publication-preview-author {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Removes the inline SVG's baseline gap so it centers with its flex sibling. */
+.catalog-preview-badge > a,
+.publication-preview-badge > a {
+  display: flex;
+}
+
+.catalog-preview-badge > a svg,
+.publication-preview-badge > a svg {
+  display: block;
 }
 
 /* ── Badge generator ── */

@@ -1,11 +1,11 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import Footer from "../../../components/Footer.astro";
-import PageHeader from "../../../components/sections/PageHeader.astro";
 import DownloadContent from "../../../components/shared-content/DownloadContent.astro";
 import ThoriumBadge from "../../../components/badge/ThoriumBadge.astro";
+import PublicationPreview from "../../../components/preview/PublicationPreview.astro";
 import ClientData from "../../../components/ClientData.astro";
-import { t } from "../../../i18n/utils.js";
+import { t, splitLinks, type LinkSlot } from "../../../i18n/utils.js";
 import { locales } from "../../../i18n/locales.js";
 import { addPublicationScheme } from "../../../links.js";
 
@@ -16,24 +16,35 @@ export function getStaticPaths() {
 const lang = Astro.currentLocale ?? "en";
 const publicationTitleFallback = t(lang, "add.publication.fallbackName");
 const badgeAlt = t(lang, "badge.shared.alt");
+const invalidBody = t(lang, "add.publication.invalidBody");
+
+const introBody = t(lang, "add.publication.body", { returnObjects: true }) as string[];
+const retryLinkSlots: Record<string, LinkSlot & { id: string }> = {
+  thisLink: { href: "#", text: t(lang, "add.publication.thisLink"), id: "retry-link" },
+};
 ---
 
 <Layout title={ t(lang, "add.publication.title") + " — " + t(lang, "site.title") }>
-  <PageHeader
-    title={ t(lang, "add.publication.title") }
-    body={ t(lang, "add.publication.subtitle") }
-  />
+  <div class="page-intro">
+    <h1>{ t(lang, "add.publication.title") }</h1>
+    <div id="intro-body">
+      { introBody.map(paragraph => (
+        <p>{ splitLinks(paragraph, retryLinkSlots).map(seg => typeof seg === "string" ? seg : <a href={ seg.href } id={ seg.id }>{ seg.text }</a>) }</p>
+      )) }
+    </div>
+    <p id="intro-invalid" hidden>{ invalidBody }</p>
+  </div>
 
   <section class="add-landing-section">
     <div class="container">
-      <div class="add-landing-actions">
+      <PublicationPreview id="publication-preview" titleFallback={ publicationTitleFallback }>
         <ThoriumBadge
           id="open-btn"
           line1={ t(lang, "badge.shared.buttonLine1") }
           line2={ t(lang, "badge.shared.buttonLine2") }
           title={ t(lang, "badge.shared.button") }
         />
-      </div>
+      </PublicationPreview>
     </div>
   </section>
 
@@ -59,26 +70,39 @@ const badgeAlt = t(lang, "badge.shared.alt");
   const publicationTitleFallback = dataEl.dataset.publicationTitleFallback!;
   const badgeAlt = dataEl.dataset.badgeAlt!;
 
-  const params = new URLSearchParams(window.location.search);
-  const title = params.get("title");
+  const introBodyEl = document.getElementById("intro-body");
+  const introInvalidEl = document.getElementById("intro-invalid");
 
-  const subtitleEl = document.querySelector(".page-header p");
-  if (subtitleEl) {
-    subtitleEl.textContent = interpolate(subtitleEl.textContent, { publicationTitle: title || publicationTitleFallback });
-  }
+  if (!window.location.search) {
+    // No params at all means this link carries no publication data — show a
+    // distinct "invalid link" message instead of the normal flow's copy,
+    // rather than rendering "you are trying to add {fallback}" as if an
+    // add were actually in progress.
+    introBodyEl?.setAttribute("hidden", "");
+    introInvalidEl?.removeAttribute("hidden");
+  } else {
+    const params = new URLSearchParams(window.location.search);
+    const title = params.get("title");
 
-  const openBtn = document.getElementById("open-btn");
-  if (openBtn) {
-    openBtn.setAttribute("href", `${ addPublicationScheme }${ window.location.search }`);
-  }
+    const subtitleEl = introBodyEl?.querySelector("p");
+    if (subtitleEl) {
+      subtitleEl.textContent = interpolate(subtitleEl.textContent, { publicationTitle: title || publicationTitleFallback });
+    }
 
-  if (title) {
-    const badgeSvg = openBtn?.querySelector("svg");
-    if (badgeSvg) {
-      const badgeTitle = interpolate(badgeAlt, { name: title });
-      badgeSvg.setAttribute("aria-label", badgeTitle);
-      const titleEl = badgeSvg.querySelector("title");
-      if (titleEl) titleEl.textContent = badgeTitle;
+    const retryHref = `${ addPublicationScheme }${ window.location.search }`;
+    const openBtn = document.getElementById("open-btn");
+    const retryLink = document.getElementById("retry-link");
+    openBtn?.setAttribute("href", retryHref);
+    retryLink?.setAttribute("href", retryHref);
+
+    if (title) {
+      const badgeSvg = openBtn?.querySelector("svg");
+      if (badgeSvg) {
+        const badgeTitle = interpolate(badgeAlt, { name: title });
+        badgeSvg.setAttribute("aria-label", badgeTitle);
+        const titleEl = badgeSvg.querySelector("title");
+        if (titleEl) titleEl.textContent = badgeTitle;
+      }
     }
   }
 </script>

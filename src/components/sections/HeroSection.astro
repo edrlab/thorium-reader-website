@@ -2,17 +2,18 @@
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import BlobOverlay from "../blobs/BlobOverlay.astro";
+import BodyBlocks, { type BodyBlock } from "./BodyBlocks.astro";
 import shapeCompactRaw from "../../assets/shapes/thorium-shape-1-compact.svg?raw";
 
 interface Props {
   title: string;
-  body: string | string[];
+  body: string | BodyBlock[];
   image: { src: ImageMetadata; alt: string };
   clipImage?: boolean;
 }
 
 const { title, body, image, clipImage = false } = Astro.props;
-const paragraphs = Array.isArray(body) ? body : [body];
+const blocks = Array.isArray(body) ? body : [body];
 const compactMaskSvg = shapeCompactRaw.replace("currentColor", "black");
 const compactMaskUrl = `data:image/svg+xml,${encodeURIComponent(compactMaskSvg)}`;
 ---
@@ -21,7 +22,7 @@ const compactMaskUrl = `data:image/svg+xml,${encodeURIComponent(compactMaskSvg)}
   <div class="container hero-inner">
     <div class="hero-text">
       <h1>{ title }</h1>
-      { paragraphs.map((p) => <p>{ p }</p>) }
+      <BodyBlocks blocks={ blocks } />
       <slot name="actions" />
     </div>
 

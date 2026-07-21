@@ -1,23 +1,25 @@
 ---
+import BodyBlocks, { type BodyBlock } from "./BodyBlocks.astro";
+
 interface Props {
   id?: string;
   class?: string;
   title: string;
-  body: string | string[];
+  body: string | BodyBlock[];
   reverse?: boolean;
   textAlign?: "left" | "right";
   fullWidth?: boolean;
 }
 
 const { id, class: className, title, body, reverse = false, textAlign, fullWidth = false } = Astro.props;
-const paragraphs = Array.isArray(body) ? body : [body];
+const blocks = Array.isArray(body) ? body : [body];
 ---
 
 <section class:list={["feature-section", className]} id={ id }>
   { fullWidth
     ? <div class="container feature-text">
         <h2>{ title }</h2>
-        { paragraphs.map((p) => <p>{ p }</p>) }
+        <BodyBlocks blocks={ blocks } />
         <slot name="actions" />
       </div>
     : <div
@@ -26,7 +28,7 @@ const paragraphs = Array.isArray(body) ? body : [body];
       >
         <div class="feature-text">
           <h2>{ title }</h2>
-          { paragraphs.map((p) => <p>{ p }</p>) }
+          <BodyBlocks blocks={ blocks } />
           <slot name="actions" />
         </div>
       </div>

@@ -1,7 +1,7 @@
 ---
-export type FAQListItem = string | string[];
-export type FAQBlock    = string | FAQListItem[];
-export type FAQItem     = { question: string; answer: FAQBlock[] };
+import BodyBlocks, { type BodyBlock } from "./BodyBlocks.astro";
+
+export type FAQItem = { question: string; answer: BodyBlock[] };
 
 interface Props {
   title: string;
@@ -21,15 +21,7 @@ const { title, items, class: className } = Astro.props;
         <details class="faq-item">
           <summary>{ q.question }</summary>
           <div class="faq-answer">
-            { q.answer.map(block =>
-              typeof block === "string"
-                ? <p>{ block }</p>
-                : <ul>{ block.map(item =>
-                    typeof item === "string"
-                      ? <li>{ item }</li>
-                      : <li>{ item[0] }<ul>{ item.slice(1).map(sub => <li>{ sub }</li>) }</ul></li>
-                  ) }</ul>
-            ) }
+            <BodyBlocks blocks={ q.answer } />
           </div>
         </details>
       )) }

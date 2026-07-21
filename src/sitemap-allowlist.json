@@ -1,0 +1,4 @@
+[
+  { "path": "/download/", "locales": "*" },
+  { "path": "/release-notes/desktop/\\d+-\\d+-\\d+/", "locales": ["en"] }
+]

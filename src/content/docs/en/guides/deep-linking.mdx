@@ -1,0 +1,278 @@
+---
+title: Deep Linking
+description: Add a catalog or a publication to Thorium Reader from your own site — links, badge, and web components.
+---
+
+Thorium Reader can be opened directly from a link on your site to add a catalog (OPDS or web) or a single publication, so a reader can add it in one tap without copy-pasting a URL. This guide covers the link format, the two ways to trigger it (HTTPS universal links and a custom scheme), and the two ready-made tools for embedding an "Add to Thorium Reader" badge.
+
+The fastest way to get one: use the [badge generator](/en/badge/) for a static, copy-pasted snippet, or the [`@edrlab/thorium-badges` web components](#edrlabthorium-badges-web-components) if you want the badge to stay in sync with your catalog/publication data. See [The Badge](#the-badge) for details on both.
+
+## The Two Kinds of Link
+
+Every deep link targets one of two actions, each with its own base URL:
+
+| Action | HTTPS universal link | Custom scheme |
+|---|---|---|
+| Add a catalog | `https://www.thoriumreader.com/add/catalog` | `com.thoriumreader:/add/catalog` |
+| Add a publication | `https://www.thoriumreader.com/add/publication` | `com.thoriumreader:/add/publication` |
+
+Both forms take the same query parameters — only the base URL differs.
+
+- **HTTPS universal link** — a normal `https://` URL. On platforms where Thorium Reader is registered as a universal/app link handler, the OS opens the app directly; otherwise the link falls back to the corresponding page on thoriumreader.com, which shows a button that finishes the job via the custom scheme. Use this form when embedding a link on a web page, since custom-scheme URLs can be blocked or flagged by some browsers/platforms if Thorium isn't installed.
+- **Custom scheme** — `com.thoriumreader:/…`. Resolved directly by Thorium Reader if it's installed; does nothing (or is blocked) otherwise. Use this form when you already know Thorium Reader is installed or reachable — for example, from within another native app, or when you're building your own fallback/detection logic.
+
+Two scoped variants of the custom scheme also exist, each handled by only one app: `com.thoriumreader.desktop:` and `com.thoriumreader.mobile:`. They're aliases for platform-to-platform handoffs where the caller already knows which app it's targeting. For a badge or link on a web page, always use the generic `com.thoriumreader:` scheme (or the HTTPS universal link) so it works regardless of which platform the visitor is on.
+
+## Add a Catalog
+
+Base URL: `/add/catalog`.
+
+| Parameter | Required | Description |
+|---|---|---|
+| `title` | ✓ | Catalog display name in Thorium Reader. |
+| `main` / `bookshelf` | one of* | OPDS or web URL to browse the catalog / for the user's bookshelf. |
+| `passphrase` | | Plain-text LCP passphrase. |
+| `hashed_passphrase` | | Pre-hashed LCP passphrase — use instead of `passphrase`. |
+| `open_in` | | How Thorium should open the catalog's URLs: `webview` or `browser`. |
+| `icon` | | Square image URL (PNG or SVG) for the catalog icon. |
+| `banner` | | Banner image URL. |
+| `color` | | Accent color: `gray`, `red`, `yellow`, `blue`, `green`, `purple`, `orange`, or `pink`. |
+
+\* At least one of `main` or `bookshelf` is required.
+
+Try it — this badge adds the Standard Ebooks catalog:
+
+<thorium-badge-catalog
+  title="Standard Ebooks"
+  main="https://standardebooks.org"
+  icon="https://standardebooks.org/apple-touch-icon.png"
+  color="blue"
+></thorium-badge-catalog>
+
+<script type="module" src="https://www.thoriumreader.com/embed/thorium-badges.js"></script>
+
+It was built from this URL:
+
+```text
+https://www.thoriumreader.com/add/catalog
+  ?title=Standard+Ebooks
+  &main=https%3A%2F%2Fstandardebooks.org
+  &icon=https%3A%2F%2Fstandardebooks.org%2Fapple-touch-icon.png
+  &color=blue
+```
+
+### `webview` vs. `browser`
+
+`open_in` controls where Thorium opens the catalog's URLs:
+
+- `webview` — an in-app browser window embedded inside Thorium Reader. The reader stays in context and any session stays contained to the app.
+- `browser` — the user's default system browser, outside Thorium Reader.
+
+`webview` is the better default for a self-contained browsing experience. Prefer `browser` when the catalog relies on an authentication method that doesn't work in embedded web views — most federated sign-in flows (Google Sign-In, and others that enforce Google's "secure browsers" policy) refuse to run inside an embedded webview and only complete in a full system browser. If your catalog gates access behind that kind of login, set `open_in=browser` so users can actually sign in.
+
+## Add a Publication
+
+Base URL: `/add/publication`.
+
+| Parameter | Required | Description |
+|---|---|---|
+| `publication` | ✓ | Direct URL to the publication file. |
+| `title` | | Publication title. |
+| `author` | | Publication author. |
+| `cover` | | Cover image URL. |
+| `passphrase` | | Plain-text LCP passphrase. |
+| `hashed_passphrase` | | Pre-hashed LCP passphrase — use instead of `passphrase`. |
+
+Try it — this badge adds *The Return of Sherlock Holmes* from Standard Ebooks:
+
+<thorium-badge-publication
+  publication="https://standardebooks.org/ebooks/arthur-conan-doyle/the-return-of-sherlock-holmes/downloads/arthur-conan-doyle_the-return-of-sherlock-holmes.epub"
+  title="The Return of Sherlock Holmes"
+  author="Arthur Conan Doyle"
+  cover="https://standardebooks.org/images/covers/arthur-conan-doyle_the-return-of-sherlock-holmes/d71b38fc2f07bc237fcafa4e90ba0931efb0b3c6/cover@2x.avif"
+></thorium-badge-publication>
+
+It was built from this URL:
+
+```text
+https://www.thoriumreader.com/add/publication
+  ?publication=https%3A%2F%2Fstandardebooks.org%2Febooks%2Farthur-conan-doyle%2Fthe-return-of-sherlock-holmes%2Fdownloads%2Farthur-conan-doyle_the-return-of-sherlock-holmes.epub
+  &title=The+Return+of+Sherlock+Holmes
+  &author=Arthur+Conan+Doyle
+  &cover=https%3A%2F%2Fstandardebooks.org%2Fimages%2Fcovers%2Farthur-conan-doyle_the-return-of-sherlock-holmes%2Fd71b38fc2f07bc237fcafa4e90ba0931efb0b3c6%2Fcover%402x.avif
+```
+
+## Platform Support
+
+Use the full set of parameters you'd like to provide — it's the best way to get the richest result wherever it's supported. A platform that doesn't yet honor a given parameter simply ignores it, and support is expected to broaden over time.
+
+## The Badge
+
+An "Add to Thorium Reader" badge is a small SVG button (the Thorium logo plus localized "Add to Thorium Reader" text) that links to one of the URLs above. There are two ways to get one, depending on whether you want a one-off link or a live component.
+
+### Generator Pages
+
+The [badge generator](/en/badge/) hosts two form-based generators, one for catalogs and one for publications. Fill in the fields and the page renders a live SVG preview plus an HTML snippet — an `<a>` wrapping the inline SVG, pointed at the HTTPS universal link — ready to paste into any page. The badge's text is rendered in whichever locale is selected in the generator, independently of the page's own locale.
+
+Use this when you want a static, copy-pasted badge with no build step or JavaScript dependency on your page.
+
+### `@edrlab/thorium-badges` Web Components
+
+For sites that want the badge to stay in sync with catalog/publication data (rather than a one-time generated snippet), the `@edrlab/thorium-badges` package provides two custom elements: `<thorium-badge-catalog>` and `<thorium-badge-publication>`. Each renders as a link — the inline SVG badge wrapped in an `<a>` to the corresponding HTTPS universal link — built from its attributes.
+
+```html
+<thorium-badge-catalog
+  title="My Library"
+  main="https://example.com/catalog"
+></thorium-badge-catalog>
+
+<thorium-badge-publication
+  publication="https://example.com/book.epub"
+  title="My Book"
+  author="Jane Doe"
+></thorium-badge-publication>
+```
+
+Load it either as a module import (registers the elements as a side effect):
+
+```js
+import "@edrlab/thorium-badges";
+```
+
+or with a plain `<script src>` and no build step:
+
+```html
+<script src="https://www.thoriumreader.com/embed/thorium-badges.js"></script>
+```
+
+#### `<thorium-badge-catalog>` Attributes
+
+| Attribute | Required | Description |
+|---|---|---|
+| `title` | ✓ | Catalog display name. |
+| `main` / `bookshelf` | one of | OPDS or web URL to browse the catalog and/or access the user's bookshelf. |
+| `passphrase` | | Plain-text passphrase, if the feed is protected. |
+| `hashed-passphrase` | | Pre-hashed passphrase, as an alternative to `passphrase`. |
+| `open-in` | | Where Thorium should open the catalog. |
+| `icon` | | URL of an icon to show for the catalog. |
+| `banner` | | URL of a banner image. |
+| `color` | | Accent color for the catalog entry. |
+| `lang` | | Badge locale (`"auto"` to detect from the browser; unset behaves the same as `"auto"`). |
+
+Throws if `title`, or at least one of `main`/`bookshelf`, isn't set.
+
+A catalog that also exposes the user's bookshelf, so both are added from a single badge:
+
+```html
+<thorium-badge-catalog
+  title="My Library"
+  main="https://example.com/catalog"
+  bookshelf="https://example.com/catalog/bookshelf"
+></thorium-badge-catalog>
+```
+
+A passphrase-protected catalog — pass `hashed-passphrase` instead of `passphrase` to avoid putting the plain-text secret in your page's source:
+
+```html
+<thorium-badge-catalog
+  title="My Library"
+  main="https://example.com/catalog"
+  hashed-passphrase="a1b2c3d4e5f6..."
+></thorium-badge-catalog>
+```
+
+A catalog gated behind a login that doesn't work in an embedded webview (see [`webview` vs. `browser`](#webview-vs-browser)) — `open-in="browser"` opens it in the system browser instead:
+
+```html
+<thorium-badge-catalog
+  title="My Library"
+  main="https://example.com/catalog"
+  open-in="browser"
+></thorium-badge-catalog>
+```
+
+A catalog with its own icon, banner, and accent color, shown wherever Thorium Reader lists the catalog:
+
+```html
+<thorium-badge-catalog
+  title="My Library"
+  main="https://example.com/catalog"
+  icon="https://example.com/icon.png"
+  banner="https://example.com/banner.png"
+  color="blue"
+></thorium-badge-catalog>
+```
+
+A badge that matches the visitor's browser language instead of a fixed locale:
+
+```html
+<thorium-badge-catalog
+  title="My Library"
+  main="https://example.com/catalog"
+  lang="auto"
+></thorium-badge-catalog>
+```
+
+#### `<thorium-badge-publication>` Attributes
+
+| Attribute | Required | Description |
+|---|---|---|
+| `publication` | ✓ | Direct URL to the publication file. |
+| `title` | | Publication title. |
+| `author` | | Publication author. |
+| `cover` | | URL of the cover image. |
+| `passphrase` | | Plain-text passphrase, if the publication is protected. |
+| `hashed-passphrase` | | Pre-hashed passphrase, as an alternative to `passphrase`. |
+| `lang` | | Badge locale (`"auto"` to detect from the browser; unset behaves the same as `"auto"`). |
+
+Throws if `publication` isn't set.
+
+A publication with a cover, shown while Thorium Reader fetches the file itself:
+
+```html
+<thorium-badge-publication
+  publication="https://example.com/book.epub"
+  title="My Book"
+  author="Jane Doe"
+  cover="https://example.com/cover.jpg"
+></thorium-badge-publication>
+```
+
+A passphrase-protected publication — pass `hashed-passphrase` instead of `passphrase` to avoid putting the plain-text secret in your page's source:
+
+```html
+<thorium-badge-publication
+  publication="https://example.com/book.epub"
+  title="My Book"
+  hashed-passphrase="a1b2c3d4e5f6..."
+></thorium-badge-publication>
+```
+
+A badge that matches the visitor's browser language instead of a fixed locale:
+
+```html
+<thorium-badge-publication
+  publication="https://example.com/book.epub"
+  title="My Book"
+  lang="auto"
+></thorium-badge-publication>
+```
+
+Any attribute pointing to a URL (`main`, `bookshelf`, `icon`, `banner`, `publication`, `cover`) is validated and throws if it isn't well-formed.
+
+Note that attribute names are kebab-case (`hashed-passphrase`, `open-in`) while the equivalent query parameters on the deep link itself are snake_case (`hashed_passphrase`, `open_in`) — the element translates between the two when it builds the link.
+
+### Localization
+
+Supported `lang` values are `en`, `fr`, and `it`.
+
+- Set `lang` to one of those codes to force that locale.
+- Leaving `lang` unset, or setting it to `"auto"`, matches the visitor's browser language (`navigator.languages`) against the supported list, using the first match.
+- If that match fails to find a supported locale — or `lang` is any other unsupported value — the badge falls back to `en`.
+
+## Pages
+
+Two pairs of pages support deep linking on thoriumreader.com itself:
+
+- **`/badge/catalog` and `/badge/publication`** — the generator forms described above.
+- **`/add/catalog` and `/add/publication`** — the HTTPS universal link targets. Each is a normal page that reads its own query string, shows an "Add to Thorium Reader" button built from the custom-scheme link plus the same query string, and displays download links for Thorium Reader below it. This is the fallback a visitor lands on when the universal link isn't intercepted by an installed app — for example, on a platform without Thorium Reader, or in a browser that doesn't support the underlying app-link mechanism.

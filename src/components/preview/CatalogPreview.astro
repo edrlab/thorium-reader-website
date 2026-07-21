@@ -1,0 +1,83 @@
+---
+import { previewColors } from "./preview-colors.js";
+import brokenImageIcon from "./assets/icons/broken_image.svg?raw";
+
+interface Props {
+  id?: string;
+  titleFallback: string;
+}
+
+const { id = "catalog-preview", titleFallback } = Astro.props;
+const { foreground, backgroundStart, backgroundEnd } = previewColors.gray;
+---
+
+<div
+  id={ id }
+  class="catalog-preview"
+  data-title-fallback={ titleFallback }
+  style={`--preview-fg:${ foreground };--preview-bg-start:${ backgroundStart };--preview-bg-end:${ backgroundEnd }`}
+>
+  <div class="catalog-preview-main">
+    <span class="catalog-preview-image">
+      <img class="catalog-preview-image-img" alt="" hidden />
+      <span class="catalog-preview-image-placeholder" aria-hidden="true" set:html={ brokenImageIcon }></span>
+    </span>
+    <div class="catalog-preview-text">
+      <p class="catalog-preview-title"></p>
+    </div>
+  </div>
+  <div class="catalog-preview-badge">
+    <slot />
+  </div>
+</div>
+
+<script>
+  import { previewColors } from "./preview-colors.js";
+
+  function isHttpUrl(value: string): boolean {
+    try {
+      return ["http:", "https:"].includes(new URL(value).protocol);
+    } catch {
+      return false;
+    }
+  }
+
+  document.querySelectorAll<HTMLElement>(".catalog-preview[data-title-fallback]").forEach((el) => {
+    if (!window.location.search) {
+      el.setAttribute("hidden", "");
+      return;
+    }
+
+    const titleFallback = el.dataset.titleFallback ?? "";
+    const params = new URLSearchParams(window.location.search);
+
+    const titleEl = el.querySelector<HTMLElement>(".catalog-preview-title");
+    if (titleEl) titleEl.textContent = params.get("title") || titleFallback;
+
+    const color = params.get("color");
+    if (color && Object.hasOwn(previewColors, color)) {
+      const { foreground, backgroundStart, backgroundEnd } = previewColors[color];
+      el.style.setProperty("--preview-fg", foreground);
+      el.style.setProperty("--preview-bg-start", backgroundStart);
+      el.style.setProperty("--preview-bg-end", backgroundEnd);
+    }
+
+    const imageParam = params.get("icon");
+    const img = el.querySelector<HTMLImageElement>(".catalog-preview-image-img");
+    const placeholder = el.querySelector<HTMLElement>(".catalog-preview-image-placeholder");
+    if (img && placeholder && imageParam && isHttpUrl(imageParam)) {
+      // Keep the placeholder showing until the image actually finishes loading,
+      // rather than revealing it optimistically and risking a flash of a broken
+      // image icon if the URL turns out not to be fetchable.
+      img.addEventListener("load", () => {
+        img.hidden = false;
+        placeholder.setAttribute("hidden", "");
+      });
+      img.addEventListener("error", () => {
+        img.hidden = true;
+        placeholder.removeAttribute("hidden");
+      });
+      img.src = imageParam;
+    }
+  });
+</script>

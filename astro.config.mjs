@@ -1,9 +1,12 @@
 import { defineConfig, fontProviders } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
+import starlight from "@astrojs/starlight";
+import { unified } from "@astrojs/markdown-remark";
 import remarkCustomHeaderId from "remark-custom-header-id";
 import { defaultLocale, locales, bcp47Locale } from "./src/i18n/locales.js";
-import { discordHref } from "./src/links.js";
+import { discordHref, githubHref } from "./src/links.js";
+import sitemapAllowlist from "./src/sitemap-allowlist.json" with { type: "json" };
 
 export default defineConfig({
   fonts: [
@@ -27,10 +30,40 @@ export default defineConfig({
   site: "https://www.thoriumreader.com",
   output: "static",
   integrations: [
+    starlight({
+      disable404Route: true,
+      title: "Thorium Reader Guides",
+      logo: {
+        light: "./src/components/logos/assets/logo-thorium-reader-light-mode.webp",
+        dark: "./src/components/logos/assets/logo-thorium-reader.webp",
+        replacesTitle: true,
+      },
+      social: [
+        { icon: "discord", label: "Discord", href: discordHref },
+        { icon: "github", label: "GitHub", href: githubHref },
+      ],
+      customCss: ["./src/styles/starlight.css"],
+      components: {
+        Head: "./src/components/starlight/Head.astro",
+        FallbackContentNotice: "./src/components/starlight/FallbackContentNotice.astro",
+      },
+      sidebar: [
+        {
+          label: "Guides",
+          items: [{ autogenerate: { directory: "guides" } }],
+        },
+      ],
+    }),
     mdx(),
     sitemap({
+      // Each allowlist entry lists the locales it applies to ("*" = every locale
+      // in src/i18n/locales.ts). path is a regex fragment matched against the pathname.
       filter: (page) =>
-        locales.some((l) => page.startsWith(`https://www.thoriumreader.com/${ l }/`)),
+        sitemapAllowlist.some(({ path: pattern, locales: allowedLocales }) =>
+          (allowedLocales === "*" ? locales : allowedLocales).some((l) =>
+            new RegExp(`^https://www\\.thoriumreader\\.com/${ l }${ pattern }$`).test(page),
+          ),
+        ),
       i18n: {
         defaultLocale,
         locales: Object.fromEntries(locales.map((l) => [l, bcp47Locale[l]])),
@@ -49,6 +82,8 @@ export default defineConfig({
     },
   },
   markdown: {
-    remarkPlugins: [remarkCustomHeaderId],
+    processor: unified({
+      remarkPlugins: [remarkCustomHeaderId],
+    }),
   },
 });

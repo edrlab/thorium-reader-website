@@ -1,6 +1,8 @@
 import { defineCollection } from "astro:content";
 import { z } from "astro/zod";
 import { glob } from "astro/loaders";
+import { docsLoader } from "@astrojs/starlight/loaders";
+import { docsSchema } from "@astrojs/starlight/schema";
 
 const releaseNotes = defineCollection({
   loader: glob({ pattern: "*/*/*.md", base: "src/content/release-notes" }),
@@ -28,8 +30,14 @@ const legalsPages = defineCollection({
   }),
 });
 
+const docs = defineCollection({
+  loader: docsLoader(),
+  schema: docsSchema(),
+});
+
 export const collections = {
   "release-notes": releaseNotes,
   "platform-conformance": platformConformance,
   "legals-pages": legalsPages,
+  docs,
 };

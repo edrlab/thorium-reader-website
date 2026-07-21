@@ -44,6 +44,18 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
           <fieldset>
             <legend>{ t(lang, "badge.catalog.form.legend") }</legend>
 
+            <SelectField
+              id="badge-integration"
+              name="integration"
+              label={ t(lang, "badge.shared.integration.label") }
+              options={[
+                { value: "link",         label: t(lang, "badge.shared.integration.link") },
+                { value: "webcomponent", label: t(lang, "badge.shared.integration.webcomponent") },
+              ]}
+              selectedValue="link"
+              hint={ t(lang, "badge.shared.integration.hint") }
+            />
+
             <Field
               id="catalog-title"
               name="title"
@@ -147,21 +159,33 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
   import { makeSVG, esc, catalogParamAttrs, catalogIsValid } from "../../../../packages/thorium-badges/src/badge-svg.js";
   import { interpolate } from "../../../i18n/utils.js";
 
-  const dataEl               = document.getElementById("badge-data") as HTMLElement;
-  const badgeTexts           = JSON.parse(dataEl.dataset.badgeTexts!);
+  const dataEl                  = document.getElementById("badge-data") as HTMLElement;
+  const badgeTexts              = JSON.parse(dataEl.dataset.badgeTexts!);
   const addCatalogUniversalLink = dataEl.dataset.universalLink;
-  const addCatalogScheme     = dataEl.dataset.scheme;
+  const addCatalogScheme        = dataEl.dataset.scheme;
 
-  const form            = document.getElementById("badge-form") as HTMLFormElement;
-  const previewEl       = document.getElementById("preview-badge") as HTMLElement;
-  const embedCode       = document.getElementById("embed-code") as HTMLElement;
-  const webcomponentCode = document.getElementById("webcomponent-code") as HTMLElement;
-  const langSelect      = form.querySelector("[name=lang]") as HTMLSelectElement;
+  const form                      = document.getElementById("badge-form") as HTMLFormElement;
+  const previewEl                 = document.getElementById("preview-badge") as HTMLElement;
+  const embedCode                 = document.getElementById("embed-code") as HTMLElement;
+  const embedCodeHintLink         = document.getElementById("embed-code-hint-link") as HTMLElement;
+  const embedCodeHintWebcomponent = document.getElementById("embed-code-hint-webcomponent") as HTMLElement;
+  const langSelect                = form.querySelector("[name=lang]") as HTMLInputElement;
+  const integrationSelect         = form.querySelector("[name=integration]") as HTMLInputElement;
 
-  // The lang select is pre-filled with the generator page's own locale, not
-  // an explicit user choice, so only emit the web component's "lang"
-  // attribute once the visitor has actually interacted with that control.
-  let langTouched = false;
+  // The "auto" language only makes sense for the web component (its text
+  // renders client-side); the link/embed SVG bakes text in at generation
+  // time, so it needs a concrete locale.
+  const langWrapper      = (document.getElementById("badge-lang") as HTMLElement).closest("[data-custom-select]") as HTMLElement;
+  const autoLangOption   = langWrapper.querySelector('[data-value="auto"]') as HTMLElement;
+  const defaultLangValue = langWrapper.querySelector('[aria-selected="true"]')?.getAttribute("data-value") ?? "en";
+
+  function setAutoLangAvailable(available: boolean) {
+    autoLangOption.hidden = !available;
+    const target = available
+      ? autoLangOption
+      : langWrapper.querySelector(`[data-value="${ defaultLangValue }"]`) as HTMLElement | null;
+    target?.click();
+  }
 
   // Attribute names use the custom element's kebab-case convention (e.g.
   // "hashed-passphrase"); form field names use the matching snake_case.
@@ -174,8 +198,9 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
   }
 
   function update() {
-    const selectedLang = langSelect.value;
-    const title        = get("title");
+    const selectedLang   = langSelect.value;
+    const isWebComponent = integrationSelect.value === "webcomponent";
+    const title           = get("title");
 
     const { line1, line2, alt } = badgeTexts[selectedLang] ?? Object.values(badgeTexts)[0];
     const svgTitle = title ? interpolate(alt, { name: title }) : `${ line1 } ${ line2 }`;
@@ -196,24 +221,30 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
       ? `<a href="${ esc(previewLink) }">${ svg }</a>`
       : svg;
 
-    embedCode.textContent = embedLink
-      ? `<a href="${ esc(embedLink) }">\n  ${ svg }\n</a>`
-      : "";
+    embedCodeHintLink.hidden = isWebComponent;
+    embedCodeHintWebcomponent.hidden = !isWebComponent;
 
-    const wcAttrs = [...catalogParamAttrs.map(([attr]) => attr), "lang"]
-      .map((attr) => [attr, attr === "lang" ? (langTouched ? selectedLang : "") : get(attr)])
-      .filter(([, value]) => value)
-      .map(([attr, value]) => `  ${ attr }="${ esc(value) }"`)
-      .join("\n");
+    if (isWebComponent) {
+      const wcAttrs = [...catalogParamAttrs.map(([attr]) => attr), "lang"]
+        .map((attr) => [attr, attr === "lang" ? selectedLang : get(attr)])
+        .filter(([, value]) => value)
+        .map(([attr, value]) => `  ${ attr }="${ esc(value) }"`)
+        .join("\n");
 
-    webcomponentCode.textContent = hasParams
-      ? `<thorium-badge-catalog\n${ wcAttrs }\n></thorium-badge-catalog>`
-      : "";
+      embedCode.textContent = hasParams
+        ? `<thorium-badge-catalog\n${ wcAttrs }\n></thorium-badge-catalog>`
+        : "";
+    } else {
+      embedCode.textContent = embedLink
+        ? `<a href="${ esc(embedLink) }">\n  ${ svg }\n</a>`
+        : "";
+    }
   }
 
   form.addEventListener("input", (e) => {
-    if (e.target === langSelect) langTouched = true;
+    if (e.target === integrationSelect) setAutoLangAvailable(integrationSelect.value === "webcomponent");
     update();
   });
+  setAutoLangAvailable(integrationSelect.value === "webcomponent");
   update();
 </script>

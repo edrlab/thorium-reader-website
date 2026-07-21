@@ -29,26 +29,37 @@
     },
     "footer": {
         "legal": "Legal Notices",
-        "accessibility": "Accessibility"
+        "accessibility": "Accessibility",
+        "guides": "Developer Guides"
     },
     "home": {
         "hero": {
-            "title": "Read It Your Way",
+            "title": "Thorium Reader",
             "subtitle": "More than a reading app, a new home for all your ebooks, audiobooks, comics and manga."
         },
         "features": {
             "customize": {
-                "title": "Your Books, Your Rules",
+                "title": "Read it your way",
                 "body": [
-                    "With Thorium Reader, you can switch between reading or listening whenever you want… or even do both at the same time.",
-                    "Take full control of your reading experience with easy to use, yet powerful, user settings."
+                    "Everyone’s different, that’s why we want you to be fully in control:",
+                    [
+                        "Adjust text size, switch between color schemes with themes and control spacing.",
+                        "10+ fonts available, including specialized ones.",
+                        "You'd rather listen to your book? No problem, just hit the listen button at any point.",
+                        "Full keyboard navigation with custom shortcuts.",
+                        "Accessibility is not an afterthought with Thorium Reader, we support JAWS, NVDA, Narrator and VoiceOver."
+                    ]
                 ]
             },
             "library": {
                 "title": "Bring Your Own Books",
                 "body": [
-                    "We built a place where all books are welcome.",
-                    "Download on the Web, borrow from a library, buy from a bookstore… but read them all in Thorium Reader."
+                    "We built a place where all books are welcome:",
+                    [
+                        "Support for ebooks, audiobooks, comics, manga and documents.",
+                        "Import your EPUB, PDF, CBZ and audiobook files.",
+                        "Support for Readium LCP, used by thousands of libraries and retailers."
+                    ]
                 ]
             }
         },
@@ -70,7 +81,7 @@
                 "body": "Thorium Reader is available on the App Store for iOS, iPadOS and macOS devices running on Apple Silicon."
             },
             "desktop": {
-                "title": "Windows, macOS, and Linux",
+                "title": "Windows, macOS and Linux",
                 "body": [
                     "If you're on Windows, we recommend getting Thorium Reader from the Microsoft Store.",
                     "Direct downloads are also available for Windows, macOS and Linux."
@@ -134,13 +145,25 @@
     "add": {
         "catalog": {
             "title": "Add Catalog to Thorium Reader",
-            "subtitle": "You are trying to add {{catalogName}} to Thorium Reader but you must download the app first.",
-            "fallbackName": "this catalog"
+            "body": [
+                "You are trying to add {{catalogName}} to Thorium Reader.",
+                "If you've already installed Thorium Reader on your device, click on {{thisLink}} to try again.",
+                "Don't have Thorium Reader installed yet? Follow the instructions on this page."
+            ],
+            "thisLink": "this link",
+            "fallbackName": "this catalog",
+            "invalidBody": "This link is missing the information needed to add a catalog to Thorium Reader. Please go back to the app or website you came from and try again."
         },
         "publication": {
             "title": "Add Publication to Thorium Reader",
-            "subtitle": "You are trying to add {{publicationTitle}} to Thorium Reader but you must download the app first.",
-            "fallbackName": "this publication"
+            "body": [
+                "You are trying to add {{publicationTitle}} to Thorium Reader.",
+                "If you've already installed Thorium Reader on your device, click on {{thisLink}} to try again.",
+                "Don't have Thorium Reader installed yet? Follow the instructions on this page."
+            ],
+            "thisLink": "this link",
+            "fallbackName": "this publication",
+            "invalidBody": "This link is missing the information needed to add a publication to Thorium Reader. Please go back to the app or website you came from and try again."
         }
     },
     "badge": {
@@ -254,7 +277,14 @@
                 "hint": "Optional. A pre-hashed passphrase. Use this instead of the plain-text passphrase if you do not want to expose it."
             },
             "lang": {
-                "label": "Badge language"
+                "label": "Badge language",
+                "auto": "Automatic (visitor's browser language)"
+            },
+            "integration": {
+                "label": "Integration type",
+                "link": "Link",
+                "webcomponent": "Web Component",
+                "hint": "How you'll embed the badge on your page."
             },
             "button": "Add to Thorium Reader",
             "buttonLine1": "Add to",
@@ -271,8 +301,8 @@
                 "copied": "Copied!"
             },
             "webcomponent": {
-                "title": "Web component",
-                "hint": "Copy and paste this snippet into your page. Requires loading @edrlab/thorium-badges (npm import or your own <script> tag)."
+                "hint": "Copy and paste this snippet into your page. Requires loading @edrlab/thorium-badges (npm import or your own script tag). See the {{devguides}} for details.",
+                "devguides": "developer guides"
             }
         }
     },

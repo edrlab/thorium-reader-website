@@ -55,6 +55,32 @@ export function interpolate(template: string, values: Record<string, string>): s
   );
 }
 
+export interface LinkSlot {
+  href: string;
+  text: string;
+}
+
+export type LinkSegment<T extends LinkSlot = LinkSlot> = string | ({ type: "link" } & T);
+
+// Splits a translated template on "{{key}}" placeholders into plain-text
+// and link segments, so translator-supplied text is only ever rendered as
+// text (never parsed as HTML) while the link's own markup stays under
+// caller control.
+export function splitLinks<T extends LinkSlot>(template: string, slots: Record<string, T>): LinkSegment<T>[] {
+  const pattern = /\{\{\s*(\w+)\s*\}\}/g;
+  const segments: LinkSegment<T>[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  while ((match = pattern.exec(template))) {
+    if (match.index > lastIndex) segments.push(template.slice(lastIndex, match.index));
+    const slot = slots[match[1]];
+    segments.push(slot ? { type: "link", ...slot } : match[0]);
+    lastIndex = pattern.lastIndex;
+  }
+  if (lastIndex < template.length) segments.push(template.slice(lastIndex));
+  return segments;
+}
+
 export function getPlatforms<T extends { id: string }>(entries: T[]): string[] {
   return [...new Set(entries.map((entry) => entry.id.split("/")[0]))].sort((a, b) => a.localeCompare(b));
 }

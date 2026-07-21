@@ -21,6 +21,7 @@ const lang = Astro.currentLocale ?? "en";
 const year = new Date().getFullYear();
 const conformancePath = getRelativeLocaleUrl(lang, "legals");
 const accessibilityPath = getRelativeLocaleUrl(lang, "accessibility");
+const guidesPath = getRelativeLocaleUrl(lang, "guides");
 ---
 
 <div class:list={["footer-top", { "has-image": image, clipped: image && clip }]}>
@@ -57,5 +58,7 @@ const accessibilityPath = getRelativeLocaleUrl(lang, "accessibility");
     <a href={ conformancePath }>{ t(lang, "footer.legal") }</a>
     <span aria-hidden="true" style="padding-inline: 0.5rem">|</span>
     <a href={ accessibilityPath }>{ t(lang, "footer.accessibility") }</a>
+    <span aria-hidden="true" style="padding-inline: 0.5rem">|</span>
+    <a href={ guidesPath }>{ t(lang, "footer.guides") }</a>
   </div>
 </footer>

@@ -1,11 +1,13 @@
 ---
+import BodyBlocks, { type BodyBlock } from "./BodyBlocks.astro";
+
 interface Props {
   title: string;
-  body: string | string[];
+  body: string | BodyBlock[];
 }
 
 const { title, body } = Astro.props;
-const paragraphs = Array.isArray(body) ? body : [body];
+const blocks = Array.isArray(body) ? body : [body];
 ---
 
 <section class="cta-section">
@@ -14,7 +16,7 @@ const paragraphs = Array.isArray(body) ? body : [body];
   <div class="cta-inner">
     <div class="container cta-text">
       <h2>{ title }</h2>
-      { paragraphs.map((p) => <p>{ p }</p>) }
+      <BodyBlocks blocks={ blocks } />
       <slot name="actions" />
     </div>
   </div>
