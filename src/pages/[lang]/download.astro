@@ -13,7 +13,7 @@ export function getStaticPaths() {
 const lang = Astro.currentLocale ?? "en";
 ---
 
-<Layout>
+<Layout title={ t(lang, "download.header.title") }>
   <PageHeader class="download-page-header" title={ t(lang, "download.header.title") } />
 
   <DownloadContent lang={ lang } />

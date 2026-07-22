@@ -19,7 +19,7 @@ const notes = localizeCollection<CollectionEntry<"release-notes">>(allNotes, lan
 const platformName = t(lang, `platform.names.${ platform }`) as string;
 ---
 
-<Layout title={ t(lang, "release-notes.title") }>
+<Layout title={ `${ platformName } — ${ t(lang, "release-notes.title") }` }>
   <section class="platform-index container">
     <h1>{ platformName } — { t(lang, "release-notes.title") }</h1>
     <ul>
