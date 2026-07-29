@@ -218,7 +218,8 @@
                 "hint": "Facoltativo. Una passphrase pre-crittografata. Utilizzala al posto della passphrase in chiaro se non desideri visualizzarla."
             },
             "lang": {
-                "label": "Lingua del badge"
+                "label": "Lingua del badge",
+                "auto": "Automatico (la lingua selezionata per il navigatore)"
             },
             "button": "Aggiungi a Thorium Reader",
             "buttonLine1": "Aggiungi a",
@@ -236,7 +237,14 @@
             },
             "webcomponent": {
                 "title": "Web component",
-                "hint": "Copia e incolla questo frammento di codice sorgente sulla tua pagina. Richiede il caricamento di @edrlab/thorium-badges (npm import o il tuo tag <script>)."
+                "hint": "Copia e incolla questo frammento di codice sorgente sulla tua pagina. Richiede il caricamento di @edrlab/thorium-badges (npm import o il tuo tag <script>).",
+                "devguides": "Guida per gli sviluppatori"
+            },
+            "integration": {
+                "label": "Tipo d'integrazione",
+                "link": "Link",
+                "webcomponent": "Web Component",
+                "hint": "Come desideri aggiungere il badge sulla tua pagina."
             }
         },
         "index": {
@@ -364,7 +372,8 @@
     },
     "footer": {
         "legal": "Note legali",
-        "accessibility": "Accessibilità"
+        "accessibility": "Accessibilità",
+        "guides": "Guida per gli sviluppatori"
     },
     "lang": {
         "label": "Lingua"
@@ -381,12 +390,26 @@
         "catalog": {
             "title": "Aggiungi catalogo a Thorium Reader",
             "subtitle": "Se desideri aggiungere {{catalogName}} a Thorium Reader devi prima scaricare l'app.",
-            "fallbackName": "questo catalogo"
+            "fallbackName": "questo catalogo",
+            "body": [
+                "Stai aggiungendo {{catalogName}} a Thorium Reader.",
+                "Se hai già installato Thorium Reader sul tuo dispositivo, clicca su {{thisLink}} per riprovare.",
+                "Non hai ancora installato Thorium Reader? Segui le istruzioni su questa pagina."
+            ],
+            "thisLink": "questo link",
+            "invalidBody": "Questo link non dispone delle informazioni necessarie per essere aggiunto su Thorium Reader. Si prega di ritornare sull'app o il sito web d'origine per provare di nuovo."
         },
         "publication": {
             "title": "Aggiungi la pubblicazione su Thorium Reader",
             "subtitle": "Se desideri aggiungere {{publicationTitle}} su Thorium Reader devi prima scaricare l'app.",
-            "fallbackName": "questa pubblicazione"
+            "fallbackName": "questa pubblicazione",
+            "body": [
+                "Stai aggiungendo {{publicationTitle}} a Thorium Reader.",
+                "Se hai già installato Thorium Reader sul tuo dispositivo, clicca su {{thisLink}} per riprovare.",
+                "Non hai ancora installato Thorium Reader? Segui le istruzioni presenti su questa pagina."
+            ],
+            "thisLink": "questo link",
+            "invalidBody": "Questo link non dispone delle informazioni necessarie per aggiungere la pubbliazione su Thorium Reader. Si prega di ritornare sull'app o il sito web d'origine per provare di nuovo."
         }
     },
     "platform": {
