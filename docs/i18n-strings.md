@@ -50,7 +50,7 @@ Body text that spans multiple paragraphs is stored as an array:
 }
 ```
 
-`t()` returns the array as-is; map over it to render each paragraph.
+`t()` returns the array as-is. Any prop rendered through `BodyBlocks` (`HeroSection`, `FeatureSection`, `CTASection`, `PageHeader`, `PageIntro`, and FAQ `answer`s — see [components.md](components.md#componentssectionsbodyblocksastro)) accepts this same array as its body content, including the list and nested-list forms described under [FAQ entries](#faq-entries) below — nesting isn't FAQ-specific, it works anywhere a `body`/`intro` prop takes a `BodyBlock[]`.
 
 ## Interpolation
 
@@ -82,9 +82,9 @@ Locale-specific image alt strings live under the `alts` top-level key, keyed by 
 
 ## FAQ entries
 
-FAQ items live under `faq.items` and support up to two levels of list nesting inside the `answer` array.
+FAQ items live under `faq.items` and support up to two levels of list nesting inside the `answer` array. This is the same `BodyBlock[]` format used by any `body`/`intro` prop rendered through `BodyBlocks` — the nesting rules below apply there too.
 
-Each element of `answer` is a block — either a paragraph or a list:
+Each element of `answer` (or `body`) is a block — either a paragraph or a list:
 
 **Paragraph** — a plain string renders as `<p>`:
 

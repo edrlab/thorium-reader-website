@@ -30,7 +30,7 @@ Full-width hero with a title, body text, and an image.
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `title` | `string` | — | Heading text |
-| `body` | `string \| string[]` | — | Body paragraph(s) |
+| `body` | `string \| BodyBlock[]` | — | Body content — see [`BodyBlocks`](#componentssectionsbodyblocksastro) |
 | `image` | `{ src: ImageMetadata; alt: string }` | — | Hero image |
 | `clipImage` | `boolean` | `false` | Applies a clip-path to the image |
 
@@ -49,7 +49,7 @@ Two-column feature block with text and a decoration or image.
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `title` | `string` | — | Section heading |
-| `body` | `string \| string[]` | — | Body paragraph(s) |
+| `body` | `string \| BodyBlock[]` | — | Body content — see [`BodyBlocks`](#componentssectionsbodyblocksastro) |
 | `id` | `string` | — | HTML `id` on the section element |
 | `class` | `string` | — | Extra CSS classes |
 | `reverse` | `boolean` | `false` | Puts the media column on the left |
@@ -73,7 +73,7 @@ Call-to-action band with optional border graphics and a media column.
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `title` | `string` | — | Heading |
-| `body` | `string \| string[]` | — | Body paragraph(s) |
+| `body` | `string \| BodyBlock[]` | — | Body content — see [`BodyBlocks`](#componentssectionsbodyblocksastro) |
 
 **Slots**
 
@@ -93,7 +93,7 @@ Introductory header used at the top of interior pages.
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `title` | `string` | — | Page title |
-| `body` | `string \| string[]` | — | Optional subtitle |
+| `body` | `string \| BodyBlock[]` | — | Optional subtitle — see [`BodyBlocks`](#componentssectionsbodyblocksastro) |
 | `class` | `string` | — | Extra CSS classes |
 
 **Slots**
@@ -101,6 +101,17 @@ Introductory header used at the top of interior pages.
 | Slot | Description |
 |------|-------------|
 | *(default)* | Additional content below the body |
+
+---
+
+### `components/sections/PageIntro.astro`
+
+Title plus intro text, rendered via `BodyBlocks`. Used at the top of interior pages that don't need `PageHeader`'s extra styling.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `title` | `string` | — | Page title |
+| `intro` | `string \| BodyBlock[]` | — | Optional intro content — see [`BodyBlocks`](#componentssectionsbodyblocksastro) |
 
 ---
 
@@ -132,8 +143,28 @@ Accordion-style FAQ list.
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `title` | `string` | — | Section heading |
-| `items` | `{ question: string; answer: FAQBlock[] }[]` | — | FAQ entries |
+| `items` | `{ question: string; answer: BodyBlock[] }[]` | — | FAQ entries — `answer` is rendered via [`BodyBlocks`](#componentssectionsbodyblocksastro) |
 | `class` | `string` | — | Extra CSS classes |
+
+---
+
+### `components/sections/BodyBlocks.astro`
+
+Shared renderer for body content: a mix of paragraphs and up to two levels of nested lists. Used internally by `HeroSection`, `FeatureSection`, `CTASection`, `PageHeader`, `PageIntro`, and `FAQ` — any `body`/`intro`/`answer` prop typed `string | BodyBlock[]` accepts this format.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `blocks` | `BodyBlock[]` | — | Blocks to render |
+
+```ts
+type BodyListItem = string | string[];
+type BodyBlock    = string | BodyListItem[];
+```
+
+- A `string` block renders as a `<p>`.
+- A `BodyListItem[]` block renders as a `<ul>`. Each item is either a `string` (`<li>`) or a `string[]` — the first element is the parent `<li>` text, the rest render as a nested `<ul>`.
+
+See [i18n-strings.md](i18n-strings.md#arrays) for the equivalent JSON shape.
 
 ---
 

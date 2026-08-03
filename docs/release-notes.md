@@ -6,7 +6,7 @@ See [Adding a Platform](adding-a-platform.md) if you're introducing release note
 
 ## Steps
 
-1. Create a new file named after the version: `src/content/release-notes/desktop/en/X.Y.Z.md`
+1. Create a new file named after the version, with dots replaced by dashes: `src/content/release-notes/desktop/en/X-Y-Z.md`
 2. Copy the frontmatter from an existing file and update the three fields:
 
 ```md
