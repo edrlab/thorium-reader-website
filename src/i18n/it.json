@@ -237,7 +237,7 @@
             },
             "webcomponent": {
                 "title": "Web component",
-                "hint": "Copia e incolla questo frammento di codice sorgente sulla tua pagina. Richiede il caricamento di @edrlab/thorium-badges (npm import o il tuo tag <script>).",
+                "hint": "Copia e incolla questo frammento di codice sorgente sulla tua pagina. Richiede il caricamento di @edrlab/thorium-badges (npm import o il tuo script tag). Consulta la {{devguides}} per i dettagli.",
                 "devguides": "Guida per gli sviluppatori"
             },
             "integration": {
@@ -324,21 +324,21 @@
                 "body": [
                     "Ognuno è diverso, ecco perché vogliamo che l’esperienza di lettura sia completamente personalizzabile:",
                     [
-                        "Regola la dimensione del testo, modifica le combinazioni dei colori grazie ai temi e al controllo delle spaziature.",
-                        "10+ font disponibili, inclusi i più accessibili.",
-                        "Preferisci ascoltare i tuoi libri? Ascolta qualsiasi ebook, ogni volta che vuoi. La tua preferenza sarà memorizzata.",
-                        "Navigazione integrale tramite tastiera.",
-                        "L'accessibilità non è un'extra con Thorium Reader: supporta JAWS, NVDA, Narrator e VoiceOver."
+                        "Regola la dimensione del testo, cambia le combinazioni dei colori del tema di lettura e controlla spaziature.",
+                        "Più di 10 font disponibili, inclusi i più accessibili.",
+                        "Preferisci ascoltare i tuoi libri? È possibile ogni volta che vuoi, basta premere un tasto.",
+                        "Navigazione integrale tramite tastiera con scorciatoie personalizzabili.",
+                        "L'accessibilità è protagonista con Thorium Reader: supporta JAWS, NVDA, Narrator e VoiceOver."
                     ]
                 ]
             },
             "library": {
                 "body": [
-                    "Un’unica biblioteca e una sola applicazione di lettura in cui custodire tutti i tuoi contenuti:",
+                    "Un unico spazio e una sola applicazione di lettura in cui custodire tutti i tuoi contenuti:",
                     [
                         "Leggi e ascolta ebook e audiolibri, fumetti e manga.",
-                        "Importa file EPUB, PDF, CBZ e audiolibri.",
-                        "Supporto per il formato Readium LCP, utilizzato da migliaia di biblioteche e piattaforme."
+                        "Importa i tuoi file EPUB, PDF, CBZ e gli audiolibri.",
+                        "Compatibile con il formato Readium LCP, utilizzato da migliaia di biblioteche e piattaforme."
                     ]
                 ],
                 "title": "Aggiungi i tuoi libri"
