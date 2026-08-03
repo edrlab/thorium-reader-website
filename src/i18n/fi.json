@@ -29,7 +29,8 @@
     },
     "footer": {
         "legal": "Oikeudelliset huomautukset",
-        "accessibility": "Saavutettavuus"
+        "accessibility": "Saavutettavuus",
+        "guides": "Kehittäjän oppaat"
     },
     "download": {
         "features": {
@@ -164,7 +165,8 @@
                 "hint": "Valinnainen. Esitiivistetyssä muodossa tallennettu salasana. Valitse tämä, jos et halua käyttää tekstimuotoista salasanaa."
             },
             "lang": {
-                "label": "Merkin kieli"
+                "label": "Merkin kieli",
+                "auto": "Automaattinen (selaimen kieli)"
             },
             "button": "Lisää Thorium Readeriin",
             "buttonLine1": "Lisää",
@@ -179,6 +181,16 @@
                 "hint": "Kopioi ja liitä tämä koodi luettelosivullesi.",
                 "copy": "Kopioi leikepöydälle",
                 "copied": "Kopioitu!"
+            },
+            "integration": {
+                "label": "Integroinnin tyyppi",
+                "link": "Linkki",
+                "webcomponent": "Verkkokomponentti",
+                "hint": "Miten upotat merkin sivullesi."
+            },
+            "webcomponent": {
+                "hint": "Kopioi ja lisää tämä koodin pätkä sivullesi. Edellyttää, että lataat @edrlab/thorium-badges (npm import tai oma skriptitunnisteesi). Katso lisätietoja: {{devguides}} .",
+                "devguides": "kehittäjän oppaat"
             }
         },
         "index": {
@@ -343,14 +355,24 @@
             "customize": {
                 "title": "Sinun kirjasi, sinun sääntösi",
                 "body": [
-                    "Thorium Readerilla voit vaihtaa lukemisesta kuuntelemiseen koska haluat... tai jopa tehdä molempia samaan aikaan.",
-                    "Hallitse lukukokemustasi täydellisesti yksinkertaisten mutta tehokkaiden asetusten avulla."
+                    "Olemme kaikki erilaisia, ja siksi haluamme, että voit hallita lukemista:",
+                    [
+                        "Muokkaa tekstin kokoa, vaihda väriteemoja ja määritä välistyksiä.",
+                        "Tarjolla on yli 10 erilaista fonttia mukana myös erikoisfontteja.",
+                        "Kuunteletko mieluummin kirjaasi? Ei huolta, voit aloittaa kuuntelun milloin vain.",
+                        "Voit navigoida pikanäppäimillä.",
+                        "Saavutettavuus on mukana Thorium Readerin suunnittelussa koko ajan. Tuemme ohjelmia JAWS, NVDA, Narrator ja VoiceOver."
+                    ]
                 ]
             },
             "library": {
                 "body": [
                     "Olemme luoneet paikan, johon kaikki kirjat ovat tervetulleita.",
-                    "Lataa verkosta, lainaa kirjastosta, osta kirjakaupasta... mutta lue ne kaikki Thorium Readerilla."
+                    [
+                        "Tuki e-kirjoille, äänikirjoille, sarjakuville, mangalle ja asiakirjoille.",
+                        "Lataa EPUB-, PDF-, CBZ-tiedostosi sekä äänikirjasi.",
+                        "Tuki Readium LCP -suojaukselle, jota tuhannet kirjastot ja jälleenmyyjät käyttävät."
+                    ]
                 ],
                 "title": "Tuo omat kirjasi"
             }
@@ -367,12 +389,26 @@
         "catalog": {
             "title": "Lisää luettelo Thorium Readeriin",
             "subtitle": "Yrität lisätä {{catalogName}}:n Thorium Reader -sovellukseen, mutta sinun on ensin ladattava sovellus.",
-            "fallbackName": "tämä luettelo"
+            "fallbackName": "tämä luettelo",
+            "body": [
+                "Yrität lisätä {{catalogName}} Thorium Readeriin.",
+                "Jos olet jo asentanut Thorium Readerin laitteellesi, napsauta {{thisLink}} yrittääksesi uudestaan.",
+                "Etkö ole vielä asentanut Thorium Readeriä? Seuraa ohjeita tällä sivulla."
+            ],
+            "thisLink": "tätä linkkiä",
+            "invalidBody": "Tästä linkistä puuttuu tietoja, joita tarvitaan luettelon lisäämiseksi Thorium Readeriin. Palaa takaisin sovellukseen tai verkkosivulle, josta tulit ja yritä uudestaan."
         },
         "publication": {
             "title": "Lisää julkaisu Thorium Readeriin",
             "subtitle": "Yrität lisätä {{publicationTitle}} :n Thorium Reader -sovellukseen, mutta sinun on ensin ladattava sovellus.",
-            "fallbackName": "tämä julkaisu"
+            "fallbackName": "tämä julkaisu",
+            "body": [
+                "Yrität lisätä julkaisun {{publicationTitle}} Thorium Readeriin.",
+                "Jos olet jo asentanut Thorium Readerin laitteellesi, napsauta {{thisLink}} yrittääksesi uudestaan.",
+                "Etkö ole vielä asentanut Thorium Readeriä? Seuraa ohjeita tällä sivulla."
+            ],
+            "thisLink": "tätä linkkiä",
+            "invalidBody": "Tästä linkistä puuttuu tiedot, joita tarvitaan julkaisun lisäämiseksi Thorium Readeriin. Palaa sovellukseen tai verkkosivulle, josta tulit, ja yritä uudestaan."
         }
     },
     "platform": {

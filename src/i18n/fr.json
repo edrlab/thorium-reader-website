@@ -29,26 +29,37 @@
     },
     "footer": {
         "legal": "Mentions légales",
-        "accessibility": "Accessibilité"
+        "accessibility": "Accessibilité",
+        "guides": "Guide du développeur"
     },
     "home": {
         "hero": {
-            "title": "Lisez à votre façon",
+            "title": "Thorium Reader",
             "subtitle": "Plus qu'une application de lecture, un nouvel espace pour vos ebooks, livres audio, BD et mangas."
         },
         "features": {
             "customize": {
-                "title": "Vos livres, vos règles",
+                "title": "Lisez à votre façon",
                 "body": [
-                    "Avec Thorium Reader, passez de la lecture à l'écoute quand vous le souhaitez… ou faites les deux en même temps.",
-                    "Prenez le contrôle total de votre expérience de lecture grâce à des réglages simples d'utilisation, mais puissants."
+                    "On est tous différents, c'est pour ça qu'on vous donne les moyens de contrôler votre expérience de lecture :",
+                    [
+                        "Ajustez la taille du texte, changez de thème de lecture et contrôlez finement l’espacement.",
+                        "Plus de 10 polices de caractères disponibles, y compris des polices spécialisées.",
+                        "Vous préférez écouter vos livres ? C’est possible et vous pouvez changer d’avis à tout moment.",
+                        "Navigation intégrale au clavier avec personnalisation des raccourcis.",
+                        "L’accessibilité est au coeur de nos considérations avec un support des lecteurs d'écran comme JAWS, NVDA, Narrator et VoiceOver."
+                    ]
                 ]
             },
             "library": {
-                "title": "Apportez vos propres livres",
+                "title": "Une bibliothèque universelle",
                 "body": [
-                    "Nous avons créé un endroit où tous les livres sont les bienvenus.",
-                    "Téléchargez sur le Web, empruntez en bibliothèque, achetez en librairie… et lisez-les tous dans Thorium Reader."
+                    "Une application dans laquelle toutes vos lectures sont les bienvenues :",
+                    [
+                        "Lecture de livres numériques, livres audio, BDs, manga et documents.",
+                        "Importez vos fichiers EPUB, PDF, CBZ et livres audio.",
+                        "Compatible avec Readium LCP, utilisé par des milliers de bibliothèques et libraires numériques."
+                    ]
                 ]
             }
         },
@@ -70,7 +81,7 @@
                 "body": "Thorium Reader est disponible sur l'App Store pour les appareils iOS, iPadOS et macOS équipés d'Apple Silicon."
             },
             "desktop": {
-                "title": "Windows, macOS, et Linux",
+                "title": "Windows, macOS et Linux",
                 "body": [
                     "Si vous êtes sur Windows, nous vous recommandons d'obtenir Thorium Reader depuis le Microsoft Store.",
                     "Des téléchargements directs sont également disponibles pour Windows, macOS et Linux."
@@ -160,7 +171,8 @@
                     "blue": "Bleu",
                     "green": "Vert",
                     "purple": "Violet",
-                    "orange": "Orange"
+                    "orange": "Orange",
+                    "pink": "Rose"
                 },
                 "openIn": {
                     "label": "Ouvrir dans",
@@ -171,6 +183,11 @@
                 },
                 "urls": {
                     "legend": "URL du catalogue"
+                },
+                "banner": {
+                    "label": "URL de la bannière",
+                    "placeholder": "https://example.com/banniere.png",
+                    "hint": "Optionnel. Une image large servant de bannière pour votre catalogue."
                 }
             }
         },
@@ -187,7 +204,8 @@
                 "hint": "Facultatif. Une phrase secrète pré-hachée. Utilisez-la à la place de la phrase secrète en clair si vous ne souhaitez pas l'exposer."
             },
             "lang": {
-                "label": "Langue du badge"
+                "label": "Langue du badge",
+                "auto": "Automatique (la langue du navigateur de l’utilisateur)"
             },
             "button": "Ajouter à Thorium Reader",
             "buttonLine1": "Ajouter à",
@@ -202,6 +220,56 @@
                 "hint": "Copiez et collez ce code dans la page de votre publication.",
                 "copy": "Copier dans le presse-papiers",
                 "copied": "Copié !"
+            },
+            "integration": {
+                "label": "Type d’intégration",
+                "link": "Lien",
+                "webcomponent": "Component Web",
+                "hint": "Comment vous souhaitez ajouter le badge sur votre page."
+            },
+            "webcomponent": {
+                "hint": "Copiez et collez ce fragment sur votre page. Requiert l’usage de @edrlab/thorium-badges (import npm ou un script). Voir les {{devguides}} pour plus de détails.",
+                "devguides": "guides du développeur"
+            }
+        },
+        "index": {
+            "title": "Générateur de badge",
+            "catalog": {
+                "title": "Badge de catalogue",
+                "subtitle": "Créez un badge « Ajouter à Thorium Reader » pour votre page de catalogue."
+            },
+            "publication": {
+                "title": "Badge de publication",
+                "subtitle": "Créez un badge « Ajouter à Thorium Reader » pour votre publication."
+            }
+        },
+        "publication": {
+            "header": {
+                "title": "Générateur de badge pour publication",
+                "subtitle": "Créer un badge « Ajouter à Thorium Reader » pour une publication."
+            },
+            "form": {
+                "legend": "Informations sur la publication",
+                "publication": {
+                    "label": "URL de la publication",
+                    "placeholder": "https://exemple.com/livre.epub",
+                    "hint": "Requis. L’URL directe vers le fichier de votre publication."
+                },
+                "title": {
+                    "label": "Titre",
+                    "placeholder": "Mon roman",
+                    "hint": "Optionnel. Le titre de la publication."
+                },
+                "author": {
+                    "label": "Auteur",
+                    "placeholder": "Jeanne Martin",
+                    "hint": "Optionnel. Le nom de l’auteur."
+                },
+                "cover": {
+                    "label": "URL de couverture",
+                    "placeholder": "https://exemple.com/couverture.jpg",
+                    "hint": "Optionnel. L’URL vers l’image de couverture."
+                }
             }
         }
     },
@@ -302,5 +370,38 @@
         "thorium-reader-desktop-mobile": "Un ordinateur portable affichant Thorium Reader avec un ebook et une BD ouverts, accompagné d'un téléphone affichant le livre audio Dracula.",
         "thorium-reader-mobile-option": "Deux téléphones affichant Thorium Reader : l'un montrant la couverture du livre audio Dracula, l'autre l'interface de lecture avec un extrait du Journal de Jonathan Harker.",
         "thorium-reader-screens": "Trois téléphones illustrant les thèmes de Thorium Reader : une vue sépia, une vue claire avec le panneau de réglages d'affichage ouvert, et une vue sombre."
+    },
+    "platform": {
+        "names": {
+            "desktop": "Bureau",
+            "ios": "iOS"
+        }
+    },
+    "legals": {
+        "platformTitle": "Document légaux pour {{platform}}"
+    },
+    "add": {
+        "catalog": {
+            "title": "Ajoutez un catalogue à Thorium Reader",
+            "body": [
+                "Nous essayons d’ajouter {{catalogName}} à Thorium Reader.",
+                "Si Thorium Reader est déjà installé sur votre appareil, cliquez {{thisLink}} pour ré-essayer.",
+                "Thorium Reader n’est pas encore installé ? Suivez les instructions ci-dessous."
+            ],
+            "thisLink": "ce lien",
+            "fallbackName": "ce catalogue",
+            "invalidBody": "Ce lien ne dispose pas des informations nécessaires à l’ajout dans Thorium Reader. Merci de retourner dans l’app ou le website qui vous l’a fourni pour ré-essayer."
+        },
+        "publication": {
+            "title": "Ajoutez une publication à Thorium Reader",
+            "body": [
+                "Nous essayons d’ajouter {{publicationTitle}} à Thorium Reader.",
+                "Si Thorium Reader est déjà installé sur votre appareil, cliquez sur {{thisLink}} pour ré-essayer.",
+                "Thorium Reader n’est pas encore installé ? Suivez les instructions ci-dessous."
+            ],
+            "thisLink": "ce lien",
+            "fallbackName": "cette publication",
+            "invalidBody": "Ce lien ne dispose pas des informations nécessaires à l’ajout de la publication dans Thorium Reader. Merci de retourner dans l’app ou sur le website qui vous l’a fourni pour ré-essayer."
+        }
     }
 }
