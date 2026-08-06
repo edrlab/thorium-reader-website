@@ -9,7 +9,13 @@ Each element renders as a link — the inline SVG badge wrapped in an `<a>` to t
 
 ## Installation
 
-`@edrlab/thorium-badges` is not currently published to the npm registry.
+```sh
+npm install @edrlab/thorium-badges
+```
+
+```sh
+pnpm add @edrlab/thorium-badges
+```
 
 ## Usage
 
