@@ -1,1 +1,16 @@
-{}
+{
+    "lang": {
+        "label": "Kalba"
+    },
+    "button": {
+        "download": "Atsiųsti"
+    },
+    "footer": {
+        "accessibility": "Prieinamumas"
+    },
+    "home": {
+        "hero": {
+            "title": "Thorium Reader"
+        }
+    }
+}
