@@ -1,1 +1,9 @@
-{}
+{
+    "site": {
+        "title": "Thorium Reader",
+        "name": "Thorium Reader"
+    },
+    "nav": {
+        "download": "Descargar"
+    }
+}
