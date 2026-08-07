@@ -1,8 +1,13 @@
 {
   "name": "@edrlab/thorium-badges",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "description": "Web components for embedding \"Add to Thorium Reader\" badges (catalog and publication) on any page.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edrlab/thorium-reader-website.git",
+    "directory": "packages/thorium-badges"
+  },
   "main": "dist/index.js",
   "module": "dist/index.js",
   "unpkg": "dist/thorium-badges.iife.js",
@@ -15,7 +20,8 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "assets"
   ],
   "scripts": {
     "generate": "node scripts/generate-badge-texts.mjs",
