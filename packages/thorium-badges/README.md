@@ -1,5 +1,7 @@
 # @edrlab/thorium-badges
 
+![Add to Thorium Reader](assets/thorium-badge.png)
+
 Web components for embedding "Add to Thorium Reader" badges on any page. Two custom elements are provided:
 
 - `<thorium-badge-catalog>` — adds a catalog (and optional bookshelf), OPDS or web, to Thorium Reader.
@@ -42,10 +44,16 @@ import "@edrlab/thorium-badges";
 
 ### Via `<script src>` (no build step)
 
-`pnpm run build` also produces an IIFE bundle at `dist/thorium-badges.iife.js`, which self-registers both custom elements when loaded directly with a `<script src>` tag instead of being imported as a module — useful for hosting the bundle and letting third parties embed the badge without a build step:
+`pnpm run build` also produces an IIFE bundle at `dist/thorium-badges.iife.js`, which self-registers both custom elements when loaded directly with a `<script src>` tag instead of being imported as a module — useful for hosting the bundle and letting third parties embed the badge without a build step. 
+
+Since the package is also published to npm, the same bundle is available from unpkg or jsDelivr with no need to host it yourself:
 
 ```html
 <script src="https://www.thoriumreader.com/embed/thorium-badges.js"></script>
+<!-- or -->
+<script src="https://unpkg.com/@edrlab/thorium-badges"></script>
+<!-- or -->
+<script src="https://cdn.jsdelivr.net/npm/@edrlab/thorium-badges"></script>
 
 <thorium-badge-catalog title="My Library" main="https://example.com/catalog"></thorium-badge-catalog>
 ```
@@ -64,7 +72,7 @@ import "@edrlab/thorium-badges";
 | `icon`               |          | URL of an icon to show for the catalog.                        |
 | `banner`             |          | URL of a banner image.                                          |
 | `color`              |          | Accent color for the catalog entry.                            |
-| `lang`               |          | Badge locale (`"auto"` to detect from the browser, default falls back to the site's default locale). |
+| `lang`               |          | Badge locale (`"auto"` to detect from the browser; unset behaves the same as `"auto"`). |
 
 Throws if `title` or at least one of `main`/`bookshelf` isn't set.
 
@@ -78,7 +86,7 @@ Throws if `title` or at least one of `main`/`bookshelf` isn't set.
 | `cover`              |          | URL of the cover image.                                   |
 | `passphrase`         |          | Plain-text passphrase, if the publication is protected.   |
 | `hashed-passphrase`  |          | Pre-hashed passphrase, as an alternative to `passphrase`. |
-| `lang`               |          | Badge locale (`"auto"` to detect from the browser, default falls back to the site's default locale). |
+| `lang`               |          | Badge locale (`"auto"` to detect from the browser; unset behaves the same as `"auto"`). |
 
 Throws if `publication` isn't set.
 
@@ -89,8 +97,8 @@ Any attribute pointing to a URL (`main`, `bookshelf`, `icon`, `banner`, `publica
 Supported `lang` values are `en`, `fr`, and `it`.
 
 - Set `lang` to one of those codes to force that locale.
-- Set `lang="auto"` to match the visitor's browser language (`navigator.languages`) against the supported list, using the first one that matches.
-- If `lang` is unset, or is `"auto"` with no match, or is any other unsupported value, the badge falls back to `en`.
+- Leaving `lang` unset, or setting it to `"auto"`, matches the visitor's browser language (`navigator.languages`) against the supported list, using the first one that matches.
+- If that match fails to find a supported locale — or `lang` is any other unsupported value — the badge falls back to `en`.
 
 ## Development
 
