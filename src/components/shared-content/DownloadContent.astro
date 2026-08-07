@@ -11,6 +11,7 @@ import ClientData from "../ClientData.astro";
 import { t, getImage, slugify, splitLinks, type LinkSlot } from "../../i18n/utils.js";
 import { downloadUrls, downloadPlatforms } from "../../links.js";
 import { BREAKPOINT_MOBILE } from "../../breakpoints.js";
+import { getRelativeLocaleUrl } from "astro:i18n";
 import rawShape6WaveBottom from "../../assets/shapes/thorium-shape-6-wave-bottom.svg?raw";
 
 interface Props {
@@ -49,7 +50,7 @@ const osTabs = Object.entries(tabsData)
   >
     <div slot="actions" class="desktop-actions">
       <MsStoreBadge />
-      <ActionButton variant="accent" label={ t(lang, "button.releaseNotes") } href={`${ import.meta.env.BASE_URL }${ lang }/release-notes/desktop`} />
+      <ActionButton variant="accent" label={ t(lang, "button.releaseNotes") } href={ getRelativeLocaleUrl(lang, "release-notes/desktop") } />
     </div>
   </FeatureSection>
 
@@ -94,7 +95,10 @@ const osTabs = Object.entries(tabsData)
     body={ t(lang, "download.features.ios.body") }
     fullWidth
   >
-    <AppStoreBadge slot="actions" />
+    <div slot="actions" class="desktop-actions">
+      <AppStoreBadge />
+      <ActionButton variant="accent" label={ t(lang, "button.releaseNotes") } href={ getRelativeLocaleUrl(lang, "release-notes/ios") } />
+    </div>
     <figure>
       <BreakpointImage
         sources={[
