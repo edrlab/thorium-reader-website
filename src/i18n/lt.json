@@ -3,14 +3,120 @@
         "label": "Kalba"
     },
     "button": {
-        "download": "Atsiųsti"
+        "download": "Atsiųsti",
+        "downloadApp": "Atsiųsti programėlę",
+        "releaseNotes": "Laidos pastabos",
+        "discord": "Prisijunkite „Discord“"
     },
     "footer": {
-        "accessibility": "Prieinamumas"
+        "accessibility": "Prieinamumas",
+        "legal": "Teisiniai pranešimai",
+        "guides": "Kūrėjų vadovai"
     },
     "home": {
         "hero": {
-            "title": "Thorium Reader"
+            "title": "Thorium Reader",
+            "subtitle": "Daugiau nei skaitymo programėlė – nauji namai visoms jūsų elektroninėms ir garsinėms knygoms, komiksams ir manga."
+        },
+        "features": {
+            "customize": {
+                "title": "Skaitykite savaip",
+                "body": [
+                    "Žmonės yra skirtingi, todėl norime, kad viską kontroliuotumėte jūs:"
+                ]
+            },
+            "library": {
+                "title": "Atsineškite savo knygas",
+                "body": [
+                    "Sukūrėme vietą, kurioje laukiamos visos knygos:",
+                    [
+                        "Palaikomos elektroninės ir garsinės knygos, komiksai, manga ir dokumentai.",
+                        "Importuokite savo EPUB, PDF, CBZ ir garsinių knygų failus.",
+                        "Palaikoma „Readium LCP“ technologija, kurią naudoja tūkstančiai bibliotekų ir mažmenininkų."
+                    ]
+                ]
+            }
+        },
+        "cta": {
+            "title": "Prisijunkite prie nuotykio!",
+            "body": [
+                "Thorium Reader yra visiškai nemokama ir vystoma ne pelno siekiančios organizacijos.",
+                "Prieinama „iOS“, „iPadOS“, „Windows“, „macOS“ ir „Linux“."
+            ]
+        }
+    },
+    "site": {
+        "title": "Thorium Reader",
+        "name": "Thorium Reader"
+    },
+    "nav": {
+        "download": "Atsisiųsti",
+        "support": "Pagalba",
+        "blog": "Tinklaraštis",
+        "menu": {
+            "open": "Atverti naršymo meniu",
+            "close": "Užverti naršymo meniu"
+        },
+        "mobile": {
+            "label": "Naršymas mobiliuoju"
+        }
+    },
+    "a11y": {
+        "skipToMain": "Peršokti prie pagrindinio turinio"
+    },
+    "download": {
+        "header": {
+            "title": "Atsisiųsti Thorium Reader"
+        },
+        "features": {
+            "ios": {
+                "title": "iOS ir iPadOS"
+            }
+        }
+    },
+    "platform": {
+        "names": {
+            "ios": "iOS"
+        }
+    },
+    "legals": {
+        "platformTitle": "{{platform}} teisiniai dokumentai"
+    },
+    "release-notes": {
+        "title": "Leidimo pastabos",
+        "see-all": "Peržiūrėti visus"
+    },
+    "add": {
+        "catalog": {
+            "body": [
+                "Bandote pridėti „{{catalogName}}“ į Thorium Reader."
+            ]
+        },
+        "publication": {
+            "title": "Pridėti leidinį į Thorium Reader"
+        }
+    },
+    "badge": {
+        "index": {
+            "catalog": {
+                "title": "Katalogo ženklelis"
+            },
+            "publication": {
+                "title": "Leidinio ženklelis",
+                "subtitle": "Sukurkite „Pridėti į Thorium Reader“ ženklelį leidiniui."
+            }
+        },
+        "catalog": {
+            "header": {
+                "subtitle": "Sukurkite „Pridėti į Thorium Reader“ ženklelį katalogo puslapiui."
+            },
+            "form": {
+                "legend": "Katalogo informacija",
+                "title": {
+                    "label": "Katalogo pavadinimas",
+                    "placeholder": "Mano el. knygų katalogas"
+                }
+            }
         }
     }
 }
