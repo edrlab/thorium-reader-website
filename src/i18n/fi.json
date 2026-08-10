@@ -348,12 +348,12 @@
     },
     "home": {
         "hero": {
-            "title": "Lue omalla tavallasi",
+            "title": "Thorium Reader",
             "subtitle": "Enemmän kuin pelkkä lukusovellus – uusi koti kaikille e-kirjoillesi, äänikirjoillesi, sarjakuvillesi ja mangallesi."
         },
         "features": {
             "customize": {
-                "title": "Sinun kirjasi, sinun sääntösi",
+                "title": "Lue omalla tavallasi",
                 "body": [
                     "Olemme kaikki erilaisia, ja siksi haluamme, että voit hallita lukemista:",
                     [
@@ -361,13 +361,13 @@
                         "Tarjolla on yli 10 erilaista fonttia mukana myös erikoisfontteja.",
                         "Kuunteletko mieluummin kirjaasi? Ei huolta, voit aloittaa kuuntelun milloin vain.",
                         "Voit navigoida pikanäppäimillä.",
-                        "Saavutettavuus on mukana Thorium Readerin suunnittelussa koko ajan. Tuemme ohjelmia JAWS, NVDA, Narrator ja VoiceOver."
+                        "Saavutettavuus on mukana Thorium Readerin suunnittelussa koko ajan. Tuemme ohjelmia: JAWS, NVDA, Narrator ja VoiceOver."
                     ]
                 ]
             },
             "library": {
                 "body": [
-                    "Olemme luoneet paikan, johon kaikki kirjat ovat tervetulleita.",
+                    "Olemme luoneet paikan, johon kaikki kirjat ovat tervetulleita:",
                     [
                         "Tuki e-kirjoille, äänikirjoille, sarjakuville, mangalle ja asiakirjoille.",
                         "Lataa EPUB-, PDF-, CBZ-tiedostosi sekä äänikirjasi.",
