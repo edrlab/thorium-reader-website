@@ -4,6 +4,56 @@
         "name": "Thorium Reader"
     },
     "nav": {
-        "download": "Descargar"
+        "download": "Descargar",
+        "support": "Soporte en línea",
+        "blog": "Blog",
+        "menu": {
+            "open": "Abrir menú",
+            "close": "Cerrar menú"
+        },
+        "mobile": {
+            "label": "Menú móvil"
+        }
+    },
+    "a11y": {
+        "skipToMain": "Ir al contenido principal"
+    },
+    "lang": {
+        "label": "Idioma"
+    },
+    "button": {
+        "download": "Descargar",
+        "downloadApp": "Descarga la aplicación",
+        "releaseNotes": "Notas de la versión",
+        "discord": "Únete en Discord"
+    },
+    "footer": {
+        "legal": "Avisos legales",
+        "accessibility": "Accesibilidad",
+        "guides": "Guías para desarrolladores"
+    },
+    "home": {
+        "hero": {
+            "title": "Thorium Reader",
+            "subtitle": "Más que una aplicación de lectura: un nuevo espacio para todos tus libros electrónicos, audiolibros, cómics y manga."
+        },
+        "features": {
+            "customize": {
+                "title": "A tu manera de leer",
+                "body": [
+                    "Cada persona es diferente, por eso queremos que tengas todo el control:",
+                    [
+                        "Ajusta el tamaño del texto, cambia entre diferentes combinaciones de colores con los temas y controla el espaciado.",
+                        "Más de 10 tipos de letra disponibles, incluidos algunos especializados.",
+                        "¿Prefieres escuchar tu libro? No hay problema, solo tienes que pulsar el botón de reproducción en cualquier momento.",
+                        "Navegación completa mediante el teclado con atajos personalizados.",
+                        "La accesibilidad no es una cuestión secundaria en Thorium Reader: somos compatibles con JAWS, NVDA, Narrator y VoiceOver."
+                    ]
+                ]
+            },
+            "library": {
+                "title": "Trae tus propios libros"
+            }
+        }
     }
 }
