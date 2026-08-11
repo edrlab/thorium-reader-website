@@ -22,7 +22,11 @@
             "customize": {
                 "title": "Skaitykite savaip",
                 "body": [
-                    "Žmonės yra skirtingi, todėl norime, kad viską kontroliuotumėte jūs:"
+                    "Žmonės yra skirtingi, todėl norime, kad viską kontroliuotumėte jūs:",
+                    [
+                        null,
+                        "Prieinama daugiau nei 10 šriftų, įskaitant specializuotus."
+                    ]
                 ]
             },
             "library": {
