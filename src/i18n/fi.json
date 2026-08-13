@@ -189,7 +189,7 @@
                 "hint": "Miten upotat merkin sivullesi."
             },
             "webcomponent": {
-                "hint": "Kopioi ja lisää tämä koodin pätkä sivullesi. Edellyttää, että lataat @edrlab/thorium-badges (npm import tai oma skriptitunnisteesi). Katso lisätietoja: {{devguides}} .",
+                "hint": "Kopioi ja lisää tämä koodinpätkä sivullesi. Edellyttää, että lataat @edrlab/thorium-badges (npm import tai oma skriptitunnisteesi). Katso lisätietoja: {{devguides}} .",
                 "devguides": "kehittäjän oppaat"
             }
         },
@@ -357,10 +357,10 @@
                 "body": [
                     "Olemme kaikki erilaisia, ja siksi haluamme, että voit hallita lukemista:",
                     [
-                        "Muokkaa tekstin kokoa, vaihda väriteemoja ja määritä välistyksiä.",
-                        "Tarjolla on yli 10 erilaista fonttia mukana myös erikoisfontteja.",
+                        "Mukauta tekstin kokoa, vaihda väriteemoja ja määritä välistyksiä.",
+                        "Yli 10 erilaista fonttia, myös erikoisfontteja.",
                         "Kuunteletko mieluummin kirjaasi? Ei huolta, voit aloittaa kuuntelun milloin vain.",
-                        "Voit navigoida pikanäppäimillä.",
+                        "Täysi näppäimistönavigointi ja mukautettavat pikanäppäimet.",
                         "Saavutettavuus on mukana Thorium Readerin suunnittelussa koko ajan. Tuemme ohjelmia: JAWS, NVDA, Narrator ja VoiceOver."
                     ]
                 ]
@@ -370,7 +370,7 @@
                     "Olemme luoneet paikan, johon kaikki kirjat ovat tervetulleita:",
                     [
                         "Tuki e-kirjoille, äänikirjoille, sarjakuville, mangalle ja asiakirjoille.",
-                        "Lataa EPUB-, PDF-, CBZ-tiedostosi sekä äänikirjasi.",
+                        "Tuo EPUB-, PDF-, CBZ-tiedostoja sekä äänikirjoja.",
                         "Tuki Readium LCP -suojaukselle, jota tuhannet kirjastot ja jälleenmyyjät käyttävät."
                     ]
                 ],
