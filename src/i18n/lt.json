@@ -24,7 +24,7 @@
                 "body": [
                     "Žmonės yra skirtingi, todėl norime, kad viską kontroliuotumėte jūs:",
                     [
-                        null,
+                        "Koreguokite teksto dydį, valdykite tarpus ir keiskite spalvų schemas su temomis.",
                         "Prieinama daugiau nei 10 šriftų, įskaitant specializuotus.",
                         "Mieliau knygos klausytumėtės? Ne bėda, tiesiog paspauskite klausymo mygtuką bet kuriuo metu.",
                         "Pilna klaviatūros navigacija su tinkintinais sparčiaisiais klavišais.",
@@ -77,10 +77,15 @@
         },
         "features": {
             "ios": {
-                "title": "iOS ir iPadOS"
+                "title": "iOS ir iPadOS",
+                "body": "Thorium Reader yra prieinama App Store parduotuvėje, skirtoje iOS, iPadOS ir macOS įrenginiams, kurie veikia su „Apple Silicon“ procesoriais."
             },
             "desktop": {
-                "title": "Windows, macOS ir Linux"
+                "title": "Windows, macOS ir Linux",
+                "body": [
+                    "Jei naudojate Windows, rekomenduojame įsidiegti Thorium Reader iš Microsoft Store.",
+                    "Tiesioginiai atsisiuntimai taip pat galimi Windows, macOS ir Linux operacinėms sistemoms."
+                ]
             }
         },
         "tabs": {
@@ -88,21 +93,28 @@
             "windows": {
                 "label": "Windows",
                 "steps": [
-                    "Atsisiųskite {{ windowsExe }} failą į savo Windows įrenginį."
+                    "Atsisiųskite {{ windowsExe }} failą į savo Windows įrenginį.",
+                    "Atidarykite Explorer ir eikite į aplanką, į kurį atsisiuntėte failą.",
+                    "Dukart spustelėkite atsisiųstą *.exe failą. Dukart spustelėkite atsisiųstą diegimo failą ir užbaikite diegimo procesą. Norint įdiegti centralizuotai valdomuose įrenginiuose gali prireikti administratoriaus leidimo.",
+                    "Jei naudojate Windows įrenginyje su ARM procesoriumi, įsitikinkite, kad naudojate {{ windowsArm }}."
                 ]
             },
             "macos": {
                 "label": "macOS",
                 "steps": [
                     "Atsisiųskite {{ macosArm }} failą į savo macOS įrenginį.",
-                    null,
-                    "Dukart spustelėkite ant atsisiųsto *.dmg failo."
+                    "Atidarykite Finder ir eikite į „Atsisiuntimai“.",
+                    "Dukart spustelėkite ant atsisiųsto *.dmg failo.",
+                    "Nutempkite programos piktogramą į aplanką „Programos“, kad įdiegtumėte programą.",
+                    "Užverkite langą ir paspauskite išstūmimo mygtuką Finder programoje, kad atjungtumėte atvaizdą.",
+                    "Jei naudojate macOS įrenginį su Intel procesoriumi, įsitikinkite, kad naudojate {{ macosX64 }}."
                 ]
             },
             "linux": {
                 "label": "Linux",
                 "steps": [
-                    "Atsisiųskite {{ linuxAppImage }} arba {{ linuxDeb }} failą į savo Linux įrenginį."
+                    "Atsisiųskite {{ linuxAppImage }} arba {{ linuxDeb }} failą į savo Linux įrenginį.",
+                    "Jei naudojatės Linux įrenginiu su ARM procesoriumi, įsitikinkite, kad naudojate alternatyvias {{ linuxAppImageArm }} arba {{ linuxDebArm }} atsisiuntimo nuorodas."
                 ]
             },
             "links": {
@@ -119,7 +131,8 @@
     },
     "platform": {
         "names": {
-            "ios": "iOS"
+            "ios": "iOS",
+            "desktop": "Darbastalis"
         }
     },
     "legals": {
@@ -147,7 +160,7 @@
             "fallbackName": "šį leidinį",
             "body": [
                 "Bandote pridėti {{publicationTitle}} į Thorium Reader.",
-                null,
+                "Jei jau įdiegėte Thorium Reader savo įrenginyje, spustelėkite {{thisLink}}, kad pabandytumėte dar kartą.",
                 "Dar nesate įsidiegę Thorium Reader? Sekite instrukcijas šiame puslapyje."
             ],
             "invalidBody": "Šiai nuorodai trūksta informacijos, reikalingos norint pridėti leidinį į Thorium Reader. Grįžkite į programėlę ar svetainę, iš kurios atėjote, ir bandykite dar kartą."
@@ -289,7 +302,7 @@
             "alt": "Pridėti {{name}} į Thorium Reader",
             "webcomponent": {
                 "hint": "Nukopijuokite ir įterpkite šį fragmentą į savo puslapį. Reikalinga užkrauti @edrlab/thorium-badges (importuojant iš npm arba atskira script žyma). Išsamesnę informaciją rasite {{devguides}}.",
-                "devguides": "kūrėjo vadovuose"
+                "devguides": "kūrėjų vadovuose"
             }
         }
     },
@@ -352,7 +365,43 @@
                     "Taip, jei jie naudoja Readium LCP – sąveikų ISO DRM standartą.",
                     "Readium LCP apsaugoti failai naudoja licencijos failą (su .lcpl failo plėtiniu), kuris suderinamas su EPUB, PDF arba Readium garsinėmis knygomis."
                 ]
+            },
+            {
+                "question": "Ar galima naudoti Thorium Reader neprisijungus prie interneto?",
+                "answer": [
+                    "Taip, jei skaitote arba klausotės atsisiųstų, o ne transliuojamų leidinių.",
+                    "Norint skaityti LCP apsaugotus failus, Thorium Reader programai reikės bent kartą prisijungti prie interneto, tačiau vėliau ryšio nebereikia."
+                ]
+            },
+            {
+                "question": "Ar galiu nusipirkti elektroninių ar garsinių knygų, komiksų ar manga iš mažmenininko?",
+                "answer": [
+                    "Taip, Thorium Reader suderinama su bet kuriuo mažmenininku, prekiaujančiu Readium LCP apsaugotais arba DRM nenaudojančiais leidiniais.",
+                    "Apsilankykite mūsų pagalbos puslapyje ir peržiūrėkite mažmenininkų, iš kurių galite įsigyti turinį ir skaityti jį Thorium Reader programoje, sąrašą."
+                ]
+            },
+            {
+                "question": "Ar galiu skolintis elektronines, garsines knygas, komiksus, manga, laikraščius ar žurnalus iš bibliotekos?",
+                "answer": [
+                    "Taip, jei jūsų biblioteka naudoja Readium LCP, kad apsaugotų šiuos atsisiuntimus su Thorium Reader suderinamu formatu.",
+                    "Ateityje bibliotekų sąrašą taip pat įterpsime tiesiai į programėlę, kad būtų lengviau naršyti, ieškoti, rezervuoti ir skolintis."
+                ]
+            },
+            {
+                "question": "Ar naudojantis Thorium Reader galima atsisiųsti nemokamą turinį?",
+                "answer": [
+                    "Taip, Thorium Reader yra pilnai suderinama su Project Gutenberg, Librivox ir daugeliu kitų šaltinių, iš kurių galite atsisiųsti viešo naudojimo arba atvirosios prieigos turinį.",
+                    "Ateityje taip pat įterpsime keletą jų tiesiai į programėlę, kad būtų paprasčiau atsisiųsti nemokamas elektronines ir garsines knygas."
+                ]
             }
         ]
+    },
+    "alts": {
+        "thorium-desktop": "Nešiojamasis kompiuteris, kurio ekrane rodomas Thorium Reader Desktop programos langas. Bibliotekoje leidiniai atvaizduojami tinklelio išdėstymu; galite ieškoti leidinių ar importuoti naują leidinį. Kiekvieno leidinio viršelis pateikiamas su pavadinimu ir autoriaus vardu apačioje, žemiau nurodomas leidinio formatas ir parinktys.",
+        "thorium-mobile-download-screens-compact": "Trys telefonai išdėlioti vienas šalia kito. Pirmajame rodoma mobiliosios programėlės knygų lentyna, antrajame – romanas su tamsia tema, o trečiajame – manga viso ekrano režime.",
+        "thorium-mobile-download-screens-large": "Keturi telefonai išdėlioti vienas šalia kito. Pirmajame rodoma mobiliosios programėlės knygų lentyna, antrajame – romanas su tamsia tema, trečiajame – garsinės knygos atkūrimo sąsaja, o ketvirtajame – manga viso ekrano režimu.",
+        "thorium-reader-desktop-mobile": "Nešiojamasis kompiuteris, kurio ekrane rodoma Thorium Reader programa su atversta elektronine knyga, dešiniau nešiojamojo kompiuterio – planšetinis kompiuteris su atverstu komiksu, o planšetinio kompiuterio dešinėje – telefonas su „Drakula“ garsinės knygos atkūrimo sąsaja.",
+        "thorium-reader-mobile-option": "Du greta esantys telefonai, rodantys Thorium Reader programėlę: viename – „Drakula“ garsinės knygos viršelis, kitame – skaitymo sąsaja su ištrauka iš skyriaus „Džonatano Harkerio užrašai“.",
+        "thorium-reader-screens": "Trys telefonai, kuriuose rodomos Thorium Reader temos: sepijos tema, šviesi tema su atvertu ekrano nuostatų skydeliu ir tamsi tema."
     }
 }
