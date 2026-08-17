@@ -95,7 +95,7 @@
                 "steps": [
                     "Atsisiųskite {{ windowsExe }} failą į savo Windows įrenginį.",
                     "Atidarykite Explorer ir eikite į aplanką, į kurį atsisiuntėte failą.",
-                    "Dukart spustelėkite atsisiųstą *.exe failą. Dukart spustelėkite atsisiųstą diegimo failą ir užbaikite diegimo procesą. Norint įdiegti centralizuotai valdomuose įrenginiuose gali prireikti administratoriaus leidimo.",
+                    "Dukart spustelėkite atsisiųstą *.exe failą ir užbaikite diegimo procesą. Norint įdiegti centralizuotai valdomuose įrenginiuose gali prireikti administratoriaus leidimo.",
                     "Jei naudojate Windows įrenginyje su ARM procesoriumi, įsitikinkite, kad naudojate {{ windowsArm }}."
                 ]
             },
@@ -400,7 +400,7 @@
         "thorium-desktop": "Nešiojamasis kompiuteris, kurio ekrane rodomas Thorium Reader Desktop programos langas. Bibliotekoje leidiniai atvaizduojami tinklelio išdėstymu; galite ieškoti leidinių ar importuoti naują leidinį. Kiekvieno leidinio viršelis pateikiamas su pavadinimu ir autoriaus vardu apačioje, žemiau nurodomas leidinio formatas ir parinktys.",
         "thorium-mobile-download-screens-compact": "Trys telefonai išdėlioti vienas šalia kito. Pirmajame rodoma mobiliosios programėlės knygų lentyna, antrajame – romanas su tamsia tema, o trečiajame – manga viso ekrano režime.",
         "thorium-mobile-download-screens-large": "Keturi telefonai išdėlioti vienas šalia kito. Pirmajame rodoma mobiliosios programėlės knygų lentyna, antrajame – romanas su tamsia tema, trečiajame – garsinės knygos atkūrimo sąsaja, o ketvirtajame – manga viso ekrano režimu.",
-        "thorium-reader-desktop-mobile": "Nešiojamasis kompiuteris, kurio ekrane rodoma Thorium Reader programa su atversta elektronine knyga, dešiniau nešiojamojo kompiuterio – planšetinis kompiuteris su atverstu komiksu, o planšetinio kompiuterio dešinėje – telefonas su „Drakula“ garsinės knygos atkūrimo sąsaja.",
+        "thorium-reader-desktop-mobile": "Nešiojamasis kompiuteris, kurio ekrane rodoma Thorium Reader programa su atversta elektronine knyga, šalimais – planšetinis kompiuteris su atverstu komiksu ir telefonas su garsinės knygos atkūrimo sąsaja.",
         "thorium-reader-mobile-option": "Du greta esantys telefonai, rodantys Thorium Reader programėlę: viename – „Drakula“ garsinės knygos viršelis, kitame – skaitymo sąsaja su ištrauka iš skyriaus „Džonatano Harkerio užrašai“.",
         "thorium-reader-screens": "Trys telefonai, kuriuose rodomos Thorium Reader temos: sepijos tema, šviesi tema su atvertu ekrano nuostatų skydeliu ir tamsi tema."
     }
