@@ -53,7 +53,7 @@
                 "steps": [
                     "Lataa {{ windowsExe }}-tiedosto Windows-laitteellesi.",
                     "Avaa resurssienhallinta ja etsi kansio, johon latasit tiedoston.",
-                    "Kaksoisklikkaa lataamaasi*.exe-tiedostoa. Kaksoisklikkaa sitten asennustiedostoa ja viimeistele asennus. Hallinnoidulla laitteella asennus voi vaatia järjestelmänvalvojan lupaa.",
+                    "Kaksoisklikkaa lataamaasi *.exe-tiedostoa ja viimeistele asennus. Hallinnoidulla laitteella asennus voi vaatia järjestelmänvalvojan luvan.",
                     "Jos käytät ARM-pohjaista Windows-laitetta, varmista, että käytät {{ windowsArm }}."
                 ]
             },
