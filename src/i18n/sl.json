@@ -1,1 +1,38 @@
-{}
+{
+    "site": {
+        "title": "Thorium Reader",
+        "name": "Thorium Reader"
+    },
+    "nav": {
+        "download": "Prenos",
+        "support": "Podpora",
+        "blog": "Blog",
+        "menu": {
+            "open": "Odpri navigacijski meni",
+            "close": "Zapri navigacijski meni"
+        },
+        "mobile": {
+            "label": "Mobilna navigacija"
+        }
+    },
+    "a11y": {
+        "skipToMain": "Preskoči na glavno vsebino"
+    },
+    "lang": {
+        "label": "Jezik"
+    },
+    "footer": {
+        "accessibility": "Dostopnost"
+    },
+    "home": {
+        "hero": {
+            "title": "Thorium Reader",
+            "subtitle": "Več kot le aplikacija za branje – nov dom za vse vaše e-knjige, avdio knjige, stripe in mange."
+        },
+        "features": {
+            "customize": {
+                "title": "Berite, kot vam ustreza"
+            }
+        }
+    }
+}
