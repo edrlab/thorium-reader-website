@@ -12,12 +12,14 @@ We acknowledge these limitations and are actively working to improve accessibili
 
 Our immediate accessibility priorities are:
 
-- Read Aloud enhancement: adding speech rate control, voice selection options and improved navigation between read-aloud and text modes.
-- Improved button and control labelling – making interface elements clearer for all users, especially those using screen readers.
-- Audiobook support – currently in development
+
+- Tap to zoom on images, with support for extended descriptions (planned in our 1.3 release)
+- Audiobook support (planned in our 1.4 release)
+- Additional controls for Read Aloud – Voice selector, speech rate control and sleep timer (planned in our 1.4 release)
+- Improved labelling for screen readers (planned in our 1.4 release)
+- New engine for Read Aloud – New settings for verbosity and prosody, highlight text during playback with new dedicated controls 
 - Media Overlays – Enhanced synchronised audio-text presentation
-- Tap to zoom on images, with support for extended image descriptions.
-- Voice commands – Integration with Siri voice control on iOS 27
+- Voice commands – Support for Siri voice commands and on screen awareness (iOS 27)
 
 ## Known accessibility issues
 
@@ -25,22 +27,15 @@ We are aware that the current version of Thorium Reader iOS has significant acce
 
 ### VoiceOver compatibility
 
-- Continuous reading does not work properly with VoiceOver, which prevents the seamless reading of e-books.
-- The VoiceOver experience with text-based EPUB files is basic and lacks expected functionality.
-- Navigation and controls are not optimally labelled for screen reader users.
+- Continuous reading does not work properly yet with VoiceOver when reading an EPUB or a PDF, we recommend using our Read Aloud feature instead.
+- While reading, navigation and controls are not optimally labelled for screen reader users yet.
 
 ### Read Aloud feature
 
-The current read-aloud feature is basic and lacks essential controls:
-
-- No speed control for adjusting the speech rate
-- No voice selection settings
-- Limited ability to navigate between read-aloud mode and text content.
-- The button labels are not always intuitive for users with visual impairments.
-- It is not intuitive to exit read-aloud mode to return to text navigation.
+The current Read Aloud feature is basic and lacks essential controls, further enhancements are planned for our 1.4 releases as well as a major engine overhaul in late 2026 and early 2027.
 
 ## Feedback and Support
 
 We deeply value the feedback from our users. If you've experienced accessibility issues with Thorium Reader iOS—such as VoiceOver compatibility problems or read-aloud limitations—please share your experience with us. Detailed feedback about specific use cases and pain points helps us prioritize our development efforts and fix the issues that matter most to you.
 
-Please send your feedback to ios@thoriumreader.com
+Please send your feedback to <ios@thoriumreader.com>
