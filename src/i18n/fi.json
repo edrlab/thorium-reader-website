@@ -53,7 +53,7 @@
                 "steps": [
                     "Lataa {{ windowsExe }}-tiedosto Windows-laitteellesi.",
                     "Avaa resurssienhallinta ja etsi kansio, johon latasit tiedoston.",
-                    "Kaksoisklikkaa lataamaasi*.exe-tiedostoa. Kaksoisklikkaa sitten asennustiedostoa ja viimeistele asennus. Hallinnoidulla laitteella asennus voi vaatia järjestelmänvalvojan lupaa.",
+                    "Kaksoisklikkaa lataamaasi *.exe-tiedostoa ja viimeistele asennus. Hallinnoidulla laitteella asennus voi vaatia järjestelmänvalvojan luvan.",
                     "Jos käytät ARM-pohjaista Windows-laitetta, varmista, että käytät {{ windowsArm }}."
                 ]
             },
@@ -189,7 +189,7 @@
                 "hint": "Miten upotat merkin sivullesi."
             },
             "webcomponent": {
-                "hint": "Kopioi ja lisää tämä koodin pätkä sivullesi. Edellyttää, että lataat @edrlab/thorium-badges (npm import tai oma skriptitunnisteesi). Katso lisätietoja: {{devguides}} .",
+                "hint": "Kopioi ja lisää tämä koodinpätkä sivullesi. Edellyttää, että lataat @edrlab/thorium-badges (npm import tai oma skriptitunnisteesi). Katso lisätietoja: {{devguides}} .",
                 "devguides": "kehittäjän oppaat"
             }
         },
@@ -348,29 +348,29 @@
     },
     "home": {
         "hero": {
-            "title": "Lue omalla tavallasi",
+            "title": "Thorium Reader",
             "subtitle": "Enemmän kuin pelkkä lukusovellus – uusi koti kaikille e-kirjoillesi, äänikirjoillesi, sarjakuvillesi ja mangallesi."
         },
         "features": {
             "customize": {
-                "title": "Sinun kirjasi, sinun sääntösi",
+                "title": "Lue omalla tavallasi",
                 "body": [
                     "Olemme kaikki erilaisia, ja siksi haluamme, että voit hallita lukemista:",
                     [
-                        "Muokkaa tekstin kokoa, vaihda väriteemoja ja määritä välistyksiä.",
-                        "Tarjolla on yli 10 erilaista fonttia mukana myös erikoisfontteja.",
+                        "Mukauta tekstin kokoa, vaihda väriteemoja ja määritä välistyksiä.",
+                        "Yli 10 erilaista fonttia, myös erikoisfontteja.",
                         "Kuunteletko mieluummin kirjaasi? Ei huolta, voit aloittaa kuuntelun milloin vain.",
-                        "Voit navigoida pikanäppäimillä.",
-                        "Saavutettavuus on mukana Thorium Readerin suunnittelussa koko ajan. Tuemme ohjelmia JAWS, NVDA, Narrator ja VoiceOver."
+                        "Täysi näppäimistönavigointi ja mukautettavat pikanäppäimet.",
+                        "Saavutettavuus on mukana Thorium Readerin suunnittelussa koko ajan. Tuemme ohjelmia: JAWS, NVDA, Narrator ja VoiceOver."
                     ]
                 ]
             },
             "library": {
                 "body": [
-                    "Olemme luoneet paikan, johon kaikki kirjat ovat tervetulleita.",
+                    "Olemme luoneet paikan, johon kaikki kirjat ovat tervetulleita:",
                     [
                         "Tuki e-kirjoille, äänikirjoille, sarjakuville, mangalle ja asiakirjoille.",
-                        "Lataa EPUB-, PDF-, CBZ-tiedostosi sekä äänikirjasi.",
+                        "Tuo EPUB-, PDF-, CBZ-tiedostoja sekä äänikirjoja.",
                         "Tuki Readium LCP -suojaukselle, jota tuhannet kirjastot ja jälleenmyyjät käyttävät."
                     ]
                 ],

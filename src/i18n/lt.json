@@ -1,0 +1,407 @@
+{
+    "lang": {
+        "label": "Kalba"
+    },
+    "button": {
+        "download": "Atsiųsti",
+        "downloadApp": "Atsiųsti programėlę",
+        "releaseNotes": "Laidos pastabos",
+        "discord": "Prisijunkite „Discord“"
+    },
+    "footer": {
+        "accessibility": "Prieinamumas",
+        "legal": "Teisiniai pranešimai",
+        "guides": "Kūrėjų vadovai"
+    },
+    "home": {
+        "hero": {
+            "title": "Thorium Reader",
+            "subtitle": "Daugiau nei skaitymo programėlė – nauji namai visoms jūsų elektroninėms ir garsinėms knygoms, komiksams ir manga."
+        },
+        "features": {
+            "customize": {
+                "title": "Skaitykite savaip",
+                "body": [
+                    "Žmonės yra skirtingi, todėl norime, kad viską kontroliuotumėte jūs:",
+                    [
+                        "Koreguokite teksto dydį, valdykite tarpus ir keiskite spalvų schemas su temomis.",
+                        "Prieinama daugiau nei 10 šriftų, įskaitant specializuotus.",
+                        "Mieliau knygos klausytumėtės? Ne bėda, tiesiog paspauskite klausymo mygtuką bet kuriuo metu.",
+                        "Pilna klaviatūros navigacija su tinkintinais sparčiaisiais klavišais.",
+                        "Prieinamumas Thorium Reader nėra antraeilis dalykas – palaikome JAWS, NVDA, Narrator ir VoiceOver."
+                    ]
+                ]
+            },
+            "library": {
+                "title": "Atsineškite savo knygas",
+                "body": [
+                    "Sukūrėme vietą, kurioje laukiamos visos knygos:",
+                    [
+                        "Palaikomos elektroninės ir garsinės knygos, komiksai, manga ir dokumentai.",
+                        "Importuokite savo EPUB, PDF, CBZ ir garsinių knygų failus.",
+                        "Palaikoma „Readium LCP“ technologija, kurią naudoja tūkstančiai bibliotekų ir mažmenininkų."
+                    ]
+                ]
+            }
+        },
+        "cta": {
+            "title": "Prisijunkite prie nuotykio!",
+            "body": [
+                "Thorium Reader yra visiškai nemokama ir vystoma ne pelno siekiančios organizacijos.",
+                "Prieinama „iOS“, „iPadOS“, „Windows“, „macOS“ ir „Linux“."
+            ]
+        }
+    },
+    "site": {
+        "title": "Thorium Reader",
+        "name": "Thorium Reader"
+    },
+    "nav": {
+        "download": "Atsisiųsti",
+        "support": "Pagalba",
+        "blog": "Tinklaraštis",
+        "menu": {
+            "open": "Atverti naršymo meniu",
+            "close": "Užverti naršymo meniu"
+        },
+        "mobile": {
+            "label": "Naršymas mobiliuoju"
+        }
+    },
+    "a11y": {
+        "skipToMain": "Peršokti prie pagrindinio turinio"
+    },
+    "download": {
+        "header": {
+            "title": "Atsisiųsti Thorium Reader"
+        },
+        "features": {
+            "ios": {
+                "title": "iOS ir iPadOS",
+                "body": "Thorium Reader yra prieinama App Store parduotuvėje, skirtoje iOS, iPadOS ir macOS įrenginiams, kurie veikia su „Apple Silicon“ procesoriais."
+            },
+            "desktop": {
+                "title": "Windows, macOS ir Linux",
+                "body": [
+                    "Jei naudojate Windows, rekomenduojame įsidiegti Thorium Reader iš Microsoft Store.",
+                    "Tiesioginiai atsisiuntimai taip pat galimi Windows, macOS ir Linux operacinėms sistemoms."
+                ]
+            }
+        },
+        "tabs": {
+            "label": "Operacinė sistema",
+            "windows": {
+                "label": "Windows",
+                "steps": [
+                    "Atsisiųskite {{ windowsExe }} failą į savo Windows įrenginį.",
+                    "Atidarykite Explorer ir eikite į aplanką, į kurį atsisiuntėte failą.",
+                    "Dukart spustelėkite atsisiųstą *.exe failą ir užbaikite diegimo procesą. Norint įdiegti centralizuotai valdomuose įrenginiuose gali prireikti administratoriaus leidimo.",
+                    "Jei naudojate Windows įrenginyje su ARM procesoriumi, įsitikinkite, kad naudojate {{ windowsArm }}."
+                ]
+            },
+            "macos": {
+                "label": "macOS",
+                "steps": [
+                    "Atsisiųskite {{ macosArm }} failą į savo macOS įrenginį.",
+                    "Atidarykite Finder ir eikite į „Atsisiuntimai“.",
+                    "Dukart spustelėkite ant atsisiųsto *.dmg failo.",
+                    "Nutempkite programos piktogramą į aplanką „Programos“, kad įdiegtumėte programą.",
+                    "Užverkite langą ir paspauskite išstūmimo mygtuką Finder programoje, kad atjungtumėte atvaizdą.",
+                    "Jei naudojate macOS įrenginį su Intel procesoriumi, įsitikinkite, kad naudojate {{ macosX64 }}."
+                ]
+            },
+            "linux": {
+                "label": "Linux",
+                "steps": [
+                    "Atsisiųskite {{ linuxAppImage }} arba {{ linuxDeb }} failą į savo Linux įrenginį.",
+                    "Jei naudojatės Linux įrenginiu su ARM procesoriumi, įsitikinkite, kad naudojate alternatyvias {{ linuxAppImageArm }} arba {{ linuxDebArm }} atsisiuntimo nuorodas."
+                ]
+            },
+            "links": {
+                "linuxAppImageArm": "AppImage",
+                "linuxDebArm": "Debian paketą",
+                "macosArm": "Thorium.Setup.3.x.x.dmg",
+                "macosX64": "alternatyvią atsisiuntimo nuorodą",
+                "windowsExe": "Thorium.Setup.3.x.x.exe",
+                "windowsArm": "alternatyvią atsisiuntimo nuorodą",
+                "linuxAppImage": "AppImage",
+                "linuxDeb": "Debian paketą"
+            }
+        }
+    },
+    "platform": {
+        "names": {
+            "ios": "iOS",
+            "desktop": "Darbastalis"
+        }
+    },
+    "legals": {
+        "platformTitle": "{{platform}} teisiniai dokumentai"
+    },
+    "release-notes": {
+        "title": "Leidimo pastabos",
+        "see-all": "Peržiūrėti visus"
+    },
+    "add": {
+        "catalog": {
+            "body": [
+                "Bandote pridėti „{{catalogName}}“ į Thorium Reader.",
+                "Jei jau įdiegėte Thorium Reader savo įrenginyje, spustelėkite {{thisLink}}, kad pabandytumėte dar kartą.",
+                "Dar nesate įsidiegę Thorium Reader? Sekite instrukcijas šiame puslapyje."
+            ],
+            "title": "Pridėti katalogą į Thorium Reader",
+            "thisLink": "šią nuorodą",
+            "fallbackName": "šį katalogą",
+            "invalidBody": "Šiai nuorodai trūksta informacijos, reikalingos norint pridėti katalogą į Thorium Reader. Grįžkite į programėlę ar svetainę, iš kurios atėjote, ir bandykite dar kartą."
+        },
+        "publication": {
+            "title": "Pridėti leidinį į Thorium Reader",
+            "thisLink": "šią nuorodą",
+            "fallbackName": "šį leidinį",
+            "body": [
+                "Bandote pridėti {{publicationTitle}} į Thorium Reader.",
+                "Jei jau įdiegėte Thorium Reader savo įrenginyje, spustelėkite {{thisLink}}, kad pabandytumėte dar kartą.",
+                "Dar nesate įsidiegę Thorium Reader? Sekite instrukcijas šiame puslapyje."
+            ],
+            "invalidBody": "Šiai nuorodai trūksta informacijos, reikalingos norint pridėti leidinį į Thorium Reader. Grįžkite į programėlę ar svetainę, iš kurios atėjote, ir bandykite dar kartą."
+        }
+    },
+    "badge": {
+        "index": {
+            "catalog": {
+                "title": "Katalogo ženklelis",
+                "subtitle": "Sukurkite „Pridėti į Thorium Reader“ ženklelį savo katalogo puslapiui."
+            },
+            "publication": {
+                "title": "Leidinio ženklelis",
+                "subtitle": "Sukurkite „Pridėti į Thorium Reader“ ženklelį leidiniui."
+            },
+            "title": "Ženklelių generatorius"
+        },
+        "catalog": {
+            "header": {
+                "subtitle": "Sukurkite „Pridėti į Thorium Reader“ ženklelį katalogo puslapiui.",
+                "title": "Katalogo ženklelio generatorius"
+            },
+            "form": {
+                "legend": "Katalogo informacija",
+                "title": {
+                    "label": "Katalogo pavadinimas",
+                    "placeholder": "Mano el. knygų katalogas",
+                    "hint": "Jūsų katalogo pavadinimas, koks bus rodomas Thorium Reader progamoje."
+                },
+                "main": {
+                    "placeholder": "https://example.com/opds",
+                    "label": "Pagrindinio katalogo URL",
+                    "hint": "OPDS srauto ar žiniatinklio adresas katalogo naršymui. Privaloma nurodyti bent vieną katalogo URL."
+                },
+                "bookshelf": {
+                    "label": "Knygų lentynos URL",
+                    "placeholder": "https://example.com/lentyna",
+                    "hint": "OPDS srauto ar žiniatinklio adresas naudotojo knygų lentynai pasiekti. Privaloma nurodyti bent vieną lentynos URL."
+                },
+                "icon": {
+                    "label": "Piktogramos URL",
+                    "placeholder": "https://example.com/icon.png",
+                    "hint": "Pasirinktinai. Kvadratinis paveikslėlis (PNG arba SVG), reprezentuojantis jūsų katalogą."
+                },
+                "color": {
+                    "default": "Numatytoji",
+                    "gray": "Pilka",
+                    "red": "Raudona",
+                    "yellow": "Geltona",
+                    "blue": "Mėlyna",
+                    "green": "Žalia",
+                    "purple": "Purpurinė",
+                    "orange": "Oranžinė",
+                    "pink": "Rožinė",
+                    "label": "Akcentų spalva",
+                    "hint": "Pasirinktinai. Jūsų katalogo akcentų spalva."
+                },
+                "banner": {
+                    "label": "Reklamjuostės URL",
+                    "placeholder": "https://example.com/reklamjuoste.png",
+                    "hint": "Pasirinktinai. Platus jūsų katalogo reklamjuostės paveikslėlis."
+                },
+                "openIn": {
+                    "label": "Atverti su",
+                    "default": "Numatytoji",
+                    "webview": "Programėlės naršykle",
+                    "browser": "Išorine naršykle",
+                    "hint": "Pasirinktinai. Pageidaujamas būdas atverti katalogo URL."
+                },
+                "urls": {
+                    "legend": "Katalogo adresai"
+                }
+            }
+        },
+        "publication": {
+            "header": {
+                "title": "Leidinio ženklelio generatorius",
+                "subtitle": "Sukurkite „Pridėti į Thorium Reader“ ženklelį leidiniui."
+            },
+            "form": {
+                "legend": "Leidinio informacija",
+                "publication": {
+                    "label": "Leidinio URL",
+                    "placeholder": "https://example.com/knyga.epub",
+                    "hint": "Privalomas. Tiesioginis leidinio failo adresas."
+                },
+                "title": {
+                    "label": "Pavadinimas",
+                    "placeholder": "Mano romanas",
+                    "hint": "Pasirinktinai. Leidinio pavadinimas."
+                },
+                "author": {
+                    "label": "Autorius",
+                    "placeholder": "Vardenė Pavardenė",
+                    "hint": "Pasirinktinai. Autoriaus vardas ir pavardė."
+                },
+                "cover": {
+                    "label": "Viršelio URL",
+                    "placeholder": "https://example.com/virselis.jpg",
+                    "hint": "Pasirinktinai. Viršelio paveikslėlio adresas."
+                }
+            }
+        },
+        "shared": {
+            "preview": {
+                "hint": "Taip atrodys jūsų ženklelis.",
+                "title": "Peržiūra"
+            },
+            "output": {
+                "copied": "Nukopijuota!",
+                "title": "Įterpimo kodas",
+                "hint": "Nukopijuokite ir įterpkite šį fragmentą į savo puslapį.",
+                "copy": "Kopijuoti į iškarpinę"
+            },
+            "passphrase": {
+                "legend": "Autentifikacija",
+                "label": "Slaptafrazė",
+                "placeholder": "mano slaptafrazė",
+                "hint": "Pasirinktinai. Tekstinė slaptafrazė, reikalinga norint pasiekti išteklių."
+            },
+            "passphraseHash": {
+                "label": "Slaptafrazės maišos reikšmė",
+                "placeholder": "e3b0c44298fc1c149afb…",
+                "hint": "Pasirinktinai. Iš anksto sugeneruota slaptafrazės maišos reikšmės. Naudokite ją vietoje tekstinės slaptafrazės, jei nenorite, kad ji būtų atskleista."
+            },
+            "lang": {
+                "label": "Ženklelio kalba",
+                "auto": "Automatinė (lankytojo naršyklės kalba)"
+            },
+            "integration": {
+                "label": "Integracijos tipas",
+                "link": "Nuoroda",
+                "webcomponent": "Žiniatinklio komponentas",
+                "hint": "Kaip įterpsite ženklelį savo puslapyje."
+            },
+            "button": "Pridėti į Thorium Reader",
+            "buttonLine1": "Pridėti į",
+            "buttonLine2": "Thorium Reader",
+            "alt": "Pridėti {{name}} į Thorium Reader",
+            "webcomponent": {
+                "hint": "Nukopijuokite ir įterpkite šį fragmentą į savo puslapį. Reikalinga užkrauti @edrlab/thorium-badges (importuojant iš npm arba atskira script žyma). Išsamesnę informaciją rasite {{devguides}}.",
+                "devguides": "kūrėjų vadovuose"
+            }
+        }
+    },
+    "faq": {
+        "title": "Dažniausiai užduodami klausimai",
+        "items": [
+            {
+                "question": "Ar Thorium Reader nemokama?",
+                "answer": [
+                    "Taip, Thorium Reader yra nemokama visose platformose.",
+                    "Ją vysto EDRLab (European Digital Reading Lab), ne pelno siekianti asociacija, pasišventusi atviriems standartams, raštingumui ir prieinamumui.",
+                    "Su Thorium Reader mes tiesiogiai prisidedame prie Readium įrankių rinkinių, naudojamų šimtuose skaitymo programų, vystymo."
+                ]
+            },
+            {
+                "question": "Kurie įrenginiai yra suderinami su Thorium Reader?",
+                "answer": [
+                    [
+                        "Jei naudojate iPhone ar iPad įrenginį, Thorium Reader gali veikti bet kuriame įrenginyje, kuriame veikia bent 26-a iOS/iPadOS versija",
+                        "Windows sistemoje reikalinga Windows 10 ar naujesnė versija",
+                        "macOS sistemoje reikalinga macOS 12 Monterey ar naujesnė versija",
+                        [
+                            "Galiausiai, Linux sistemoje:",
+                            "Ubuntu 18.04 ar naujesnė",
+                            "Fedora 32 ar naujesnė",
+                            "Debian 10 ar naujesnė"
+                        ]
+                    ]
+                ]
+            },
+            {
+                "question": "Kurie failų formatai yra suderinami su Thorium Reader?",
+                "answer": [
+                    "El. knygos",
+                    [
+                        "EPUB (.epub)",
+                        "Fiksuoto išdėstymo EPUB (.epub)",
+                        "PDF (.pdf)"
+                    ],
+                    "Garsinės knygos",
+                    [
+                        "Readium garsinės knygos (.audiobook)",
+                        "MP3 (.mp3)",
+                        "MP4 (.m4a ir .m4b)",
+                        "FLAC (.flac)",
+                        "WAV (.wav)",
+                        "AAC (.aac)"
+                    ],
+                    "Komiksai ir manga",
+                    [
+                        "CBZ (.cbz)",
+                        "Fiksuoto išdėstymo EPUB (.epub)",
+                        "PDF (.pdf)"
+                    ]
+                ]
+            },
+            {
+                "question": "Ar galiu su Thorium Reader atverti failus, apsaugotus DRM?",
+                "answer": [
+                    "Taip, jei jie naudoja Readium LCP – sąveikų ISO DRM standartą.",
+                    "Readium LCP apsaugoti failai naudoja licencijos failą (su .lcpl failo plėtiniu), kuris suderinamas su EPUB, PDF arba Readium garsinėmis knygomis."
+                ]
+            },
+            {
+                "question": "Ar galima naudoti Thorium Reader neprisijungus prie interneto?",
+                "answer": [
+                    "Taip, jei skaitote arba klausotės atsisiųstų, o ne transliuojamų leidinių.",
+                    "Norint skaityti LCP apsaugotus failus, Thorium Reader programai reikės bent kartą prisijungti prie interneto, tačiau vėliau ryšio nebereikia."
+                ]
+            },
+            {
+                "question": "Ar galiu nusipirkti elektroninių ar garsinių knygų, komiksų ar manga iš mažmenininko?",
+                "answer": [
+                    "Taip, Thorium Reader suderinama su bet kuriuo mažmenininku, prekiaujančiu Readium LCP apsaugotais arba DRM nenaudojančiais leidiniais.",
+                    "Apsilankykite mūsų pagalbos puslapyje ir peržiūrėkite mažmenininkų, iš kurių galite įsigyti turinį ir skaityti jį Thorium Reader programoje, sąrašą."
+                ]
+            },
+            {
+                "question": "Ar galiu skolintis elektronines, garsines knygas, komiksus, manga, laikraščius ar žurnalus iš bibliotekos?",
+                "answer": [
+                    "Taip, jei jūsų biblioteka naudoja Readium LCP, kad apsaugotų šiuos atsisiuntimus su Thorium Reader suderinamu formatu.",
+                    "Ateityje bibliotekų sąrašą taip pat įterpsime tiesiai į programėlę, kad būtų lengviau naršyti, ieškoti, rezervuoti ir skolintis."
+                ]
+            },
+            {
+                "question": "Ar naudojantis Thorium Reader galima atsisiųsti nemokamą turinį?",
+                "answer": [
+                    "Taip, Thorium Reader yra pilnai suderinama su Project Gutenberg, Librivox ir daugeliu kitų šaltinių, iš kurių galite atsisiųsti viešo naudojimo arba atvirosios prieigos turinį.",
+                    "Ateityje taip pat įterpsime keletą jų tiesiai į programėlę, kad būtų paprasčiau atsisiųsti nemokamas elektronines ir garsines knygas."
+                ]
+            }
+        ]
+    },
+    "alts": {
+        "thorium-desktop": "Nešiojamasis kompiuteris, kurio ekrane rodomas Thorium Reader Desktop programos langas. Bibliotekoje leidiniai atvaizduojami tinklelio išdėstymu; galite ieškoti leidinių ar importuoti naują leidinį. Kiekvieno leidinio viršelis pateikiamas su pavadinimu ir autoriaus vardu apačioje, žemiau nurodomas leidinio formatas ir parinktys.",
+        "thorium-mobile-download-screens-compact": "Trys telefonai išdėlioti vienas šalia kito. Pirmajame rodoma mobiliosios programėlės knygų lentyna, antrajame – romanas su tamsia tema, o trečiajame – manga viso ekrano režime.",
+        "thorium-mobile-download-screens-large": "Keturi telefonai išdėlioti vienas šalia kito. Pirmajame rodoma mobiliosios programėlės knygų lentyna, antrajame – romanas su tamsia tema, trečiajame – garsinės knygos atkūrimo sąsaja, o ketvirtajame – manga viso ekrano režimu.",
+        "thorium-reader-desktop-mobile": "Nešiojamasis kompiuteris, kurio ekrane rodoma Thorium Reader programa su atversta elektronine knyga, šalimais – planšetinis kompiuteris su atverstu komiksu ir telefonas su garsinės knygos atkūrimo sąsaja.",
+        "thorium-reader-mobile-option": "Du greta esantys telefonai, rodantys Thorium Reader programėlę: viename – „Drakula“ garsinės knygos viršelis, kitame – skaitymo sąsaja su ištrauka iš skyriaus „Džonatano Harkerio užrašai“.",
+        "thorium-reader-screens": "Trys telefonai, kuriuose rodomos Thorium Reader temos: sepijos tema, šviesi tema su atvertu ekrano nuostatų skydeliu ir tamsi tema."
+    }
+}

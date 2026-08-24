@@ -95,7 +95,7 @@
                 "steps": [
                     "Download the {{ windowsExe }} file to your Windows device.",
                     "Open the Explorer and navigate to folder where you downloaded the file.",
-                    "Double-click the downloaded *.exe file. Double-click the downloaded installer file and complete the installation process. Managed devices may require admin authorization to install.",
+                    "Double-click the downloaded *.exe file and complete the installation process. Managed devices may require admin authorization to install.",
                     "If you're using a Windows device running on ARM, make sure that you use the {{ windowsArm }}."
                 ]
             },
@@ -399,7 +399,7 @@
         "thorium-desktop": "A laptop displaying Thorium Reader Desktop. The library shows all publications as a grid; you can search it and import a new publication. Each book displays its cover with the title and author name below, followed by the format and options.",
         "thorium-mobile-download-screens-compact": "Three phones laid out next to one another. The first one displays the bookshelf of the mobile app, the second one a novel with a dark theme, the third one a manga in full-screen.",
         "thorium-mobile-download-screens-large": "Four phones laid out next to one another. The first one displays the bookshelf of the mobile app, the second one a novel with a dark theme, the third one an audiobook with its playback UI, the fourth one a manga in full-screen.",
-        "thorium-reader-desktop-mobile": "A laptop showing Thorium Reader with an open ebook and a comic, alongside a phone showing the Dracula audiobook.",
+        "thorium-reader-desktop-mobile": "A laptop showing Thorium Reader with an open ebook, alongside a tablet displaying a comic and a phone playing an audiobook.",
         "thorium-reader-mobile-option": "Two phones side by side showing Thorium Reader: one displaying the Dracula audiobook cover, the other showing the reading interface with a passage from Jonathan Harker's Journal.",
         "thorium-reader-screens": "Three phones showing Thorium Reader's themes: a sepia view, a light view with the display settings panel open, and a dark view."
     }

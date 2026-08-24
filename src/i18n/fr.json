@@ -95,7 +95,7 @@
                 "steps": [
                     "Téléchargez le fichier {{ windowsExe }} sur votre appareil Windows.",
                     "Ouvrez l’Explorateur de fichiers et accédez au dossier dans lequel vous avez téléchargé le fichier.",
-                    "Double-cliquez sur le fichier *.exe téléchargé. Double-cliquez sur le fichier d’installation téléchargé et suivez les étapes du processus d’installation. Les appareils gérés peuvent nécessiter une autorisation administrateur pour l’installation.",
+                    "Double-cliquez sur le fichier *.exe téléchargé et suivez les étapes du processus d’installation. Les appareils gérés peuvent nécessiter une autorisation administrateur pour l’installation.",
                     "Si vous utilisez un appareil Windows fonctionnant sur ARM, assurez-vous d’utiliser le {{ windowsArm }}."
                 ]
             },
@@ -367,7 +367,7 @@
         "thorium-desktop": "Un ordinateur portable affichant Thorium Reader Desktop. La bibliothèque présente toutes les publications sous forme de grille ; vous pouvez y effectuer une recherche et importer une nouvelle publication. Chaque livre affiche sa couverture avec le titre et le nom de l'auteur en dessous, suivis du format et des options.",
         "thorium-mobile-download-screens-compact": "Trois téléphones sont disposés l'un à côté de l'autre. Le premier affiche la bibliothèque de l'application mobile. Le second un roman avec un thème sombre, et le dernier un manga en plein-écran.",
         "thorium-mobile-download-screens-large": "Quatre téléphones sont disposés l'un à côté de l'autre. Le premier affiche la bibliothèque de l'application mobile, le second un roman avec un thème sombre, le troisième un livre audio avec son interface de lecture, et le dernier un manga en plein-écran.",
-        "thorium-reader-desktop-mobile": "Un ordinateur portable affichant Thorium Reader avec un ebook et une BD ouverts, accompagné d'un téléphone affichant le livre audio Dracula.",
+        "thorium-reader-desktop-mobile": "Un ordinateur portable affichant Thorium Reader avec un ebook, à côté d'une tablette affichant une BD et d'un téléphone en train de jouer un livre audio.",
         "thorium-reader-mobile-option": "Deux téléphones affichant Thorium Reader : l'un montrant la couverture du livre audio Dracula, l'autre l'interface de lecture avec un extrait du Journal de Jonathan Harker.",
         "thorium-reader-screens": "Trois téléphones illustrant les thèmes de Thorium Reader : une vue sépia, une vue claire avec le panneau de réglages d'affichage ouvert, et une vue sombre."
     },
