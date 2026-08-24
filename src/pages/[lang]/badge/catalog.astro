@@ -11,7 +11,7 @@ import BadgeOutput from "../../../components/badge/BadgeOutput.astro";
 import ClientData from "../../../components/ClientData.astro";
 import { t } from "../../../i18n/utils.js";
 import { locales } from "../../../i18n/locales.js";
-import { addCatalogUniversalLink, addCatalogScheme } from "../../../links.js";
+import { addCatalogUniversalLink } from "../../../links.js";
 
 export function getStaticPaths() {
   return locales.map((lang) => ({ params: { lang } }));
@@ -148,7 +148,6 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
     data={{
       "data-badge-texts": JSON.stringify(badgeTexts),
       "data-universal-link": addCatalogUniversalLink,
-      "data-scheme": addCatalogScheme,
     }}
   />
 
@@ -162,7 +161,6 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
   const dataEl                  = document.getElementById("badge-data") as HTMLElement;
   const badgeTexts              = JSON.parse(dataEl.dataset.badgeTexts!);
   const addCatalogUniversalLink = dataEl.dataset.universalLink;
-  const addCatalogScheme        = dataEl.dataset.scheme;
 
   const form                      = document.getElementById("badge-form") as HTMLFormElement;
   const previewEl                 = document.getElementById("preview-badge") as HTMLElement;
@@ -211,14 +209,13 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
       if (value) params.set(paramName, value);
     }
 
-    const hasParams   = catalogIsValid(get);
-    const previewLink = hasParams ? `${ addCatalogScheme }?${ params.toString() }` : null;
-    const embedLink   = hasParams ? `${ addCatalogUniversalLink }?${ params.toString() }` : null;
+    const hasParams = catalogIsValid(get);
+    const link      = hasParams ? `${ addCatalogUniversalLink }?${ params.toString() }` : null;
 
     const svg = makeSVG({ line1, line2, title: svgTitle });
 
-    previewEl.innerHTML = previewLink
-      ? `<a href="${ esc(previewLink) }">${ svg }</a>`
+    previewEl.innerHTML = link
+      ? `<a href="${ esc(link) }">${ svg }</a>`
       : svg;
 
     embedCodeHintLink.hidden = isWebComponent;
@@ -235,8 +232,8 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
         ? `<thorium-badge-catalog\n${ wcAttrs }\n></thorium-badge-catalog>`
         : "";
     } else {
-      embedCode.textContent = embedLink
-        ? `<a href="${ esc(embedLink) }">\n  ${ svg }\n</a>`
+      embedCode.textContent = link
+        ? `<a href="${ esc(link) }">\n  ${ svg }\n</a>`
         : "";
     }
   }
