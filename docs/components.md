@@ -337,6 +337,107 @@ Styled `<select>` element.
 
 ---
 
+## Badge Forms
+
+Components used to build the `/badge/catalog` and `/badge/publication` forms.
+
+### `components/badge/Field.astro`
+
+Labeled text/URL input with an optional hint.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `id` | `string` | — | HTML `id`, also used to derive the hint's `id` (`hint-{id}`) |
+| `name` | `string` | — | Form field name |
+| `type` | `"text" \| "url"` | `"text"` | Input type |
+| `label` | `string` | — | Visible label |
+| `placeholder` | `string` | — | Input placeholder |
+| `hint` | `string` | — | Description shown below the input; wires `aria-describedby` when set |
+| `required` | `boolean` | — | Marks the field required, shows a `*` next to the label |
+| `autocomplete` | `string` | — | Passed through to the input |
+
+---
+
+### `components/badge/FieldGroup.astro`
+
+Groups related fields under a shared legend and, optionally, a shared hint — for constraints that apply to the group as a whole rather than any single field (e.g. "at least one of these is required").
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `labelId` | `string` | — | HTML `id` on the legend `<p>`, referenced by `aria-labelledby`; also derives the hint's `id` (`hint-{labelId}`) |
+| `legend` | `string` | — | Group title |
+| `required` | `boolean` | — | Shows a `*` next to the legend |
+| `hint` | `string` | — | Description shown below the legend, for the group as a whole; wires `aria-describedby` on the group when set |
+
+**Slots**
+
+| Slot | Description |
+|------|-------------|
+| *(default)* | `Field`/`SelectField` components in the group |
+
+---
+
+### `components/badge/SelectField.astro`
+
+Labeled `CustomSelect` with an optional hint. Same hint/`aria-describedby` pattern as `Field.astro`.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `id` | `string` | — | HTML `id`, also used to derive the hint's `id` (`hint-{id}`) |
+| `name` | `string` | — | Form field name |
+| `label` | `string` | — | Visible label |
+| `options` | `{ value: string; label: string }[]` | — | Select options |
+| `selectedValue` | `string` | — | Pre-selected value |
+| `hint` | `string` | — | Description shown below the select; wires `aria-describedby` when set |
+
+---
+
+### `components/badge/PassphraseFields.astro`
+
+`FieldGroup` wrapping the shared `passphrase` / `hashed-passphrase` fields, used on both badge forms.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `lang` | `string` | — | Current locale, used to resolve field labels/hints from i18n |
+
+---
+
+### `components/badge/BadgeLangSelector.astro`
+
+`SelectField` for the badge's locale, with an `"auto"` option (detect from the browser) plus one option per site locale.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `lang` | `string` | — | Current locale, used to resolve labels from i18n |
+| `locales` | `readonly string[]` | — | Site locales to list as options |
+| `selectedValue` | `string` | — | Pre-selected locale |
+
+---
+
+### `components/badge/BadgeOutput.astro`
+
+Tabbed panel showing the live badge preview and the generated embed code (link or web-component snippet), with a copy-to-clipboard button.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `lang` | `string` | — | Current locale, used to resolve labels/hints from i18n |
+
+---
+
+### `components/badge/ThoriumBadge.astro`
+
+Renders the badge SVG (via `packages/thorium-badges`) wrapped in a link.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `line1` | `string` | — | First line of badge text |
+| `line2` | `string` | — | Second line of badge text |
+| `title` | `string` | — | SVG `<title>` for accessibility |
+| `href` | `string` | `"#"` | Link target |
+| `id` | `string` | — | HTML `id` on the link |
+
+---
+
 ## Utility
 
 ### `components/Header.astro`

@@ -66,14 +66,18 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
               autocomplete="off"
             />
 
-            <FieldGroup labelId="urls-label" legend={ t(lang, "badge.catalog.form.urls.legend") } required>
+            <FieldGroup
+              labelId="urls-label"
+              legend={ t(lang, "badge.catalog.form.urls.legend") }
+              hint={ t(lang, "badge.catalog.form.urls.hint") }
+              required
+            >
               <Field
                 id="catalog-main"
                 name="main"
                 type="url"
                 label={ t(lang, "badge.catalog.form.main.label") }
                 placeholder={ t(lang, "badge.catalog.form.main.placeholder") }
-                hint={ t(lang, "badge.catalog.form.main.hint") }
               />
               <Field
                 id="catalog-bookshelf"
@@ -81,7 +85,6 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
                 type="url"
                 label={ t(lang, "badge.catalog.form.bookshelf.label") }
                 placeholder={ t(lang, "badge.catalog.form.bookshelf.placeholder") }
-                hint={ t(lang, "badge.catalog.form.bookshelf.hint") }
               />
             </FieldGroup>
 
