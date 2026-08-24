@@ -1,0 +1,121 @@
+{
+    "site": {
+        "title": "Thorium Reader",
+        "name": "Thorium Reader"
+    },
+    "nav": {
+        "download": "Download",
+        "support": "Hjælp",
+        "blog": "Blog",
+        "menu": {
+            "open": "Åben navigations-menu",
+            "close": "Luk navigations-menu"
+        },
+        "mobile": {
+            "label": "Mobilnavigation"
+        }
+    },
+    "a11y": {
+        "skipToMain": "Gå til hovedindhold"
+    },
+    "lang": {
+        "label": "Sprog"
+    },
+    "button": {
+        "download": "Download",
+        "downloadApp": "Download app'en",
+        "releaseNotes": "Udgivelsesnoter",
+        "discord": "Find os på Discord"
+    },
+    "footer": {
+        "legal": "Juridiske Notitser",
+        "accessibility": "Tilgængelighed",
+        "guides": "Udvikler Guides"
+    },
+    "home": {
+        "hero": {
+            "title": "Thorium Reader",
+            "subtitle": "Mere end en læse-app – et nyt hjem til alle dine e-bøger, lydbøger, tegneserier og manga."
+        },
+        "features": {
+            "customize": {
+                "title": "Læs på din måde",
+                "body": [
+                    "Alle er forskellige og derfor ønsker vi at give dig fuld kontrol:",
+                    [
+                        "Juster tekststørrelse, skift farve-temaer og styr afstande.",
+                        "10+ skrifttyper tilgængelige, inklusiv specialiserede typer.",
+                        "Vil du hellere lytte til din bog? Intet problem, bare tryk på lyt-knappen når som helst.",
+                        "Fuld keyboard navigation med personlige genveje.",
+                        "Tilgængelighed er ikke en eftertanke med Thorium Reader, vi understøtter JAWS, NVDA, Narrator og VoiceOver."
+                    ]
+                ]
+            },
+            "library": {
+                "title": "Kom med dine egne bøger",
+                "body": [
+                    "Vi har bygget et sted hvor alle bøger er velkomne:",
+                    [
+                        "Vi understøtter e-bøger, lydbøger, tegneserier, manga og dokumenter.",
+                        "Importer dine EPUB, PDF, CBZ og lydbogs-filer.",
+                        "Understøttelse af Readium LCP, som bruges af tusindevis af biblioteker og forhandlere."
+                    ]
+                ]
+            }
+        },
+        "cta": {
+            "title": "Kom med på eventyret!",
+            "body": [
+                "Thorium Reader er helt gratis og vedligeholdes af en non-profit organisation.",
+                "Tilgængelig til iOS, iPadOS, Windows, macOS og Linux."
+            ]
+        }
+    },
+    "download": {
+        "header": {
+            "title": "Download Thorium Reader"
+        },
+        "features": {
+            "ios": {
+                "title": "iOS og iPadOS",
+                "body": "Thorium Reader er tilgængelig via App Store på iOS, iPadOS og macOS enheder, der benytter \"Apple Silicon\"."
+            },
+            "desktop": {
+                "title": "Windows, macOS og Linux",
+                "body": [
+                    "Hvis du er på Windows anbefaler vi at hente Thorium Reader fra Microsoft Store programmet.",
+                    "Direkte download-links er også tilgængelige for Windows, macOS og Linux."
+                ]
+            }
+        },
+        "tabs": {
+            "label": "Operativsystem",
+            "windows": {
+                "label": "Windows",
+                "steps": [
+                    "Download filen {{ windowsExe }} til din Windows enhed.",
+                    "Åbn Stifinder og naviger til den folder, som du downloadede filen til.",
+                    "Dobbeltklik på den downloadede installationsfil (.exe fil) og fuldfør installationsprocessen. Nogle enheder kan kræve administratortilladelse for at installere.",
+                    "Benytter du en Windows maskine på ARM platformen, skal du sikre dig at du benytter {{ windowsArm }}."
+                ]
+            },
+            "macos": {
+                "label": "macOS",
+                "steps": [
+                    "Download filen {{ macosArm }} til din macOS enhed.",
+                    "Åbn Finder og naviger til Overførsler.",
+                    "Dobbeltklik på den downloadede *.dmg fil.",
+                    "Træk og slip nu programikonet til mappen Programmer for at installere programmet.",
+                    "Luk vinduet, og tryk på skubud-knappen i Finder ud for Thorium Reader for at afslutte installationen.",
+                    "Hvis du benytter en macOS-enhed, der kører på en Intel-processor, skal du sørge for at bruge {{ macosX64 }}."
+                ]
+            },
+            "linux": {
+                "label": "Linux",
+                "steps": [
+                    "Download enten {{ linuxAppImage }} eller {{ linuxDeb }} til din Linux enhed."
+                ]
+            }
+        }
+    }
+}

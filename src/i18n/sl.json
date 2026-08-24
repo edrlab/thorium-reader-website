@@ -1,0 +1,97 @@
+{
+    "site": {
+        "title": "Thorium Reader",
+        "name": "Thorium Reader"
+    },
+    "nav": {
+        "download": "Prenos",
+        "support": "Podpora",
+        "blog": "Blog",
+        "menu": {
+            "open": "Odpri navigacijski meni",
+            "close": "Zapri navigacijski meni"
+        },
+        "mobile": {
+            "label": "Mobilna navigacija"
+        }
+    },
+    "a11y": {
+        "skipToMain": "Preskoči na glavno vsebino"
+    },
+    "lang": {
+        "label": "Jezik"
+    },
+    "footer": {
+        "accessibility": "Dostopnost"
+    },
+    "home": {
+        "hero": {
+            "title": "Thorium Reader",
+            "subtitle": "Več kot le aplikacija za branje – nov dom za vse vaše e-knjige, avdio knjige, stripe in mange."
+        },
+        "features": {
+            "customize": {
+                "title": "Berite, kot vam ustreza",
+                "body": [
+                    [],
+                    [
+                        null,
+                        null,
+                        null,
+                        "Popolna navigacija s tipkovnico s prilagojenimi bližnjicami."
+                    ]
+                ]
+            },
+            "library": {
+                "title": "Prinesite svoje knjige",
+                "body": [
+                    "Ustvarili smo prostor, kjer so vse knjige dobrodošle:",
+                    [
+                        "podpora za e-knjige, zvočne knjige, stripe, mange in dokumente.",
+                        "uvoz datotek v formatih EPUB, PDF, CBZ in zvočnih knjig.",
+                        "podpora za Readium LCP, ki ga uporablja na tisoče knjižnic in ponudnikov."
+                    ]
+                ]
+            }
+        },
+        "cta": {
+            "title": "Pridružite se pustolovščini!",
+            "body": [
+                "Thorium Reader je popolnoma brezplačen, vzdržuje pa ga neprofitna organizacija.",
+                "Na voljo za iOS, iPadOS, Windows, macOS in Linux."
+            ]
+        }
+    },
+    "download": {
+        "header": {
+            "title": "Prenesite aplikacijo Thorium Reader"
+        },
+        "features": {
+            "ios": {
+                "title": "iOS in iPadOS",
+                "body": "Aplikacija Thorium Reader je na voljo v App Store za naprave z operacijskimi sistemi iOS, iPadOS in macOS, ki delujejo na procesorjih Apple Silicon."
+            },
+            "desktop": {
+                "title": "Windows, macOS in Linux",
+                "body": [
+                    "Če uporabljate Windows, vam priporočamo, da iz Microsoft Store prenesete program Thorium Reader.",
+                    "Na voljo so tudi neposredni prenosi za operacijske sisteme Windows, macOS in Linux."
+                ]
+            }
+        },
+        "tabs": {
+            "label": "Operacijski sistem",
+            "windows": {
+                "label": "Windows",
+                "steps": [
+                    "Naložite datoteko {{ windowsExe }} na svojo napravo Windows.",
+                    "Odprite raziskovalec (Explorer) in poiščite mapo, v katero ste prenesli datoteko.",
+                    "Dvakrat kliknite preneseno datoteko *.exe in zaključite postopek namestitve. Za namestitev na upravljane naprave je morda potrebno pooblastilo administratorja."
+                ]
+            },
+            "macos": {
+                "label": "macOS"
+            }
+        }
+    }
+}
