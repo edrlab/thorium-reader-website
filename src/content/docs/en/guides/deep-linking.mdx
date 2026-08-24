@@ -133,19 +133,17 @@ For sites that want the badge to stay in sync with catalog/publication data (rat
 ></thorium-badge-publication>
 ```
 
-Install it from npm:
+Load it either as a module import, installed from npm (registers the elements as a side effect):
 
 ```sh
 npm install @edrlab/thorium-badges
 ```
 
-Then load it either as a module import (registers the elements as a side effect):
-
 ```js
 import "@edrlab/thorium-badges";
 ```
 
-or with a plain `<script src>` and no build step. Since the package is also published to npm, the same bundle is available from unpkg or jsDelivr with no need to host it yourself:
+or with a plain `<script src>` — no install, no build step. Since the package is also published to npm, the same bundle is available from unpkg or jsDelivr with no need to host it yourself:
 
 ```html
 <script src="https://www.thoriumreader.com/embed/thorium-badges.js"></script>
