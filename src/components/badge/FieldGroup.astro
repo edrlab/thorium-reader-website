@@ -3,14 +3,19 @@ interface Props {
   labelId: string;
   legend: string;
   required?: boolean;
+  hint?: string;
 }
 
-const { labelId, legend, required } = Astro.props;
+const { labelId, legend, required, hint } = Astro.props;
+const hintId = `hint-${ labelId }`;
 ---
 
-<div role="group" aria-labelledby={ labelId } class="field-group">
-  <p id={ labelId } class="field-group-label">
-    { legend }{ required && <span class="required" aria-hidden="true">*</span> }
-  </p>
+<div role="group" aria-labelledby={ labelId } aria-describedby={ hint ? hintId : undefined } class="field-group">
+  <div class="field-group-header">
+    <p id={ labelId } class="field-group-label">
+      { legend }{ required && <span class="required" aria-hidden="true">*</span> }
+    </p>
+    { hint && <p class="field-hint" id={ hintId }>{ hint }</p> }
+  </div>
   <slot />
 </div>

@@ -1716,6 +1716,12 @@ img[hidden] {
   gap: var(--space-lg);
 }
 
+.badge-layout .field-group-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
 .badge-layout .field-group-label {
   font-size: var(--text-sm);
   color: var(--color-text-muted);

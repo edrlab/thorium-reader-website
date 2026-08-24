@@ -192,13 +192,11 @@
                 },
                 "main": {
                     "label": "Main catalog URL",
-                    "placeholder": "https://example.com/opds",
-                    "hint": "An OPDS or web URL to browse the catalog. At least one catalog URL is required."
+                    "placeholder": "https://example.com/opds"
                 },
                 "bookshelf": {
                     "label": "Bookshelf URL",
-                    "placeholder": "https://example.com/shelf",
-                    "hint": "An OPDS or web URL to access the user's bookshelf. At least one catalog URL is required."
+                    "placeholder": "https://example.com/shelf"
                 },
                 "banner": {
                     "label": "Banner URL",
@@ -231,7 +229,8 @@
                     "hint": "Optional. Preferred way to open catalog URLs."
                 },
                 "urls": {
-                    "legend": "Catalog URLs"
+                    "legend": "Catalog URLs",
+                    "hint": "At least one main catalog or bookshelf URL is required."
                 }
             }
         },
