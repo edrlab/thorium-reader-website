@@ -182,7 +182,8 @@
                     "hint": "Facultatif. Mode d'ouverture préféré pour les URL du catalogue."
                 },
                 "urls": {
-                    "legend": "URL du catalogue"
+                    "legend": "URL du catalogue",
+                    "hint": "Au moins une URL pour le catalogue principal ou la bibliothèque est requis."
                 },
                 "banner": {
                     "label": "URL de la bannière",
