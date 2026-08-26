@@ -91,6 +91,9 @@
             },
             "macos": {
                 "label": "macOS"
+            },
+            "linux": {
+                "label": "Linux"
             }
         }
     }
