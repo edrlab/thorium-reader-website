@@ -231,7 +231,8 @@
                     "hint": "Pasirinktinai. Pageidaujamas būdas atverti katalogo URL."
                 },
                 "urls": {
-                    "legend": "Katalogo adresai"
+                    "legend": "Katalogo adresai",
+                    "hint": "Privalomas bent vienas katalogo ar knygų lentynos URL."
                 }
             }
         },
