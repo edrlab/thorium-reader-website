@@ -196,7 +196,8 @@
                     "hint": "Facoltativo. Metodo preferito per aprire gli URL del catalogo."
                 },
                 "urls": {
-                    "legend": "URL del catalogo"
+                    "legend": "URL del catalogo",
+                    "hint": "È necessario inserire almeno un URL per il catalogo principale o la biblioteca."
                 },
                 "banner": {
                     "label": "URL del banner",
