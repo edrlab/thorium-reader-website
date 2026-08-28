@@ -22,7 +22,9 @@
         "label": "Jezik"
     },
     "footer": {
-        "accessibility": "Dostopnost"
+        "accessibility": "Dostopnost",
+        "legal": "Pravna podlaga",
+        "guides": "Navodila za razvijalce"
     },
     "home": {
         "hero": {
@@ -33,12 +35,13 @@
             "customize": {
                 "title": "Berite, kot vam ustreza",
                 "body": [
-                    [],
+                    "Vsakdo je drugačen, zato želimo, da imate popoln nadzor:",
                     [
-                        null,
-                        null,
-                        null,
-                        "Popolna navigacija s tipkovnico s prilagojenimi bližnjicami."
+                        "Prilagodite velikost besedila, preklapljajte med barvnimi shemami s temami in nastavljajte razmike.",
+                        "Na voljo je več kot 10 pisav, vključno s specializiranimi pisavami.",
+                        "Bi knjigo raje poslušali? Seveda, gumb za predvajanje lahko uporabite kadarkoli.",
+                        "Popolna navigacija s tipkovnico s prilagojenimi bližnjicami.",
+                        "Pri Thorium Reader je dostopnost na prvem mestu – podpiramo programe JAWS, NVDA, Narrator in VoiceOver."
                     ]
                 ]
             },
@@ -86,15 +89,318 @@
                 "steps": [
                     "Naložite datoteko {{ windowsExe }} na svojo napravo Windows.",
                     "Odprite raziskovalec (Explorer) in poiščite mapo, v katero ste prenesli datoteko.",
-                    "Dvakrat kliknite preneseno datoteko *.exe in zaključite postopek namestitve. Za namestitev na upravljane naprave je morda potrebno pooblastilo administratorja."
+                    "Dvakrat kliknite preneseno datoteko *.exe in zaključite postopek namestitve. Za namestitev na upravljane naprave je morda potrebno pooblastilo administratorja.",
+                    "Če uporabljate napravo z operacijskim sistemom Windows, ki deluje na platformi ARM, uporabite {{ windowsArm }}."
                 ]
             },
             "macos": {
-                "label": "macOS"
+                "label": "macOS",
+                "steps": [
+                    "Prenesite datoteko {{ macosArm }} na svojo napravo z operacijskim sistemom macOS.",
+                    "Odprite iskalnik in se pomaknite v mapo s prenosi.",
+                    "Dvakrat kliknite preneseno datoteko *.dmg.",
+                    "Ikono aplikacije povlecite in spustite v mapo Aplikacije in namestite aplikacijo.",
+                    "Zaprite okno in v iskalniku pritisnite gumb za izmet, da odstranite sliko.",
+                    "Če uporabljate napravo z operacijskim sistemom macOS, ki deluje na procesorju Intel, uporabite {{ macosX64 }}."
+                ]
             },
             "linux": {
-                "label": "Linux"
+                "label": "Linux",
+                "steps": [
+                    "Na svojo napravo z operacijskim sistemom Linux prenesite {{ linuxAppImage }} ali {{ linuxDeb }}.",
+                    "Če uporabljate Linux na napravi z arhitekturo ARM, uporabite alternativne povezave za prenos za {{ linuxAppImageArm }} ali {{ linuxDebArm }}."
+                ]
+            },
+            "links": {
+                "macosArm": "Thorium.Setup.3.x.x.dmg",
+                "macosX64": "alternativna povezava za prenos",
+                "windowsExe": "Thorium.Setup.3.x.x.exe",
+                "windowsArm": "alternativna povezava za prenos",
+                "linuxAppImage": "AppImage",
+                "linuxDeb": "paket Debian",
+                "linuxAppImageArm": "AppImage",
+                "linuxDebArm": "paket Debian"
             }
         }
+    },
+    "button": {
+        "download": "Prenesi",
+        "downloadApp": "Prenesi aplikacijo",
+        "releaseNotes": "Opombe k izdaji",
+        "discord": "Pridružite se nam na Discordu"
+    },
+    "platform": {
+        "names": {
+            "desktop": "Namizje",
+            "ios": "iOS"
+        }
+    },
+    "legals": {
+        "platformTitle": "pravni dokumenti za {{platform}}"
+    },
+    "release-notes": {
+        "title": "Opombe k izdaji",
+        "see-all": "Vse"
+    },
+    "add": {
+        "catalog": {
+            "title": "Dodaj Katalog v Thorium Reader",
+            "body": [
+                "Poskušate dodati {{catalogName}} v Thorium Reader.",
+                "Če ste na svojo napravo že namestili Thorium Reader, kliknite na {{thisLink}} in poskusite znova.",
+                "Še niste namestili aplikacije Thorium Reader? Sledite navodilom na tej strani."
+            ],
+            "thisLink": "povezavo",
+            "fallbackName": "katalog",
+            "invalidBody": "V povezavi manjkajo podatki, potrebni za dodajanje kataloga v aplikacijo Thorium Reader. Prosimo, vrnite se v aplikacijo ali na spletno stran, s katere ste prišli, in poskusite znova."
+        },
+        "publication": {
+            "title": "Dodaj Publikacijo v Thorium Reader",
+            "body": [
+                "Poskušate dodati {{publicationTitle}} v Thorium Reader.",
+                "Če ste na svojo napravo že namestili Thorium Reader, kliknite na {{thisLink}} in poskusite ponovno.",
+                "Še niste namestili aplikacije Thorium Reader? Sledite navodilom na tej strani."
+            ],
+            "thisLink": "povezavo",
+            "fallbackName": "publikacijo",
+            "invalidBody": "V povezavi manjkajo podatki, potrebni za dodajanje publikacije v aplikacijo Thorium Reader. Prosimo, vrnite se v aplikacijo ali na spletno stran, s katere ste prišli, in poskusite znova."
+        }
+    },
+    "badge": {
+        "index": {
+            "title": "Generator značk",
+            "catalog": {
+                "title": "Značka za katalog",
+                "subtitle": "Ustvarite značko \"Dodaj v Thorium Reader\" za svojo stran s katalogi."
+            },
+            "publication": {
+                "title": "Značka za publikacijo",
+                "subtitle": "Ustvarite značko \"Dodaj v Thorium Reader\" za publikacijo."
+            }
+        },
+        "catalog": {
+            "header": {
+                "title": "Generator značk za katalog",
+                "subtitle": "Ustvarite značko \"Dodaj v Thorium Reader\" za svojo stran s katalogi."
+            },
+            "form": {
+                "legend": "Informacije o katalogu",
+                "title": {
+                    "label": "Naslov kataloga",
+                    "placeholder": "Moj katalog e-knjig",
+                    "hint": "Ime kataloga, kot bo vidno v aplikaciji Thorium Reader."
+                },
+                "main": {
+                    "label": "URL glavnega kataloga",
+                    "placeholder": "https://example.com/opds"
+                },
+                "bookshelf": {
+                    "label": "URL knjižne police",
+                    "placeholder": "https://example.com/polica"
+                },
+                "banner": {
+                    "label": "URL pasice",
+                    "placeholder": "https://example.com/pasica.png",
+                    "hint": "Neobvezno. Široka slika v obliki pasice za vaš katalog."
+                },
+                "icon": {
+                    "label": "URL ikone",
+                    "placeholder": "https://example.com/ikona.png",
+                    "hint": "Neobvezno. Kvadratna slika (PNG ali SVG), ki predstavlja vaš katalog."
+                },
+                "color": {
+                    "label": "Poudarjena barva",
+                    "hint": "Neobvezno. Poudarjena barva za vaš katalog.",
+                    "default": "Privzeto",
+                    "gray": "Siva",
+                    "red": "Rdeča",
+                    "yellow": "Rumena",
+                    "blue": "Modra",
+                    "green": "Zelena",
+                    "purple": "Vijolična",
+                    "orange": "Oranžna",
+                    "pink": "Roza"
+                },
+                "openIn": {
+                    "label": "Odpri v",
+                    "default": "Privzeto",
+                    "webview": "Brskalnik znotraj aplikacije",
+                    "browser": "Zunanji brskalnik",
+                    "hint": "Neobvezno. Najljubši način odpiranja URL-jev kataloga."
+                },
+                "urls": {
+                    "legend": "URL-ji kataloga",
+                    "hint": "Potreben je vsaj en URL glavnega kataloga ali knjižne police."
+                }
+            }
+        },
+        "publication": {
+            "header": {
+                "title": "Generator značk za publikacijo",
+                "subtitle": "Ustvarite značko \"Dodaj v Thorium Reader\" za publikacijo."
+            },
+            "form": {
+                "legend": "Informacije o publikaciji",
+                "publication": {
+                    "label": "URL publikacije",
+                    "placeholder": "https://example.com/knjiga.epub",
+                    "hint": "Obvezno. Neposredni URL do datoteke s publikacijo."
+                },
+                "title": {
+                    "label": "Naslov",
+                    "placeholder": "Moj roman",
+                    "hint": "Neobvezno. Naslov publikacije."
+                },
+                "author": {
+                    "label": "Avtor",
+                    "placeholder": "Marko Novak",
+                    "hint": "Neobvezno. Ime avtorja."
+                },
+                "cover": {
+                    "label": "URL naslovnice",
+                    "placeholder": "https://example.com/naslovnica.jpg",
+                    "hint": "Neobvezno. URL naslovne slike."
+                }
+            }
+        },
+        "shared": {
+            "passphrase": {
+                "legend": "Avtentikacija",
+                "label": "Geslo",
+                "placeholder": "moje skrivno geslo",
+                "hint": "Neobvezno. Geslo v obliki navadnega besedila, potrebno za dostop do vira."
+            },
+            "passphraseHash": {
+                "label": "Generirano geslo",
+                "placeholder": "e3b0c44298fc1c149afb…",
+                "hint": "Neobvezno. Vnaprej generirano geslo. Uporabite ga namesto gesla v obliki navadnega besedila, če ga ne želite razkriti."
+            },
+            "lang": {
+                "label": "Jezik značke",
+                "auto": "Samodejno (jezik brskalnika obiskovalca)"
+            },
+            "integration": {
+                "label": "Vrsta integracije",
+                "link": "Povezava",
+                "webcomponent": "Spletna komponenta",
+                "hint": "Kako boste značko vstavili na svojo stran."
+            },
+            "button": "Dodaj v Thorium Reader",
+            "buttonLine1": "Dodaj v",
+            "buttonLine2": "Thorium Reader",
+            "alt": "Dodaj {{name}} vThorium Reader",
+            "preview": {
+                "title": "Predogled",
+                "hint": "Tako bo prikazana vaša značka."
+            },
+            "output": {
+                "title": "Vstavi kodo",
+                "hint": "Kopirajte ta odlomek in ga prilepite na svojo stran.",
+                "copy": "Kopiraj v odložišče",
+                "copied": "Kopirano!"
+            },
+            "webcomponent": {
+                "hint": "Kopirajte ta odlomek in ga prilepite na svojo stran. Treba je naložiti @edrlab/thorium-badges (z npm import ali z lastno oznako). Podrobnosti najdete v {{devguides}}.",
+                "devguides": "Navodila za razvijalce"
+            }
+        }
+    },
+    "faq": {
+        "title": "Pogosta vprašanja",
+        "items": [
+            {
+                "question": "Ali je Thorium Reader brezplačen?",
+                "answer": [
+                    "Da, Thorium Reader je brezplačen na vseh platformah.",
+                    "Razvija ga EDRLab (European Digital Reading Lab), neprofitno združenje, posvečeno odprtim standardom, pismenosti in dostopnosti.",
+                    "Z aplikacijo Thorium Reader neposredno prispevamo k razvoju orodij Readium, ki se uporabljajo pri stotinah bralnih aplikacij."
+                ]
+            },
+            {
+                "question": "Katere naprave so združljive z aplikacijo Thorium Reader?",
+                "answer": [
+                    [
+                        "Če imate iPhone ali iPad, lahko aplikacijo Thorium Reader uporabljate na kateri koli napravi z operacijskim sistemom iOS/iPadOS 26 ali novejšim",
+                        "V sistemu Windows je potreben Windows 10 ali novejša različica",
+                        "V sistemu macOS je potrebna različica macOS 12 Monterey ali novejša",
+                        [
+                            "Končno tudi v sistemu Linux:",
+                            "Ubuntu 18.04 in novejše različice",
+                            "Fedora 32 in novejše različice",
+                            "Debian 10 in novejše različice"
+                        ]
+                    ]
+                ]
+            },
+            {
+                "question": "Kateri datotečni formati so združljivi z aplikacijo Thorium Reader?",
+                "answer": [
+                    "Ebooks",
+                    [
+                        "EPUB (.epub)",
+                        "EPUB s fiksno postavitvijo (.epub)",
+                        "PDF (.pdf)"
+                    ],
+                    "Zvočne knjige",
+                    [
+                        "Zvočne knjige Readium (.audiobook)",
+                        "MP3 (.mp3)",
+                        "MP4 (.m4a in .m4b)",
+                        "FLAC (.flac)",
+                        "WAV (.wav)",
+                        "AAC (.aac)"
+                    ],
+                    "Stripi in mange",
+                    [
+                        "CBZ (.cbz)",
+                        "EPUB s fiksno postavitvijo (.epub)",
+                        "PDF (.pdf)"
+                    ]
+                ]
+            },
+            {
+                "question": "Ali lahko z aplikacijo Thorium Reader odpiram datoteke, zaščitene z DRM?",
+                "answer": [
+                    "Da, če uporabljajo Readium LCP, medsebojno združljiv standard ISO za DRM.",
+                    "Datoteke, zaščitene z Readium LCP, uporabljajo licenčno datoteko (s končnico .lcpl), ki je združljiva z EPUB, PDF ali zvočnimi knjigami Readium."
+                ]
+            },
+            {
+                "question": "Ali lahko uporabljam Thorium Reader brez internetne povezave?",
+                "answer": [
+                    "Da, če beremo ali poslušamo publikacije, ki smo jih prenesli, in ne tistih, ki jih pretočno predvajamo prek spleta.",
+                    "Za branje datotek, zaščitenih s tehnologijo LCP, mora aplikacija Thorium Reader vsaj enkrat vzpostaviti spletno povezavo, vendar po tem povezave ne potrebuje več."
+                ]
+            },
+            {
+                "question": "Ali lahko pri prodajalcu kupim e-knjige, zvočne knjige, stripe ali mange?",
+                "answer": [
+                    "Da, Thorium Reader je združljiv z vsemi prodajalci, ki ponujajo publikacije, zaščitene z Readium LCP ali brez DRM.",
+                    "Oglejte si našo stran s podporo, kjer boste našli seznam prodajalcev, pri katerih lahko kupite vsebine in jih berete v aplikaciji Thorium Reader."
+                ]
+            },
+            {
+                "question": "Ali si lahko v knjižnici izposodim e-knjige, zvočne knjige, stripe, mange, časopise ali revije?",
+                "answer": [
+                    "Da, če vaša knjižnica uporablja Readium LCP za zaščito teh datotek za prenos v formatu, ki je združljiv z aplikacijo Thorium Reader.",
+                    "V prihodnosti bomo seznam knjižnic vključili tudi neposredno v aplikacijo, kar bo olajšalo brskanje, iskanje, rezervacije in izposojo."
+                ]
+            },
+            {
+                "question": "Ali lahko z aplikacijo Thorium Reader prenesem brezplačne vsebine?",
+                "answer": [
+                    "Da, Thorium Reader je popolnoma združljiv s Project Gutenberg, Librivox in številnimi drugimi viri, iz katerih lahko prenesete vsebine iz javne domene ali z odprto licenco.",
+                    "V prihodnosti bomo nekatere od njih vgradili tudi neposredno v našo aplikacijo, da bo lažje prenesti brezplačne e-knjige in zvočne knjige."
+                ]
+            }
+        ]
+    },
+    "alts": {
+        "thorium-desktop": "Prenosni računalnik, na katerem je odprt program Thorium Reader Desktop. Knjižnica prikazuje vse publikacije v obliki mreže; v njej lahko iščete in uvozite novo publikacijo. Vsaka knjiga je prikazana s svojo naslovnico, pod katero sta navedena naslov in ime avtorja, sledijo pa format in možnosti.",
+        "thorium-mobile-download-screens-compact": "Trije mobilni telefoni, razporejeni drug ob drugem. Na prvem je prikazana knjižna polica mobilne aplikacije, na drugem roman s temno temo, na tretjem pa manga v polnem zaslonu.",
+        "thorium-mobile-download-screens-large": "Štirje mobilni telefoni so razporejeni drug ob drugem. Na prvem je prikazana knjižna polica mobilne aplikacije, na drugem roman s temno temo, na tretjem zvočna knjiga z vmesnikom za predvajanje, na četrtem pa manga v polnem zaslonu.",
+        "thorium-reader-desktop-mobile": "Prenosni računalnik, na katerem je odprt program Thorium Reader z odprto e-knjigo, poleg njega pa tablični računalnik, na katerem je prikazan strip, in mobilni telefon, na katerem se predvaja zvočna knjiga.",
+        "thorium-reader-mobile-option": "Dva mobilna telefona, postavljena drug ob drugem, na katerih je odprta aplikacija Thorium Reader: na enem je prikazana naslovnica zvočne knjige Drakula, na drugem pa vmesnik za branje z odlomkom iz Dnevnika Jonathana Harkerja.",
+        "thorium-reader-screens": "Trije mobilni telefoni, na katerih so prikazane teme aplikacije Thorium Reader: pogled v barvi sepije, svetla tema z odprtim oknom za nastavitve zaslona in temna tema."
     }
 }
