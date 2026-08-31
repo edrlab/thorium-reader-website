@@ -22,6 +22,7 @@ const year = new Date().getFullYear();
 const conformancePath = getRelativeLocaleUrl(lang, "legals");
 const accessibilityPath = getRelativeLocaleUrl(lang, "accessibility");
 const guidesPath = getRelativeLocaleUrl(lang, "guides");
+const badgePath = getRelativeLocaleUrl(lang, "badge");
 ---
 
 <div class:list={["footer-top", { "has-image": image, clipped: image && clip }]}>
@@ -60,5 +61,7 @@ const guidesPath = getRelativeLocaleUrl(lang, "guides");
     <a href={ accessibilityPath }>{ t(lang, "footer.accessibility") }</a>
     <span aria-hidden="true" style="padding-inline: 0.5rem">|</span>
     <a href={ guidesPath }>{ t(lang, "footer.guides") }</a>
+    <span aria-hidden="true" style="padding-inline: 0.5rem">|</span>
+    <a href={ badgePath }>{ t(lang, "footer.badge") }</a>
   </div>
 </footer>

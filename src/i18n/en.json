@@ -30,7 +30,8 @@
     "footer": {
         "legal": "Legal Notices",
         "accessibility": "Accessibility",
-        "guides": "Developer Guides"
+        "guides": "Developer Guides",
+        "badge": "Badge Generator"
     },
     "home": {
         "hero": {
