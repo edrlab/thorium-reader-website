@@ -112,9 +112,9 @@
                 ]
             },
             "links": {
-                "macosArm": "Thorium.Setup.3.x.x.dmg",
+                "macosArm": "Thorium-3.x.x-arm64.dmg",
                 "macosX64": "alternativna povezava za prenos",
-                "windowsExe": "Thorium.Setup.3.x.x.exe",
+                "windowsExe": "Thorium-3.x.x-x64.exe",
                 "windowsArm": "alternativna povezava za prenos",
                 "linuxAppImage": "AppImage",
                 "linuxDeb": "paket Debian",
