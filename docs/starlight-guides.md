@@ -19,7 +19,7 @@ Use `.mdx` (not `.md`) if the page needs components or custom elements (e.g. `<t
 
 ## Translations
 
-`fr` and `it` guides live under `src/content/docs/fr/guides/` and `src/content/docs/it/guides/`, mirroring the `en` structure. Both are currently empty — untranslated pages silently fall back to the English version rather than showing Starlight's default "this page isn't translated yet" banner, because `components.FallbackContentNotice` is overridden with an empty component in `astro.config.mjs`. Don't hand-translate these yourself; see the general i18n conventions in [i18n-strings.md](i18n-strings.md).
+Only `src/content/docs/en/guides/` exists today — no guide has been translated yet. If/when one is, it goes under `src/content/docs/<locale>/guides/` (`fr`, `it`, `es`), mirroring the `en` structure; create the locale directory if it doesn't exist yet. Until a translation exists, the page silently falls back to the English version rather than showing Starlight's default "this page isn't translated yet" banner, because `components.FallbackContentNotice` is overridden with an empty component in `astro.config.mjs`. Don't hand-translate these yourself; see the general i18n conventions in [i18n-strings.md](i18n-strings.md).
 
 ## Asides
 
