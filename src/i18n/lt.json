@@ -120,9 +120,9 @@
             "links": {
                 "linuxAppImageArm": "AppImage",
                 "linuxDebArm": "Debian paketą",
-                "macosArm": "Thorium.Setup.3.x.x.dmg",
+                "macosArm": "Thorium-3.x.x-arm64.dmg",
                 "macosX64": "alternatyvią atsisiuntimo nuorodą",
-                "windowsExe": "Thorium.Setup.3.x.x.exe",
+                "windowsExe": "Thorium-3.x.x-x64.exe",
                 "windowsArm": "alternatyvią atsisiuntimo nuorodą",
                 "linuxAppImage": "AppImage",
                 "linuxDeb": "Debian paketą"
