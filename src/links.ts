@@ -25,8 +25,8 @@ export const desktopVersion = "3.5.0";
 export const downloadUrls = {
   macosArm: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }-arm64.dmg`,
   macosX64: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }-x64.dmg`,
-  windowsExe: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium.Setup.${ desktopVersion }-x64.exe`,
-  windowsArm: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium.Setup.${ desktopVersion }-arm64.exe`,
+  windowsExe: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }-x64.exe`,
+  windowsArm: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }-arm64.exe`,
   linuxAppImage: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }-x86_64.AppImage`,
   linuxDeb: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }-amd64.deb`,
   linuxAppImageArm: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }-arm64.AppImage`,
