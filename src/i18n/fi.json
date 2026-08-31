@@ -76,9 +76,9 @@
                 ]
             },
             "links": {
-                "macosArm": "Thorium.Setup.3.x.x.dmg",
+                "macosArm": "Thorium-3.x.x-arm64.dmg",
                 "macosX64": "vaihtoehtoinen latauslinkki",
-                "windowsExe": "Thorium.Setup.3.x.x.exe",
+                "windowsExe": "Thorium-3.x.x-x64.exe",
                 "windowsArm": "vaihtoehtoinen latauslinkki",
                 "linuxAppImage": "AppImage",
                 "linuxDeb": "Debian-paketti",

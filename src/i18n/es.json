@@ -5,7 +5,7 @@
     },
     "nav": {
         "download": "Descargar",
-        "support": "Soporte en línea",
+        "support": "Ayuda en línea",
         "blog": "Blog",
         "menu": {
             "open": "Abrir menú",
@@ -39,7 +39,7 @@
         },
         "features": {
             "customize": {
-                "title": "A tu manera de leer",
+                "title": "Lee como quieras",
                 "body": [
                     "Cada persona es diferente, por eso queremos que tengas todo el control:",
                     [
@@ -118,9 +118,9 @@
                 ]
             },
             "links": {
-                "macosArm": "Thorium.Setup.3.x.x.dmg",
+                "macosArm": "Thorium-3.x.x-arm64.dmg",
                 "macosX64": "enlace de descarga alternativo",
-                "windowsExe": "Thorium.Setup.3.x.x.exe",
+                "windowsExe": "Thorium-3.x.x-x64.exe",
                 "windowsArm": "enlace de descarga alternativo",
                 "linuxAppImage": "AppImage",
                 "linuxDeb": "Paquete Debian",
@@ -377,7 +377,7 @@
                 "question": "¿Puedo comprar libros electrónicos, audiolibros, cómics o manga en una tienda?",
                 "answer": [
                     "Sí, Thorium Reader es compatible con cualquier tienda que venda publicaciones protegidas con Readium LCP o sin DRM.",
-                    "Consulta nuestra página de soporte para ver una lista de tiendas donde puedes comprar contenido y leerlo en Thorium Reader."
+                    "Consulta nuestra página de ayuda para ver una lista de tiendas donde puedes comprar contenido y leerlo en Thorium Reader."
                 ]
             },
             {

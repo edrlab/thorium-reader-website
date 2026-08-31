@@ -6,10 +6,10 @@
                 "linuxDebArm": "pacchetto Debian",
                 "linuxAppImage": "AppImage",
                 "macosX64": "link alternativo per il download",
-                "macosArm": "Thorium.Setup.3.x.x.dmg",
+                "macosArm": "Thorium-3.x.x-arm64.dmg",
                 "linuxDeb": "pacchetto Debian",
                 "windowsArm": "link alternativo per il download",
-                "windowsExe": "Thorium.Setup.3.x.x.exe"
+                "windowsExe": "Thorium-3.x.x-x64.exe"
             },
             "macos": {
                 "steps": [
@@ -196,7 +196,8 @@
                     "hint": "Facoltativo. Metodo preferito per aprire gli URL del catalogo."
                 },
                 "urls": {
-                    "legend": "URL del catalogo"
+                    "legend": "URL del catalogo",
+                    "hint": "È necessario inserire almeno un URL per il catalogo principale o la biblioteca."
                 },
                 "banner": {
                     "label": "URL del banner",
