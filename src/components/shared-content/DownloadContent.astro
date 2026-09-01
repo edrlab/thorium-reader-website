@@ -9,7 +9,7 @@ import MsStoreBadge from "../buttons/MsStoreBadge.astro";
 import ActionButton from "../buttons/ActionButton.astro";
 import ClientData from "../ClientData.astro";
 import { t, getImage, slugify, splitLinks, type LinkSlot } from "../../i18n/utils.js";
-import { downloadUrls, downloadPlatforms } from "../../links.js";
+import { downloadUrls, downloadPlatforms, desktopVersion } from "../../links.js";
 import { BREAKPOINT_MOBILE } from "../../breakpoints.js";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import rawShape6WaveBottom from "../../assets/shapes/thorium-shape-6-wave-bottom.svg?raw";
@@ -22,10 +22,10 @@ const { lang } = Astro.props;
 
 const downloadLinks = t(lang, "download.tabs.links", { returnObjects: true }) as Record<string, string>;
 
-const downloadLinkSlots: Record<string, LinkSlot & { platform: string }> = Object.fromEntries(
+const downloadLinkSlots: Record<string, LinkSlot & { platform: string; version: string }> = Object.fromEntries(
   Object.entries(downloadUrls).map(([ key, url ]) => [
     key,
-    { href: url, text: downloadLinks[key] ?? key, platform: downloadPlatforms[key] ?? "" },
+    { href: url, text: downloadLinks[key] ?? key, platform: downloadPlatforms[key] ?? "", version: desktopVersion },
   ])
 );
 
@@ -74,7 +74,7 @@ const osTabs = Object.entries(tabsData)
           { osSteps(tab.key).map(step => (
             <li>
               { splitLinks(step, downloadLinkSlots).map(seg =>
-                typeof seg === "string" ? seg : <a href={ seg.href } data-platform={ seg.platform }>{ seg.text }</a>
+                typeof seg === "string" ? seg : <a href={ seg.href } data-platform={ seg.platform } data-version={ seg.version }>{ seg.text }</a>
               ) }
             </li>
           )) }
@@ -186,6 +186,7 @@ const osTabs = Object.entries(tabsData)
       link_text: link.textContent?.trim(),
       file_name: downloadLabel(link.href),
       platform: link.dataset.platform || undefined,
+      version: link.dataset.version || undefined,
     });
   });
 </script>
