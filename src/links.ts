@@ -20,17 +20,17 @@ export const addPublicationUniversalLink = "https://www.thoriumreader.com/add/pu
 export const addCatalogScheme = "com.thoriumreader:/add/catalog";
 export const addPublicationScheme = "com.thoriumreader:/add/publication";
 
-export const desktopVersion = "3.4.0";
+export const desktopVersion = "3.5.1";
 
 export const downloadUrls = {
   macosArm: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }-arm64.dmg`,
-  macosX64: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }.dmg`,
-  windowsExe: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium.Setup.${ desktopVersion }.exe`,
-  windowsArm: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium.Setup.${ desktopVersion }-arm64.exe`,
-  linuxAppImage: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }.AppImage`,
-  linuxDeb: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/EDRLab.ThoriumReader_${ desktopVersion }_amd64.deb`,
+  macosX64: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }-x64.dmg`,
+  windowsExe: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }-x64.exe`,
+  windowsArm: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }-arm64.exe`,
+  linuxAppImage: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }-x86_64.AppImage`,
+  linuxDeb: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }-amd64.deb`,
   linuxAppImageArm: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }-arm64.AppImage`,
-  linuxDebArm: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/EDRLab.ThoriumReader_${ desktopVersion }_arm64.deb`,
+  linuxDebArm: `https://github.com/edrlab/thorium-reader/releases/download/v${ desktopVersion }/Thorium-${ desktopVersion }-arm64.deb`,
 };
 
 export const downloadPlatforms: Record<string, string> = {
