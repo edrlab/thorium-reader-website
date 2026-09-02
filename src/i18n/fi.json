@@ -30,7 +30,8 @@
     "footer": {
         "legal": "Oikeudelliset huomautukset",
         "accessibility": "Saavutettavuus",
-        "guides": "Kehittäjän oppaat"
+        "guides": "Kehittäjän oppaat",
+        "badge": "Merkkigeneraattori"
     },
     "download": {
         "features": {
