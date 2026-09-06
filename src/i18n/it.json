@@ -374,7 +374,8 @@
     "footer": {
         "legal": "Note legali",
         "accessibility": "Accessibilità",
-        "guides": "Guida per gli sviluppatori"
+        "guides": "Guida per gli sviluppatori",
+        "badge": "Generatore di badge"
     },
     "lang": {
         "label": "Lingua"
