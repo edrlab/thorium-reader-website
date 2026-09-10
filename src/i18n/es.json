@@ -30,7 +30,8 @@
     "footer": {
         "legal": "Avisos legales",
         "accessibility": "Accesibilidad",
-        "guides": "Guías para desarrolladores"
+        "guides": "Guías para desarrolladores",
+        "badge": "Generador de insignias"
     },
     "home": {
         "hero": {
@@ -231,7 +232,8 @@
                     "hint": "Opcional. Forma preferida de abrir las URL del catálogo."
                 },
                 "urls": {
-                    "legend": "URL del catálogo"
+                    "legend": "URL del catálogo",
+                    "hint": "Se requiere al menos una URL de catálogo principal o de estantería."
                 }
             }
         },
@@ -400,7 +402,7 @@
         "thorium-desktop": "Un portátil que muestra Thorium Reader Desktop. La biblioteca muestra todas las publicaciones en forma de cuadrícula; puedes buscar en ella e importar una nueva publicación. Cada libro muestra su portada con el título y el nombre del autor debajo, seguidos del formato y las opciones.",
         "thorium-mobile-download-screens-compact": "Tres teléfonos colocados uno junto al otro. El primero muestra la estantería de la aplicación móvil, el segundo una novela con tema oscuro, el tercero un manga en pantalla completa.",
         "thorium-mobile-download-screens-large": "Cuatro teléfonos colocados uno junto al otro. El primero muestra la estantería de la aplicación móvil, el segundo una novela con tema oscuro, el tercero un audiolibro con su interfaz de reproducción, el cuarto un manga en pantalla completa.",
-        "thorium-reader-desktop-mobile": "Un portátil que muestra Thorium Reader con un libro electrónico y un cómic abiertos, junto a un teléfono que muestra el audiolibro de Drácula.",
+        "thorium-reader-desktop-mobile": "Un ordenador portátil en el que se ve la aplicación Thorium Reader con un libro electrónico abierto, junto a una tableta en la que se ve un cómic y un teléfono en el que se está reproduciendo un audiolibro.",
         "thorium-reader-mobile-option": "Dos teléfonos uno al lado del otro que muestran Thorium Reader: uno con la portada del audiolibro de Drácula, el otro con la interfaz de lectura que muestra un pasaje del diario de Jonathan Harker.",
         "thorium-reader-screens": "Tres teléfonos que muestran los temas de Thorium Reader: una vista sepia, una vista clara con el panel de ajustes de visualización abierto y una vista oscura."
     }

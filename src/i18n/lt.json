@@ -11,7 +11,8 @@
     "footer": {
         "accessibility": "Prieinamumas",
         "legal": "Teisiniai pranešimai",
-        "guides": "Kūrėjų vadovai"
+        "guides": "Kūrėjų vadovai",
+        "badge": "Ženklelių generatorius"
     },
     "home": {
         "hero": {
