@@ -1,6 +1,6 @@
 {
   "name": "@edrlab/thorium-badges",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "type": "module",
   "description": "Web components for embedding \"Add to Thorium Reader\" badges (catalog and publication) on any page.",
   "repository": {
