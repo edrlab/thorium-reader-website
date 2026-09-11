@@ -84,7 +84,8 @@ const listId = `cs-list-${ uid }`;
       // Measure once: grow to content, min button width, cap at 400px for pathological strings
       Object.assign(list.style, { position: "fixed", visibility: "hidden", top: "0", left: "0", width: "max-content", bottom: "auto" });
       list.hidden = false;
-      const naturalW = list.offsetWidth;
+      // +1px: offsetWidth rounds subpixel text width, which can clip the last glyph via ellipsis
+      const naturalW = list.offsetWidth + 1;
       listW = Math.max(btn_r.width, Math.min(naturalW, Math.max(btn_r.width, 400)));
       list.style.width = `${ listW }px`;
       listH = list.offsetHeight;
@@ -125,7 +126,7 @@ const listId = `cs-list-${ uid }`;
         const btn_r = btn.getBoundingClientRect();
         list.style.visibility = "hidden";
         list.style.width = "max-content";
-        const naturalW = list.offsetWidth;
+        const naturalW = list.offsetWidth + 1;
         listW = Math.max(btn_r.width, Math.min(naturalW, Math.max(btn_r.width, 400)));
         list.style.width = `${ listW }px`;
         listH = list.offsetHeight;
