@@ -21,9 +21,11 @@ export const bcp47Locale: Record<Locale, string> = {
 
 Use the same short code as the JSON file from Weblate (`de`, `es`, `zh-hans`, …) and its corresponding BCP 47 tag.
 
-## 3. Add the locale image folder
+## 3. Add localized screenshots (optional, can be done later)
 
-Create `src/assets/images/<code>/` and add localized screenshots. The folder must contain the same filenames as the other locales — copy from `en` as a starting point if localized images are not yet available:
+`getImage()` (`src/i18n/utils.ts`) automatically falls back to the `en` version of an image when a locale-specific file is missing, so a language can go live with no images of its own — nothing needs to be copied or created upfront.
+
+When localized screenshots become available, add them to `src/assets/images/<code>/` using the same filenames as the other locales:
 
 ```
 src/assets/images/<code>/
@@ -35,7 +37,7 @@ src/assets/images/<code>/
   thorium-reader-screens.webp
 ```
 
-Note: `en` also contains illustration files (`thorium-illustration-*.webp`) that the other locales fall back to — you do not need to duplicate those.
+Only add the files you have localized versions of — any filename left out keeps falling back to `en`. Illustration files (`thorium-illustration-*.webp`) always fall back to `en` and never need a per-locale copy.
 
 ## 4. Verify
 

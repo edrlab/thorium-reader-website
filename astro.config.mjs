@@ -16,7 +16,7 @@ export default defineConfig({
       cssVariable: "--font-heading",
       weights: ["100 900"],
       styles: ["normal", "italic"],
-      subsets: ["latin"],
+      subsets: ["latin", "latin-ext"],
     },
     {
       provider: fontProviders.google(),
@@ -24,7 +24,7 @@ export default defineConfig({
       cssVariable: "--font-sans",
       weights: ["100 900"],
       styles: ["normal", "italic"],
-      subsets: ["latin"],
+      subsets: ["latin", "latin-ext"],
     },
   ],
   site: "https://www.thoriumreader.com",
