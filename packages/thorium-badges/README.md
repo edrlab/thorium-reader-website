@@ -94,7 +94,7 @@ Any attribute pointing to a URL (`main`, `bookshelf`, `icon`, `banner`, `publica
 
 ## Localization
 
-Supported `lang` values are `en`, `fr`, and `it`.
+Supported `lang` values are `en`, `es`, `fi`, `fr`, `it`, `lt`, and `sl`.
 
 - Set `lang` to one of those codes to force that locale.
 - Leaving `lang` unset, or setting it to `"auto"`, matches the visitor's browser language (`navigator.languages`) against the supported list, using the first one that matches.

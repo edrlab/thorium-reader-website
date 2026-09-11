@@ -9,10 +9,12 @@ const withoutBase = Astro.url.pathname.slice(import.meta.env.BASE_URL.length);
 const segments = withoutBase.split("/").filter(Boolean);
 const currentPath = "/" + segments.slice(1).join("/");
 
-const options = locales.map(code => ({
-  value: code,
-  label: localeName(code, code),
-}));
+const options = locales
+  .map(code => ({
+    value: code,
+    label: localeName(code, code),
+  }))
+  .sort((a, b) => a.label.localeCompare(b.label));
 
 const urls = Object.fromEntries(locales.map(code => [code, getRelativeLocaleUrl(code, currentPath)]));
 ---
