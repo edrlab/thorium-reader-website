@@ -17,6 +17,9 @@ export default defineConfig({
       weights: ["100 900"],
       styles: ["normal", "italic"],
       subsets: ["latin", "latin-ext"],
+      // Cooper Black/Cooper BT first (Fraunces' cited inspiration, rarely installed),
+      // then the "Old Style" stack (modernfontstacks.com) for real-world coverage.
+      fallbacks: ["Cooper Black", "Cooper BT", "Iowan Old Style", "Palatino Linotype", "URW Palladio L", "P052", "serif"],
     },
     {
       provider: fontProviders.google(),
@@ -25,6 +28,9 @@ export default defineConfig({
       weights: ["100 900"],
       styles: ["normal", "italic"],
       subsets: ["latin", "latin-ext"],
+      // "Neo-Grotesque" stack (modernfontstacks.com): closest available system sans
+      // to Libre Franklin's Franklin Gothic revival lineage.
+      fallbacks: ["Inter", "Roboto", "Helvetica Neue", "Arial Nova", "Nimbus Sans", "Arial", "sans-serif"],
     },
   ],
   site: "https://www.thoriumreader.com",
