@@ -1,8 +1,16 @@
 ---
-import { Image } from "astro:assets";
+import SizedImage from "../images/SizedImage.astro";
 import logoSrc from "./assets/logo-thorium-reader.webp";
 ---
 <span class="thorium-reader-logo" aria-hidden="true">
-  <Image src={ logoSrc } alt="" loading="eager" fetchpriority="high" style="height: 1.75rem; width: auto; display: block;" />
+  <SizedImage
+    src={ logoSrc }
+    alt=""
+    loading="eager"
+    fetchpriority="high"
+    style="height: 1.75rem; width: auto; display: block;"
+    widths={ [75, 150, 225] }
+    sizes="75px"
+  />
 </span>
 

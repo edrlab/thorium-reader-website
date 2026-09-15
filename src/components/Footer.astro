@@ -1,6 +1,6 @@
 ---
-import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
+import SizedImage from "./images/SizedImage.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { t } from "../i18n/utils.js";
 import { discordHref as defaultDiscordHref } from "../links.js";
@@ -27,10 +27,12 @@ const badgePath = getRelativeLocaleUrl(lang, "badge");
 
 <div class:list={["footer-top", { "has-image": image, clipped: image && clip }]}>
   { image && (
-    <Image
+    <SizedImage
       class="footer-image"
       src={ image.src }
       alt={ image.alt ?? "" }
+      widths={ [430, 860, 1290, 1720] }
+      sizes="(min-width: 860px) 860px, 100vw"
     />
   ) }
   <div class="footer-wave" aria-hidden="true">
