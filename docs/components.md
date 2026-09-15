@@ -9,6 +9,7 @@ Root page shell. Renders `<html>`, `<head>`, and `<body>` with the global nav.
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `title` | `string` | site title from i18n | `<title>` value |
+| `description` | `string` | site description from i18n | `<meta name="description">` value |
 | `blob` | `boolean` | `false` | Renders the `HeroBlob` behind the header |
 | `illustration` | `{ src: ImageMetadata }` | — | Passed through to `HeroBlob` when `blob` is true |
 
@@ -228,6 +229,8 @@ Decoration components are placed in the `decoration` or `media` slot of a sectio
 | `illustration` | `{ src: ImageMetadata; alt?: string }` | — | Screenshot layered over the blob |
 | `class` | `string` | — | Extra CSS classes on the wrapper |
 | `illustrationClass` | `string` | — | Extra CSS classes on the illustration `<img>` |
+| `widths` | `number[]` | — | Forwarded to the illustration's `SizedImage` for responsive `srcset` |
+| `sizes` | `string` | — | Forwarded to the illustration's `SizedImage` `sizes` attribute |
 
 ---
 
@@ -240,6 +243,8 @@ Same API as `FeatureDecoration` but without a `blob` prop — uses its own inter
 | `illustration` | `{ src: ImageMetadata; alt?: string }` | — | Screenshot |
 | `class` | `string` | — | Extra CSS classes on the wrapper |
 | `illustrationClass` | `string` | — | Extra CSS classes on the illustration |
+| `widths` | `number[]` | — | Forwarded to the illustration's `SizedImage` for responsive `srcset` |
+| `sizes` | `string` | — | Forwarded to the illustration's `SizedImage` `sizes` attribute |
 
 ---
 
@@ -252,6 +257,8 @@ Same API as `CTADecoration`.
 | `illustration` | `{ src: ImageMetadata; alt?: string }` | — | Screenshot |
 | `class` | `string` | — | Extra CSS classes on the wrapper |
 | `illustrationClass` | `string` | — | Extra CSS classes on the illustration |
+| `widths` | `number[]` | — | Forwarded to the illustration's `SizedImage` for responsive `srcset` |
+| `sizes` | `string` | — | Forwarded to the illustration's `SizedImage` `sizes` attribute |
 
 ---
 
@@ -269,9 +276,22 @@ Locale-aware decorations that load their own images internally.
 
 ## Images
 
+### `components/images/SizedImage.astro`
+
+Wraps `astro:assets`'s `<Image>` and sets an inline `aspect-ratio` from the source's intrinsic `width`/`height`, so the box is reserved before load regardless of the CSS sizing applied — prevents CLS on images whose intrinsic ratio can vary per locale. Used internally by most image-rendering components below.
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `src` | `ImageMetadata` | Image source |
+| `alt` | `string` | Alt text |
+| `style` | `string` | Extra inline styles, appended after the computed `aspect-ratio` |
+| ...rest | — | Any other prop is forwarded to `<Image>` (`widths`, `sizes`, `class`, `loading`, `fetchpriority`, …) |
+
+---
+
 ### `components/images/BreakpointImage.astro`
 
-Responsive `<picture>` element with per-breakpoint sources.
+Renders one `SizedImage` per source, toggled via generated CSS classes matching each source's `media` query — not a `<picture>` element.
 
 | Prop | Type | Description |
 |------|------|-------------|
