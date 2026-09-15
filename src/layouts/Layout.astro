@@ -5,7 +5,7 @@ import Header from "../components/Header.astro";
 import HeroBlob from "../components/blobs/HeroBlob.astro";
 import { t } from "../i18n/utils.js";
 
-const { title, blob = false, illustration } = Astro.props;
+const { title, description, blob = false, illustration } = Astro.props;
 const lang = Astro.currentLocale;
 ---
 
@@ -14,7 +14,7 @@ const lang = Astro.currentLocale;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex" />
+    <meta name="description" content={ description ?? t(lang, "site.description") } />
     <title>{ title ?? t(lang, "site.title") }</title>
     <link rel="icon" type="image/svg+xml" href={`${ import.meta.env.BASE_URL }favicon.svg`} />
     <link rel="icon" type="image/x-icon" href={`${ import.meta.env.BASE_URL }favicon.ico`} />
