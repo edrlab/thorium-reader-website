@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import SizedImage from "../../components/images/SizedImage.astro";
 import Layout from "../../layouts/Layout.astro";
 import Hero from "../../components/sections/HeroSection.astro";
 import FeatureSection from "../../components/sections/FeatureSection.astro";
@@ -36,7 +36,12 @@ const lang = Astro.currentLocale ?? "en";
   </Hero>
 
   <div class="mobile-hero-illustration" aria-hidden="true">
-    <Image src={ getImage(lang, "thorium-illustration-01.webp") } alt="" />
+    <SizedImage
+      src={ getImage(lang, "thorium-illustration-01.webp") }
+      alt=""
+      widths={ [200, 300, 400, 600] }
+      sizes="200px"
+    />
   </div>
 
   <FeatureSection
@@ -44,7 +49,12 @@ const lang = Astro.currentLocale ?? "en";
     body={ t(lang, "home.features.customize.body") }
   >
     <figure class="top-gap bottom-gap">
-      <Image src={ getImage(lang, "thorium-reader-screens.webp") } alt={ t(lang, "alts.thorium-reader-screens") } />
+      <SizedImage
+        src={ getImage(lang, "thorium-reader-screens.webp") }
+        alt={ t(lang, "alts.thorium-reader-screens") }
+        widths={ [400, 800, 1200, 1600] }
+        sizes="(min-width: 800px) 800px, 100vw"
+      />
     </figure>
   </FeatureSection>
 
@@ -55,7 +65,12 @@ const lang = Astro.currentLocale ?? "en";
     reverse
   >
     <figure role="none">
-      <Image src={ getImage(lang, "thorium-desktop.webp") } alt={ t(lang, "alts.thorium-desktop") } />
+      <SizedImage
+        src={ getImage(lang, "thorium-desktop.webp") }
+        alt={ t(lang, "alts.thorium-desktop") }
+        widths={ [400, 800, 1200, 1600] }
+        sizes="(min-width: 800px) 800px, 100vw"
+      />
     </figure>
     <BookWalkerDecoration slot="decoration" lang={ lang } />
   </FeatureSection>
@@ -66,7 +81,13 @@ const lang = Astro.currentLocale ?? "en";
   >
     <TippedBoxDecoration slot="border-top" lang={ lang } />
     <ActionButton slot="actions" icon href={getRelativeLocaleUrl(lang, "download")} label={ t(lang, "button.downloadApp") } />
-    <Image slot="media" src={ getImage(lang, "thorium-reader-desktop-mobile.webp") } alt={ t(lang, "alts.thorium-reader-desktop-mobile") } />
+    <SizedImage
+      slot="media"
+      src={ getImage(lang, "thorium-reader-desktop-mobile.webp") }
+      alt={ t(lang, "alts.thorium-reader-desktop-mobile") }
+      widths={ [320, 480, 640, 960] }
+      sizes="640px"
+    />
     <div slot="border-bottom" class="cta-wave cta-wave-bottom" aria-hidden="true">
       <Fragment set:html={ rawCtaWaveBottom } />
     </div>

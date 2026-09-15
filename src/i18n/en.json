@@ -1,7 +1,8 @@
 {
     "site": {
         "title": "Thorium Reader",
-        "name": "Thorium Reader"
+        "name": "Thorium Reader",
+        "description": "More than a reading app, a new home for all your ebooks, audiobooks, comics and manga."
     },
     "nav": {
         "download": "Download",
