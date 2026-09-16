@@ -159,6 +159,7 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
 
 <script>
   import { makeSVG, esc, catalogParamAttrs, catalogIsValid } from "../../../../packages/thorium-badges/src/badge-svg.js";
+  import { resolveLocale } from "../../../../packages/thorium-badges/src/locales.js";
   import { interpolate } from "../../../i18n/utils.js";
 
   const dataEl                  = document.getElementById("badge-data") as HTMLElement;
@@ -203,7 +204,7 @@ const colors = ["gray", "red", "yellow", "blue", "green", "purple", "orange", "p
     const isWebComponent = integrationSelect.value === "webcomponent";
     const title           = get("title");
 
-    const { line1, line2, alt } = badgeTexts[selectedLang] ?? Object.values(badgeTexts)[0];
+    const { line1, line2, alt } = badgeTexts[resolveLocale(selectedLang)];
     const svgTitle = title ? interpolate(alt, { name: title }) : `${ line1 } ${ line2 }`;
 
     const params = new URLSearchParams();
