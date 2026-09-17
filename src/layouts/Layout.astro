@@ -7,7 +7,7 @@ import HeroBlob from "../components/blobs/HeroBlob.astro";
 import { t } from "../i18n/utils.js";
 import { defaultLocale, locales, bcp47Locale } from "../i18n/locales.js";
 
-const { title, description, blob = false, illustration } = Astro.props;
+const { title, description, blob = false, illustration, noindex = false } = Astro.props;
 const lang = Astro.currentLocale ?? defaultLocale;
 
 // Same locale-stripping approach as LanguagePicker.astro, so canonical/hreflang
@@ -24,6 +24,7 @@ const localizedUrl = (locale: string) => new URL(getRelativeLocaleUrl(locale, cu
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={ description ?? t(lang, "site.description") } />
     <title>{ title ?? t(lang, "site.title") }</title>
+    { noindex && <meta name="robots" content="noindex" /> }
     <link rel="canonical" href={ localizedUrl(lang).href } />
     { locales.map((locale) => (
       <link rel="alternate" hreflang={ bcp47Locale[locale] } href={ localizedUrl(locale).href } />
