@@ -1,5 +1,7 @@
 [
+  { "path": "/", "locales": "*" },
   { "path": "/download/", "locales": "*" },
-  { "path": "/release-notes/desktop/\\d+-\\d+-\\d+/", "locales": ["en"] },
+  { "path": "/guides/.*", "locales": ["en"] },
+  { "path": "/release-notes/desktop/\\d+-\\d+-\\d+/", "locales": "*" },
   { "path": "/release-notes/ios/\\d+-\\d+-\\d+/", "locales": "*" }
 ]
