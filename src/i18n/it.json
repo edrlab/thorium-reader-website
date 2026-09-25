@@ -305,7 +305,8 @@
     },
     "site": {
         "title": "Thorium Reader",
-        "name": "Thorium Reader"
+        "name": "Thorium Reader",
+        "description": "Molto più di un'app di lettura, un nuovo spazio per tutti i tuoi libri, audiolibri, manga e fumetti."
     },
     "release-notes": {
         "see-all": "Vedi tutte",

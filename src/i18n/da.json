@@ -30,7 +30,8 @@
     "footer": {
         "legal": "Juridiske Notitser",
         "accessibility": "Tilgængelighed",
-        "guides": "Udvikler Guides"
+        "guides": "Udvikler Guides",
+        "badge": "Badge-generator"
     },
     "home": {
         "hero": {
@@ -113,8 +114,17 @@
             "linux": {
                 "label": "Linux",
                 "steps": [
-                    "Download enten {{ linuxAppImage }} eller {{ linuxDeb }} til din Linux enhed."
+                    "Download enten {{ linuxAppImage }} eller {{ linuxDeb }} til din Linux enhed.",
+                    "Hvis du kører Linux på en ARM-enhed, skal du sørge for at bruge alternative download links til {{ linuxAppImageArm }} eller {{ linuxDebArm }}."
                 ]
+            },
+            "links": {
+                "macosArm": "Thorium-3.x.x-arm64.dmg",
+                "macosX64": "alternativ download link",
+                "windowsExe": "Thorium-3.x.x-x64.exe",
+                "windowsArm": "alternativ download link",
+                "linuxAppImage": "AppImage",
+                "linuxDeb": "Debian pakke"
             }
         }
     }
