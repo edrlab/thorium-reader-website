@@ -1,7 +1,8 @@
 {
     "site": {
         "title": "Thorium Reader",
-        "name": "Thorium Reader"
+        "name": "Thorium Reader",
+        "description": "Enemmän kuin pelkkä lukusovellus – uusi koti kaikille e-kirjoillesi, äänikirjoillesi, sarjakuvillesi ja mangallesi."
     },
     "nav": {
         "download": "Lataus",

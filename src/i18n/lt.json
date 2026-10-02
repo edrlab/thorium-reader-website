@@ -3,8 +3,8 @@
         "label": "Kalba"
     },
     "button": {
-        "download": "Atsiųsti",
-        "downloadApp": "Atsiųsti programėlę",
+        "download": "Atsisiųsti",
+        "downloadApp": "Atsisiųsti programėlę",
         "releaseNotes": "Laidos pastabos",
         "discord": "Prisijunkite „Discord“"
     },
@@ -25,7 +25,7 @@
                 "body": [
                     "Žmonės yra skirtingi, todėl norime, kad viską kontroliuotumėte jūs:",
                     [
-                        "Koreguokite teksto dydį, valdykite tarpus ir keiskite spalvų schemas su temomis.",
+                        "Koreguokite teksto dydį, valdykite tarpus ir keiskite spalvų schemas temų pagalba.",
                         "Prieinama daugiau nei 10 šriftų, įskaitant specializuotus.",
                         "Mieliau knygos klausytumėtės? Ne bėda, tiesiog paspauskite klausymo mygtuką bet kuriuo metu.",
                         "Pilna klaviatūros navigacija su tinkintinais sparčiaisiais klavišais.",
@@ -55,7 +55,8 @@
     },
     "site": {
         "title": "Thorium Reader",
-        "name": "Thorium Reader"
+        "name": "Thorium Reader",
+        "description": "Daugiau nei skaitymo programėlė – nauji namai visoms jūsų elektroninėms ir garsinėms knygoms, komiksams ir manga."
     },
     "nav": {
         "download": "Atsisiųsti",
@@ -189,7 +190,7 @@
                 "title": {
                     "label": "Katalogo pavadinimas",
                     "placeholder": "Mano el. knygų katalogas",
-                    "hint": "Jūsų katalogo pavadinimas, koks bus rodomas Thorium Reader progamoje."
+                    "hint": "Jūsų katalogo pavadinimas, koks bus rodomas Thorium Reader programoje."
                 },
                 "main": {
                     "placeholder": "https://example.com/opds",
@@ -203,7 +204,7 @@
                 },
                 "icon": {
                     "label": "Piktogramos URL",
-                    "placeholder": "https://example.com/icon.png",
+                    "placeholder": "https://example.com/piktograma.png",
                     "hint": "Pasirinktinai. Kvadratinis paveikslėlis (PNG arba SVG), reprezentuojantis jūsų katalogą."
                 },
                 "color": {
