@@ -1,7 +1,8 @@
 {
     "site": {
         "title": "Thorium Reader",
-        "name": "Thorium Reader"
+        "name": "Thorium Reader",
+        "description": "Mere end bare en læse-app – et nyt hjem til alle dine e-bøger, lydbøger, tegneserier og manga."
     },
     "nav": {
         "download": "Download",
@@ -30,7 +31,8 @@
     "footer": {
         "legal": "Juridiske Notitser",
         "accessibility": "Tilgængelighed",
-        "guides": "Udvikler Guides"
+        "guides": "Udvikler Guides",
+        "badge": "Badge-generator"
     },
     "home": {
         "hero": {
@@ -113,9 +115,294 @@
             "linux": {
                 "label": "Linux",
                 "steps": [
-                    "Download enten {{ linuxAppImage }} eller {{ linuxDeb }} til din Linux enhed."
+                    "Download enten {{ linuxAppImage }} eller {{ linuxDeb }} til din Linux enhed.",
+                    "Hvis du kører Linux på en ARM-enhed, skal du sørge for at bruge alternative download links til {{ linuxAppImageArm }} eller {{ linuxDebArm }}."
                 ]
+            },
+            "links": {
+                "macosArm": "Thorium-3.x.x-arm64.dmg",
+                "macosX64": "alternativ download link",
+                "windowsExe": "Thorium-3.x.x-x64.exe",
+                "windowsArm": "alternativ download link",
+                "linuxAppImage": "AppImage",
+                "linuxDeb": "Debian pakke",
+                "linuxAppImageArm": "AppImage",
+                "linuxDebArm": "Debian pakke"
             }
         }
+    },
+    "platform": {
+        "names": {
+            "desktop": "Desktop PC",
+            "ios": "iOS"
+        }
+    },
+    "legals": {
+        "platformTitle": "{{platform}} juridiske dokumenter"
+    },
+    "release-notes": {
+        "title": "Udgivelsesnoter",
+        "see-all": "Se alt"
+    },
+    "add": {
+        "catalog": {
+            "title": "Tilføj et Katalog til Thorium Reader",
+            "body": [
+                "Du forsøger at tilføje {{catalogName}} til Thorium Reader.",
+                "Hvis du allerede har installeret Thorium Reader på din enhed, skal du klikke på {{thisLink}} for at prøve igen.",
+                "Har du endnu ikke installeret Thorium Reader? Følg vejledningen på denne side."
+            ],
+            "thisLink": "dette link",
+            "fallbackName": "dette katalog",
+            "invalidBody": "Dette link mangler de nødvendige oplysninger, der skal bruges til at tilføje et katalog til Thorium Reader. Gå venligst tilbage til den app eller hjemmeside, du kom fra, og prøv igen."
+        },
+        "publication": {
+            "title": "Tilføj bog til Thorium Reader",
+            "body": [
+                "Du forsøger at tilføje {{publicationTitle}} til Thorium Reader.",
+                "Hvis du allerede har installeret Thorium Reader på din enhed, skal du klikke på {{thisLink}} for at prøve igen.",
+                "Har du ikke installeret Thorium Reader endnu? Følg instruktionerne på denne side."
+            ],
+            "thisLink": "dette link",
+            "fallbackName": "denne bog",
+            "invalidBody": "Dette link mangler de oplysninger, der skal bruges til at tilføje en publikation til Thorium Reader. Gå venligst tilbage til den app eller hjemmeside, du kom fra, og prøv igen."
+        }
+    },
+    "badge": {
+        "index": {
+            "title": "Badge-generator",
+            "catalog": {
+                "title": "Katalog-badge",
+                "subtitle": "Opret et \"Tilføj til Thorium Reader\" badge til din katalogside."
+            },
+            "publication": {
+                "title": "Bog-badge",
+                "subtitle": "Opret et \"Tilføj til Thorium Reader\" badge for din bog."
+            }
+        },
+        "catalog": {
+            "header": {
+                "title": "Katalog-badge generator",
+                "subtitle": "Opret et \"Tilføj til Thorium Reader\" badge til din katalogside."
+            },
+            "form": {
+                "legend": "Katalog information",
+                "title": {
+                    "label": "Katalog titel",
+                    "placeholder": "Mit e-bogs katalog",
+                    "hint": "Navnet på dit katalog, som det vises i Thorium Reader."
+                },
+                "main": {
+                    "label": "Katalogets URL",
+                    "placeholder": "https://example.com/opds"
+                },
+                "bookshelf": {
+                    "label": "Boghylde URL",
+                    "placeholder": "https://example.com/boghylde"
+                },
+                "banner": {
+                    "label": "Banner URL",
+                    "placeholder": "https://example.com/banner.png",
+                    "hint": "Valgfrit. Et bredt bannerbillede til dit katalog."
+                },
+                "icon": {
+                    "label": "Ikon URL",
+                    "placeholder": "https://example.com/ikon.png",
+                    "hint": "Valgfrit. Et kvadratisk billede (PNG eller SVG), der repræsenterer dit katalog."
+                },
+                "color": {
+                    "label": "Accent-farve",
+                    "hint": "Valgfrit. En accent-farve til dit katalog.",
+                    "default": "Standard",
+                    "gray": "Grå",
+                    "red": "Rød",
+                    "yellow": "Gul",
+                    "blue": "Blå",
+                    "green": "Grøn",
+                    "purple": "Lilla",
+                    "orange": "Orange",
+                    "pink": "Lyserød"
+                },
+                "openIn": {
+                    "label": "Åben i",
+                    "default": "Standard",
+                    "webview": "Browser i appen",
+                    "browser": "Ekstern browser",
+                    "hint": "Valgfrit. En foretrukken måde at åbne katalog URLs på."
+                },
+                "urls": {
+                    "legend": "Katalog URLs",
+                    "hint": "Der kræves mindst én URL til et hovedkatalog eller en boghylde."
+                }
+            }
+        },
+        "publication": {
+            "header": {
+                "title": "Bog-badge generator",
+                "subtitle": "Opret et \"Tilføj til Thorium Reader\" badge til en bog."
+            },
+            "form": {
+                "legend": "Bog information",
+                "publication": {
+                    "label": "Bog URL",
+                    "placeholder": "https://example.com/bog.epub",
+                    "hint": "Påkrævet. Direkte URL til bog-filen."
+                },
+                "title": {
+                    "label": "Titel",
+                    "placeholder": "Min bogtitel",
+                    "hint": "Valgfrit. Bogens titel."
+                },
+                "author": {
+                    "label": "Forfatter",
+                    "placeholder": "Jane Jensen",
+                    "hint": "Valgfrit. Forfatterens navn."
+                },
+                "cover": {
+                    "label": "Forside URL",
+                    "placeholder": "https://example.com/forside.jpg",
+                    "hint": "Valgfrit. En bogforside URL."
+                }
+            }
+        },
+        "shared": {
+            "passphrase": {
+                "legend": "Autentificering",
+                "label": "Nøgleord",
+                "placeholder": "et hemmeligt nøgleord",
+                "hint": "Valgfrit. Et nøgleord i klartekst, som kræves for at få adgang til ressourcen."
+            },
+            "passphraseHash": {
+                "label": "Hashet nøgleord",
+                "placeholder": "e3b0c44298fc1c149afb…",
+                "hint": "Valgfrit. Et præ-hashet nøgleord. Brug denne i stedet for nøgleordet i klartekst, hvis du ikke ønsker at afsløre det."
+            },
+            "lang": {
+                "label": "Badge sprog",
+                "auto": "Automatiks (den besøgendes sprog)"
+            },
+            "integration": {
+                "label": "Integrationstype",
+                "link": "Link",
+                "webcomponent": "Web Component",
+                "hint": "Hvordan du indlejrer et badge på din side."
+            },
+            "button": "Tilføj til Thorium Reader",
+            "buttonLine1": "Tilføj til",
+            "buttonLine2": "Thorium Reader",
+            "alt": "Tilføj {{name}} til Thorium Reader",
+            "preview": {
+                "title": "Forhåndsvisning",
+                "hint": "Dette er hvordan dit badge vil blive vist."
+            },
+            "output": {
+                "title": "Indlejrings-kode",
+                "hint": "Kopiér og indsæt dette kodestykke på din side.",
+                "copy": "Kopier til udklipsholder",
+                "copied": "Kopieret!"
+            },
+            "webcomponent": {
+                "hint": "Kopiér og indsæt dette kodestykke på din side. Det kræver indlæsning af @edrlab/thorium-badges (npm-import eller dit eget script-tag). Se {{devguides}} for yderligere oplysninger.",
+                "devguides": "udviklervejledninger"
+            }
+        }
+    },
+    "faq": {
+        "title": "Ofte stillede spørgsmål",
+        "items": [
+            {
+                "question": "Er Thorium Reader gratis?",
+                "answer": [
+                    "Ja, Thorium Reader er gratis på alle platforme.",
+                    "Det er udviklet af EDRLab (European Digital Reading Lab), en non-profit organisation, der arbejder for åbne standarder, læsefærdigheder og tilgængelighed.",
+                    "Med Thorium Reader bidrager vi direkte til udviklingen af Readium-værktøjssættet, der anvendes af hundredvis af læseapplikationer."
+                ]
+            },
+            {
+                "question": "Hvilke enheder er kompatible med Thorium Reader?",
+                "answer": [
+                    [
+                        "Hvis du ejer en iPhone eller en iPad, kan Thorium Reader køre på enhver enhed, der kører mindst iOS/iPadOS version 26",
+                        "På Windows, kræves der Windows 10 eller senere",
+                        "På MacOS, kræves der macOS 12 Monterey eller senere",
+                        [
+                            "Og sidst på Linux:",
+                            "Ubuntu 18.04 og opefter",
+                            "Fedora 32 og opefter",
+                            "Debian 10 og opefter"
+                        ]
+                    ]
+                ]
+            },
+            {
+                "question": "Hvilke fil-formater er kompatible med Thorium Reader?",
+                "answer": [
+                    "E-bøger",
+                    [
+                        "EPUB (.epub)",
+                        "EPUBs med fast layout (.epub)",
+                        "PDF (.pdf)"
+                    ],
+                    "Lydbøger",
+                    [
+                        "Readium Lydbøger (.audiobook)",
+                        "MP3 (.mp3)",
+                        "MP4 (.m4a and .m4b)",
+                        "FLAC (.flac)",
+                        "WAV (.wav)",
+                        "AAC (.aac)"
+                    ],
+                    "Tegneserier og Manga",
+                    [
+                        "CBZ (.cbz)",
+                        "EPUBs med fast layout (.epub)",
+                        "PDF (.pdf)"
+                    ]
+                ]
+            },
+            {
+                "question": "Kan jeg åbne DRM-beskyttede filer med Thorium Reader?",
+                "answer": [
+                    "Ja, så længe de benytter Readium LCP, en universel ISO-standard for DRM.",
+                    "Readium LCP-beskyttede filer benytter en licensfil (med filendelsen .lcpl), der er kompatibel med EPUB, PDF eller Readium-lydbøger."
+                ]
+            },
+            {
+                "question": "Kan jeg benytte Thorium Reader når jeg er offline?",
+                "answer": [
+                    "Ja, så længe du læser eller lytter til bøger, som du har downloadet frem for at streame.",
+                    "For at kunne læse LCP-beskyttede filer har Thorium Reader brug for internetadgang mindst én gang, men derefter kræves der ikke forbindelse."
+                ]
+            },
+            {
+                "question": "Kan jeg købe e-bøger, lydbøger, tegneserier og manga fra en forhandler?",
+                "answer": [
+                    "Ja, Thorium Reader er kompatibel med enhver forhandler, der sælger bøger, som er beskyttet med Readium LCP eller er DRM-frie.",
+                    "Besøg vores supportside for at se en liste over forhandlere, hvor du kan købe indhold og læse det i Thorium Reader."
+                ]
+            },
+            {
+                "question": "Kan jeg låne e-bøger, lydbøger, tegneserier, manga, aviser eller magasiner på et bibliotek?",
+                "answer": [
+                    "Ja, så længe dit bibliotek bruger Readium LCP til at beskytte disse downloads i et format, der er kompatibelt med Thorium Reader.",
+                    "I fremtiden vil vi også integrere en liste over biblioteker direkte i vores app, hvilket gør det nemmere at gennemse, søge, reservere og låne."
+                ]
+            },
+            {
+                "question": "Kan jeg downloade gratis indhold med Thorium Reader?",
+                "answer": [
+                    "Ja, Thorium Reader er fuldt kompatibel med Project Gutenberg, Librivox og mange andre kilder, hvorfra du kan downloade indhold, der er frit tilgængeligt (public domain) eller udgivet under en åben licens.",
+                    "I fremtiden vil vi også integrere en række af dem direkte i vores app for at gøre det nemmere at downloade gratis e-bøger og lydbøger."
+                ]
+            }
+        ]
+    },
+    "alts": {
+        "thorium-desktop": "En bærbar computer, der viser Thorium Reader Desktop. Biblioteket viser alle udgivelser i et gitter; du kan søge i det og importere en ny udgivelse. Hver bog vises med sit omslag samt titel og forfatternavn nedenunder, efterfulgt af format og valgmuligheder.",
+        "thorium-mobile-download-screens-compact": "Tre telefoner ligger ved siden af hinanden. Den første viser mobilappens boghylde, den anden en roman med et mørkt tema, og den tredje en manga i fuldskærm.",
+        "thorium-mobile-download-screens-large": "Fire telefoner ligger ved siden af hinanden. Den første viser mobilappens boghylde, den anden en roman med et mørkt tema, den tredje en lydbog med dens afspilningsgrænseflade, og den fjerde en manga i fuldskærm.",
+        "thorium-reader-desktop-mobile": "En bærbar computer, der viser Thorium Reader med en åben e-bog, ved siden af en tablet, der viser en tegneserie, og en telefon, der afspiller en lydbog.",
+        "thorium-reader-mobile-option": "To telefoner ved siden af hinanden, der viser Thorium Reader: den ene viser omslaget til lydbogen *Dracula*, og den anden viser læsefladen med et uddrag fra Jonathan Harkers dagbog.",
+        "thorium-reader-screens": "Tre telefoner, der viser Thorium Readers temaer: en sepia-visning, en lys visning med panelet til skærmindstillinger åbent og en mørk visning."
     }
 }
