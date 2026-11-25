@@ -1,7 +1,8 @@
 {
     "site": {
         "title": "Thorium Reader",
-        "name": "Thorium Reader"
+        "name": "Thorium Reader",
+        "description": "Več kot le aplikacija za branje – nov dom za vse vaše e-knjige, zvočne knjige, stripe in mange."
     },
     "nav": {
         "download": "Prenos",
@@ -24,7 +25,8 @@
     "footer": {
         "accessibility": "Dostopnost",
         "legal": "Pravna podlaga",
-        "guides": "Navodila za razvijalce"
+        "guides": "Navodila za razvijalce",
+        "badge": "Generator značk"
     },
     "home": {
         "hero": {
